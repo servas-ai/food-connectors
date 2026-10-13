@@ -15,11 +15,17 @@ def data(max_age_h=12):
         _DATA = json.load(open(CACHE))
     return _DATA
 STORE_NAMES = {"billa": "BILLA", "spar": "SPAR/INTERSPAR", "hofer": "HOFER", "dm": "dm", "mpreis": "MPREIS", "unimarkt": "Unimarkt", "penny": "PENNY", "lidl": "Lidl"}
+def spar_cdn_image(article_id):
+    """Public Spar/Interspar product image CDN (no Cloudflare on this host). Verified 2026-10-13."""
+    if not article_id: return None
+    return f"https://cdn1.interspar.at/cachableservlets/articleImage.dam/at/{article_id}/dt_main.jpg"
+
 def to_product(x, src):
     ph = x.get("priceHistory") or [{}]
+    img = spar_cdn_image(x.get("id")) if x.get("store") == "spar" else None
     return Product(source=src, store=STORE_NAMES.get(x.get("store"), x.get("store")), name=(x.get("name") or "").strip(),
         price_eur=x.get("price"), size_g=(x.get("quantity") if x.get("unit") in ("g", "ml") else None), unit=x.get("unit"),
-        source_url=x.get("url"), source_id=str(x.get("id")), category=x.get("category"),
+        source_url=x.get("url"), source_id=str(x.get("id")), category=x.get("category"), image_url=img,
         extra={"price_date": ph[0].get("date"), "bio": x.get("bio")})
 class HeissePreise(Adapter):
     id = "heisse-preise"; store = "heisse-preise.io"; homepage = "https://heisse-preise.io"
@@ -41,7 +47,7 @@ class HeissePreise(Adapter):
         return out[:limit]
 def chain_adapter(cid, label, status, notes):
     return type(cid.title(), (HeissePreise,), {"id": cid, "store": label, "chain": cid, "status": status, "notes": notes, "homepage": f"https://www.{cid}.at"})
-Spar = chain_adapter("spar", "SPAR/INTERSPAR", "live", "Prices from heisse-preise (Spar search API). Product pages and nutrition on interspar.at sit behind Cloudflare, so you need a real browser (search URL https://www.interspar.at/shop/lebensmittel/suche?q=). Images: cdn.spar.at.")
+Spar = chain_adapter("spar", "SPAR/INTERSPAR", "live", "Prices from heisse-preise (Spar search API). Product pages and nutrition on interspar.at sit behind Cloudflare (search URL https://www.interspar.at/shop/lebensmittel/suche?q=). Images: public CDN cdn1.interspar.at/cachableservlets/articleImage.dam/at/{id}/dt_main.jpg (HEAD-verified 2026-10-13; 227/228 ready-meal enrichments).")
 Hofer = chain_adapter("hofer", "HOFER", "stale", "roksh/hofer online shop closed; the heisse-preise data may be old. For current Good Choice data use hofer.at/de/sortiment pages in a browser.")
 Dm = chain_adapter("dm", "dm", "stale", "dm.at product API needs a browser session (bot protection). heisse-preise data may be old.")
 Mpreis = chain_adapter("mpreis", "MPREIS", "stale", "Tyrol only, not in Linz. heisse-preise data.")

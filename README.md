@@ -20,7 +20,7 @@ Every adapter returns the same schema:
 | `penny` | penny.at, same REWE API | ✅ pass | — |
 | `gurkerl` | gurkerl.at API | ✅ pass | idea from [pasogott/gurkerlcli](https://github.com/pasogott/gurkerlcli) (MIT), [tomaspavlin/rohlik-mcp](https://github.com/tomaspavlin/rohlik-mcp) (MIT) |
 | `lidl` | lidl.at `q/api/search` | ❌ fail – 401 for Python clients (TLS/bot fingerprinting, curl gets 200). Not bypassed by policy; fetchsize capped at 30. Use `heisse-preise` for Lidl prices | — |
-| `spar` | interspar via heisse-preise | ✅ pass | [badlogic/heissepreise](https://github.com/badlogic/heissepreise) (MIT) |
+| `spar` | interspar via heisse-preise + CDN images (`cdn1.interspar.at` from article id) | ✅ pass (prices + images) | [badlogic/heissepreise](https://github.com/badlogic/heissepreise) (MIT) |
 | `mpreis-shop` | mpreis.at webshop: product sitemaps + category pages + product JSON-LD (robots-allowed; `/search/` never used) | ✅ live (price, GTIN, image, nutrition, ingredients) | MPreis Warenvertriebs GmbH |
 | `hofer`, `dm`, `mpreis`, `unimarkt` | heisse-preise.io daily dump | ✅ pass (prices up to 1 day old) | badlogic/heissepreise |
 | `heisse-preise` | heisse-preise.io dump | ✅ pass | badlogic/heissepreise, [falknerdominik/heisse-preise-data](https://github.com/falknerdominik/heisse-preise-data) |
@@ -50,7 +50,7 @@ CLI: `food search|fetch|export|sources|stores|nutri|nutriscore|company|datasets`
 | `penny` | ✅ live | Same REWE API. Only the online assortment of about 450 items, no ready meals right now. |
 | `gurkerl` | ✅ live | Gurkerl.at (delivers to Linz). Search, prices, **nutrition, ingredients and producer** via `/api/v1/products/{id}/composition`. |
 | `lidl` | ❌ blocked | lidl.at `q/api/search` returns 401 to Python clients; Lidl prices come via `heisse-preise`. |
-| `spar` | ✅ via heisse-preise | interspar.at product pages and nutrition sit behind Cloudflare, so they need a real browser. |
+| `spar` | ✅ via heisse-preise | Prices live via dump; images via public CDN `cdn1.interspar.at/.../articleImage.dam/at/{id}/dt_main.jpg` (HEAD-verified 2026-10-13). Product HTML/nutrition still Cloudflare. |
 | `hofer`, `dm`, `mpreis`, `unimarkt` | ⏳ stale | Taken from the heisse-preise.io dump. Check `extra.price_date`. |
 | `unimarkt-shop` | ⛔ closed | shop.unimarkt.at shows only "UNIONLINE hat seinen Service eingestellt" (verified 2026-10-13; closed 02/2024, chain left retail 2026). No live source possible; `unimarkt` dump = history only. |
 | `off` | ✅ live | Open Food Facts, AT products, with EAN, nutrition and EMB codes. No prices. |

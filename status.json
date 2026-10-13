@@ -24,7 +24,8 @@
     "spar": {
       "status": "pass",
       "n": 20,
-      "sec": 2.8
+      "sec": 2.8,
+      "images": "cdn1.interspar.at via heisse id"
     },
     "hofer": {
       "status": "pass",
@@ -128,5 +129,11 @@
     "checked": "2026-10-13",
     "result": "pass",
     "note": "271 product pages crawled, 0 errors; JSON-LD price/GTIN/image + nutrition table + ingredients"
+  },
+  "spar-cdn-images": {
+    "status": "live",
+    "checked": "2026-10-13",
+    "result": "pass",
+    "note": "cdn1.interspar.at articleImage from heisse spar id; 228/228 ready-meal photos HEAD-verified (1 retry after SSL flake)"
   }
 }

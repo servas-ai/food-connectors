@@ -81,3 +81,13 @@ def test_mpreis_shop_jsonld_fixture(monkeypatch):
     assert p.size_g == 800 and p.price_eur > 0 and p.image_url.startswith("https://")
     assert p.nutrition_100g["kcal"] == 104 and p.nutrition_100g["salt"] == 1.2
     assert "Kartoffeln" in p.extra["ingredients"]
+
+def test_spar_cdn_image():
+    from food_connectors.adapters.heisse import spar_cdn_image, to_product
+    assert spar_cdn_image("3720219").endswith("/3720219/dt_main.jpg")
+    p = to_product({"store": "spar", "id": "3720219", "name": "X", "price": 1.0, "unit": "g",
+                    "quantity": 100, "priceHistory": [{"date": "2026-01-01"}], "bio": False, "category": "c"}, "spar")
+    assert p.image_url and "3720219" in p.image_url
+    p2 = to_product({"store": "hofer", "id": "1", "name": "Y", "price": 1.0, "unit": "g",
+                     "quantity": 100, "priceHistory": [{"date": "2026-01-01"}], "bio": False, "category": "c"}, "hofer")
+    assert p2.image_url is None
