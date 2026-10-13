@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -27,7 +27,12 @@ TOOLS += [{"name": "list_datasets", "description": "Curated open food/price/nutr
 
 TOOLS += [{"name": "mpreis_product", "description": "Live MPreis webshop product page (schema.org JSON-LD): price, GTIN, brand, image, category, pack size, nutrition per 100 g, ingredients. Pass a /shop/p/ URL.", "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}}, "required": ["url"]}}]
 
+TOOLS += [{"name": "spar_product", "description": "Live SPAR/INTERSPAR article by article number (interspar.at/p/<id>) via SPAR's public search API: current + regular price, €/kg, GTIN, brand, category, stock status, image. Returns null if the article is no longer listed.", "inputSchema": {"type": "object", "properties": {"article_id": {"type": "string"}}, "required": ["article_id"]}}]
+
 def call(name, a):
+    if name == "spar_product":
+        from .adapters.spar_shop import article
+        p = article(a["article_id"]); return p.to_dict() if p else None
     if name == "mpreis_product":
         from .adapters.mpreis_shop import product
         p = product(a["url"]); return p.to_dict() if p else None
