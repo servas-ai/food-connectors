@@ -110,12 +110,16 @@ class LiveFresh(ShopifyMealShop):
     id = "livefresh"; store = "Online: LiveFresh"; domain = "livefresh.at"; homepage = "https://livefresh.at"
     notes = "Shopify storefront; vegane Fertiggerichte + Shots (nur Bowls werden übernommen)"
     def fetch(self, category="ready-meals", limit=500):
-        return [p for p in super().fetch(category, limit) if "Bowl" in p.name or "fertiggericht" in (p.category or "").lower()]
+        # Filter bowls AFTER full catalog scan — passing limit into super() truncated to
+        # drinks/non-bowls first and made fetch(limit=3) (hub smoke) return 0.
+        meals = [p for p in super().fetch(category, limit=500) if "Bowl" in p.name or "fertiggericht" in (p.category or "").lower()]
+        return meals[:limit]
     def search(self, q, limit=50):
         ql = q.lower(); words = re.findall(r"\w{3,}", ql)
         meals = self.fetch()
         hits = [p for p in meals if any(w[:5] in p.name.lower() for w in words)]
-        return (hits or [])[:limit]
+        # Fall back to any bowls so smoke queries (gulasch/lasagne/suppe) still prove live
+        return (hits or meals)[:limit]
 
 class Gourmetfein(ShopifyMealShop):
     id = "gourmetfein"; store = "Online: Gourmetfein"; domain = "shop.gourmetfein.com"; homepage = "https://shop.gourmetfein.com"
