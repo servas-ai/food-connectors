@@ -56,6 +56,8 @@ def product(url: str) -> Product | None:
     if isinstance(off, list): off = off[0] if off else {}
     brand = ld.get("brand"); brand = brand.get("name") if isinstance(brand, dict) else brand
     imgs = ld.get("image") or []; img = imgs[0] if isinstance(imgs, list) and imgs else (imgs or None)
+    # products without photo carry the shop placeholder as a site-relative path (/assets/noImage_detail-*.webp) -> no image
+    if img and (not str(img).startswith("http") or "noimage" in str(img).lower()): img = None
     w = re.search(r'c3-product__weight-info-text[^>]*>([^<]+)<', h)
     size = parse_size_g(w.group(1) if w else "") or parse_size_g(ld.get("name"))
     nut = {}

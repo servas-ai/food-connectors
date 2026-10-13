@@ -21,3 +21,13 @@ def test_portion_only_left_empty(monkeypatch):
 
 def test_single_per100_block(monkeypatch):
     assert _run(monkeypatch, block("Nicht zubereitet je 100 g", 427, 7)) == {"kcal": 427.0, "protein": 7.0}
+
+def test_placeholder_image_dropped(monkeypatch):
+    ld = LD.replace('"name":"Bistro Avignon"', '"name":"Bistro Avignon","image":["/assets/noImage_detail-Dcwmob_G.webp"]')
+    monkeypatch.setattr(M, "_html", lambda url: ld)
+    assert M.product("https://www.mpreis.at/shop/p/x-1").image_url is None
+
+def test_real_image_kept(monkeypatch):
+    ld = LD.replace('"name":"Bistro Avignon"', '"name":"Bistro Avignon","image":["https://images.mpreis.at/x.jpg"]')
+    monkeypatch.setattr(M, "_html", lambda url: ld)
+    assert M.product("https://www.mpreis.at/shop/p/x-1").image_url == "https://images.mpreis.at/x.jpg"
