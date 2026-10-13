@@ -22,7 +22,8 @@ Every adapter returns the same schema:
 | `lidl` | lidl.at `q/api/search` | ❌ fail – 401 for Python clients (TLS/bot fingerprinting, curl gets 200). Not bypassed by policy; fetchsize capped at 30. Use `heisse-preise` for Lidl prices | — |
 | `spar` | interspar via heisse-preise + CDN images (`cdn1.interspar.at` from article id) | ✅ pass (prices + images) | [badlogic/heissepreise](https://github.com/badlogic/heissepreise) (MIT) |
 | `mpreis-shop` | mpreis.at webshop: product sitemaps + category pages + product JSON-LD (robots-allowed; `/search/` never used) | ✅ live (price, GTIN, image, nutrition, ingredients) | MPreis Warenvertriebs GmbH |
-| `hofer`, `dm`, `mpreis`, `unimarkt` | heisse-preise.io daily dump | ✅ pass (prices up to 1 day old) | badlogic/heissepreise |
+| `dm` | dm.at product sitemap + public `products.dm.de` product JSON (no login/cookies; `/search` robots-disallowed, never used) | ✅ live (price, GTIN, nutrition, ingredients, origin, non-AI image) | dm-drogerie markt |
+| `hofer`, `dm-heisse`, `mpreis`, `unimarkt` | heisse-preise.io daily dump | ✅ pass (prices up to 1 day old) | badlogic/heissepreise |
 | `heisse-preise` | heisse-preise.io dump | ✅ pass | badlogic/heissepreise, [falknerdominik/heisse-preise-data](https://github.com/falknerdominik/heisse-preise-data) |
 | `off` | Open Food Facts search | ⚠️ flaky – upstream search sometimes returns 503 | [openfoodfacts-python](https://github.com/openfoodfacts/openfoodfacts-python) (API conventions) |
 | `prepmymeal`, `gourmetfein` | Shopify `/products.json` | ✅ pass | — |
@@ -36,7 +37,7 @@ Every adapter returns the same schema:
 | `company:firmenbuch` | Firmenbuch HVD API (justiz.gv.at) | 🔑 needs free API key `FIRMENBUCH_API_KEY` | [Lukhers-dev/firmenbuch-HVD](https://github.com/Lukhers-dev/firmenbuch-HVD) (MIT) |
 | `datasets:*` | Hugging Face, Zenodo, data.gv.at, Kaggle search APIs | ✅ pass | — (`food datasets --search q`, MCP `search_datasets`) |
 | `osm-stores` | OpenStreetMap Overpass (supermarket/convenience/organic/chemist) | ✅ pass | ODbL © OSM contributors; `food stores --chain billa --near linz`, MCP `list_stores` |
-| hofer.at, spar.at, dm.at, denns, adeg, nah-frisch (direct) | shop sites | 📇 not connected – no public product API (denns=Sanity marketing site; adeg/nah-frisch=no webshop); branches via `osm-stores` | catalog only |
+| hofer.at, spar.at, denns, adeg, nah-frisch (direct) | shop sites | 📇 not connected – no public product API (denns=Sanity marketing site; adeg/nah-frisch=no webshop); branches via `osm-stores` | catalog only |
 | FatSecret, Yazio, MyFitnessPal, fddb | calorie apps | 📇 not integrated – FatSecret needs OAuth key (Platform API, free tier); Yazio/MFP/fddb only unofficial private APIs (ToS) | [coddingtonbear/python-myfitnesspal](https://github.com/coddingtonbear/python-myfitnesspal), [juriadams/yazio](https://github.com/juriadams/yazio) listed only |
 | BLS 4.0, Swiss FCDB | national composition tables | 📇 catalog (`food datasets`) – file downloads | — |
 
@@ -51,7 +52,7 @@ CLI: `food search|fetch|export|sources|stores|nutri|nutriscore|company|datasets`
 | `gurkerl` | ✅ live | Gurkerl.at (delivers to Linz). Search, prices, **nutrition, ingredients and producer** via `/api/v1/products/{id}/composition`. |
 | `lidl` | ❌ blocked | lidl.at `q/api/search` returns 401 to Python clients; Lidl prices come via `heisse-preise`. |
 | `spar` | ✅ via heisse-preise | Prices live via dump; images via public CDN `cdn1.interspar.at/.../articleImage.dam/at/{id}/dt_main.jpg` (HEAD-verified 2026-10-13). Product HTML/nutrition still Cloudflare. |
-| `hofer`, `dm`, `mpreis`, `unimarkt` | ⏳ stale | Taken from the heisse-preise.io dump. Check `extra.price_date`. |
+| `hofer`, `dm-heisse`, `mpreis`, `unimarkt` | ⏳ stale | Taken from the heisse-preise.io dump. Check `extra.price_date`. |
 | `unimarkt-shop` | ⛔ closed | shop.unimarkt.at shows only "UNIONLINE hat seinen Service eingestellt" (verified 2026-10-13; closed 02/2024, chain left retail 2026). No live source possible; `unimarkt` dump = history only. |
 | `off` | ✅ live | Open Food Facts, AT products, with EAN, nutrition and EMB codes. No prices. |
 | `heisse-preise` | ✅ live | Full daily dump, about 200 MB, cached for 12 h. |

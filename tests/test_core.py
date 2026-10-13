@@ -91,3 +91,16 @@ def test_spar_cdn_image():
     p2 = to_product({"store": "hofer", "id": "1", "name": "Y", "price": 1.0, "unit": "g",
                      "quantity": 100, "priceHistory": [{"date": "2026-01-01"}], "bio": False, "category": "c"}, "hofer")
     assert p2.image_url is None
+
+def test_dm_shop_json_fixture(monkeypatch):
+    import json, pathlib
+    from food_connectors.adapters import dm_shop as D
+    d = json.loads((pathlib.Path(__file__).parent / "fixtures" / "dm_product_3127087.json").read_text())
+    monkeypatch.setattr(D, "get", lambda url, **k: d)
+    p = D.product(3127087)
+    assert p.name == "dmBio Veganes No-Chicken Curry" and p.price_eur == 2.45 and p.size_g == 330
+    assert p.nutrition_100g["protein"] == 6.4 and p.nutrition_100g["kcal"] == 101 and p.ean == "4070765057560"
+    assert p.image_url.startswith("https://products.dm-static.com/") and D.is_ready_meal(p)
+
+def test_dm_registry():
+    assert ADAPTERS["dm"].status == "live" and ADAPTERS["dm-heisse"].chain == "dm"

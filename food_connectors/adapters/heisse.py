@@ -49,6 +49,7 @@ def chain_adapter(cid, label, status, notes):
     return type(cid.title(), (HeissePreise,), {"id": cid, "store": label, "chain": cid, "status": status, "notes": notes, "homepage": f"https://www.{cid}.at"})
 Spar = chain_adapter("spar", "SPAR/INTERSPAR", "live", "Prices from heisse-preise (Spar search API). Product pages and nutrition on interspar.at sit behind Cloudflare (search URL https://www.interspar.at/shop/lebensmittel/suche?q=). Images: public CDN cdn1.interspar.at/cachableservlets/articleImage.dam/at/{id}/dt_main.jpg (HEAD-verified 2026-10-13; 227/228 ready-meal enrichments).")
 Hofer = chain_adapter("hofer", "HOFER", "stale", "roksh/hofer online shop closed; heisse-preise has no 2026 Hofer dates (latest ~2025-10). hofer.at is Akamai-blocked for bots — do not scrape. Photos: enrich via Open Food Facts (strict brand+token match) + public Aldi CDN dm.emea.cms.aldi.cx (brandfam titles); see fertiggerichte-daten scripts/enrich_hofer_images.py. No Spar-like article CDN id in heisse for Hofer.")
-Dm = chain_adapter("dm", "dm", "stale", "dm.at product API needs a browser session (bot protection). heisse-preise data may be old.")
+Dm = chain_adapter("dm", "dm", "stale", "heisse-preise dm snapshot (may be old). Live dm data: adapter `dm` (dm_shop.py).")
+Dm.id = "dm-heisse"
 Mpreis = chain_adapter("mpreis", "MPREIS", "stale", "Tyrol only, not in Linz. heisse-preise data.")
 Unimarkt = chain_adapter("unimarkt", "Unimarkt", "stale", "Historic only: UNIONLINE shop closed 02/2024 (verified 2026-10-13, see catalog `unimarkt-shop`) and Unimarkt exited retail 02-03/2026 (stores closed or rebranded ADEG/Spar/Nah&Frisch). heisse-preise 2023/24 prices only; no live source.")

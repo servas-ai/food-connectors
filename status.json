@@ -34,8 +34,10 @@
     },
     "dm": {
       "status": "pass",
-      "n": 6,
-      "sec": 0.0
+      "n": 25,
+      "sec": null,
+      "live": "products.dm.de product JSON via dm.at sitemap",
+      "tested_at": "2026-10-13T10:01:38Z"
     },
     "mpreis": {
       "status": "pass",
@@ -122,6 +124,11 @@
     },
     "datasets:kaggle": {
       "status": "pass"
+    },
+    "dm-heisse": {
+      "status": "pass",
+      "n": 6,
+      "sec": 0.0
     }
   },
   "mpreis-shop": {
