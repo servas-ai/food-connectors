@@ -21,6 +21,7 @@ Every adapter returns the same schema:
 | `gurkerl` | gurkerl.at API | ✅ pass | idea from [pasogott/gurkerlcli](https://github.com/pasogott/gurkerlcli) (MIT), [tomaspavlin/rohlik-mcp](https://github.com/tomaspavlin/rohlik-mcp) (MIT) |
 | `lidl` | lidl.at `q/api/search` | ❌ fail – 401 for Python clients (TLS/bot fingerprinting, curl gets 200). Not bypassed by policy; fetchsize capped at 30. Use `heisse-preise` for Lidl prices | — |
 | `spar` | interspar via heisse-preise | ✅ pass | [badlogic/heissepreise](https://github.com/badlogic/heissepreise) (MIT) |
+| `mpreis-shop` | mpreis.at webshop: product sitemaps + category pages + product JSON-LD (robots-allowed; `/search/` never used) | ✅ live (price, GTIN, image, nutrition, ingredients) | MPreis Warenvertriebs GmbH |
 | `hofer`, `dm`, `mpreis`, `unimarkt` | heisse-preise.io daily dump | ✅ pass (prices up to 1 day old) | badlogic/heissepreise |
 | `heisse-preise` | heisse-preise.io dump | ✅ pass | badlogic/heissepreise, [falknerdominik/heisse-preise-data](https://github.com/falknerdominik/heisse-preise-data) |
 | `off` | Open Food Facts search | ⚠️ flaky – upstream search sometimes returns 503 | [openfoodfacts-python](https://github.com/openfoodfacts/openfoodfacts-python) (API conventions) |
@@ -35,7 +36,7 @@ Every adapter returns the same schema:
 | `company:firmenbuch` | Firmenbuch HVD API (justiz.gv.at) | 🔑 needs free API key `FIRMENBUCH_API_KEY` | [Lukhers-dev/firmenbuch-HVD](https://github.com/Lukhers-dev/firmenbuch-HVD) (MIT) |
 | `datasets:*` | Hugging Face, Zenodo, data.gv.at, Kaggle search APIs | ✅ pass | — (`food datasets --search q`, MCP `search_datasets`) |
 | `osm-stores` | OpenStreetMap Overpass (supermarket/convenience/organic/chemist) | ✅ pass | ODbL © OSM contributors; `food stores --chain billa --near linz`, MCP `list_stores` |
-| hofer.at, spar.at, dm.at, mpreis.at, unimarkt.at, denns, adeg, nah-frisch (direct) | shop sites | 📇 not connected – no public product API (denns=Sanity marketing site; adeg/nah-frisch=no webshop); branches via `osm-stores` | catalog only |
+| hofer.at, spar.at, dm.at, unimarkt.at, denns, adeg, nah-frisch (direct) | shop sites | 📇 not connected – no public product API (denns=Sanity marketing site; adeg/nah-frisch=no webshop); branches via `osm-stores` | catalog only |
 | FatSecret, Yazio, MyFitnessPal, fddb | calorie apps | 📇 not integrated – FatSecret needs OAuth key (Platform API, free tier); Yazio/MFP/fddb only unofficial private APIs (ToS) | [coddingtonbear/python-myfitnesspal](https://github.com/coddingtonbear/python-myfitnesspal), [juriadams/yazio](https://github.com/juriadams/yazio) listed only |
 | BLS 4.0, Swiss FCDB | national composition tables | 📇 catalog (`food datasets`) – file downloads | — |
 

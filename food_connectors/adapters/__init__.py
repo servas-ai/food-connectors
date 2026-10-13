@@ -5,7 +5,8 @@ from .off import OpenFoodFacts
 from .heisse import HeissePreise, Spar, Hofer, Dm, Mpreis, Unimarkt
 from .catalog import CATALOG
 from .mealprep import PrepMyMeal, LiveFresh, Gourmetfein
+from .mpreis_shop import MpreisShop
 from .osm_stores import OsmStores, fetch_stores
-ADAPTERS = {a.id: a for a in [Billa(), Penny(), Gurkerl(), Lidl(), Spar(), Hofer(), Dm(), Mpreis(), Unimarkt(), OpenFoodFacts(), HeissePreise(), PrepMyMeal(), LiveFresh(), Gourmetfein()] + [c() for c in CATALOG]}
+ADAPTERS = {a.id: a for a in [Billa(), Penny(), Gurkerl(), Lidl(), Spar(), Hofer(), Dm(), Mpreis(), Unimarkt(), OpenFoodFacts(), HeissePreise(), PrepMyMeal(), LiveFresh(), Gourmetfein(), MpreisShop()] + [c() for c in CATALOG]}
 def get_adapter(i): return ADAPTERS[i]
 STORE_ADAPTERS = {'osm-stores': OsmStores()}

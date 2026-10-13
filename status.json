@@ -1,126 +1,132 @@
 {
- "tested_at": "2026-10-13T02:09:54Z",
- "results": {
-  "billa": {
-   "status": "pass",
-   "n": 15,
-   "sec": 0.9
+  "tested_at": "2026-10-13T02:09:54Z",
+  "results": {
+    "billa": {
+      "status": "pass",
+      "n": 15,
+      "sec": 0.9
+    },
+    "penny": {
+      "status": "pass",
+      "n": 2,
+      "sec": 5.5
+    },
+    "gurkerl": {
+      "status": "pass",
+      "n": 20,
+      "sec": 0.8
+    },
+    "lidl": {
+      "status": "fail",
+      "error": "<HTTPError 401: 'Unauthorized'>",
+      "sec": 12.7
+    },
+    "spar": {
+      "status": "pass",
+      "n": 20,
+      "sec": 2.8
+    },
+    "hofer": {
+      "status": "pass",
+      "n": 8,
+      "sec": 0.0
+    },
+    "dm": {
+      "status": "pass",
+      "n": 6,
+      "sec": 0.0
+    },
+    "mpreis": {
+      "status": "pass",
+      "n": 20,
+      "sec": 0.0
+    },
+    "unimarkt": {
+      "status": "pass",
+      "n": 16,
+      "sec": 0.0
+    },
+    "off": {
+      "status": "fail",
+      "error": "<HTTPError 503: 'Service Temporarily Unavailable'>",
+      "sec": 13.1
+    },
+    "heisse-preise": {
+      "status": "pass",
+      "n": 20,
+      "sec": 0.0
+    },
+    "prepmymeal": {
+      "status": "pass",
+      "n": 20,
+      "sec": 3.4
+    },
+    "livefresh": {
+      "status": "pass",
+      "n": 3,
+      "sec": 2.2
+    },
+    "gourmetfein": {
+      "status": "pass",
+      "n": 20,
+      "sec": 1.7
+    },
+    "foodora-market": {
+      "status": "catalog-only"
+    },
+    "mjam": {
+      "status": "catalog-only"
+    },
+    "lieferando-shops": {
+      "status": "catalog-only"
+    },
+    "bio-kistl": {
+      "status": "catalog-only"
+    },
+    "fittogo": {
+      "status": "catalog-only"
+    },
+    "adeg": {
+      "status": "catalog-only"
+    },
+    "wokostswas": {
+      "status": "catalog-only"
+    },
+    "nutri:off-nutri": {
+      "status": "pass"
+    },
+    "nutri:usda-fdc": {
+      "status": "pass"
+    },
+    "nutri:ciqual": {
+      "status": "pass"
+    },
+    "company:gleif": {
+      "status": "pass"
+    },
+    "company:vies": {
+      "status": "pass"
+    },
+    "company:northdata": {
+      "status": "pass"
+    },
+    "datasets:hf": {
+      "status": "pass"
+    },
+    "datasets:zenodo": {
+      "status": "pass"
+    },
+    "datasets:datagv": {
+      "status": "pass"
+    },
+    "datasets:kaggle": {
+      "status": "pass"
+    }
   },
-  "penny": {
-   "status": "pass",
-   "n": 2,
-   "sec": 5.5
-  },
-  "gurkerl": {
-   "status": "pass",
-   "n": 20,
-   "sec": 0.8
-  },
-  "lidl": {
-   "status": "fail",
-   "error": "<HTTPError 401: 'Unauthorized'>",
-   "sec": 12.7
-  },
-  "spar": {
-   "status": "pass",
-   "n": 20,
-   "sec": 2.8
-  },
-  "hofer": {
-   "status": "pass",
-   "n": 8,
-   "sec": 0.0
-  },
-  "dm": {
-   "status": "pass",
-   "n": 6,
-   "sec": 0.0
-  },
-  "mpreis": {
-   "status": "pass",
-   "n": 20,
-   "sec": 0.0
-  },
-  "unimarkt": {
-   "status": "pass",
-   "n": 16,
-   "sec": 0.0
-  },
-  "off": {
-   "status": "fail",
-   "error": "<HTTPError 503: 'Service Temporarily Unavailable'>",
-   "sec": 13.1
-  },
-  "heisse-preise": {
-   "status": "pass",
-   "n": 20,
-   "sec": 0.0
-  },
-  "prepmymeal": {
-   "status": "pass",
-   "n": 20,
-   "sec": 3.4
-  },
-  "livefresh": {
-   "status": "pass",
-   "n": 3,
-   "sec": 2.2
-  },
-  "gourmetfein": {
-   "status": "pass",
-   "n": 20,
-   "sec": 1.7
-  },
-  "foodora-market": {
-   "status": "catalog-only"
-  },
-  "mjam": {
-   "status": "catalog-only"
-  },
-  "lieferando-shops": {
-   "status": "catalog-only"
-  },
-  "bio-kistl": {
-   "status": "catalog-only"
-  },
-  "fittogo": {
-   "status": "catalog-only"
-  },
-  "adeg": {
-   "status": "catalog-only"
-  },
-  "wokostswas": {
-   "status": "catalog-only"
-  },
-  "nutri:off-nutri": {
-   "status": "pass"
-  },
-  "nutri:usda-fdc": {
-   "status": "pass"
-  },
-  "nutri:ciqual": {
-   "status": "pass"
-  },
-  "company:gleif": {
-   "status": "pass"
-  },
-  "company:vies": {
-   "status": "pass"
-  },
-  "company:northdata": {
-   "status": "pass"
-  },
-  "datasets:hf": {
-   "status": "pass"
-  },
-  "datasets:zenodo": {
-   "status": "pass"
-  },
-  "datasets:datagv": {
-   "status": "pass"
-  },
-  "datasets:kaggle": {
-   "status": "pass"
+  "mpreis-shop": {
+    "status": "live",
+    "checked": "2026-10-13",
+    "result": "pass",
+    "note": "271 product pages crawled, 0 errors; JSON-LD price/GTIN/image + nutrition table + ingredients"
   }
- }
 }

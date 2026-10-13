@@ -66,3 +66,15 @@ def test_gurkerl_composition_parser():
 def test_gurkerl_category_live():
     g = ADAPTERS["gurkerl"]; ids = g.category_ids(135049); assert len(ids) > 20
     ps = g.products(ids[:3]); assert ps and ps[0].price_eur and ps[0].image_url
+
+
+def test_mpreis_shop_jsonld_fixture(monkeypatch):
+    import pathlib
+    from food_connectors.adapters import mpreis_shop as M
+    html = (pathlib.Path(__file__).parent / "fixtures" / "mpreis_product.html").read_text()
+    monkeypatch.setattr(M, "_html", lambda url: html)
+    p = M.product("https://www.mpreis.at/shop/p/felix-erdaepfelgulasch-158321")
+    assert p.brand == "Felix" and p.source_id == "158321" and p.ean == "9000295832943"
+    assert p.size_g == 800 and p.price_eur > 0 and p.image_url.startswith("https://")
+    assert p.nutrition_100g["kcal"] == 104 and p.nutrition_100g["salt"] == 1.2
+    assert "Kartoffeln" in p.extra["ingredients"]
