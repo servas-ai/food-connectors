@@ -138,3 +138,10 @@ def test_impressum_extracts_fn_uid_and_requires_vies_name_match(monkeypatch):
     assert [u["uid"] for u in r["uids"]] == ["ATU12345678", "ATU87654321"]
     assert r["best"]["uid"] == "ATU12345678" and r["best"]["name_match"] >= 0.5
     assert handle({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})["result"]["tools"] and any(t["name"] == "company_impressum" for t in handle({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})["result"]["tools"])
+
+def test_impressum_vat_regex_accepts_grouped_digits():
+    from food_connectors.company.impressum import VAT_RX
+    import re
+    t = "UID-Nummer: ATU 43 20 34 03\nBTW nr.: NL 853 640 804 B 01\nUSt-IdNr. DE 335 586 517\nTel. 0043 1 2345 678"
+    got = [re.sub(r"[\s.]", "", v) for v in VAT_RX.findall(t)]
+    assert got == ["ATU43203403", "NL853640804B01", "DE335586517"]

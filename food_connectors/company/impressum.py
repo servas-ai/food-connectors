@@ -9,7 +9,7 @@ from .registries import _get, UA, now, vies_check, match_score
 _LINK_HINT = re.compile(r"impressum|imprint|legal-?notice|note-?legali|mentions-?legales|colofon|offenlegung|legal|kontakt|contact|about", re.I)
 _PATHS = ["/impressum", "/impressum/", "/de/impressum", "/at/impressum", "/imprint", "/en/imprint", "/impressum.html",
           "/legal-notice", "/note-legali", "/it/note-legali", "/kontakt", "/contact"]
-VAT_RX = re.compile(r"\b(ATU\s?\d{8}|DE\s?\d{3}\s?\d{3}\s?\d{3}|IT\s?\d{11}|FR\s?[0-9A-Z]{2}\s?\d{9}|NL\s?\d{9}\s?B\s?\d{2}|BE\s?0?\d{3}\.?\d{3}\.?\d{3}"
+VAT_RX = re.compile(r"\b(ATU(?:\s?\d){8}|DE\s?\d{3}\s?\d{3}\s?\d{3}|IT\s?\d{11}|FR\s?[0-9A-Z]{2}\s?\d{9}|NL(?:\s?\d){9}\s?B\s?\d{2}|BE\s?0?\d{3}\.?\d{3}\.?\d{3}"
                     r"|ES\s?[A-Z0-9]\d{7}[A-Z0-9]|PL\s?\d{10}|SI\s?\d{8}|CZ\s?\d{8,10}|SK\s?\d{10}|HU\s?\d{8}|DK\s?\d{8})\b")
 FN_RX = re.compile(r"(?:\bFN|Firmenbuch(?:nummer|nr\.?)?)\s*[:.]?\s*(\d{1,6})\s?([a-zA-Z])\b")
 HRB_RX = re.compile(r"\b(HR\s?[AB])\s?(\d{1,3}(?: \d{3})+|\d{2,7})\b(?:\s?([A-Z]{1,3})\b)?")
