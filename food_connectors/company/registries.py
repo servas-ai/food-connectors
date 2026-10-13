@@ -95,21 +95,70 @@ def firmenbuch_hvd(fn):
              headers={"X-API-KEY": key})
     return json.loads(t) if t else None
 
+import unicodedata
+
+_LEGAL = {"gmbh","ag","kg","co","und","the","bv","b","v","mbh","m","h","gesmbh","gesellschaft","gesellschaftmbh",
+          "nv","n","sa","s","a","srl","r","l","spa","p","sp","z","o","oo","ltd","limited","ohg","og","eu","se","kgaa",
+          "inc","llc","sl","sas","sarl","bvba","as","oy","ab","aktiengesellschaft","kommanditgesellschaft","offene"}
+
+def _fold(x):
+    """lowercase, strip diacritics; ae/oe/ue -> a/o/u so 'Schär' == 'SCHAER' == 'Schar'."""
+    x = unicodedata.normalize("NFKD", (x or "").lower().replace("ß", "ss"))
+    x = "".join(c for c in x if not unicodedata.combining(c))
+    return re.sub(r"(?<=[a-z])(ae|oe|ue)", lambda m: m.group(1)[0], x)
+
 def _norm(x):
-    x = (x or "").lower().replace("ö","oe").replace("ü","ue").replace("ä","ae").replace("ß","ss")
-    return set(t for t in re.findall(r"[a-z0-9]+", x) if t not in {"gmbh","ag","kg","co","und","the","bv","b","v","mbh"})
+    return set(t for t in re.findall(r"[a-z0-9]+", _fold(x)) if t not in _LEGAL)
+
+_FORMS = [  # legal-form families; AG == SpA == SA == NV (joint-stock), GmbH == srl == B.V. == s.r.o. ...
+    ("stock", r"\b(ag|aktiengesellschaft|s\.?\s?p\.?\s?a|per azioni|n\.?\s?v|s\.?\s?a)\b\.?"),
+    ("ltd", r"\b(gmbh|ges\.?\s?m\.?\s?b\.?\s?h|gesellschaft\s+m\.?\s?b\.?\s?h|mbh|s\.?\s?r\.?\s?l|b\.?\s?v|s\.?\s?r\.?\s?o|sp\.?\s?z\.?\s?o\.?\s?o|ltd|limited|s\.?\s?l)\b\.?"),
+    ("kg", r"\b(kg|kommanditgesellschaft)\b"), ("se", r"\bse\b"), ("og", r"\b(og|ohg)\b"), ("egen", r"\begen\b"),
+]
+
+def _forms(x):
+    f = _fold(x)
+    return {k for k, rx in _FORMS if re.search(rx, f)}
 
 def match_score(q, name):
+    """Token Jaccard on legal-form-agnostic names; capped at 0.6 when both names carry legal forms
+    from different families (e.g. 'Ehrmann GmbH' vs 'Ehrmann SE' = different entity/time)."""
     a, b = _norm(q), _norm(name)
-    return len(a & b) / max(1, len(a | b))
+    s = len(a & b) / max(1, len(a | b))
+    fa, fb = _forms(q), _forms(name)
+    if fa and fb and not (fa & fb): s = min(s, 0.6)
+    return s
 
-def company(name, country=None, min_score=0.75):
-    exact = json.loads(_get(f"{GLEIF}/lei-records?filter[entity.legalName]={urllib.parse.quote(name)}&page[size]=5") or '{"data":[]}')["data"]
-    hits = [_lei(r) for r in exact] or gleif_search(name, country, size=10)
-    for h in hits: h["match_score"] = round(match_score(name, h["legal_name"]), 2)
-    if country: hits = [h for h in hits if h["country"] == country] or ([] if exact else hits)
-    hits = sorted([h for h in hits if h["registration_status"] != "RETIRED"] or hits, key=lambda h: -h["match_score"])
-    best = hits[0] if hits and hits[0]["match_score"] >= min_score else None
-    res = {"query": name, "gleif": best, "gleif_alternatives": hits[1:]}
+def _variants(name):
+    """GLEIF fulltext is diacritic-sensitive: try original, plain ASCII (ö->o) and German transliteration (ö->oe)."""
+    plain = "".join(c for c in unicodedata.normalize("NFKD", name) if not unicodedata.combining(c))
+    de = name
+    for a, b in (("ä","ae"),("ö","oe"),("ü","ue"),("Ä","Ae"),("Ö","Oe"),("Ü","Ue"),("ß","ss")): de = de.replace(a, b)
+    core = re.sub(r"[,.]?\s*(GmbH|AG|KG|Ges\.?m\.?b\.?H\.?|Gesellschaft m\.?b\.?H\.?|m\.b\.H\.|NV|N\.V\.|B\.V\.|S\.p\.A\.|srl|SL\.?|& Co\.? ?KG)\b\.?", "", plain, flags=re.I).strip(" ,.&")
+    core_de = re.sub(r"[,.]?\s*(GmbH|AG|KG|NV|SpA|srl)\b\.?", "", de, flags=re.I).strip(" ,.&")
+    out = []
+    for v in (name, plain, de, core, core_de):
+        if v and v not in out: out.append(v)
+    return out
+
+def company(name, country=None, min_score=0.85):
+    """Resolve a company name to one GLEIF record. Strict: best hit needs match_score >= min_score on the
+    legal-form-agnostic, diacritic-folded name, and (if country given) the legal address must be in that country.
+    Search order: exact legalName, then fulltext for each spelling variant until a qualifying hit appears."""
+    seen, hits = set(), []
+    def add(recs):
+        for r in recs:
+            h = r if "lei" in r else _lei(r)
+            if h["lei"] in seen: continue
+            seen.add(h["lei"]); h["match_score"] = round(match_score(name, h["legal_name"]), 2); hits.append(h)
+    def ok(h): return h["match_score"] >= min_score and (not country or h["country"] == country)
+    add(json.loads(_get(f"{GLEIF}/lei-records?filter[entity.legalName]={urllib.parse.quote(name)}&page[size]=5") or '{"data":[]}')["data"])
+    for v in _variants(name):
+        if any(ok(h) for h in hits): break
+        add(gleif_search(v, country, size=10))
+    cand = [h for h in hits if (not country or h["country"] == country)]
+    cand = sorted([h for h in cand if h["registration_status"] != "RETIRED"] or cand, key=lambda h: -h["match_score"])
+    best = cand[0] if cand and ok(cand[0]) else None
+    res = {"query": name, "gleif": best, "gleif_alternatives": [h for h in sorted(hits, key=lambda h: -h["match_score"]) if h is not best][:8]}
     if best: res["parents"] = gleif_parents(best["lei"])
     return res

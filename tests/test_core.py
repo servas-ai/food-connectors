@@ -104,3 +104,24 @@ def test_dm_shop_json_fixture(monkeypatch):
 
 def test_dm_registry():
     assert ADAPTERS["dm"].status == "live" and ADAPTERS["dm-heisse"].chain == "dm"
+
+
+def test_company_name_matching_is_strict_and_folds_legal_forms():
+    from food_connectors.company import registries as R
+    # legal form / diacritics / transliteration must not matter
+    assert R.match_score("Dr. Schär AG", "DR. SCHAER SPA") == 1.0
+    assert R.match_score("BILLA AG", "Billa Aktiengesellschaft") == 1.0
+    assert R.match_score("FELIX Austria GmbH", "FELIX AUSTRIA Gesellschaft m.b.H.") == 1.0
+    assert R.match_score("Tops Foods NV", "TOPS FOODS") == 1.0
+    # but different entities must stay below the 0.85 default threshold
+    assert R.match_score("dm drogerie markt GmbH", "dm drogerie markt Verwaltungsgesellschaft m.b.H.") < 0.85
+    assert R.match_score("Alnatura GmbH", "AlnaturA Produktions- und Handels GmbH") < 0.85
+    assert "Nestle Osterreich GmbH" in R._variants("Nestlé Österreich GmbH")
+
+
+def test_company_legal_form_family_mismatch_is_rejected():
+    from food_connectors.company import registries as R
+    assert R.match_score("Ehrmann GmbH", "Ehrmann SE") < 0.85
+    assert R.match_score("Franz Ablinger & Co Fleischhauereibetrieb GmbH", "Franz Ablinger & Co. Fleischhauereibetrieb Gesellschaft m.b.H.") == 1.0
+    assert R.match_score("Barilla G. e R. Fratelli - Società per Azioni", "BARILLA G. E R. FRATELLI - SOCIETA' PER AZIONI") == 1.0
+    assert R.match_score("Kreyenhop & Kluge GmbH & Co. KG", "Kreyenhop & Kluge GmbH & Co.KG") == 1.0
