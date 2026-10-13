@@ -125,3 +125,16 @@ def test_company_legal_form_family_mismatch_is_rejected():
     assert R.match_score("Franz Ablinger & Co Fleischhauereibetrieb GmbH", "Franz Ablinger & Co. Fleischhauereibetrieb Gesellschaft m.b.H.") == 1.0
     assert R.match_score("Barilla G. e R. Fratelli - Società per Azioni", "BARILLA G. E R. FRATELLI - SOCIETA' PER AZIONI") == 1.0
     assert R.match_score("Kreyenhop & Kluge GmbH & Co. KG", "Kreyenhop & Kluge GmbH & Co.KG") == 1.0
+
+def test_impressum_extracts_fn_uid_and_requires_vies_name_match(monkeypatch):
+    import importlib; I = importlib.import_module("food_connectors.company.impressum")
+    page = "<html><body><h1>Impressum</h1><p>Muster Feinkost GmbH<br>FN 123456 a, Firmenbuchgericht: Landesgericht Linz<br>UID: ATU 12345678<br>Partner: ATU87654321</p></body></html>"
+    monkeypatch.setattr(I, "find_imprint", lambda d: ("https://muster.at/impressum", page))
+    vies = {"ATU12345678": {"valid": True, "name": "Muster Feinkost Gesellschaft m.b.H.", "address": "Linz"},
+            "ATU87654321": {"valid": True, "name": "Ganz Andere Holding GmbH", "address": "Wien"}}
+    monkeypatch.setattr(I, "vies_check", lambda v: vies[v])
+    r = I.impressum("muster.at", "Muster Feinkost GmbH")
+    assert r["fn"] == ["FN 123456a"] and r["court"] == "Landesgericht Linz"
+    assert [u["uid"] for u in r["uids"]] == ["ATU12345678", "ATU87654321"]
+    assert r["best"]["uid"] == "ATU12345678" and r["best"]["name_match"] >= 0.5
+    assert handle({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})["result"]["tools"] and any(t["name"] == "company_impressum" for t in handle({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})["result"]["tools"])
