@@ -36,7 +36,13 @@ def main(argv=None):
     ns = sp.add_parser("nutriscore", help="Nutri-Score 2023 (official from OFF or --compute locally)"); ns.add_argument("--compute", action="store_true")
     for k in ("kcal", "sugar", "satfat", "salt", "fiber", "protein", "fvl"): ns.add_argument("--" + k, type=float)
     ns.add_argument("--ean")
+    co = sp.add_parser("company", help="Company registry lookup (GLEIF/FN/parents, --vies UID, --northdata, --children LEI)")
+    co.add_argument("name", nargs="?"); co.add_argument("--country"); co.add_argument("--vies"); co.add_argument("--northdata", action="store_true"); co.add_argument("--children"); co.add_argument("--fn", help="Firmenbuch HVD lookup (needs FIRMENBUCH_API_KEY)")
     a = ap.parse_args(argv)
+    if a.cmd == "company":
+        from . import company as C
+        out = C.vies_check(a.vies) if a.vies else C.gleif_children(a.children) if a.children else C.firmenbuch_hvd(a.fn) if a.fn else C.northdata_page(a.name) if a.northdata else C.company(a.name, a.country)
+        print(json.dumps(out, ensure_ascii=False, indent=1)); return
     if a.cmd == "sources":
         print(json.dumps([x.info() for x in ADAPTERS.values()], ensure_ascii=False, indent=1)); return
     if a.cmd == "nutri":

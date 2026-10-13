@@ -13,7 +13,18 @@ TOOLS = [
  {"name": "compute_nutriscore", "description": "Compute Nutri-Score 2023 locally from per-100g values (marked 'berechnet').", "inputSchema": {"type": "object", "properties": {k: {"type": "number"} for k in ("kcal", "sugar", "satfat", "salt", "fiber", "protein", "fvl_pct")}}},
  {"name": "list_nutri_sources", "description": "List nutrition/quality databases with licence and status.", "inputSchema": {"type": "object", "properties": {}}},
 ]
+TOOLS += [
+ {"name": "company_lookup", "description": "Legal entity for a company name via GLEIF: LEI, Firmenbuchnummer/register id, address, direct+ultimate parent.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string"}, "country": {"type": "string"}}, "required": ["name"]}},
+ {"name": "company_children", "description": "Direct subsidiaries of a LEI (GLEIF level 2).", "inputSchema": {"type": "object", "properties": {"lei": {"type": "string"}}, "required": ["lei"]}},
+ {"name": "uid_check", "description": "Validate EU VAT/UID number via EU VIES.", "inputSchema": {"type": "object", "properties": {"vat": {"type": "string"}}, "required": ["vat"]}},
+ {"name": "northdata_company", "description": "North Data public page facts (or official API with NORTHDATA_API_KEY).", "inputSchema": {"type": "object", "properties": {"name": {"type": "string"}}, "required": ["name"]}},
+]
+
 def call(name, a):
+    if name in ("company_lookup", "company_children", "uid_check", "northdata_company"):
+        from . import company as C
+        return {"company_lookup": lambda: C.company(a["name"], a.get("country")), "company_children": lambda: C.gleif_children(a["lei"]),
+                "uid_check": lambda: C.vies_check(a["vat"]), "northdata_company": lambda: C.northdata_page(a["name"])}[name]()
     if name in ("nutri_lookup", "compute_nutriscore", "list_nutri_sources"):
         from .nutri import nutri_lookup, compute_nutriscore, NUTRI_SOURCES
         if name == "nutri_lookup": return nutri_lookup(a["query"], a.get("sources", "off-nutri").split(","))

@@ -78,3 +78,14 @@ food nutriscore --compute --kcal 120 --sugar 2 --satfat 1.5 --salt 0.9 --protein
 
 `food_connectors/nutri/nutriscore.py` implements the **Nutri-Score 2023** algorithm (general foods) locally. Results carry `"status": "berechnet"` and list assumptions (fruit/veg/legume % defaults to 0 if unknown). On 115 products with an official grade, the local computation matched 106 (92 %).
 MCP tools: `nutri_lookup`, `compute_nutriscore`, `list_nutri_sources`. Reuses the public OFF API; the official `openfoodfacts` Python SDK works too but is not required (zero dependencies).
+
+## Firmendaten (`food company`)
+```bash
+food company "GMS GOURMET GmbH"          # GLEIF: LEI, FN, Adresse, Konzernmutter
+food company --children 5299003EXF4GJXGELC41
+food company --vies ATU12345678          # EU VIES UID-Prüfung
+food company "Greisinger GmbH" --northdata   # öffentliche North-Data-Seite (rate-limited) oder API mit NORTHDATA_API_KEY
+food company --fn 104525p                # Firmenbuch HVD (FIRMENBUCH_API_KEY, kostenlose Registrierung bei justiz.gv.at)
+```
+MCP-Tools: `company_lookup`, `company_children`, `uid_check`, `northdata_company`. Rate-limit 1 req/s, Backoff bei 429, keine Bot-Schutz-Umgehung.
+Credits: [p-meier/northdata-connectors](https://github.com/p-meier/northdata-connectors), [Lukhers-dev/firmenbuch-HVD](https://github.com/Lukhers-dev/firmenbuch-HVD). Datensatz: [servas-ai/fertiggerichte-daten](https://github.com/servas-ai/fertiggerichte-daten).
