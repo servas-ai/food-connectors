@@ -52,6 +52,9 @@ def test_osm_stores_label_and_mcp():
     assert "list_stores" in names
     # registry exposes catalog denns/nah-frisch
     assert "denns" in ADAPTERS and "nah-frisch" in ADAPTERS
+    # unimarkt-shop: verified closed 2026-10-13 -> catalog-only, never returns fabricated products
+    u = ADAPTERS["unimarkt-shop"]; assert u.status == "catalog-only" and "eingestellt" in u.notes
+    assert u.search("gulasch") == [] and u.fetch() == []
 
 def test_gurkerl_composition_parser():
     from food_connectors.adapters.gurkerl import parse_composition, MEAL_CATEGORIES

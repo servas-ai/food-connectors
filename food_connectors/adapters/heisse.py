@@ -45,4 +45,4 @@ Spar = chain_adapter("spar", "SPAR/INTERSPAR", "live", "Prices from heisse-preis
 Hofer = chain_adapter("hofer", "HOFER", "stale", "roksh/hofer online shop closed; the heisse-preise data may be old. For current Good Choice data use hofer.at/de/sortiment pages in a browser.")
 Dm = chain_adapter("dm", "dm", "stale", "dm.at product API needs a browser session (bot protection). heisse-preise data may be old.")
 Mpreis = chain_adapter("mpreis", "MPREIS", "stale", "Tyrol only, not in Linz. heisse-preise data.")
-Unimarkt = chain_adapter("unimarkt", "Unimarkt", "stale", "Unimarkt (Upper Austria) online shop is closed; heisse-preise history only.")
+Unimarkt = chain_adapter("unimarkt", "Unimarkt", "stale", "Historic only: UNIONLINE shop closed 02/2024 (verified 2026-10-13, see catalog `unimarkt-shop`) and Unimarkt exited retail 02-03/2026 (stores closed or rebranded ADEG/Spar/Nah&Frisch). heisse-preise 2023/24 prices only; no live source.")
