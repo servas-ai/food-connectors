@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "food-connectors"
+version = "0.1.0"
+description = "Open connectors + CLI + MCP server for Austrian grocery and ready-meal data (BILLA, PENNY, Gurkerl, Lidl, Spar, Hofer, dm, Open Food Facts, heisse-preise.io)"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = []
+[project.scripts]
+food = "food_connectors.cli:main"
+food-mcp = "food_connectors.mcp_server:serve"
+[tool.setuptools.packages.find]
+include = ["food_connectors*"]

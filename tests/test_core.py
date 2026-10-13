@@ -1,0 +1,35 @@
+import json, os, pytest
+from food_connectors.schema import parse_size_g, find_producer_id, looks_like_ready_meal, Product
+from food_connectors.mcp_server import handle
+from food_connectors.adapters import ADAPTERS
+def test_size():
+    assert parse_size_g("400 g") == 400 and parse_size_g("0,8 kg") == 800 and parse_size_g("2 x 150g") == 300
+def test_id():
+    assert find_producer_id("Hergestellt AT 40047 EG Wien") == "AT 40047 EG"
+def test_meal():
+    assert looks_like_ready_meal("Felix Chili con Carne") and not looks_like_ready_meal("Maggi Fix für Chili con Carne")
+    assert not looks_like_ready_meal("Hühnerfaschiertes frisch")
+def test_schema():
+    d = Product(source="x", store="y", name="z").to_dict()
+    for k in ("name", "brand", "store", "price_eur", "unit_price_eur", "size_g", "nutrition_100g", "ean", "image_url", "producer_id", "source_url", "fetched_at"): assert k in d
+def test_mcp():
+    assert handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})["result"]["serverInfo"]["name"] == "food-connectors"
+    names = [t["name"] for t in handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list"})["result"]["tools"]]
+    assert "search_products" in names
+    r = handle({"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "list_sources", "arguments": {}}})
+    assert "gurkerl" in r["result"]["content"][0]["text"]
+def test_registry():
+    assert {"billa", "penny", "gurkerl", "lidl", "spar", "hofer", "dm", "mpreis", "unimarkt", "off", "heisse-preise"} <= set(ADAPTERS)
+live = pytest.mark.skipif(not os.environ.get("LIVE"), reason="set LIVE=1 for network tests")
+@live
+def test_gurkerl_live():
+    r = ADAPTERS["gurkerl"].search("chili con carne", 5); assert r
+    p = ADAPTERS["gurkerl"].enrich(r[0]); assert p.nutrition_100g
+@live
+def test_lidl_live(): assert ADAPTERS["lidl"].search("gulasch", 5) is not None
+
+def test_nutriscore_2023():
+    from food_connectors.nutri import compute_nutriscore
+    assert compute_nutriscore(kcal=60, sugar=1, satfat=0.3, salt=0.3, fiber=4, protein=5)["grade"] == "A"
+    assert compute_nutriscore(kcal=500, sugar=40, satfat=12, salt=2, fiber=0, protein=5)["grade"] == "E"
+    assert compute_nutriscore(kcal=None, sugar=1, satfat=1, salt=1) is None
