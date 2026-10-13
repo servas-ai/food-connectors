@@ -39,3 +39,28 @@ def test_mealprep_nutrition_parser():
     h = '<p>Nährwerte</p><table><tr><td>Nährwerte</td><td>Pro 100g</td><td>Portion (500g)</td></tr><tr><td>Energiegehalt</td><td>528kj/ 125kcal</td><td>625kcal</td></tr><tr><td>Fett</td><td>3,6g</td><td>18g</td></tr><tr><td>davon gesättigte Fettsäuren</td><td>1,2g</td><td>6g</td></tr><tr><td>Eiweiß</td><td>9g</td><td>45g</td></tr></table>'
     n, por = parse_nutrition(h)
     assert n == {"kcal": 125.0, "fat": 3.6, "satfat": 1.2, "protein": 9.0} and por == 500.0
+
+def test_gurkerl_composition_parser():
+    from food_connectors.adapters.gurkerl import parse_composition, MEAL_CATEGORIES
+    c = {"productId": 49016, "nutritionalValues": [{"portion": "100 g", "values": {"energyKCal": {"amount": 127.0, "unit": "kCal"},
+         "protein": {"amount": 8.0, "unit": "g"}, "salt": {"amount": 0.97, "unit": "g"}, "fiber": {"amount": None, "unit": "g"}}}],
+         "plainIngredients": "Zutaten: Hähnchenfleisch 39 %\nHersteller: Perutnina Ptuj d.d., SI 72 EG", "ean": "3838977051704"}
+    n, ing, prod, pid, ean = parse_composition(c)
+    assert n == {"kcal": 127.0, "protein": 8.0, "salt": 0.97} and ean == "3838977051704" and prod.startswith("Perutnina")
+    assert parse_composition({"nutritionalValues": [], "plainIngredients": ""})[0] == {}
+    assert 988 not in MEAL_CATEGORIES and 135049 in MEAL_CATEGORIES
+@live
+def test_gurkerl_category_live():
+    g = ADAPTERS["gurkerl"]; ids = g.category_ids(135049); assert len(ids) > 20
+    ps = g.products(ids[:3]); assert ps and ps[0].price_eur and ps[0].image_url
+
+def test_osm_stores_label_and_mcp():
+    from food_connectors.adapters.osm_stores import _chain_label, CHAIN_PAT, REGIONS
+    assert _chain_label({"brand": "Billa", "name": "Billa Linz"}) == "Billa"
+    assert _chain_label({"name": "denn's BioMarkt"}) == "denn's BioMarkt"
+    assert _chain_label({"brand": "Nah & Frisch"}) == "Nah&Frisch"
+    assert "linz" in REGIONS and "billa" in CHAIN_PAT
+    names = [t["name"] for t in handle({"jsonrpc": "2.0", "id": 9, "method": "tools/list"})["result"]["tools"]]
+    assert "list_stores" in names
+    # registry exposes catalog denns/nah-frisch
+    assert "denns" in ADAPTERS and "nah-frisch" in ADAPTERS

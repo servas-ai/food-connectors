@@ -34,11 +34,12 @@ Every adapter returns the same schema:
 | `company:northdata` | North Data public page / API key | ✅ pass (public facts only) | [p-meier/northdata-connectors](https://github.com/p-meier/northdata-connectors) |
 | `company:firmenbuch` | Firmenbuch HVD API (justiz.gv.at) | 🔑 needs free API key `FIRMENBUCH_API_KEY` | [Lukhers-dev/firmenbuch-HVD](https://github.com/Lukhers-dev/firmenbuch-HVD) (MIT) |
 | `datasets:*` | Hugging Face, Zenodo, data.gv.at, Kaggle search APIs | ✅ pass | — (`food datasets --search q`, MCP `search_datasets`) |
-| hofer.at, spar.at, dm.at, mpreis.at, unimarkt.at, denns, adeg (direct) | shop sites | 📇 not connected – no public API, Cloudflare/bot protection, or no online shop | catalog only |
+| `osm-stores` | OpenStreetMap Overpass (supermarket/convenience/organic/chemist) | ✅ pass | ODbL © OSM contributors; `food stores --chain billa --near linz`, MCP `list_stores` |
+| hofer.at, spar.at, dm.at, mpreis.at, unimarkt.at, denns, adeg, nah-frisch (direct) | shop sites | 📇 not connected – no public product API (denns=Sanity marketing site; adeg/nah-frisch=no webshop); branches via `osm-stores` | catalog only |
 | FatSecret, Yazio, MyFitnessPal, fddb | calorie apps | 📇 not integrated – FatSecret needs OAuth key (Platform API, free tier); Yazio/MFP/fddb only unofficial private APIs (ToS) | [coddingtonbear/python-myfitnesspal](https://github.com/coddingtonbear/python-myfitnesspal), [juriadams/yazio](https://github.com/juriadams/yazio) listed only |
 | BLS 4.0, Swiss FCDB | national composition tables | 📇 catalog (`food datasets`) – file downloads | — |
 
-CLI: `food search|fetch|export|sources|nutri|nutriscore|company|datasets`. MCP (`food-mcp`): `list_sources, search_products, fetch_ready_meals, lookup_ean, nutri_lookup, compute_nutriscore, list_nutri_sources, company_lookup, company_children, uid_check, northdata_company, list_datasets, search_datasets`.
+CLI: `food search|fetch|export|sources|stores|nutri|nutriscore|company|datasets`. MCP (`food-mcp`): `list_sources, search_products, fetch_ready_meals, lookup_ean, list_stores, nutri_lookup, compute_nutriscore, list_nutri_sources, company_lookup, company_children, uid_check, northdata_company, list_datasets, search_datasets`.
 
 ## Sources
 
@@ -52,7 +53,7 @@ CLI: `food search|fetch|export|sources|nutri|nutriscore|company|datasets`. MCP (
 | `hofer`, `dm`, `mpreis`, `unimarkt` | ⏳ stale | Taken from the heisse-preise.io dump. Check `extra.price_date`. |
 | `off` | ✅ live | Open Food Facts, AT products, with EAN, nutrition and EMB codes. No prices. |
 | `heisse-preise` | ✅ live | Full daily dump, about 200 MB, cached for 12 h. |
-| `foodora-market`, `mjam`, `lieferando-shops`, `bio-kistl`, `fittogo`, `adeg`, `wokostswas` | 📇 catalog-only | Researched, but no usable public API. See `food sources`. |
+| `foodora-market`, `mjam`, `lieferando-shops`, `bio-kistl`, `fittogo`, `denns`, `nah-frisch`, `adeg`, `wokostswas` | 📇 catalog-only | Researched, but no usable public API (denns: no product listing/sitemap; adeg/nah-frisch: no online shop). Branches: `osm-stores`. See `food sources`. |
 
 ## CLI
 ```bash

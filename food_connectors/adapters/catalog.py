@@ -11,6 +11,8 @@ CATALOG = [
     mk("lieferando-shops", "Lieferando Shops", "https://www.lieferando.at", "Lists restaurants and some convenience shops. Product APIs are tokenized; no grocery nutrition."),
     mk("bio-kistl", "Biohof Achleitner / Bio-Kistl OÖ", "https://www.biohof.at", "Organic box delivery in Upper Austria. Shop HTML only, few ready meals."),
     mk("fittogo", "Fit to Go", "https://www.fittogo.at", "Meal-prep vending/delivery. Scrape the HTML menu (see fertiggerichte project)."),
-    mk("adeg", "ADEG", "https://www.adeg.at", "REWE group; no online shop."),
+    mk("denns", "denn's BioMarkt", "https://www.denns-biomarkt.at", "Marketing/info site (Sanity CMS). No product listing, no usable sitemap (robots points to biomarkt.de sitemap → 404), no public product JSON/API. Austrian branches via osm-stores. Catalog-only."),
+    mk("nah-frisch", "Nah&Frisch", "https://www.nahundfrisch.at", "Franchise info site; no webshop/product API. Branches via osm-stores. Catalog-only."),
+    mk("adeg", "ADEG", "https://www.adeg.at", "REWE group franchise portal. Sitemap = pages/news/recipes only; no product catalog or online shop. Branches via osm-stores."),
     mk("wokostswas", "wokostswas.at", "https://wokostswas.at", "Price comparison site. HTML only."),
 ]

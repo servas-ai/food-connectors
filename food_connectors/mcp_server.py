@@ -1,6 +1,6 @@
 """Minimal dependency-free MCP server over stdio (JSON-RPC 2.0, newline-delimited)."""
 import json, sys
-from .adapters import ADAPTERS
+from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
@@ -20,10 +20,15 @@ TOOLS += [
  {"name": "northdata_company", "description": "North Data public page facts (or official API with NORTHDATA_API_KEY).", "inputSchema": {"type": "object", "properties": {"name": {"type": "string"}}, "required": ["name"]}},
 ]
 
+TOOLS += [{"name": "list_stores", "description": "List grocery store branches near a region via OpenStreetMap Overpass (ODbL). Default near=linz.", "inputSchema": {"type": "object", "properties": {"chain": {"type": "string", "description": "e.g. billa, spar, hofer, denns, mpreis, unimarkt, adeg, nah-frisch"}, "near": {"type": "string", "description": "region key, default linz"}, "limit": {"type": "integer"}}}}]
 TOOLS += [{"name": "list_datasets", "description": "Curated open food/price/nutrition datasets with licence, size, freshness.", "inputSchema": {"type": "object", "properties": {}}},
  {"name": "search_datasets", "description": "Live search open datasets on Hugging Face, Zenodo, data.gv.at, Kaggle.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "hubs": {"type": "string"}}, "required": ["query"]}}]
 
 def call(name, a):
+    if name == "list_stores":
+        from .adapters.osm_stores import fetch_stores
+        rows = fetch_stores(near=a.get("near", "linz"), chain=a.get("chain"), limit=a.get("limit", 500))
+        return {"count": len(rows), "licence": "ODbL 1.0 © OpenStreetMap contributors", "stores": rows}
     if name in ("list_datasets", "search_datasets"):
         from . import datasets as D
         return D.CATALOG if name == "list_datasets" else D.search(a["query"], (a.get("hubs") or "hf,zenodo,datagv,kaggle").split(","))
@@ -36,7 +41,7 @@ def call(name, a):
         if name == "nutri_lookup": return nutri_lookup(a["query"], a.get("sources", "off-nutri").split(","))
         if name == "compute_nutriscore": return compute_nutriscore(**a)
         return [{"id": x.id, "name": x.name, "url": x.url, "license": x.license, "status": x.status, "notes": getattr(x, "notes", "")} for x in NUTRI_SOURCES.values()]
-    if name == "list_sources": return [x.info() for x in ADAPTERS.values()]
+    if name == "list_sources": return [x.info() for x in list(ADAPTERS.values()) + list(STORE_ADAPTERS.values())]
     if name == "search_products":
         r, e = run_many(_stores(a.get("stores", "billa,gurkerl,lidl,off")), lambda ad: ad.search(a["query"], a.get("limit", 20)), a.get("enrich", False))
         return {"errors": e, "products": [p.to_dict() for p in r]}
