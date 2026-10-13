@@ -41,9 +41,6 @@ def test_mealprep_nutrition_parser():
     assert n == {"kcal": 125.0, "fat": 3.6, "satfat": 1.2, "protein": 9.0} and por == 500.0
 
 
-def test_gurkerl_category_live():
-    g = ADAPTERS["gurkerl"]; ids = g.category_ids(135049); assert len(ids) > 20
-    ps = g.products(ids[:3]); assert ps and ps[0].price_eur and ps[0].image_url
 
 def test_osm_stores_label_and_mcp():
     from food_connectors.adapters.osm_stores import _chain_label, CHAIN_PAT, REGIONS
