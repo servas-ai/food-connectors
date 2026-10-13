@@ -138,6 +138,13 @@
       "sec": 1.4,
       "note": "public offer feed page-data/angebote (AT offers only; 82 nodes → 4 ready meals 2026-10-13)",
       "tested_at": "2026-10-13T20:15:00Z"
+    },
+    "nah-frisch": {
+      "status": "pass",
+      "n": 3,
+      "sec": 60.7,
+      "note": "public 'Angebote der Woche' page (KW41+KW42, 36 image tiles) → tesseract OCR: 3 ready-meal offer lines (iglo Pikante Knödel 3.99, Inzersdorfer Fertiggerichte/Suppen -25%, Knorr Kaiserteller 1.39); OCR price check 25/26 priced tiles correct vs. visual (1 miss flagged) 2026-10-13",
+      "tested_at": "2026-10-13T20:47:00Z"
     }
   },
   "mpreis-shop": {

@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -31,7 +31,14 @@ TOOLS += [{"name": "spar_product", "description": "Live SPAR/INTERSPAR article b
 
 TOOLS += [{"name": "denns_offers", "description": "Live denn's BioMarkt Austria weekly offers (public offer feed): name, brand, denn's article no., pack, offer price, regular price, €/kg, validity, vegan/vegetarian flags, image. Optional query filter; ready_meals_only filters soups/ready dishes/desserts.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ready_meals_only": {"type": "boolean"}}}}]
 
+TOOLS += [{"name": "nahfrisch_offers", "description": "Live Nah&Frisch Austria 'Angebote der Woche' (public weekly offer page): offer tiles per calendar week with validity and official tile image; names/prices via local tesseract OCR when installed (extra.ocr=True, verify visually). Optional query filter; ocr=false returns tiles only.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ocr": {"type": "boolean"}, "ready_meals_only": {"type": "boolean"}}}}]
+
 def call(name, a):
+    if name == "nahfrisch_offers":
+        from .adapters.nah_frisch import offers, to_product, is_ready_meal
+        ps = [to_product(o, a.get("ocr")) for o in offers()]
+        q = (a.get("query") or "").lower()
+        return [p.to_dict() for p in ps if (not q or q in (p.name or "").lower()) and (not a.get("ready_meals_only") or is_ready_meal(p))]
     if name == "denns_offers":
         from .adapters.denns import offers, to_product, is_ready_meal
         ps = [to_product(n) for n in offers()]
