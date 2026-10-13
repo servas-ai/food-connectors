@@ -1,0 +1,496 @@
+{
+ "result": {
+  "data": {
+   "sanityAllOffers": {
+    "nodes": [
+     {
+      "_id": "offer-000000000000000000000000000000043616-191711-110",
+      "title": "Bio-Skyr Natur",
+      "image": "https://images.dennree.de/fitinto/576x384/191711.top.png?backgroundColor=transparent",
+      "itemno": "191711",
+      "brand": "dennree",
+      "marketHighlight": null,
+      "promotion": "ZHZA",
+      "subtitle": "400 g",
+      "price": "1,10",
+      "priceApp": "",
+      "priceb": "1,59",
+      "pricec": "1 kg = 2,75",
+      "pricebanner": "30 %",
+      "pricebannerApp": null,
+      "priceAb": null,
+      "strikePriceAb": null,
+      "priceCa": false,
+      "pricebannerBis": null,
+      "pricebannerBisApp": null,
+      "hidden": false,
+      "publishAt": "2026-10-08",
+      "austrianFlag": null,
+      "angebotsart": "angebot",
+      "vegetarian": true,
+      "land": "at",
+      "vegan": false,
+      "lactosefree": false,
+      "glutenfree": false,
+      "validfrom": "2026-10-12",
+      "validto": "2026-10-13",
+      "appValidfrom": null,
+      "appValidto": null,
+      "priceAppKilo": "",
+      "couponId": "",
+      "deposit": "",
+      "drained": "",
+      "interfererString": null,
+      "interfererUrl": null,
+      "bmvOnly": null,
+      "global": true,
+      "shordesc": "reiner Genuss mit hohem Proteingehalt, 0,2 % Fett",
+      "offerImage": {
+       "image": {
+        "asset": {
+         "gatsbyImageData": {
+          "images": {
+           "sources": [],
+           "fallback": {
+            "src": "https://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png?w=533&h=720&auto=format",
+            "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png?w=320&h=432&auto=format 320w,\nhttps://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png?w=533&h=720&auto=format 533w",
+            "sizes": "(min-width: 533px) 533px, 100vw"
+           }
+          },
+          "layout": "constrained",
+          "width": 533,
+          "height": 720
+         },
+         "url": "https://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png",
+         "altText": null
+        }
+       },
+       "alt": null
+      },
+      "customCardColor": {
+       "order": 0,
+       "colorName": "Günstiger&shy;Wochenstart",
+       "colorTag": {
+        "rgb": {
+         "r": 226,
+         "g": 34,
+         "b": 132,
+         "a": 1
+        }
+       },
+       "colorFont": {
+        "rgb": {
+         "r": 218,
+         "g": 228,
+         "b": 27,
+         "a": 1
+        }
+       },
+       "colorCard": {
+        "rgb": {
+         "r": 218,
+         "g": 228,
+         "b": 27,
+         "a": 1
+        }
+       }
+      },
+      "labels": [
+       {
+        "title": "D Naturland",
+        "image": {
+         "image": {
+          "asset": {
+           "gatsbyImageData": {
+            "images": {
+             "sources": [],
+             "fallback": {
+              "src": "https://cdn.sanity.io/images/or2m2oma/production/ad8276bbe262b7f9b21bd43f8da85b83cd1237a1-240x287.png?w=240&h=287&auto=format",
+              "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/ad8276bbe262b7f9b21bd43f8da85b83cd1237a1-240x287.png?w=240&h=287&auto=format 240w",
+              "sizes": "(min-width: 240px) 240px, 100vw"
+             }
+            },
+            "layout": "constrained",
+            "width": 240,
+            "height": 287
+           },
+           "url": "https://cdn.sanity.io/images/or2m2oma/production/ad8276bbe262b7f9b21bd43f8da85b83cd1237a1-240x287.png",
+           "altText": null
+          }
+         },
+         "alt": "Naturland Logo"
+        }
+       }
+      ],
+      "articleGroup": {
+       "productGroup": {
+        "order": 1,
+        "title": "Zum Kühlen"
+       }
+      },
+      "campaign": [],
+      "marketIdList": {
+       "marketIds": [
+        "62008",
+        "62004",
+        "62010"
+       ]
+      }
+     }
+    ]
+   },
+   "noLimitOffers": {
+    "nodes": [
+     {
+      "_id": "offer-000000000000000000000000000000043616-191711-110",
+      "title": "Bio-Skyr Natur",
+      "image": "https://images.dennree.de/fitinto/576x384/191711.top.png?backgroundColor=transparent",
+      "itemno": "191711",
+      "brand": "dennree",
+      "marketHighlight": null,
+      "promotion": "ZHZA",
+      "subtitle": "400 g",
+      "price": "1,10",
+      "priceApp": "",
+      "priceb": "1,59",
+      "pricec": "1 kg = 2,75",
+      "pricebanner": "30 %",
+      "pricebannerApp": null,
+      "priceAb": null,
+      "strikePriceAb": null,
+      "priceCa": false,
+      "pricebannerBis": null,
+      "pricebannerBisApp": null,
+      "hidden": false,
+      "publishAt": "2026-10-08",
+      "austrianFlag": null,
+      "angebotsart": "angebot",
+      "vegetarian": true,
+      "land": "at",
+      "vegan": false,
+      "lactosefree": false,
+      "glutenfree": false,
+      "validfrom": "2026-10-12",
+      "validto": "2026-10-13",
+      "appValidfrom": null,
+      "appValidto": null,
+      "priceAppKilo": "",
+      "couponId": "",
+      "deposit": "",
+      "drained": "",
+      "interfererString": null,
+      "interfererUrl": null,
+      "bmvOnly": null,
+      "global": true,
+      "shordesc": "reiner Genuss mit hohem Proteingehalt, 0,2 % Fett",
+      "offerImage": {
+       "image": {
+        "asset": {
+         "gatsbyImageData": {
+          "images": {
+           "sources": [],
+           "fallback": {
+            "src": "https://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png?w=533&h=720&auto=format",
+            "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png?w=320&h=432&auto=format 320w,\nhttps://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png?w=533&h=720&auto=format 533w",
+            "sizes": "(min-width: 533px) 533px, 100vw"
+           }
+          },
+          "layout": "constrained",
+          "width": 533,
+          "height": 720
+         },
+         "url": "https://cdn.sanity.io/images/or2m2oma/production/69c323fabadb6cb8fb8a630c0c06984f1b167adb-533x720.png",
+         "altText": null
+        }
+       },
+       "alt": null
+      },
+      "customCardColor": {
+       "order": 0,
+       "colorName": "Günstiger&shy;Wochenstart",
+       "colorTag": {
+        "rgb": {
+         "r": 226,
+         "g": 34,
+         "b": 132,
+         "a": 1
+        }
+       },
+       "colorFont": {
+        "rgb": {
+         "r": 218,
+         "g": 228,
+         "b": 27,
+         "a": 1
+        }
+       },
+       "colorCard": {
+        "rgb": {
+         "r": 218,
+         "g": 228,
+         "b": 27,
+         "a": 1
+        }
+       }
+      },
+      "labels": [
+       {
+        "title": "D Naturland",
+        "image": {
+         "image": {
+          "asset": {
+           "gatsbyImageData": {
+            "images": {
+             "sources": [],
+             "fallback": {
+              "src": "https://cdn.sanity.io/images/or2m2oma/production/ad8276bbe262b7f9b21bd43f8da85b83cd1237a1-240x287.png?w=240&h=287&auto=format",
+              "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/ad8276bbe262b7f9b21bd43f8da85b83cd1237a1-240x287.png?w=240&h=287&auto=format 240w",
+              "sizes": "(min-width: 240px) 240px, 100vw"
+             }
+            },
+            "layout": "constrained",
+            "width": 240,
+            "height": 287
+           },
+           "url": "https://cdn.sanity.io/images/or2m2oma/production/ad8276bbe262b7f9b21bd43f8da85b83cd1237a1-240x287.png",
+           "altText": null
+          }
+         },
+         "alt": "Naturland Logo"
+        }
+       }
+      ],
+      "articleGroup": {
+       "productGroup": {
+        "order": 1,
+        "title": "Zum Kühlen"
+       }
+      },
+      "campaign": [],
+      "marketIdList": {
+       "marketIds": [
+        "62008",
+        "62004",
+        "62010"
+       ]
+      }
+     },
+     {
+      "_id": "offer-000000000000000000000000000000043556-003115-429",
+      "title": "❄ Airfryer Fish Nuggets",
+      "image": "https://images.dennree.de/fitinto/576x384/003115.top.png?backgroundColor=transparent",
+      "itemno": "003115",
+      "brand": "followfood",
+      "marketHighlight": null,
+      "promotion": "ZHZA",
+      "subtitle": "200 g",
+      "price": "4,29",
+      "priceApp": "",
+      "priceb": "5,49",
+      "pricec": "1 kg = 21,45",
+      "pricebanner": null,
+      "pricebannerApp": null,
+      "priceAb": null,
+      "strikePriceAb": null,
+      "priceCa": false,
+      "pricebannerBis": null,
+      "pricebannerBisApp": null,
+      "hidden": false,
+      "publishAt": "2026-10-03",
+      "austrianFlag": null,
+      "angebotsart": "angebot",
+      "vegetarian": false,
+      "land": "at",
+      "vegan": false,
+      "lactosefree": true,
+      "glutenfree": false,
+      "validfrom": "2026-10-07",
+      "validto": "2026-10-20",
+      "appValidfrom": null,
+      "appValidto": null,
+      "priceAppKilo": "",
+      "couponId": "",
+      "deposit": "",
+      "drained": "",
+      "interfererString": null,
+      "interfererUrl": null,
+      "bmvOnly": null,
+      "global": true,
+      "shordesc": "saftige Alaska-Seelachs-Filetstückchen, umhüllt von knuspriger Bio-Panade",
+      "offerImage": {
+       "image": {
+        "asset": {
+         "gatsbyImageData": {
+          "images": {
+           "sources": [],
+           "fallback": {
+            "src": "https://cdn.sanity.io/images/or2m2oma/production/43325120231ea2e96ffb74b4f9f74904a8f115d3-1158x720.jpg?w=1158&h=720&auto=format",
+            "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/43325120231ea2e96ffb74b4f9f74904a8f115d3-1158x720.jpg?w=320&h=199&auto=format 320w,\nhttps://cdn.sanity.io/images/or2m2oma/production/43325120231ea2e96ffb74b4f9f74904a8f115d3-1158x720.jpg?rect=1,0,1157,720&w=654&h=407&auto=format 654w,\nhttps://cdn.sanity.io/images/or2m2oma/production/43325120231ea2e96ffb74b4f9f74904a8f115d3-1158x720.jpg?rect=1,0,1157,720&w=768&h=478&auto=format 768w,\nhttps://cdn.sanity.io/images/or2m2oma/production/43325120231ea2e96ffb74b4f9f74904a8f115d3-1158x720.jpg?rect=1,0,1157,720&w=1024&h=637&auto=format 1024w,\nhttps://cdn.sanity.io/images/or2m2oma/production/43325120231ea2e96ffb74b4f9f74904a8f115d3-1158x720.jpg?w=1158&h=720&auto=format 1158w",
+            "sizes": "(min-width: 1158px) 1158px, 100vw"
+           }
+          },
+          "layout": "constrained",
+          "width": 1158,
+          "height": 720
+         },
+         "url": "https://cdn.sanity.io/images/or2m2oma/production/43325120231ea2e96ffb74b4f9f74904a8f115d3-1158x720.jpg",
+         "altText": null
+        }
+       },
+       "alt": null
+      },
+      "customCardColor": null,
+      "labels": [
+       {
+        "title": "MSC Nachhaltige Fischerei",
+        "image": {
+         "image": {
+          "asset": {
+           "gatsbyImageData": {
+            "images": {
+             "sources": [],
+             "fallback": {
+              "src": "https://cdn.sanity.io/images/or2m2oma/production/10a5c7f5bd55538a350491a04f9e2f4f276f7a4c-195x75.png?w=195&h=75&auto=format",
+              "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/10a5c7f5bd55538a350491a04f9e2f4f276f7a4c-195x75.png?w=195&h=75&auto=format 195w",
+              "sizes": "(min-width: 195px) 195px, 100vw"
+             }
+            },
+            "layout": "constrained",
+            "width": 195,
+            "height": 75
+           },
+           "url": "https://cdn.sanity.io/images/or2m2oma/production/10a5c7f5bd55538a350491a04f9e2f4f276f7a4c-195x75.png",
+           "altText": null
+          }
+         },
+         "alt": "MSC Logo"
+        }
+       }
+      ],
+      "articleGroup": {
+       "productGroup": {
+        "order": 1,
+        "title": "Zum Kühlen"
+       }
+      },
+      "campaign": [],
+      "marketIdList": {
+       "marketIds": [
+        "62008",
+        "62004",
+        "62010"
+       ]
+      }
+     },
+     {
+      "_id": "offer-000000000000000000000000000000043567-564131-349",
+      "title": "Bio-Fleischsuppe",
+      "image": "https://images.dennree.de/fitinto/576x384/564131.top.png?backgroundColor=transparent",
+      "itemno": "564131",
+      "brand": "MyDeli",
+      "marketHighlight": null,
+      "promotion": "ZHZA",
+      "subtitle": "350 g / 380 g",
+      "price": "3,49",
+      "priceApp": "",
+      "priceb": "3,99",
+      "pricec": "1 kg = 9,97 / 9,18",
+      "pricebanner": null,
+      "pricebannerApp": null,
+      "priceAb": true,
+      "strikePriceAb": true,
+      "priceCa": false,
+      "pricebannerBis": null,
+      "pricebannerBisApp": null,
+      "hidden": false,
+      "publishAt": "2026-10-03",
+      "austrianFlag": null,
+      "angebotsart": "angebot",
+      "vegetarian": false,
+      "land": "at",
+      "vegan": false,
+      "lactosefree": true,
+      "glutenfree": false,
+      "validfrom": "2026-10-07",
+      "validto": "2026-10-20",
+      "appValidfrom": null,
+      "appValidto": null,
+      "priceAppKilo": "",
+      "couponId": "",
+      "deposit": "",
+      "drained": "",
+      "interfererString": null,
+      "interfererUrl": null,
+      "bmvOnly": null,
+      "global": true,
+      "shordesc": "2 Sorten: Chili con Carne oder Hühnersuppe",
+      "offerImage": {
+       "image": {
+        "asset": {
+         "gatsbyImageData": {
+          "images": {
+           "sources": [],
+           "fallback": {
+            "src": "https://cdn.sanity.io/images/or2m2oma/production/99e4efcaddeac7714a7c7818af4d273cd2b2ccea-696x720.png?w=696&h=720&auto=format",
+            "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/99e4efcaddeac7714a7c7818af4d273cd2b2ccea-696x720.png?w=320&h=331&auto=format 320w,\nhttps://cdn.sanity.io/images/or2m2oma/production/99e4efcaddeac7714a7c7818af4d273cd2b2ccea-696x720.png?w=654&h=677&auto=format 654w,\nhttps://cdn.sanity.io/images/or2m2oma/production/99e4efcaddeac7714a7c7818af4d273cd2b2ccea-696x720.png?w=696&h=720&auto=format 696w",
+            "sizes": "(min-width: 696px) 696px, 100vw"
+           }
+          },
+          "layout": "constrained",
+          "width": 696,
+          "height": 720
+         },
+         "url": "https://cdn.sanity.io/images/or2m2oma/production/99e4efcaddeac7714a7c7818af4d273cd2b2ccea-696x720.png",
+         "altText": null
+        }
+       },
+       "alt": null
+      },
+      "customCardColor": null,
+      "labels": [
+       {
+        "title": "EU",
+        "image": {
+         "image": {
+          "asset": {
+           "gatsbyImageData": {
+            "images": {
+             "sources": [],
+             "fallback": {
+              "src": "https://cdn.sanity.io/images/or2m2oma/production/ba9e3834475695188dac6fb50b6b7e4fe3b6ac05-240x280.png?w=240&h=280&auto=format",
+              "srcSet": "https://cdn.sanity.io/images/or2m2oma/production/ba9e3834475695188dac6fb50b6b7e4fe3b6ac05-240x280.png?w=240&h=280&auto=format 240w",
+              "sizes": "(min-width: 240px) 240px, 100vw"
+             }
+            },
+            "layout": "constrained",
+            "width": 240,
+            "height": 280
+           },
+           "url": "https://cdn.sanity.io/images/or2m2oma/production/ba9e3834475695188dac6fb50b6b7e4fe3b6ac05-240x280.png",
+           "altText": null
+          }
+         },
+         "alt": null
+        }
+       }
+      ],
+      "articleGroup": {
+       "productGroup": {
+        "order": 3,
+        "title": "Speisekammer"
+       }
+      },
+      "campaign": [],
+      "marketIdList": {
+       "marketIds": [
+        "62008",
+        "62004",
+        "62010"
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

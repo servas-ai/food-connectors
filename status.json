@@ -131,6 +131,13 @@
       "status": "pass",
       "n": 6,
       "sec": 0.0
+    },
+    "denns": {
+      "status": "pass",
+      "n": 4,
+      "sec": 1.4,
+      "note": "public offer feed page-data/angebote (AT offers only; 82 nodes → 4 ready meals 2026-10-13)",
+      "tested_at": "2026-10-13T20:15:00Z"
     }
   },
   "mpreis-shop": {
