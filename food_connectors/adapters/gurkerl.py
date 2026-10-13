@@ -17,6 +17,8 @@ MEAL_CATEGORIES = {
     379: "Vorratsschrank > Fertiggerichte > Suppen",
     906: "Marks & Spencer > Fertiggerichte",
     620: "Tiefkühlprodukte > Pizza, Baguettes & Flammkuchen > Pizza",  # added 2026-10-13T11
+    137872: "Tiefkühlprodukte > Fisch > Fischstäbchen",  # added 2026-10-13T14
+    137873: "Tiefkühlprodukte > Fisch > Schlemmerfilets & Backfisch",  # added 2026-10-13T14
 }
 
 def parse_composition(c):

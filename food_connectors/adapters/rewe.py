@@ -5,13 +5,31 @@ from ..http import get
 from ..schema import Product, find_producer_id, parse_size_g, looks_like_ready_meal
 NM = {'ENER-': 'kcal', 'PRO-': 'protein', 'FAT': 'fat', 'FASAT': 'satfat', 'CHOAVL': 'carbs', 'SUGAR-': 'sugar', 'FIBTG': 'fiber', 'SALTEQ': 'salt'}
 
+def storage_info(d: dict) -> dict:
+    """Storage class from the REWE product JSON (2026-10-13T14): badge 'tiefkuehlung', parent category 'Tiefkühl'
+    or a '-18 °C' storage statement -> 'frozen'; 'Kühlregal'/'gekühlt' -> 'chilled'. Also returns the category path."""
+    paths = [" > ".join(c.get("name", "") for c in pc) for pc in (d.get("parentCategories") or []) if pc]
+    badges = [str(b).lower() for b in d.get("badges") or []]
+    st = (d.get("storageAndUsageStatements") or "")
+    blob = " ".join(paths + [st]).lower()
+    if "tiefkuehlung" in badges or "tiefkühl" in blob or re.search(r"-\s?18\s?°", st):
+        storage = "frozen"
+    elif re.search(r"kühlregal|gekühlt|kühl lagern|\+?[2-7]\s?°c", blob):
+        storage = "chilled"
+    else:
+        storage = None
+    return {"storage": storage, "category_path": paths[0] if paths else None, "storage_statement": st or None}
+
 class _Rewe(Adapter):
     base = ""; prefix = ""; categories = []
     def _p(self, r):
         pr = r.get("price") or {}; reg = pr.get("regular") or {}
         price = reg.get("value"); ppu = reg.get("perStandardizedQuantity")
         size = parse_size_g(f"{r.get('amount','')} {r.get('volumeLabelShort','')}")
-        return Product(source=self.id, store=self.store, name=(r.get("name") or "").strip(),
+        std = (pr.get("standard") or {}).get("value")
+        extra = {"price_standard_eur": std / 100 if std else None, "in_promotion": bool(r.get("inPromotion")),
+                 "promotion_text": reg.get("promotionText") or None}
+        return Product(extra=extra, source=self.id, store=self.store, name=(r.get("name") or "").strip(),
             brand=(r.get("brand") or {}).get("name"), price_eur=price / 100 if price else None,
             unit_price_eur=ppu / 100 if ppu else None, unit=pr.get("baseUnitShort"), size_g=size,
             image_url=(r.get("images") or [None])[0], category=r.get("category"),
@@ -38,7 +56,9 @@ class _Rewe(Adapter):
     MEAL_QUERIES = ["fertiggericht", "gulasch", "chili con carne", "lasagne", "eintopf", "curry",
                     "risotto", "suppe", "frikassee", "bolognese", "ravioli", "menüschale",
                     # 2026-10-13T12: TK-Pizza, Mehlspeisen & Instant-Cups (BILLA Kategorien Pizza / Gemüse & Käsegerichte / Asien)
-                    "tiefkühl pizza", "krautfleckerl", "germknödel", "kaiserschmarrn", "noodles cup"]
+                    "tiefkühl pizza", "krautfleckerl", "germknödel", "kaiserschmarrn", "noodles cup",
+                    # 2026-10-13T14: TK-Mehlspeisen, Fisch & Erdäpfeltascherl (BILLA Tiefkühl > Backwaren/Fisch/Spezialitäten)
+                    "mohnnudeln", "apfelstrudel", "fischstäbchen", "erdäpfeltascherl"]
     def fetch(self, category="ready-meals", limit=500):
         items = []
         for c in (self.categories or [None]):
@@ -73,6 +93,10 @@ class _Rewe(Adapter):
         p.producer_id = find_producer_id(txt); p.origin = d.get("countryOfOrigin") or p.origin
         eans = d.get("gtins") or d.get("eans") or []
         if eans: p.ean = str(eans[0])
+        p.extra.update(storage_info(d))
+        std = ((d.get("price") or {}).get("standard") or {}).get("value")
+        if std: p.extra["price_standard_eur"] = std / 100
+        if "inPromotion" in d: p.extra["in_promotion"] = bool(d.get("inPromotion"))
         return p
 
 class Billa(_Rewe):
