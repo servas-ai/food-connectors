@@ -12,6 +12,34 @@ Every adapter returns the same schema:
 | `producer`, `producer_id` | manufacturer + Identitätskennzeichen (e.g. `AT 40047 EG`) |
 | `origin`, `source`, `source_id`, `source_url`, `fetched_at` | provenance |
 
+## Connector status (live test 2026-10-13, `python3 tests/live_status.py` → `status.json`)
+
+| connector | source | live test | reuses / credits |
+|---|---|---|---|
+| `billa` | shop.billa.at product-discovery API (`term=`) | ✅ pass (fixed: param `searchTerm`→`term`) | — |
+| `penny` | penny.at, same REWE API | ✅ pass | — |
+| `gurkerl` | gurkerl.at API | ✅ pass | idea from [pasogott/gurkerlcli](https://github.com/pasogott/gurkerlcli) (MIT), [tomaspavlin/rohlik-mcp](https://github.com/tomaspavlin/rohlik-mcp) (MIT) |
+| `lidl` | lidl.at `q/api/search` | ❌ fail – 401 for Python clients (TLS/bot fingerprinting, curl gets 200). Not bypassed by policy; fetchsize capped at 30. Use `heisse-preise` for Lidl prices | — |
+| `spar` | interspar via heisse-preise | ✅ pass | [badlogic/heissepreise](https://github.com/badlogic/heissepreise) (MIT) |
+| `hofer`, `dm`, `mpreis`, `unimarkt` | heisse-preise.io daily dump | ✅ pass (prices up to 1 day old) | badlogic/heissepreise |
+| `heisse-preise` | heisse-preise.io dump | ✅ pass | badlogic/heissepreise, [falknerdominik/heisse-preise-data](https://github.com/falknerdominik/heisse-preise-data) |
+| `off` | Open Food Facts search | ⚠️ flaky – upstream search sometimes returns 503 | [openfoodfacts-python](https://github.com/openfoodfacts/openfoodfacts-python) (API conventions) |
+| `prepmymeal`, `gourmetfein` | Shopify `/products.json` | ✅ pass | — |
+| `livefresh` | Shopify `/products.json` | ✅ pass (fixed: meals now by `product_type=Fertiggerichte`, search by stem) | — |
+| `nutri:off-nutri` | OFF product API v2 (Nutri-Score/NOVA/Eco-Score) | ✅ pass | openfoodfacts-python |
+| `nutri:usda-fdc` | USDA FoodData Central API | ✅ pass | API pattern of [Nelson-Gon/pyfdc](https://github.com/Nelson-Gon/pyfdc) (MIT) |
+| `nutri:ciqual` | ANSES CIQUAL | ✅ pass | [plemio/ciqual-mcp](https://github.com/plemio/ciqual-mcp) (MIT) |
+| `company:gleif` | GLEIF LEI API (AT Firmenbuchnummer, parents) | ✅ pass | [ggravlingen/pygleif](https://github.com/ggravlingen/pygleif) (MIT) |
+| `company:vies` | EU VIES UID check | ✅ pass | — |
+| `company:northdata` | North Data public page / API key | ✅ pass (public facts only) | [p-meier/northdata-connectors](https://github.com/p-meier/northdata-connectors) |
+| `company:firmenbuch` | Firmenbuch HVD API (justiz.gv.at) | 🔑 needs free API key `FIRMENBUCH_API_KEY` | [Lukhers-dev/firmenbuch-HVD](https://github.com/Lukhers-dev/firmenbuch-HVD) (MIT) |
+| `datasets:*` | Hugging Face, Zenodo, data.gv.at, Kaggle search APIs | ✅ pass | — (`food datasets --search q`, MCP `search_datasets`) |
+| hofer.at, spar.at, dm.at, mpreis.at, unimarkt.at, denns, adeg (direct) | shop sites | 📇 not connected – no public API, Cloudflare/bot protection, or no online shop | catalog only |
+| FatSecret, Yazio, MyFitnessPal, fddb | calorie apps | 📇 not integrated – FatSecret needs OAuth key (Platform API, free tier); Yazio/MFP/fddb only unofficial private APIs (ToS) | [coddingtonbear/python-myfitnesspal](https://github.com/coddingtonbear/python-myfitnesspal), [juriadams/yazio](https://github.com/juriadams/yazio) listed only |
+| BLS 4.0, Swiss FCDB | national composition tables | 📇 catalog (`food datasets`) – file downloads | — |
+
+CLI: `food search|fetch|export|sources|nutri|nutriscore|company|datasets`. MCP (`food-mcp`): `list_sources, search_products, fetch_ready_meals, lookup_ean, nutri_lookup, compute_nutriscore, list_nutri_sources, company_lookup, company_children, uid_check, northdata_company, list_datasets, search_datasets`.
+
 ## Sources
 
 | id | status | notes |
@@ -19,7 +47,7 @@ Every adapter returns the same schema:
 | `billa` | ✅ live | REWE product-discovery API, with nutrition, producer and ID code via `--enrich`. Also covers BILLA Zustellung (delivery to Linz). Server-side search is weak, so `fetch` walks the ready-meal categories. |
 | `penny` | ✅ live | Same REWE API. Only the online assortment of about 450 items, no ready meals right now. |
 | `gurkerl` | ✅ live | Gurkerl.at (delivers to Linz). Search, prices, **nutrition, ingredients and producer** via `/api/v1/products/{id}/composition`. |
-| `lidl` | ⚠️ live, flaky | lidl.at `q/api/search`. Sometimes returns 401 (the client retries). Prices and images only. |
+| `lidl` | ❌ blocked | lidl.at `q/api/search` returns 401 to Python clients; Lidl prices come via `heisse-preise`. |
 | `spar` | ✅ via heisse-preise | interspar.at product pages and nutrition sit behind Cloudflare, so they need a real browser. |
 | `hofer`, `dm`, `mpreis`, `unimarkt` | ⏳ stale | Taken from the heisse-preise.io dump. Check `extra.price_date`. |
 | `off` | ✅ live | Open Food Facts, AT products, with EAN, nutrition and EMB codes. No prices. |

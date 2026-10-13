@@ -6,7 +6,7 @@ class Lidl(Adapter):
     id = "lidl"; store = "Lidl"; homepage = "https://www.lidl.at"
     notes = "lidl.at search API (q/api/search). Prices and images only; no nutrition online for most food items."
     def search(self, q, limit=50):
-        d = get("https://www.lidl.at/q/api/search?" + urllib.parse.urlencode({"q": q, "fetchsize": min(limit, 48), "locale": "de_AT", "assortment": "AT", "version": "v2.0.0"}))
+        d = get("https://www.lidl.at/q/api/search?" + urllib.parse.urlencode({"q": q, "fetchsize": min(limit, 30), "locale": "de_AT", "assortment": "AT", "version": "v2.0.0"}), headers={"User-Agent": "food-connectors/0.1 (+https://github.com/servas-ai/food-connectors)", "Accept": "application/json"})
         out = []
         for it in d.get("items", []):
             g = (it.get("gridbox") or {}).get("data") or {}

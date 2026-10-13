@@ -32,6 +32,7 @@ def main(argv=None):
     f = sp.add_parser("fetch"); f.add_argument("--category", default="ready-meals"); f.add_argument("--store", default="billa,penny,gurkerl"); f.add_argument("--limit", type=int, default=500); f.add_argument("--enrich", action="store_true"); f.add_argument("-o", "--out")
     e = sp.add_parser("export"); e.add_argument("--since", help="ISO date/time"); e.add_argument("--store"); e.add_argument("--format", choices=["json", "jsonl", "csv"], default="json")
     sp.add_parser("sources"); sp.add_parser("mcp")
+    ds = sp.add_parser("datasets", help="Open dataset catalog; --search q queries HF/Zenodo/data.gv.at/Kaggle live"); ds.add_argument("--search"); ds.add_argument("--hubs", default="hf,zenodo,datagv,kaggle")
     nu = sp.add_parser("nutri", help="Nutri-Score/NOVA/additives by EAN or name"); nu.add_argument("q"); nu.add_argument("--sources", default="off-nutri")
     ns = sp.add_parser("nutriscore", help="Nutri-Score 2023 (official from OFF or --compute locally)"); ns.add_argument("--compute", action="store_true")
     for k in ("kcal", "sugar", "satfat", "salt", "fiber", "protein", "fvl"): ns.add_argument("--" + k, type=float)
@@ -39,6 +40,9 @@ def main(argv=None):
     co = sp.add_parser("company", help="Company registry lookup (GLEIF/FN/parents, --vies UID, --northdata, --children LEI)")
     co.add_argument("name", nargs="?"); co.add_argument("--country"); co.add_argument("--vies"); co.add_argument("--northdata", action="store_true"); co.add_argument("--children"); co.add_argument("--fn", help="Firmenbuch HVD lookup (needs FIRMENBUCH_API_KEY)")
     a = ap.parse_args(argv)
+    if a.cmd == "datasets":
+        from . import datasets as D
+        print(json.dumps(D.search(a.search, a.hubs.split(",")) if a.search else D.CATALOG, ensure_ascii=False, indent=1)); return
     if a.cmd == "company":
         from . import company as C
         out = C.vies_check(a.vies) if a.vies else C.gleif_children(a.children) if a.children else C.firmenbuch_hvd(a.fn) if a.fn else C.northdata_page(a.name) if a.northdata else C.company(a.name, a.country)

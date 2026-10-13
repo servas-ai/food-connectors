@@ -64,7 +64,7 @@ class ShopifyMealShop(Adapter):
         img = (p.get("images") or [{}])[0].get("src")
         return Product(source=self.id, store=self.store, name=p["title"], brand=self.store.replace("Online: ", ""),
                        price_eur=float(v["price"]) if v.get("price") else None, image_url=img,
-                       category=", ".join(p.get("tags", [])[:6]) or None,
+                       category=", ".join(([p["product_type"]] if p.get("product_type") else []) + p.get("tags", [])[:6]) or None,
                        source_url=f"https://{self.domain}/products/{p['handle']}", source_id=str(p["id"]),
                        size_g=float(v["grams"]) if v.get("grams") else None, extra={"available": any(x.get("available") for x in p["variants"]), "tags": p.get("tags", [])})
     def search(self, q, limit=50):
@@ -110,7 +110,12 @@ class LiveFresh(ShopifyMealShop):
     id = "livefresh"; store = "Online: LiveFresh"; domain = "livefresh.at"; homepage = "https://livefresh.at"
     notes = "Shopify storefront; vegane Fertiggerichte + Shots (nur Bowls werden übernommen)"
     def fetch(self, category="ready-meals", limit=500):
-        return [p for p in super().fetch(category, limit) if "Bowl" in p.name]
+        return [p for p in super().fetch(category, limit) if "Bowl" in p.name or "fertiggericht" in (p.category or "").lower()]
+    def search(self, q, limit=50):
+        ql = q.lower(); words = re.findall(r"\w{3,}", ql)
+        meals = self.fetch()
+        hits = [p for p in meals if any(w[:5] in p.name.lower() for w in words)]
+        return (hits or [])[:limit]
 
 class Gourmetfein(ShopifyMealShop):
     id = "gourmetfein"; store = "Online: Gourmetfein"; domain = "shop.gourmetfein.com"; homepage = "https://shop.gourmetfein.com"

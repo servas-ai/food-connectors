@@ -17,10 +17,15 @@ class _Rewe(Adapter):
             image_url=(r.get("images") or [None])[0], category=r.get("category"),
             source_url=f"{self.base}/produkte/{r.get('slug')}" if r.get("slug") else None, source_id=r.get("sku"))
     def search(self, q, limit=50):
-        d = get(f"{self.base}/api/product-discovery/products?" + urllib.parse.urlencode({"searchTerm": q, "page": 0, "pageSize": min(limit, 100)}))
+        d = get(f"{self.base}/api/product-discovery/products?" + urllib.parse.urlencode({"term": q, "page": 0, "pageSize": min(limit, 100)}))
         res = [self._p(r) for r in d.get("results", [])]
         words = [w for w in re.findall(r"\w{3,}", q.lower())]
-        return [p for p in res if all(w in (p.name + " " + (p.brand or "")).lower() for w in words)] or []
+        txt = lambda p: (p.name + " " + (p.brand or "") + " " + (p.category or "")).lower()
+        strict = [p for p in res if all(w in txt(p) for w in words)]
+        if strict: return strict
+        # BILLA search is fuzzy/stemmed (e.g. "suppe" -> "Suppentopf", "Hühnersuppe"); fall back to stem match, then raw ranking
+        stem = [p for p in res if all(w[:max(4, len(w)-2)] in txt(p) for w in words)]
+        return stem or res
     def listing(self, cat=None, pages=10):
         out = []
         for page in range(pages):
