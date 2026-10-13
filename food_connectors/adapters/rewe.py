@@ -36,7 +36,9 @@ class _Rewe(Adapter):
         return out
     # Ready-meal search stems used when category listing 404s (BILLA 2026-10-13)
     MEAL_QUERIES = ["fertiggericht", "gulasch", "chili con carne", "lasagne", "eintopf", "curry",
-                    "risotto", "suppe", "frikassee", "bolognese", "ravioli", "menüschale"]
+                    "risotto", "suppe", "frikassee", "bolognese", "ravioli", "menüschale",
+                    # 2026-10-13T12: TK-Pizza, Mehlspeisen & Instant-Cups (BILLA Kategorien Pizza / Gemüse & Käsegerichte / Asien)
+                    "tiefkühl pizza", "krautfleckerl", "germknödel", "kaiserschmarrn", "noodles cup"]
     def fetch(self, category="ready-meals", limit=500):
         items = []
         for c in (self.categories or [None]):
