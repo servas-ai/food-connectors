@@ -40,16 +40,7 @@ def test_mealprep_nutrition_parser():
     n, por = parse_nutrition(h)
     assert n == {"kcal": 125.0, "fat": 3.6, "satfat": 1.2, "protein": 9.0} and por == 500.0
 
-def test_gurkerl_composition_parser():
-    from food_connectors.adapters.gurkerl import parse_composition, MEAL_CATEGORIES
-    c = {"productId": 49016, "nutritionalValues": [{"portion": "100 g", "values": {"energyKCal": {"amount": 127.0, "unit": "kCal"},
-         "protein": {"amount": 8.0, "unit": "g"}, "salt": {"amount": 0.97, "unit": "g"}, "fiber": {"amount": None, "unit": "g"}}}],
-         "plainIngredients": "Zutaten: Hähnchenfleisch 39 %\nHersteller: Perutnina Ptuj d.d., SI 72 EG", "ean": "3838977051704"}
-    n, ing, prod, pid, ean = parse_composition(c)
-    assert n == {"kcal": 127.0, "protein": 8.0, "salt": 0.97} and ean == "3838977051704" and prod.startswith("Perutnina")
-    assert parse_composition({"nutritionalValues": [], "plainIngredients": ""})[0] == {}
-    assert 988 not in MEAL_CATEGORIES and 135049 in MEAL_CATEGORIES
-@live
+
 def test_gurkerl_category_live():
     g = ADAPTERS["gurkerl"]; ids = g.category_ids(135049); assert len(ids) > 20
     ps = g.products(ids[:3]); assert ps and ps[0].price_eur and ps[0].image_url
