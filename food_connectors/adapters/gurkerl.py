@@ -16,6 +16,7 @@ MEAL_CATEGORIES = {
     380: "Vorratsschrank > Fertiggerichte > Menüs & Dosengerichte",
     379: "Vorratsschrank > Fertiggerichte > Suppen",
     906: "Marks & Spencer > Fertiggerichte",
+    620: "Tiefkühlprodukte > Pizza, Baguettes & Flammkuchen > Pizza",  # added 2026-10-13T11
 }
 
 def parse_composition(c):

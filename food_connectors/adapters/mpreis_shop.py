@@ -19,6 +19,7 @@ READY_MEAL_CATEGORIES = [
     "/shop/c/lebensmittel/konserven-fertiggerichte-suppen/fertiggerichte/fertigmenues-17927965",
     "/shop/c/lebensmittel/konserven-fertiggerichte-suppen/fertiggerichte/kartoffelgerichte-knoedel-9336400",
     "/shop/c/lebensmittel/tiefkuehl/fertiggerichte-24125257",
+    "/shop/c/lebensmittel/tiefkuehl/pizza-baguette-26319064",  # added 2026-10-13T11
 ]
 LD_RE = re.compile(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', re.S)
 
@@ -58,7 +59,15 @@ def product(url: str) -> Product | None:
     w = re.search(r'c3-product__weight-info-text[^>]*>([^<]+)<', h)
     size = parse_size_g(w.group(1) if w else "") or parse_size_g(ld.get("name"))
     nut = {}
-    for k, v in re.findall(r'<tr><td>(.*?)</td><td class="c3-table__column-value">(.*?)</td></tr>', h):
+    # The Nährwerte tab may hold several blocks ("Nicht zubereitete Portion (125 g)", "Nicht zubereitet je 100 g",
+    # "Zubereitet je 100 g"); only per-100 g values are valid nutrition_100g. Prefer the unprepared per-100 g block.
+    blocks = [(_h.unescape(t).strip(), body) for t, body in re.findall(
+        r'content-block-title[^>]*>([^<]*)</div>((?:(?!content-block-title).)*?)</table>', h, re.S) if "c3-table__column-value" in body]
+    per100 = [(t, b) for t, b in blocks if re.search(r'(?:je|pro) 100 ?(?:g|ml)', t, re.I)]
+    per100.sort(key=lambda tb: 0 if re.search(r'nicht zubereitet', tb[0], re.I) else 1)
+    # blocks present but none per 100 g (portion only) -> leave nutrition empty rather than mislabel it
+    src = per100[0][1] if per100 else ("" if blocks else h)
+    for k, v in re.findall(r'<tr><td>(.*?)</td><td class="c3-table__column-value">(.*?)</td></tr>', src):
         k = _h.unescape(k).strip(" \xa0-").lower(); m = re.search(r"[\d.,]+", v)
         if not m: continue
         x = float(m.group(0).replace(",", "."))
