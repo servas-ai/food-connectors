@@ -1,10 +1,10 @@
 """Minimal dependency-free MCP server over stdio (JSON-RPC 2.0, newline-delimited)."""
-import json, sys
+import json, re, sys
 from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -33,7 +33,20 @@ TOOLS += [{"name": "denns_offers", "description": "Live denn's BioMarkt Austria 
 
 TOOLS += [{"name": "nahfrisch_offers", "description": "Live Nah&Frisch Austria 'Angebote der Woche' (public weekly offer page): offer tiles per calendar week with validity and official tile image; names/prices via local tesseract OCR when installed (extra.ocr=True, verify visually). Optional query filter; ocr=false returns tiles only.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ocr": {"type": "boolean"}, "ready_meals_only": {"type": "boolean"}}}}]
 
+TOOLS += [{"name": "penny_product", "description": "Live PENNY Austria article by sku (78-<REWE no.>) or bare REWE article number via penny.at's public product JSON: regular + standard price, promotion text/validity, €/unit, pack, category path, origin, official image. No GTIN/nutrition (use the identical BILLA article 00-<no.>). Returns null if not listed.", "inputSchema": {"type": "object", "properties": {"sku": {"type": "string"}}, "required": ["sku"]}}]
+
+TOOLS += [{"name": "penny_search", "description": "Search the live PENNY Austria online assortment (~450 items, public penny.at product JSON; filtered locally because Penny ignores the search term). ready_meals_only keeps Fertiggerichte/Schnelle Küche/TK-Gerichte/Pizza.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ready_meals_only": {"type": "boolean"}, "limit": {"type": "integer"}}}}]
+
 def call(name, a):
+    if name == "penny_product":
+        from .adapters.penny_shop import product
+        p = product(a["sku"]); return p.to_dict() if p else None
+    if name == "penny_search":
+        from .adapters.penny_shop import listing, to_product, is_ready_meal
+        q = re.findall(r"\w{3,}", (a.get("query") or "").lower())
+        ps = [to_product(r) for r in listing()]
+        ps = [p for p in ps if all(w in f"{p.name} {p.brand or ''} {p.category or ''}".lower() for w in q) and (not a.get("ready_meals_only") or is_ready_meal(p))]
+        return [p.to_dict() for p in ps[: a.get("limit") or 50]]
     if name == "nahfrisch_offers":
         from .adapters.nah_frisch import offers, to_product, is_ready_meal
         ps = [to_product(o, a.get("ocr")) for o in offers()]

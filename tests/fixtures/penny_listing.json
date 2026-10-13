@@ -1,0 +1,1272 @@
+{
+ "total": 12,
+ "count": 12,
+ "results": [
+  {
+   "amount": "1",
+   "brand": {
+    "name": "Schärdinger",
+    "slug": "schaerdinger"
+   },
+   "bundleInfo": "",
+   "category": "Milchprodukte",
+   "conversionFactor": 1.0,
+   "descriptionLong": "",
+   "descriptionShort": "3,5 % Fett",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-100272-0167248544-BUlL1nfw.jpg"
+   ],
+   "name": "Formil haltbare Vollmilch*",
+   "packageLabel": "Packung",
+   "packageLabelKey": "pa",
+   "parentCategories": [
+    [
+     {
+      "key": "13032",
+      "name": "Kühlwaren",
+      "slug": "kuehlwaren-13032",
+      "orderHint": "000000040"
+     },
+     {
+      "key": "13039",
+      "name": "Milchprodukte",
+      "slug": "milchprodukte-13039",
+      "orderHint": "000000020"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013042",
+      "name": "Angebote ab 08.10.",
+      "slug": "angebote-ab-0810",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013042571",
+      "name": "bis zu -50% Wochenstarter",
+      "slug": "angebote-ab-0810-bis-zu-50-wochenstarter",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Liter",
+    "baseUnitShort": "Liter",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 89,
+     "promotionQuantity": 12.0,
+     "standardizedPromotionQuantity": 12,
+     "promotionText": "ab 12 Packungen",
+     "promotionType": "FROM",
+     "tags": [
+      "pt-familie",
+      "pt-multi"
+     ],
+     "value": 89
+    },
+    "standard": {
+     "perStandardizedQuantity": 161,
+     "value": 161
+    },
+    "validityEnd": "2026-10-14",
+    "validityStart": "2026-10-12"
+   },
+   "productId": "780c1afe-18d9-4a5c-be09-0b0341cb0c93",
+   "medical": false,
+   "sku": "78-100272",
+   "slug": "formil-haltbare-vollmilch-78100272",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "lt",
+   "volumeLabelLong": "Liter",
+   "volumeLabelShort": "liter",
+   "weight": 1.057,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Österreich",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "500",
+   "brand": {
+    "name": "Machland",
+    "slug": "machland"
+   },
+   "bundleInfo": "",
+   "category": "Konserven & Sauerwaren",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-102699-0487900657-Fy8vJZze.jpg"
+   ],
+   "name": "Sauerkraut",
+   "packageLabel": "Beutel",
+   "packageLabelKey": "bt",
+   "parentCategories": [
+    [
+     {
+      "key": "13055",
+      "name": "Grundnahrungsmittel",
+      "slug": "grundnahrungsmittel-13055",
+      "orderHint": "000000060"
+     },
+     {
+      "key": "13062",
+      "name": "Konserven & Sauerwaren",
+      "slug": "konserven-und-sauerwaren-13062",
+      "orderHint": "000000020"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013042",
+      "name": "Angebote ab 08.10.",
+      "slug": "angebote-ab-0810",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013042101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-0810-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "crossed": 79,
+    "discountPercentage": -17,
+    "regular": {
+     "perStandardizedQuantity": 130,
+     "tags": [
+      "pt-aktion"
+     ],
+     "value": 65
+    },
+    "standard": {
+     "perStandardizedQuantity": 158,
+     "value": 79
+    },
+    "lowestPrice": 79,
+    "validityEnd": "2026-10-14",
+    "validityStart": "2026-10-08"
+   },
+   "productId": "a0753ddd-8828-453a-989c-4884e9f8e018",
+   "medical": false,
+   "sku": "78-102699",
+   "slug": "sauerkraut-78102699",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.51,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Österreich",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "202",
+   "brand": {
+    "name": "Maggi",
+    "slug": "maggi"
+   },
+   "bundleInfo": "",
+   "category": "Fertiggerichte",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-107921-0174083228-EFzQ_qLO.jpg"
+   ],
+   "name": "Würze",
+   "packageLabel": "Flasche",
+   "packageLabelKey": "fl",
+   "parentCategories": [
+    [
+     {
+      "key": "13055",
+      "name": "Grundnahrungsmittel",
+      "slug": "grundnahrungsmittel-13055",
+      "orderHint": "000000060"
+     },
+     {
+      "key": "13059",
+      "name": "Fertiggerichte",
+      "slug": "fertiggerichte-13059",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013062",
+      "name": "Angebote ab 15.10.",
+      "slug": "angebote-ab-1510",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013062101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-1510-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Liter",
+    "baseUnitShort": "Liter",
+    "basePriceFactor": "1",
+    "crossed": 279,
+    "discountPercentage": -17,
+    "regular": {
+     "perStandardizedQuantity": 1134,
+     "promotionQuantity": 1.0,
+     "standardizedPromotionQuantity": 1,
+     "promotionType": "FROM",
+     "tags": [
+      "SO"
+     ],
+     "value": 229
+    },
+    "validityEnd": "2026-10-21",
+    "validityStart": "2026-10-15"
+   },
+   "productId": "ab5269ec-b4c1-4878-8dd6-df521cb5ee9b",
+   "medical": false,
+   "sku": "78-107921",
+   "slug": "wuerze-78107921",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "ml",
+   "volumeLabelLong": "Milliliter",
+   "volumeLabelShort": "ml",
+   "weight": 0.233,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "1",
+   "brand": {
+    "name": "Knorr",
+    "slug": "knorr"
+   },
+   "bundleInfo": "",
+   "category": "Fertiggerichte",
+   "conversionFactor": 1.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-284508-0892336482-zOoenMI-.jpg"
+   ],
+   "name": "Brühe mit Rind* od. Gemüse Bouillon*",
+   "packageLabel": "Dose",
+   "packageLabelKey": "ds",
+   "parentCategories": [
+    [
+     {
+      "key": "13055",
+      "name": "Grundnahrungsmittel",
+      "slug": "grundnahrungsmittel-13055",
+      "orderHint": "000000060"
+     },
+     {
+      "key": "13059",
+      "name": "Fertiggerichte",
+      "slug": "fertiggerichte-13059",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013062",
+      "name": "Angebote ab 15.10.",
+      "slug": "angebote-ab-1510",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013062101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-1510-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Stück",
+    "baseUnitShort": "Stk",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 399,
+     "promotionQuantity": 1.0,
+     "standardizedPromotionQuantity": 1,
+     "promotionType": "FROM",
+     "tags": [
+      "IO"
+     ],
+     "value": 399
+    },
+    "validityEnd": "2026-10-21",
+    "validityStart": "2026-10-15"
+   },
+   "productId": "20249035-1fd8-46af-b2d3-e9790a872f8e",
+   "medical": false,
+   "sku": "78-284508",
+   "slug": "bruehe-mit-rind-od-gemuese-bouillon-78284508",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "st",
+   "volumeLabelLong": "Stück",
+   "volumeLabelShort": "stk",
+   "weight": 0.337,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Deutschland",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "63",
+   "brand": {
+    "name": "Maggi",
+    "slug": "maggi"
+   },
+   "bundleInfo": "",
+   "category": "Fertiggerichte",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "div. Sorten",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-303260-836075843-WPugivD0.jpg"
+   ],
+   "name": "Magic Asia Instantnudeln*",
+   "packageLabel": "Becher",
+   "packageLabelKey": "be",
+   "parentCategories": [
+    [
+     {
+      "key": "13055",
+      "name": "Grundnahrungsmittel",
+      "slug": "grundnahrungsmittel-13055",
+      "orderHint": "000000060"
+     },
+     {
+      "key": "13059",
+      "name": "Fertiggerichte",
+      "slug": "fertiggerichte-13059",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013042",
+      "name": "Angebote ab 08.10.",
+      "slug": "angebote-ab-0810",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013042101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-0810-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 1571,
+     "promotionQuantity": 1.0,
+     "standardizedPromotionQuantity": 1,
+     "promotionType": "FROM",
+     "tags": [
+      "IO"
+     ],
+     "value": 99
+    },
+    "lowestPrice": 100,
+    "validityEnd": "2026-10-14",
+    "validityStart": "2026-10-08"
+   },
+   "productId": "5bbb8af8-955a-40d1-87f0-92b9f6287ca2",
+   "medical": false,
+   "sku": "78-303260",
+   "slug": "magic-asia-instantnudeln-78303260",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.079,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Litauen",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "450",
+   "brand": {
+    "name": "Gabelkönig",
+    "slug": "gabelkoenig"
+   },
+   "bundleInfo": "",
+   "category": "Schnelle Küche",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-463664-0143852387-7K9WZbET.jpg",
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-463664-0147981474-JOFoGkC4.png"
+   ],
+   "name": "Semmelknödel-Rolle",
+   "packageLabel": "Packung",
+   "packageLabelKey": "pa",
+   "parentCategories": [
+    [
+     {
+      "key": "13032",
+      "name": "Kühlwaren",
+      "slug": "kuehlwaren-13032",
+      "orderHint": "000000040"
+     },
+     {
+      "key": "13033",
+      "name": "Schnelle Küche",
+      "slug": "schnelle-kueche-13033",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013042",
+      "name": "Angebote ab 08.10.",
+      "slug": "angebote-ab-0810",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013042101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-0810-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 620,
+     "tags": [
+      "pt-aktion"
+     ],
+     "value": 279
+    },
+    "standard": {
+     "perStandardizedQuantity": 798,
+     "value": 359
+    },
+    "lowestPrice": 279,
+    "validityEnd": "2026-10-14",
+    "validityStart": "2026-10-08"
+   },
+   "productId": "2cc709f8-db3e-4b9a-a649-72748fc7c449",
+   "medical": false,
+   "sku": "78-463664",
+   "slug": "semmelknoedelrolle-78463664",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.455,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Österreich",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "600",
+   "brand": {
+    "name": "Iglo",
+    "slug": "iglo"
+   },
+   "bundleInfo": "",
+   "category": "Pommes Frites & Co.",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-599272-0117527953-Zhxmyyhd.jpg"
+   ],
+   "name": "Gitter Pommes*, Kroketten* od. Feine Welle Frites*",
+   "packageLabel": "Packung",
+   "packageLabelKey": "pa",
+   "parentCategories": [
+    [
+     {
+      "key": "13047",
+      "name": "Tiefkühl",
+      "slug": "tiefkuehl-13047",
+      "orderHint": "000000050"
+     },
+     {
+      "key": "13052",
+      "name": "Pommes Frites & Co.",
+      "slug": "pommes-frites-und-co-13052",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013062",
+      "name": "Angebote ab 15.10.",
+      "slug": "angebote-ab-1510",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013062101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-1510-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 415,
+     "tags": [
+      "SO"
+     ],
+     "value": 249
+    },
+    "validityEnd": "2026-10-21",
+    "validityStart": "2026-10-15"
+   },
+   "productId": "63040bd7-25a9-482c-9ade-b7dc1e9aa93a",
+   "medical": false,
+   "sku": "78-599272",
+   "slug": "gitter-pommes-kroketten-od-feine-welle-frites-78599272",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.607,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "450",
+   "brand": {
+    "name": "Iglo",
+    "slug": "iglo"
+   },
+   "bundleInfo": "",
+   "category": "Fisch & Garnelen",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-619544-1253936100-0_0aGWb0.jpg"
+   ],
+   "name": "Fischstäbchen*, Backfisch-Stäbchen* od. Polardorsch Knusperhülle*",
+   "packageLabel": "Packung",
+   "packageLabelKey": "pa",
+   "parentCategories": [
+    [
+     {
+      "key": "13047",
+      "name": "Tiefkühl",
+      "slug": "tiefkuehl-13047",
+      "orderHint": "000000050"
+     },
+     {
+      "key": "13050",
+      "name": "Fisch & Garnelen",
+      "slug": "fisch-und-garnelen-13050",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013062",
+      "name": "Angebote ab 15.10.",
+      "slug": "angebote-ab-1510",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013062101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-1510-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 664,
+     "tags": [
+      "SO"
+     ],
+     "value": 299
+    },
+    "validityEnd": "2026-10-21",
+    "validityStart": "2026-10-15"
+   },
+   "productId": "534451bd-1314-4215-8c12-fd1123696908",
+   "medical": false,
+   "sku": "78-619544",
+   "slug": "fischstaebchen-backfischstaebchen-od-polardorsch-knusperhuelle-78619544",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.473,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "800",
+   "bundleInfo": "",
+   "category": "Wochenangebote",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "Bolognese mit Rindfleisch",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-780413-488764784-N9UQTEEP.jpg"
+   ],
+   "name": "Condeli Lasagne*",
+   "packageLabel": "Tasse",
+   "packageLabelKey": "ta",
+   "parentCategories": [
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013042",
+      "name": "Angebote ab 08.10.",
+      "slug": "angebote-ab-0810",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013042101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-0810-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ],
+    [
+     {
+      "key": "13032",
+      "name": "Kühlwaren",
+      "slug": "kuehlwaren-13032",
+      "orderHint": "000000040"
+     },
+     {
+      "key": "13033",
+      "name": "Schnelle Küche",
+      "slug": "schnelle-kueche-13033",
+      "orderHint": "000000010"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 624,
+     "tags": [
+      "IO"
+     ],
+     "value": 499
+    },
+    "lowestPrice": 499,
+    "validityEnd": "2026-10-14",
+    "validityStart": "2026-10-08"
+   },
+   "productId": "62057599-4608-4b6e-9f5c-9b784f449b55",
+   "medical": false,
+   "sku": "78-780413",
+   "slug": "condeli-lasagne-78780413",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.855,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Österreich",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "400",
+   "bundleInfo": "",
+   "category": "Wochenangebote",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-785625-747706799-Yi2g-VcQ.jpg"
+   ],
+   "name": "Rindergulasch*",
+   "packageLabel": "Dose",
+   "packageLabelKey": "ds",
+   "parentCategories": [
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013062",
+      "name": "Angebote ab 15.10.",
+      "slug": "angebote-ab-1510",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013062101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-1510-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ],
+    [
+     {
+      "key": "13032",
+      "name": "Kühlwaren",
+      "slug": "kuehlwaren-13032",
+      "orderHint": "000000040"
+     },
+     {
+      "key": "13033",
+      "name": "Schnelle Küche",
+      "slug": "schnelle-kueche-13033",
+      "orderHint": "000000010"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 1248,
+     "tags": [
+      "IO"
+     ],
+     "value": 499
+    },
+    "validityEnd": "2026-10-21",
+    "validityStart": "2026-10-15"
+   },
+   "productId": "2e57a6fa-b4ad-4d15-9fc4-9b07ed4512d0",
+   "medical": false,
+   "sku": "78-785625",
+   "slug": "rindergulasch-78785625",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.466,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Kroatien",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "750",
+   "brand": {
+    "name": "Ich bin Österreich",
+    "slug": "ich-bin-oesterreich"
+   },
+   "bundleInfo": "",
+   "category": "Fertiggerichte",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-790129-2110285495-Yqixh0-3.jpg"
+   ],
+   "name": "Wiener Schnitzel*",
+   "packageLabel": "Beutel",
+   "packageLabelKey": "bt",
+   "parentCategories": [
+    [
+     {
+      "key": "13047",
+      "name": "Tiefkühl",
+      "slug": "tiefkuehl-13047",
+      "orderHint": "000000050"
+     },
+     {
+      "key": "13049",
+      "name": "Fertiggerichte",
+      "slug": "fertiggerichte-13049",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013042",
+      "name": "Angebote ab 08.10.",
+      "slug": "angebote-ab-0810",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013042101",
+      "name": "Wochenangebote",
+      "slug": "angebote-ab-0810-wochenangebote",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "crossed": 599,
+    "discountPercentage": -16,
+    "regular": {
+     "perStandardizedQuantity": 665,
+     "tags": [
+      "pt-aktion"
+     ],
+     "value": 499
+    },
+    "standard": {
+     "perStandardizedQuantity": 799,
+     "value": 599
+    },
+    "lowestPrice": 599,
+    "validityEnd": "2026-10-14",
+    "validityStart": "2026-10-08"
+   },
+   "productId": "be2a4252-d632-4b72-af48-b5c26d47f4d4",
+   "medical": false,
+   "sku": "78-790129",
+   "slug": "wiener-schnitzel-78790129",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.75,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Österreich",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  },
+  {
+   "amount": "720",
+   "bundleInfo": "",
+   "category": "Pizza & Baguette",
+   "conversionFactor": 1000.0,
+   "descriptionLong": "",
+   "descriptionShort": "div. Sorten",
+   "inPromotion": false,
+   "images": [
+    "https://images.cdn.europe-west1.gcp.commercetools.com/787b77ab-692c-4e25-91f4-697690dc3c7c/78-913024-0746610902-PXYL-hx3.jpg"
+   ],
+   "name": "Pizza Ristorante*",
+   "packageLabel": "Packung",
+   "packageLabelKey": "pa",
+   "parentCategories": [
+    [
+     {
+      "key": "13047",
+      "name": "Tiefkühl",
+      "slug": "tiefkuehl-13047",
+      "orderHint": "000000050"
+     },
+     {
+      "key": "13053",
+      "name": "Pizza & Baguette",
+      "slug": "pizza-und-baguette-13053",
+      "orderHint": "000000010"
+     }
+    ],
+    [
+     {
+      "key": "99000000",
+      "name": "Alle Angebote",
+      "slug": "alle-angebote-99000000",
+      "orderHint": "000000201"
+     },
+     {
+      "key": "99013062",
+      "name": "Angebote ab 15.10.",
+      "slug": "angebote-ab-1510",
+      "orderHint": "000000010"
+     },
+     {
+      "key": "99013062091",
+      "name": "Framstag",
+      "slug": "angebote-ab-1510-framstag",
+      "orderHint": "000000020"
+     }
+    ]
+   ],
+   "price": {
+    "baseUnitLong": "Kilogramm",
+    "baseUnitShort": "kg",
+    "basePriceFactor": "1",
+    "regular": {
+     "perStandardizedQuantity": 485,
+     "tags": [
+      "SO"
+     ],
+     "value": 349
+    },
+    "validityEnd": "2026-10-17",
+    "validityStart": "2026-10-16"
+   },
+   "productId": "f20e73d8-6bfb-480c-b3b4-5cbd79fd30ed",
+   "medical": false,
+   "sku": "78-913024",
+   "slug": "pizza-ristorante-78913024",
+   "upsellSku": "",
+   "published": true,
+   "purchased": false,
+   "volumeLabelKey": "gr",
+   "volumeLabelLong": "Gramm",
+   "volumeLabelShort": "g",
+   "weight": 0.72,
+   "weightArticle": false,
+   "weightPieceArticle": false,
+   "weightPerPiece": 0,
+   "alcoholByVolume": "",
+   "brandMarketing": "",
+   "countryOfOrigin": "Deutschland",
+   "features": "",
+   "keywordSearch": "",
+   "meatBorn": "",
+   "meatButchered": "",
+   "meatSlaughtered": "",
+   "meatRaised": "",
+   "nappySize": "",
+   "nutIngredients": "",
+   "productMarketing": "",
+   "regulatedProductName": "",
+   "storageAndUsageStatements": "",
+   "storageType": "",
+   "telephoneHelpline": "",
+   "wineColour": "",
+   "wineType": "",
+   "variety": "",
+   "sponsored": false
+  }
+ ]
+}

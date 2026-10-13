@@ -10,7 +10,8 @@ from .dm_shop import DmShop
 from .spar_shop import SparShop
 from .denns import Denns
 from .nah_frisch import NahFrisch
+from .penny_shop import PennyShop
 from .osm_stores import OsmStores, fetch_stores
-ADAPTERS = {a.id: a for a in [c() for c in CATALOG] + [Billa(), Penny(), Gurkerl(), Lidl(), Spar(), Hofer(), Dm(), DmShop(), Mpreis(), Unimarkt(), OpenFoodFacts(), HeissePreise(), PrepMyMeal(), LiveFresh(), Gourmetfein(), MpreisShop(), SparShop(), Denns(), NahFrisch()]}  # live adapters override catalog-only stubs with the same id
+ADAPTERS = {a.id: a for a in [c() for c in CATALOG] + [Billa(), Penny(), Gurkerl(), Lidl(), Spar(), Hofer(), Dm(), DmShop(), Mpreis(), Unimarkt(), OpenFoodFacts(), HeissePreise(), PrepMyMeal(), LiveFresh(), Gourmetfein(), MpreisShop(), SparShop(), Denns(), NahFrisch(), PennyShop()]}  # live adapters override catalog-only stubs with the same id
 def get_adapter(i): return ADAPTERS[i]
 STORE_ADAPTERS = {'osm-stores': OsmStores()}

@@ -145,6 +145,13 @@
       "sec": 60.7,
       "note": "public 'Angebote der Woche' page (KW41+KW42, 36 image tiles) → tesseract OCR: 3 ready-meal offer lines (iglo Pikante Knödel 3.99, Inzersdorfer Fertiggerichte/Suppen -25%, Knorr Kaiserteller 1.39); OCR price check 25/26 priced tiles correct vs. visual (1 miss flagged) 2026-10-13",
       "tested_at": "2026-10-13T20:47:00Z"
+    },
+    "penny-shop": {
+      "status": "pass",
+      "n": 27,
+      "sec": 8.6,
+      "note": "public penny.at product-discovery listing (453 items, 5 pages) → 27 ready-meal candidates; detail /products/<sku> 200; no GTIN/nutrition 2026-10-13",
+      "tested_at": "2026-10-13T21:20:00Z"
     }
   },
   "mpreis-shop": {
