@@ -33,3 +33,9 @@ def test_nutriscore_2023():
     assert compute_nutriscore(kcal=60, sugar=1, satfat=0.3, salt=0.3, fiber=4, protein=5)["grade"] == "A"
     assert compute_nutriscore(kcal=500, sugar=40, satfat=12, salt=2, fiber=0, protein=5)["grade"] == "E"
     assert compute_nutriscore(kcal=None, sugar=1, satfat=1, salt=1) is None
+
+def test_mealprep_nutrition_parser():
+    from food_connectors.adapters.mealprep import parse_nutrition
+    h = '<p>Nährwerte</p><table><tr><td>Nährwerte</td><td>Pro 100g</td><td>Portion (500g)</td></tr><tr><td>Energiegehalt</td><td>528kj/ 125kcal</td><td>625kcal</td></tr><tr><td>Fett</td><td>3,6g</td><td>18g</td></tr><tr><td>davon gesättigte Fettsäuren</td><td>1,2g</td><td>6g</td></tr><tr><td>Eiweiß</td><td>9g</td><td>45g</td></tr></table>'
+    n, por = parse_nutrition(h)
+    assert n == {"kcal": 125.0, "fat": 3.6, "satfat": 1.2, "protein": 9.0} and por == 500.0

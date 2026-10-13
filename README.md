@@ -45,3 +45,14 @@ Available tools: `list_sources`, `search_products`, `fetch_ready_meals`, `lookup
 `pytest` runs the offline tests. `LIVE=1 pytest` also runs the network tests.
 
 Please be polite and keep request rates low. These are public frontend endpoints, and each shop's terms apply. MIT licensed.
+
+
+## Online meal-prep shops
+
+| id | Shop | Notes |
+|---|---|---|
+| `prepmymeal` | prepmymeal.at | Shopify `/products.json` + Nährwerttabelle der Produktseite |
+| `livefresh` | livefresh.at | Shopify, nur Bowls; Nährwerte pro Portion → auf 100 g umgerechnet |
+| `gourmetfein` | shop.gourmetfein.com | Shopify, Fleischboxen |
+
+`food fetch --store prepmymeal --enrich` (fit2go.meals: Hydrogen-Shop ohne öffentliche API, noch nicht angebunden)
