@@ -16,7 +16,7 @@ Every adapter returns the same schema:
 
 | connector | source | live test | reuses / credits |
 |---|---|---|---|
-| `billa` | shop.billa.at product-discovery API (`term=`) | ✅ pass (fixed: param `searchTerm`→`term`) | — |
+| `billa` | shop.billa.at product-discovery API (`term=`) | ✅ pass (fetch via meal search stems; category path 404) | — |
 | `penny` | penny.at, same REWE API | ✅ pass | — |
 | `gurkerl` | gurkerl.at API | ✅ pass | idea from [pasogott/gurkerlcli](https://github.com/pasogott/gurkerlcli) (MIT), [tomaspavlin/rohlik-mcp](https://github.com/tomaspavlin/rohlik-mcp) (MIT) |
 | `lidl` | lidl.at `q/api/search` | ❌ fail – 401 for Python clients (TLS/bot fingerprinting, curl gets 200). Not bypassed by policy; fetchsize capped at 30. Use `heisse-preise` for Lidl prices | — |
@@ -47,7 +47,7 @@ CLI: `food search|fetch|export|sources|stores|nutri|nutriscore|company|datasets`
 
 | id | status | notes |
 |---|---|---|
-| `billa` | ✅ live | REWE product-discovery API, with nutrition, producer and ID code via `--enrich`. Also covers BILLA Zustellung (delivery to Linz). Server-side search is weak, so `fetch` walks the ready-meal categories. |
+| `billa` | ✅ live | REWE product-discovery API, with nutrition, producer and ID code via `--enrich`. Also covers BILLA Zustellung (delivery to Linz). Category listing `categories/{id}/products` 404 since 2026-10-13; `fetch` falls back to meal search stems. |
 | `penny` | ✅ live | Same REWE API. Only the online assortment of about 450 items, no ready meals right now. |
 | `gurkerl` | ✅ live | Gurkerl.at (delivers to Linz). Search, prices, **nutrition, ingredients and producer** via `/api/v1/products/{id}/composition`. |
 | `lidl` | ❌ blocked | lidl.at `q/api/search` returns 401 to Python clients; Lidl prices come via `heisse-preise`. |
@@ -113,7 +113,7 @@ MCP tools: `nutri_lookup`, `compute_nutriscore`, `list_nutri_sources`. Reuses th
 
 ## Firmendaten (`food company`)
 ```bash
-food company "GMS GOURMET GmbH"          # GLEIF: LEI, FN, Adresse, Konzernmutter
+food company "GMS GOURMET GmbH"          # GLEIF: LEI, FN, Adresse, Konzernmutter (strikter Namensabgleich: Rechtsform-/Umlaut-agnostisch, Land der Rechtsadresse muss passen, Score ≥ 0.85)
 food company --children 5299003EXF4GJXGELC41
 food company --vies ATU12345678          # EU VIES UID-Prüfung
 food company "Greisinger GmbH" --northdata   # öffentliche North-Data-Seite (rate-limited) oder API mit NORTHDATA_API_KEY

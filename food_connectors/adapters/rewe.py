@@ -34,11 +34,20 @@ class _Rewe(Adapter):
             rs = d.get("results", []); out += [self._p(r) for r in rs]
             if len(rs) < 100: break
         return out
+    # Ready-meal search stems used when category listing 404s (BILLA 2026-10-13)
+    MEAL_QUERIES = ["fertiggericht", "gulasch", "chili con carne", "lasagne", "eintopf", "curry",
+                    "risotto", "suppe", "frikassee", "bolognese", "ravioli", "menüschale"]
     def fetch(self, category="ready-meals", limit=500):
         items = []
         for c in (self.categories or [None]):
             try: items += self.listing(c)
             except Exception: pass
+        # 2026-10-13: BILLA categories/{id}/products returns 404; query-param filters are ignored.
+        # Fall back to search stems so ready-meal fetch still returns food (not empty).
+        if category == "ready-meals" and not items and getattr(self, "MEAL_QUERIES", None):
+            for q in self.MEAL_QUERIES:
+                try: items += self.search(q, 30)
+                except Exception: pass
         seen, out = set(), []
         for p in items:
             if p.source_id in seen: continue
@@ -67,7 +76,7 @@ class _Rewe(Adapter):
 class Billa(_Rewe):
     id = "billa"; store = "BILLA"; base = "https://shop.billa.at"; homepage = base
     categories = ["15395", "15390", "15391", "15232", "15233", "13842", "13969"]
-    notes = "Public JSON API. Search ranking is weak, so `fetch` walks the ready-meal categories. BILLA Zustellung (home delivery to Linz) uses the same shop."
+    notes = "Public JSON API. Category listing path categories/{id}/products 404 since 2026-10-13; fetch falls back to meal search stems. BILLA Zustellung (Linz) uses the same shop."
 
 class Penny(_Rewe):
     id = "penny"; store = "PENNY"; base = "https://www.penny.at"; homepage = base

@@ -1,10 +1,12 @@
 {
-  "tested_at": "2026-10-13T02:09:54Z",
+  "tested_at": "2026-10-13T10:35:00Z",
   "results": {
     "billa": {
       "status": "pass",
-      "n": 15,
-      "sec": 0.9
+      "n": 40,
+      "sec": 18.5,
+      "note": "categories/{id}/products 404 since 2026-10-13; fetch falls back to meal search stems",
+      "tested_at": "2026-10-13T10:35:00Z"
     },
     "penny": {
       "status": "pass",
