@@ -9,7 +9,7 @@ HIT = {"id": "7833700", "masterValues": {"product-number": "7833700", "ecr-brand
 def test_to_product():
     p = S.to_product(HIT)
     assert p.source == "spar-shop" and p.price_eur == 2.99 and p.size_g == 250 and p.unit_price_eur == 11.96 and p.unit == "kg"
-    assert p.ean == "8800344440833" and p.extra["regular_price_eur"] == 3.49 and p.extra["on_promotion"] is True
+    assert p.ean is None and p.extra["spar_code_internal"] == "8800344440833" and p.extra["regular_price_eur"] == 3.49 and p.extra["on_promotion"] is True
     assert p.source_url.endswith("/p/7833700") and S.is_ready_meal(p)
 
 def test_article_exact(monkeypatch):

@@ -27,7 +27,7 @@ TOOLS += [{"name": "list_datasets", "description": "Curated open food/price/nutr
 
 TOOLS += [{"name": "mpreis_product", "description": "Live MPreis webshop product page (schema.org JSON-LD): price, GTIN, brand, image, category, pack size, nutrition per 100 g, ingredients. Pass a /shop/p/ URL.", "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}}, "required": ["url"]}}]
 
-TOOLS += [{"name": "spar_product", "description": "Live SPAR/INTERSPAR article by article number (interspar.at/p/<id>) via SPAR's public search API: current + regular price, €/kg, GTIN, brand, category, stock status, image. Returns null if the article is no longer listed.", "inputSchema": {"type": "object", "properties": {"article_id": {"type": "string"}}, "required": ["article_id"]}}]
+TOOLS += [{"name": "spar_product", "description": "Live SPAR/INTERSPAR article by article number (interspar.at/p/<id>) via SPAR's public search API: current + regular price, €/kg, brand, category, stock status, image (code-internal is SPAR-internal, not a GTIN). Returns null if the article is no longer listed.", "inputSchema": {"type": "object", "properties": {"article_id": {"type": "string"}}, "required": ["article_id"]}}]
 
 def call(name, a):
     if name == "spar_product":

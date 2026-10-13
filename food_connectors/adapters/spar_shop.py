@@ -6,7 +6,7 @@ This is the JSON search index the interspar.at shop front-end queries (the same 
 uses, badlogic/heissepreise MIT). The host has no robots.txt (404 → no restrictions); interspar.at HTML itself
 sits behind Cloudflare and is never requested here.
 An article number (interspar.at/p/<id>) as query returns exactly that article (articleNumberSearch=true) with
-current shelf price, regular price, price per unit, GTIN (code-internal), brand, category path, stock status and
+current shelf price, regular price, price per unit, SPAR internal code (code-internal — 88… prefix, NOT a GTIN, so never mapped to ean), brand, category path, stock status and
 the public CDN image. totalHits=0 for an article number = not listed in the online assortment any more.
 """
 from __future__ import annotations
@@ -39,10 +39,10 @@ def to_product(hit: dict) -> Product:
     url = mv.get("url") or ""
     return Product(source="spar-shop", store="SPAR/INTERSPAR", name=f"{brand or ''} {mv.get('short-description-2') or mv.get('short-description') or ''}".strip(),
         brand=brand, price_eur=mv.get("price"), unit_price_eur=ppu, unit=unit, size_g=_size(mv.get("short-description-3")),
-        ean=mv.get("code-internal"), image_url=mv.get("image-url"), category=mv.get("category-names"),
+        ean=None, image_url=mv.get("image-url"), category=mv.get("category-names"),
         source_url=(SHOP + url) if url.startswith("/") else url or None, source_id=str(mv.get("product-number") or hit.get("id")),
         extra={"regular_price_eur": mv.get("regular-price"), "best_price_eur": mv.get("best-price"), "on_promotion": mv.get("is-on-promotion") == "true",
-               "stock_status": mv.get("stock-status"), "item_type": mv.get("item-type"), "sales_unit": mv.get("sales-unit"),
+               "stock_status": mv.get("stock-status"), "spar_code_internal": mv.get("code-internal"), "item_type": mv.get("item-type"), "sales_unit": mv.get("sales-unit"),
                "price_basis": "per 100 g (counter/weight product; best_price = €/kg)" if mv.get("item-type") == "WeightProduct" else "per pack", "pack": mv.get("short-description-3"), "bio": mv.get("biolevel"),
                "allergens_declared": mv.get("customer-general-info-name"), "api": API})
 
@@ -61,7 +61,7 @@ def is_ready_meal(p: Product) -> bool:
 class SparShop(Adapter):
     id = "spar-shop"; store = "SPAR/INTERSPAR"; homepage = "https://www.interspar.at"; status = "live"
     notes = ("Live: SPAR public product search API (search-spar.spar-ics.com fact-finder, no robots.txt, no login/cookies) — "
-             "current + regular price, €/kg, GTIN, brand, category, stock status, CDN image; exact lookup by article number "
+             "current + regular price, €/kg, SPAR-internal code (not a GTIN), brand, category, stock status, CDN image; exact lookup by article number "
              "(interspar.at/p/<id>). interspar.at HTML (Cloudflare) is never requested. No nutrition in this index.")
     delay = 0.4
     def search(self, q: str, limit: int = 20) -> list[Product]:
