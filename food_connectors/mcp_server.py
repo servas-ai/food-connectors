@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), every (live every-foods.com Shopify JSON + product pages), loewenanteil (live loewenanteil.com Shopify JSON + product HTML), kernbeisser (live kernbeisser.at WooCommerce Store API), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), every (live every-foods.com Shopify JSON + product pages), loewenanteil (live loewenanteil.com Shopify JSON + product HTML), kernbeisser (live kernbeisser.at WooCommerce Store API), goldblatt (live goldblatt.at Shopify JSON + product HTML), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -52,6 +52,9 @@ TOOLS += [{"name": "loewenanteil_product", "description": "Live Löwenanteil (lo
  {"name": "loewenanteil_search", "description": "Search the live Löwenanteil ready-meal assortment (public Shopify products.json, product_type Fertiggericht, tag single, jar grams ≥800) by words in title/handle/tags and return parsed meals with nutrition. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "kernbeisser_product", "description": "Live Kernbeißer (kernbeisser.at, vegan whole-grain ready meals in 450 g glass jars from Vienna; AT-only delivery, free shipping, min. 6 glasses) meal by product slug, SKU or /produkt/<slug>/ URL: name, price per glass (EUR incl. MwSt.), size, nutrition per 100 g, kcal per jar, ingredients, preparation, GTIN from product JSON-LD, stock, official packshot. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"slug": {"type": "string"}}, "required": ["slug"]}},
  {"name": "kernbeisser_search", "description": "Search the live Kernbeißer ready-meal assortment (public WooCommerce Store API) by words in name/description (e.g. 'quinoa', 'glutenfrei'); returns parsed meals with nutrition (no GTIN in search results).", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "goldblatt_product", "description": "Live Goldblatt (goldblatt.at, High Protein Bio glass-jar ready meals from Steiermark; ships AT via Post 5,99 € ab 30 € / gratis ab 90 €) meal by Shopify handle or /products/<handle> URL: name, single-jar price (EUR), edible size from Nährwerte table (typically 500 g), nutrition per 100 g and per glass, ingredients, preparation, SKU, availability, official packshot. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"handle": {"type": "string"}}, "required": ["handle"]}},
+ {"name": "goldblatt_search", "description": "Search the live Goldblatt ready-meal assortment (public Shopify products.json, product_type High Protein Bio-Fertiggerichte, single jars) by words in title/handle/tags and return parsed meals with nutrition. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 
 def call(name, a):
     if name == "every_product":
@@ -72,6 +75,13 @@ def call(name, a):
     if name == "loewenanteil_search":
         from .adapters.loewenanteil import Loewenanteil
         return [p.to_dict() for p in Loewenanteil().search(a["query"], limit=min(a.get("limit") or 10, 20))]
+    if name == "goldblatt_product":
+        from .adapters.goldblatt import product as _gb
+        r = _gb(a["handle"]); return r.to_dict() if r else None
+    if name == "goldblatt_search":
+        from .adapters.goldblatt import Goldblatt
+        return [p.to_dict() for p in Goldblatt().search(a["query"], limit=min(a.get("limit") or 10, 20))]
+
 
     if name == "fittogo_product":
         from .adapters.fittogo import parse_product, is_ready_meal, BASE

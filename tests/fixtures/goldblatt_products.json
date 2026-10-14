@@ -1,0 +1,513 @@
+{
+ "products": [
+  {
+   "id": 15478180249940,
+   "title": "Probierpaket",
+   "handle": "bio-gerichte-probierpaket",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "bundle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 55955763331412,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "5d0b82ca-bcbc-4cb9-9a42-c8824c9f303c",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "95.92",
+     "grams": 0,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/probierpaket-260526-front.jpg?v=1780485296",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 15467432214868,
+   "title": "Letscho Bowl",
+   "handle": "bio-letscho-bowl",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 55920158507348,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22207",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-260520-letscho-bowl.jpg?v=1780485283",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 15467258577236,
+   "title": "Erdäpfel Gulasch",
+   "handle": "bio-erdapfel-gulasch",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 55919542993236,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22206",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-260520-erdapfel-gulasch.jpg?v=1780485280",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12526895563092,
+   "title": "Edelpilz Rauchwurst",
+   "handle": "edelpilz-rauchwurst",
+   "vendor": "Goldblatt",
+   "product_type": "Vleisch & Wurst",
+   "tags": [
+    "Glutenfrei",
+    "Halal",
+    "Kosher"
+   ],
+   "variants": [
+    {
+     "id": 53800923136340,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "26988",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "12.99",
+     "grams": 265,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-goldblatt-edelpilz-rauchwurst-260224.jpg?v=1780485257",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 15749574984020,
+   "title": "Monatsvorrat",
+   "handle": "4-wochen-bundle",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "bundle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 57068449071444,
+     "title": "Chili con Tempeh  + Bolo Amore  + Kichererbsen Curry + Edelpilz Gulasch + Erdäpfel Gulasch + Letscho Bowl",
+     "option1": "Chili con Tempeh  + Bolo Amore  + Kichererbsen Curry + Edelpilz Gulasch + Erdäpfel Gulasch + Letscho Bowl",
+     "option2": null,
+     "option3": null,
+     "sku": "11c12fef-a5a8-4e89-a352-fb4fd6be57a9",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "131.89",
+     "grams": 10596,
+     "compare_at_price": "143.88",
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/monatsvorrat-260927-front.jpg?v=1790496832",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12437221114196,
+   "title": "6er Probierpaket",
+   "handle": "kennenlernen-bio-gerichte",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "bundle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 56693518958932,
+     "title": "Chili con Tempeh + Bolo Amore + Kichererbsen Curry + Edelpilz Gulasch + Erdäpfel Gulasch + Letscho Bowl",
+     "option1": "Chili con Tempeh + Bolo Amore + Kichererbsen Curry + Edelpilz Gulasch + Erdäpfel Gulasch + Letscho Bowl",
+     "option2": null,
+     "option3": null,
+     "sku": "4a8de526-672c-4907-9f7f-f36a4c98e1bc",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "71.94",
+     "grams": 5298,
+     "compare_at_price": "71.94",
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/probierpaket-260805-front.jpg?v=1785946487",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12319193137492,
+   "title": "Edelpilz Gulasch",
+   "handle": "bio-edelpilz-gulasch",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 52740457103700,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22203",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-fg-pilzgulasch-251008.jpg?v=1780484963",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12319178948948,
+   "title": "Kichererbsen Curry",
+   "handle": "bio-kichererbsen-curry",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 52740402348372,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22202",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-fg-curry-251008.jpg?v=1780484954",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12319145099604,
+   "title": "Bolo Amore",
+   "handle": "bio-bolognese",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 52740275077460,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22201",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-fg-bolognese-251008.jpg?v=1780484950",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12281709494612,
+   "title": "Chili con Tempeh",
+   "handle": "chili-con-tempeh",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 52671835373908,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22200",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-fg-chili-251008.jpg?v=1780484945",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12319219745108,
+   "title": "Alpine Bowl",
+   "handle": "bio-alpine-bowl",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 52740530078036,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22205",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-fg-alpine-251008.jpg?v=1780484972",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 12319212863828,
+   "title": "Oriental Bowl",
+   "handle": "bio-oriental-bowl",
+   "vendor": "Goldblatt",
+   "product_type": "High Protein Bio-Fertiggerichte",
+   "tags": [
+    "Ballaststoffquelle",
+    "Glutenfrei",
+    "ohne Zuckerzusatz",
+    "Pflanzlich",
+    "Proteinreich"
+   ],
+   "variants": [
+    {
+     "id": 52740515365204,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "22204",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "11.99",
+     "grams": 883,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-fg-oriental-251008.jpg?v=1780484969",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 11886285554004,
+   "title": "Avocado Affair – Topping",
+   "handle": "bio-avocado-affair-topping",
+   "vendor": "Goldblatt",
+   "product_type": "Topping",
+   "tags": [
+    "Bio"
+   ],
+   "variants": [
+    {
+     "id": 51490259075412,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "11170",
+     "requires_shipping": true,
+     "taxable": true,
+     "available": true,
+     "price": "6.49",
+     "grams": 185,
+     "compare_at_price": null,
+     "position": 1
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gbf-spiceblend-avocado-2505.jpg?v=1780484854",
+     "position": 1
+    }
+   ]
+  },
+  {
+   "id": 9900930859348,
+   "title": "Geschenkgutschein",
+   "handle": "geschenkgutschein",
+   "vendor": "Goldblatt",
+   "product_type": "Gutschein",
+   "tags": [],
+   "variants": [
+    {
+     "id": 50737540038996,
+     "title": "25,00 €",
+     "option1": "25,00 €",
+     "option2": null,
+     "option3": null,
+     "sku": null,
+     "requires_shipping": false,
+     "taxable": false,
+     "available": true,
+     "price": "25.00",
+     "grams": 0,
+     "compare_at_price": null,
+     "position": 2
+    }
+   ],
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/Geschenkkarte-3.jpg?v=1780483513",
+     "position": 1
+    }
+   ]
+  }
+ ]
+}

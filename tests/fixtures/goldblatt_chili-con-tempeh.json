@@ -1,0 +1,41 @@
+{
+ "product": {
+  "id": 12281709494612,
+  "title": "Chili con Tempeh",
+  "handle": "chili-con-tempeh",
+  "vendor": "Goldblatt",
+  "product_type": "High Protein Bio-Fertiggerichte",
+  "tags": [
+   "Ballaststoffquelle",
+   "Glutenfrei",
+   "ohne Zuckerzusatz",
+   "Pflanzlich",
+   "Proteinreich"
+  ],
+  "variants": [
+   {
+    "id": 52671835373908,
+    "title": "Default Title",
+    "option1": "Default Title",
+    "option2": null,
+    "option3": null,
+    "sku": "22200",
+    "requires_shipping": true,
+    "taxable": true,
+    "available": true,
+    "price": "11.99",
+    "grams": 883,
+    "compare_at_price": null,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f1-gb-fg-chili-251008.jpg?v=1780484945"
+   },
+   {
+    "src": "https://cdn.shopify.com/s/files/1/0917/3450/7860/files/f2-gb-fg-chili-251008.jpg?v=1780484947"
+   }
+  ]
+ }
+}
