@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), every (live every-foods.com Shopify JSON + product pages), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -45,7 +45,16 @@ TOOLS += [{"name": "bofrost_product", "description": "Live bofrost* Austria (fro
 TOOLS += [{"name": "fittogo_product", "description": "Live fit2go.meals (fittogo.at, frozen ready meals shipped AT-wide) product by handle or /products/<handle> URL from the public product HTML: name, pack size, pack + per-100g nutrition (kcal/protein/carbs/fat), ingredients, allergens, official packshot. price_eur is the published 12er-box meal price (9,99 €); the individual SKU shows 0,00 €. Returns null if not a ready meal.", "inputSchema": {"type": "object", "properties": {"handle": {"type": "string"}}, "required": ["handle"]}},
  {"name": "fittogo_search", "description": "Search live fit2go.meals assortment (public product sitemap + product HTML) by words in the product slug. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "every_product", "description": "Live every. (every-foods.com, frozen plant-based ready meals shipped to Austria via DPD) meal by Shopify handle or /products/<handle> URL: name, single-meal price (EUR, DE/AT shop), €/kg, weight, nutrition per 100 g and per pack, ingredients, preparation, SKU, availability, official packshot (cdn.shopify.com). No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"handle": {"type": "string"}}, "required": ["handle"]}},
+ {"name": "every_search", "description": "Search the live every. ready-meal assortment (public Shopify products.json, product_type Meal, listed in the DE product sitemap) by words in title/handle/tags (e.g. 'curry', 'gnocchi', 'High in protein') and return parsed meals with nutrition. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 def call(name, a):
+    if name == "every_product":
+        from .adapters.every import product
+        p = product(a["handle"]); return p.to_dict() if p else None
+    if name == "every_search":
+        from .adapters.every import Every
+        return [p.to_dict() for p in Every().search(a["query"], limit=min(a.get("limit") or 10, 20))]
     if name == "fittogo_product":
         from .adapters.fittogo import parse_product, is_ready_meal, BASE
         from .http import get

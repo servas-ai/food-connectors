@@ -1,0 +1,91 @@
+{
+ "products": [
+  {
+   "id": 11871362089228,
+   "title": "Creamy Peanut Curry",
+   "handle": "creamy-peanut-curry",
+   "body_html": "<p><meta charset=\"utf-8\"><span data-sheets-root=\"1\"><br></span></p>",
+   "published_at": "2026-08-11T14:17:53+02:00",
+   "created_at": "2026-07-24T17:50:43+02:00",
+   "updated_at": "2026-10-14T05:43:44+02:00",
+   "vendor": "Every",
+   "product_type": "Meal",
+   "tags": [
+    "500kcal",
+    "Bowls",
+    "Garlic",
+    "gluten",
+    "logitrax_eligible",
+    "Low in saturated fats",
+    "Low sugar",
+    "lowcarb",
+    "Microwave",
+    "No added sugar",
+    "Not spicy",
+    "Pan",
+    "pricing_2026",
+    "quantity",
+    "Savoury",
+    "Source of fiber",
+    "Source of fibre",
+    "soy",
+    "subtype__Pasta&Noodles",
+    "Vegan"
+   ],
+   "variants": [
+    {
+     "id": 54880576700684,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "F5001Z",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "9.99",
+     "grams": 1000,
+     "compare_at_price": "9.99",
+     "position": 1,
+     "product_id": 11871362089228,
+     "created_at": "2026-07-24T17:50:44+02:00",
+     "updated_at": "2026-10-14T05:43:44+02:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 52262133563660,
+     "created_at": "2026-08-11T14:18:06+02:00",
+     "position": 1,
+     "updated_at": "2026-08-11T14:18:11+02:00",
+     "product_id": 11871362089228,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0228/6528/1104/files/60_943d51a3-7455-4d1a-843d-dbaee9250a72.png?v=1786450691",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 52262133596428,
+     "created_at": "2026-08-11T14:18:06+02:00",
+     "position": 2,
+     "updated_at": "2026-08-11T14:18:11+02:00",
+     "product_id": 11871362089228,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0228/6528/1104/files/every_Erdnuss-Kokos-Curry_planted_V1.png?v=1786450691",
+     "width": 943,
+     "height": 943
+    }
+   ],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  }
+ ]
+}
