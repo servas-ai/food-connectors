@@ -123,4 +123,4 @@ class LiveFresh(ShopifyMealShop):
 
 class Gourmetfein(ShopifyMealShop):
     id = "gourmetfein"; store = "Online: Gourmetfein"; domain = "shop.gourmetfein.com"; homepage = "https://shop.gourmetfein.com"
-    notes = "Fleisch-/Grillboxen, kaum Fertiggerichte"
+    notes = "DEAD END for ready meals (verified 2026-10-14T0307): Shopify live, 75 products = Wurst/Leberkäse/Grill only — 0 Fertiggerichte; connector kept for catalog completeness, not imported into online_mealprep"

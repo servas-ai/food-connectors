@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -42,7 +42,24 @@ TOOLS += [{"name": "juit_dishes", "description": "Live Juit (juit.com, frozen re
 TOOLS += [{"name": "bofrost_product", "description": "Live bofrost* Austria (frozen home delivery across Austria) product by article number (e.g. 00196) or bofrost.at product URL from the public product page: name, price, €/kg, pack (e.g. 2 x 300 g), availability, nutrition per 100 g, ingredients, portion size, category, official image. No GTIN is published. Returns null if not listed.", "inputSchema": {"type": "object", "properties": {"article": {"type": "string"}}, "required": ["article"]}},
  {"name": "bofrost_search", "description": "Search the live bofrost.at assortment (public product sitemap, ~420 products) by words in the product slug and return parsed product pages (price, €/kg, nutrition, image). ready_meals_only keeps ready-meal categories (Pfannengerichte, Pasta, Schlemmer-Menüs, Hausmannskost, Suppen, Länderküche, Pizza, Fleisch-/Geflügelzubereitungen, vegetarisch/vegan). Polite 1 req/s, keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ready_meals_only": {"type": "boolean"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "fittogo_product", "description": "Live fit2go.meals (fittogo.at, frozen ready meals shipped AT-wide) product by handle or /products/<handle> URL from the public product HTML: name, pack size, pack + per-100g nutrition (kcal/protein/carbs/fat), ingredients, allergens, official packshot. price_eur is the published 12er-box meal price (9,99 €); the individual SKU shows 0,00 €. Returns null if not a ready meal.", "inputSchema": {"type": "object", "properties": {"handle": {"type": "string"}}, "required": ["handle"]}},
+ {"name": "fittogo_search", "description": "Search live fit2go.meals assortment (public product sitemap + product HTML) by words in the product slug. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 def call(name, a):
+    if name == "fittogo_product":
+        from .adapters.fittogo import parse_product, is_ready_meal, BASE
+        from .http import get
+        handle = a["handle"].strip().rstrip("/").split("/")[-1]
+        url = handle if handle.startswith("http") else f"{BASE}/products/{handle}"
+        try:
+            h = get(url, raw=True, timeout=40).decode("utf-8", "replace")
+        except Exception:
+            return None
+        p = parse_product(h, url)
+        return p.to_dict() if is_ready_meal(p) else None
+    if name == "fittogo_search":
+        from .adapters.fittogo import FitToGo
+        return [p.to_dict() for p in FitToGo().search(a["query"], limit=min(a.get("limit") or 10, 20))]
     if name == "bofrost_product":
         from .adapters.bofrost import product
         p = product(a["article"]); return p.to_dict() if p else None
