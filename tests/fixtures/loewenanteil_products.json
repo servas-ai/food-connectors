@@ -1,0 +1,796 @@
+{
+ "products": [
+  {
+   "id": 12110013202696,
+   "title": "Gelbes Thai Curry",
+   "handle": "gelbes-thai-curry",
+   "body_html": "<p data-pm-slice=\"1 1 []\">Unser Gelbes Thai Curry bringt dir die <strong>aromatische Vielfalt der thailändischen Küche</strong> direkt auf den Teller. Bio-Kokoscreme mit knackigen Edamame, Brechbohnen und Möhren. Verfeinert mit authentischen Gewürzen schmeckt es nicht nur fantastisch, sondern liefert dir mit satten <strong>42g Protein</strong> und <strong>17g Ballaststoffen</strong> auch gewohnt kompromisslose Nährwerte.</p>\n<p>Portionen pro Glas:<strong> 2<br></strong>Preis pro Portion:<strong> €4,99</strong></p>",
+   "published_at": "2026-07-20T10:18:03+02:00",
+   "created_at": "2026-07-17T10:21:59+02:00",
+   "updated_at": "2026-10-14T06:46:54+02:00",
+   "vendor": "Löwenanteil",
+   "product_type": "Fertiggericht",
+   "tags": [
+    "Abo",
+    "glutenfrei",
+    "influencercollection",
+    "mixmatch",
+    "mm_vegan",
+    "single",
+    "vegan",
+    "vegetarisch"
+   ],
+   "variants": [
+    {
+     "id": 58250816782600,
+     "title": "Einzeln",
+     "option1": "Einzeln",
+     "option2": null,
+     "option3": null,
+     "sku": "1520",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "9.99",
+     "grams": 862,
+     "compare_at_price": "9.99",
+     "position": 1,
+     "product_id": 12110013202696,
+     "created_at": "2026-07-17T10:22:00+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 58250816815368,
+     "title": "6er Pack",
+     "option1": "6er Pack",
+     "option2": null,
+     "option3": null,
+     "sku": "1520V6",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "59.94",
+     "grams": 5172,
+     "compare_at_price": "59.94",
+     "position": 2,
+     "product_id": 12110013202696,
+     "created_at": "2026-07-17T10:22:00+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 58250816848136,
+     "title": "12er Pack",
+     "option1": "12er Pack",
+     "option2": null,
+     "option3": null,
+     "sku": "1520V12",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "119.88",
+     "grams": 10344,
+     "compare_at_price": "119.88",
+     "position": 3,
+     "product_id": 12110013202696,
+     "created_at": "2026-07-17T10:22:00+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 85782305177864,
+     "created_at": "2026-07-17T10:29:28+02:00",
+     "position": 1,
+     "updated_at": "2026-07-17T14:52:19+02:00",
+     "product_id": 12110013202696,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/gelbes-thai-curry-fertiggericht-loewenanteil-loewenanteil-3392571.jpg?v=1784292739",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 85782305276168,
+     "created_at": "2026-07-17T10:29:32+02:00",
+     "position": 2,
+     "updated_at": "2026-07-27T12:35:54+02:00",
+     "product_id": 12110013202696,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/gelbes-thai-curry-fertiggericht-loewenanteil-loewenanteil-3130676.jpg?v=1785148554",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 85782305210632,
+     "created_at": "2026-07-17T10:29:28+02:00",
+     "position": 3,
+     "updated_at": "2026-07-17T14:52:19+02:00",
+     "product_id": 12110013202696,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/gelbes-thai-curry-fertiggericht-loewenanteil-loewenanteil-4797854.jpg?v=1784292739",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 85782305243400,
+     "created_at": "2026-07-17T10:29:28+02:00",
+     "position": 4,
+     "updated_at": "2026-07-17T14:52:21+02:00",
+     "product_id": 12110013202696,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/gelbes-thai-curry-fertiggericht-loewenanteil-loewenanteil-9269450.jpg?v=1784292741",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 62241558102280,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 5,
+     "updated_at": "2026-07-30T16:14:09+02:00",
+     "product_id": 12110013202696,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-zufriedene-kunden.jpg?v=1785420849",
+     "width": 4167,
+     "height": 4167
+    },
+    {
+     "id": 62241558233352,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 6,
+     "updated_at": "2026-06-15T10:31:34+02:00",
+     "product_id": 12110013202696,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-zubereitung.jpg?v=1781512294",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 62241558135048,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 7,
+     "updated_at": "2026-02-09T18:09:24+01:00",
+     "product_id": 12110013202696,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-lieferdienst.jpg?v=1770656964",
+     "width": 4167,
+     "height": 4167
+    }
+   ],
+   "options": [
+    {
+     "name": "Variante wählen",
+     "position": 1,
+     "values": [
+      "Einzeln",
+      "6er Pack",
+      "12er Pack"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11978469605640,
+   "title": "Protein Pasta",
+   "handle": "protein-pasta",
+   "body_html": "<p data-pm-slice=\"1 1 []\"><meta charset=\"utf-8\">Pasta-Genuss ohne schlechtes Gewissen – mit unserer Bio Protein Pasta ist das endlich möglich! Mit <b>100% Bio-Zutaten</b> aus roten Linsen, Erbsenprotein und goldenen Leinsamen liefert sie dir <b>48g Protein pro Portion</b> und <b>41% weniger Kohlenhydrate</b> als Weizenpasta. Dazu <b>15g Ballaststoffe</b> für ein langes Sättigungsgefühl. Das perfekte Upgrade für deine Lieblingsgerichte.</p>\n<p><br>Portionen pro Packung:<strong> 2x 125g<br></strong>Preis pro Portion:<strong> €2,49</strong></p>",
+   "published_at": "2026-05-30T09:39:09+02:00",
+   "created_at": "2026-05-20T09:19:22+02:00",
+   "updated_at": "2026-10-14T06:46:54+02:00",
+   "vendor": "Löwenanteil",
+   "product_type": "Fertiggericht",
+   "tags": [
+    "Abo",
+    "glutenfrei",
+    "influencercollection",
+    "mixmatch",
+    "mm_pasta",
+    "no-rating",
+    "single",
+    "vegan",
+    "vegetarisch"
+   ],
+   "variants": [
+    {
+     "id": 57853314105608,
+     "title": "Einzeln",
+     "option1": "Einzeln",
+     "option2": null,
+     "option3": null,
+     "sku": "5100",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "4.99",
+     "grams": 300,
+     "compare_at_price": "4.99",
+     "position": 1,
+     "product_id": 11978469605640,
+     "created_at": "2026-05-20T09:19:23+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 57853314138376,
+     "title": "6er Pack",
+     "option1": "6er Pack",
+     "option2": null,
+     "option3": null,
+     "sku": "5100V6",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "29.94",
+     "grams": 1800,
+     "compare_at_price": "29.94",
+     "position": 2,
+     "product_id": 11978469605640,
+     "created_at": "2026-05-20T09:19:23+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 57853314171144,
+     "title": "12er Pack",
+     "option1": "12er Pack",
+     "option2": null,
+     "option3": null,
+     "sku": "5100V12",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "59.88",
+     "grams": 3600,
+     "compare_at_price": "59.88",
+     "position": 3,
+     "product_id": 11978469605640,
+     "created_at": "2026-05-20T09:19:23+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 84666235486472,
+     "created_at": "2026-05-29T10:52:34+02:00",
+     "position": 1,
+     "updated_at": "2026-06-03T14:09:38+02:00",
+     "product_id": 11978469605640,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/protein-pasta-fertiggericht-loewenanteil-loewenanteil-1687360.jpg?v=1780488578",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 84669077881096,
+     "created_at": "2026-05-29T13:33:23+02:00",
+     "position": 2,
+     "updated_at": "2026-05-29T17:01:22+02:00",
+     "product_id": 11978469605640,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/protein-pasta-fertiggericht-loewenanteil-loewenanteil-1467448.jpg?v=1780066882",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 84669081223432,
+     "created_at": "2026-05-29T13:33:36+02:00",
+     "position": 3,
+     "updated_at": "2026-05-29T17:01:23+02:00",
+     "product_id": 11978469605640,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/protein-pasta-fertiggericht-loewenanteil-loewenanteil-1756022.jpg?v=1780066883",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 84669081190664,
+     "created_at": "2026-05-29T13:33:36+02:00",
+     "position": 4,
+     "updated_at": "2026-05-29T17:01:26+02:00",
+     "product_id": 11978469605640,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/protein-pasta-fertiggericht-loewenanteil-loewenanteil-1520905.jpg?v=1780066886",
+     "width": 4000,
+     "height": 4000
+    },
+    {
+     "id": 84814319845640,
+     "created_at": "2026-06-05T13:51:40+02:00",
+     "position": 5,
+     "updated_at": "2026-06-06T09:05:16+02:00",
+     "product_id": 11978469605640,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/protein-pasta-bolognese-duo-bundle-loewenanteil-loewenanteil-7522532.jpg?v=1780729516",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 84669081256200,
+     "created_at": "2026-05-29T13:33:36+02:00",
+     "position": 6,
+     "updated_at": "2026-05-29T17:01:26+02:00",
+     "product_id": 11978469605640,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/protein-pasta-fertiggericht-loewenanteil-loewenanteil-2859422.jpg?v=1780066886",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 84669080076552,
+     "created_at": "2026-05-29T13:33:27+02:00",
+     "position": 7,
+     "updated_at": "2026-06-05T13:16:13+02:00",
+     "product_id": 11978469605640,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/protein-pasta-fertiggericht-loewenanteil-loewenanteil-6246116.jpg?v=1780658173",
+     "width": 2000,
+     "height": 2000
+    }
+   ],
+   "options": [
+    {
+     "name": "Variante wählen",
+     "position": 1,
+     "values": [
+      "Einzeln",
+      "6er Pack",
+      "12er Pack"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 9579327193352,
+   "title": "Classic Bolognese",
+   "handle": "classic-bolognese",
+   "body_html": "<p><span data-sheets-root=\"1\">Authentischer Genuss ohne schlechtes Gewissen. 30% hochwertiges Bio-Rindfleisch, saftige Tomaten &amp; Basilikum verwandeln den mediterranen Klassiker in ein proteinreiches Gericht mit besten Nährwerten. </span></p>\n<p><span data-sheets-root=\"1\">Portionen pro Glas:<strong> 2<br></strong>Preis pro Portion:<strong> €4,99</strong></span></p>",
+   "published_at": "2025-01-02T08:10:54+01:00",
+   "created_at": "2024-12-06T09:25:33+01:00",
+   "updated_at": "2026-10-14T06:46:54+02:00",
+   "vendor": "Löwenanteil",
+   "product_type": "Fertiggericht",
+   "tags": [
+    "Abo",
+    "badge: NEU",
+    "influencercollection",
+    "mm_bio-fleisch",
+    "single"
+   ],
+   "variants": [
+    {
+     "id": 50514193121544,
+     "title": "Einzeln",
+     "option1": "Einzeln",
+     "option2": null,
+     "option3": null,
+     "sku": "1515",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "9.99",
+     "grams": 862,
+     "compare_at_price": "9.99",
+     "position": 3,
+     "product_id": 9579327193352,
+     "created_at": "2024-12-27T16:03:30+01:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 50514193154312,
+     "title": "6er Vorteilspack",
+     "option1": "6er Vorteilspack",
+     "option2": null,
+     "option3": null,
+     "sku": "1515V6",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "56.94",
+     "grams": 5172,
+     "compare_at_price": "59.94",
+     "position": 4,
+     "product_id": 9579327193352,
+     "created_at": "2024-12-27T16:03:30+01:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 50514193187080,
+     "title": "12er Vorteilspack",
+     "option1": "12er Vorteilspack",
+     "option2": null,
+     "option3": null,
+     "sku": "1515V12",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "107.89",
+     "grams": 10344,
+     "compare_at_price": "119.88",
+     "position": 5,
+     "product_id": 9579327193352,
+     "created_at": "2024-12-27T16:03:30+01:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 51536718332168,
+     "created_at": "2025-01-02T18:12:28+01:00",
+     "position": 1,
+     "updated_at": "2026-06-03T17:49:54+02:00",
+     "product_id": 9579327193352,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/classic-bolognese-fertiggericht-lowenanteil-lowenanteil-540044.jpg?v=1780501794",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 51536718364936,
+     "created_at": "2025-01-02T18:12:28+01:00",
+     "position": 2,
+     "updated_at": "2026-07-01T12:23:53+02:00",
+     "product_id": 9579327193352,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/classic-bolognese-fertiggericht-lowenanteil-lowenanteil-430657.jpg?v=1782901433",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 52793435586824,
+     "created_at": "2025-02-20T15:29:30+01:00",
+     "position": 3,
+     "updated_at": "2026-06-15T10:18:50+02:00",
+     "product_id": 9579327193352,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/classic-bolognese-fertiggericht-lowenanteil-lowenanteil-938300.jpg?v=1781511530",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 52793444139272,
+     "created_at": "2025-02-20T15:29:41+01:00",
+     "position": 4,
+     "updated_at": "2025-08-18T13:08:04+02:00",
+     "product_id": 9579327193352,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/classic-bolognese-fertiggericht-lowenanteil-lowenanteil-622142.jpg?v=1755515284",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 62241558135048,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 5,
+     "updated_at": "2026-02-09T18:09:24+01:00",
+     "product_id": 9579327193352,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-lieferdienst.jpg?v=1770656964",
+     "width": 4167,
+     "height": 4167
+    },
+    {
+     "id": 62241558102280,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 6,
+     "updated_at": "2026-07-30T16:14:09+02:00",
+     "product_id": 9579327193352,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-zufriedene-kunden.jpg?v=1785420849",
+     "width": 4167,
+     "height": 4167
+    },
+    {
+     "id": 62241558233352,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 7,
+     "updated_at": "2026-06-15T10:31:34+02:00",
+     "product_id": 9579327193352,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-zubereitung.jpg?v=1781512294",
+     "width": 2000,
+     "height": 2000
+    }
+   ],
+   "options": [
+    {
+     "name": "Variante wählen",
+     "position": 1,
+     "values": [
+      "Einzeln",
+      "6er Vorteilspack",
+      "12er Vorteilspack"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 4793543426122,
+   "title": "Probierpaket",
+   "handle": "probierpaket",
+   "body_html": "<div class=\"page\" title=\"Page 1\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p><meta charset=\"utf-8\">Teste unsere beliebtesten <meta charset=\"utf-8\"><span>Bio-Gerichte sowie unser neues Gelbes Thai Curry im Probierpaket</span>. <meta charset=\"utf-8\"><span class=\"x7amdea\">Schon ab</span><strong class=\"x7amdea\"> 4,99 € pro Portion – und 2× Protein Pasta gibt’s gratis dazu!</strong></p>\n<ul style=\"font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 1rem;\">\n<li>1 x African Bowl</li>\n<li>1 x Chili Sin Carne</li>\n<li>1 x Chipotle Chili</li>\n<li>1 x Mediterranes Hühnchen</li>\n<li>1 x Kichererbsen Curry</li>\n<li>1 x Erdnuss Curry</li>\n<li>1 x Linsen Dal</li>\n<li>1x Butter Chicken</li>\n<li>1 x <meta charset=\"utf-8\"> Classic Bolognese</li>\n<li>1x Paprika Hähnchen<br>\n</li>\n<li>1x Hühner Frikassee</li>\n<li>1x Gelbes Thai Curry <meta charset=\"utf-8\">🆕</li>\n<li>2x gratis Protein Pasta <meta charset=\"utf-8\"> <span>🍝</span><meta charset=\"utf-8\"> <span>🍝</span><meta charset=\"utf-8\">\n</li>\n</ul>\n</div>\n</div>\n</div>\n</div>",
+   "published_at": "2024-12-03T09:05:02+01:00",
+   "created_at": "2020-10-05T17:02:51+02:00",
+   "updated_at": "2026-10-14T06:46:54+02:00",
+   "vendor": "Löwenanteil",
+   "product_type": "Bundle",
+   "tags": [
+    "__black_week_23",
+    "bundle",
+    "influencercollection"
+   ],
+   "variants": [
+    {
+     "id": 49887972000008,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "BPROB",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": true,
+     "price": "129.86",
+     "grams": 10344,
+     "compare_at_price": null,
+     "position": 1,
+     "product_id": 4793543426122,
+     "created_at": "2024-08-27T09:04:58+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 87642178715912,
+     "created_at": "2026-10-12T07:37:20+02:00",
+     "position": 1,
+     "updated_at": "2026-10-12T21:20:11+02:00",
+     "product_id": 4793543426122,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/probierpaket-bundle-loewenanteil-loewenanteil-7518823.jpg?v=1791832811",
+     "width": 2500,
+     "height": 2500
+    },
+    {
+     "id": 52793953550600,
+     "created_at": "2025-02-20T15:43:05+01:00",
+     "position": 2,
+     "updated_at": "2026-07-30T16:13:57+02:00",
+     "product_id": 4793543426122,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-probierpaket-zufriedene-kunden.jpg?v=1785420837",
+     "width": 4167,
+     "height": 4167
+    },
+    {
+     "id": 87084691063048,
+     "created_at": "2026-09-21T12:42:38+02:00",
+     "position": 3,
+     "updated_at": "2026-09-21T18:58:14+02:00",
+     "product_id": 4793543426122,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/probierpaket-bundle-loewenanteil-loewenanteil-1110668.jpg?v=1790009894",
+     "width": 2500,
+     "height": 2500
+    },
+    {
+     "id": 62241558233352,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 4,
+     "updated_at": "2026-06-15T10:31:34+02:00",
+     "product_id": 4793543426122,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-zubereitung.jpg?v=1781512294",
+     "width": 2000,
+     "height": 2000
+    },
+    {
+     "id": 62241558135048,
+     "created_at": "2025-03-28T12:39:01+01:00",
+     "position": 5,
+     "updated_at": "2026-02-09T18:09:24+01:00",
+     "product_id": 4793543426122,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/files/loewenanteil-lieferdienst.jpg?v=1770656964",
+     "width": 4167,
+     "height": 4167
+    }
+   ],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 6866536562762,
+   "title": "Löwenanteil Hoodie",
+   "handle": "hoodie",
+   "body_html": "",
+   "published_at": "2022-05-17T11:00:04+02:00",
+   "created_at": "2022-05-17T10:46:20+02:00",
+   "updated_at": "2026-10-14T06:46:54+02:00",
+   "vendor": "Löwenanteil",
+   "product_type": "Merch",
+   "tags": [
+    "vegan"
+   ],
+   "variants": [
+    {
+     "id": 39831946428490,
+     "title": "S",
+     "option1": "S",
+     "option2": null,
+     "option3": null,
+     "sku": "6101",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": false,
+     "price": "44.99",
+     "grams": 580,
+     "compare_at_price": null,
+     "position": 1,
+     "product_id": 6866536562762,
+     "created_at": "2022-05-17T10:47:55+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 39831946461258,
+     "title": "M",
+     "option1": "M",
+     "option2": null,
+     "option3": null,
+     "sku": "6102",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": false,
+     "price": "44.99",
+     "grams": 580,
+     "compare_at_price": null,
+     "position": 2,
+     "product_id": 6866536562762,
+     "created_at": "2022-05-17T10:47:55+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 39831946494026,
+     "title": "L",
+     "option1": "L",
+     "option2": null,
+     "option3": null,
+     "sku": "6103",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": false,
+     "price": "44.99",
+     "grams": 580,
+     "compare_at_price": null,
+     "position": 3,
+     "product_id": 6866536562762,
+     "created_at": "2022-05-17T10:47:55+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 39831946526794,
+     "title": "XL",
+     "option1": "XL",
+     "option2": null,
+     "option3": null,
+     "sku": "6104",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": false,
+     "price": "44.99",
+     "grams": 580,
+     "compare_at_price": null,
+     "position": 4,
+     "product_id": 6866536562762,
+     "created_at": "2022-05-17T10:47:55+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    },
+    {
+     "id": 39831946559562,
+     "title": "XXL",
+     "option1": "XXL",
+     "option2": null,
+     "option3": null,
+     "sku": "6105",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": null,
+     "available": false,
+     "price": "44.99",
+     "grams": 580,
+     "compare_at_price": null,
+     "position": 5,
+     "product_id": 6866536562762,
+     "created_at": "2022-05-17T10:47:55+02:00",
+     "updated_at": "2026-10-14T06:46:54+02:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 28873664626762,
+     "created_at": "2022-05-17T15:46:38+02:00",
+     "position": 1,
+     "updated_at": "2022-05-17T15:46:38+02:00",
+     "product_id": 6866536562762,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/products/lowenanteil-hoodie-539562.jpg?v=1652795198",
+     "width": 2048,
+     "height": 2048
+    },
+    {
+     "id": 28873664692298,
+     "created_at": "2022-05-17T15:46:38+02:00",
+     "position": 2,
+     "updated_at": "2022-05-17T15:46:38+02:00",
+     "product_id": 6866536562762,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/products/lowenanteil-hoodie-779436.jpg?v=1652795198",
+     "width": 2048,
+     "height": 2048
+    },
+    {
+     "id": 28873664725066,
+     "created_at": "2022-05-17T15:46:38+02:00",
+     "position": 3,
+     "updated_at": "2022-05-17T15:46:38+02:00",
+     "product_id": 6866536562762,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/products/lowenanteil-hoodie-424070.jpg?v=1652795198",
+     "width": 2048,
+     "height": 2048
+    },
+    {
+     "id": 28873664757834,
+     "created_at": "2022-05-17T15:46:38+02:00",
+     "position": 4,
+     "updated_at": "2022-05-17T15:46:38+02:00",
+     "product_id": 6866536562762,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/products/lowenanteil-hoodie-857089.jpg?v=1652795198",
+     "width": 2048,
+     "height": 2048
+    },
+    {
+     "id": 28873664790602,
+     "created_at": "2022-05-17T15:46:38+02:00",
+     "position": 5,
+     "updated_at": "2022-05-17T15:46:38+02:00",
+     "product_id": 6866536562762,
+     "variant_ids": [],
+     "src": "https://cdn.shopify.com/s/files/1/0271/2908/6026/products/lowenanteil-hoodie-929512.jpg?v=1652795198",
+     "width": 2048,
+     "height": 2048
+    }
+   ],
+   "options": [
+    {
+     "name": "Größe",
+     "position": 1,
+     "values": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ]
+    }
+   ]
+  }
+ ]
+}
