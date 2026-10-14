@@ -1,0 +1,2386 @@
+{
+ "pizza": {
+  "hit": {
+   "id": 29741,
+   "acr": {
+    "altha": 64302338.71
+   },
+   "opts": [],
+   "slug": "dr-oetker-ristorante-pizza-salami-packung-320g",
+   "unit": "kg",
+   "title": "Dr. Oetker Ristorante Pizza Salami",
+   "images": [
+    "https://static.alfies.at/images/products/2022/04/img/dr-oetker-ristorante-pizza-salami-packung-320g_1650906207.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "ageRestriction": false,
+    "focusKeyword": "Dr. Oetker Ristorante Pizza Salami",
+    "showFlag": true,
+    "seoTitle": "Dr. Oetker Ristorante Pizza Salami",
+    "brand": "Dr. Oetker",
+    "metaDescription": "Einfach bestellen und Dr. Oetker Ristorante Pizza Salami in 60 Minuten genießen.",
+    "ingredients": "",
+    "nutrition": "",
+    "searchTags": [
+     "Pizza",
+     "Salami",
+     "Tiefkühl",
+     "Tiefkühlpizza"
+    ],
+    "gurkerlId": "7258",
+    "billaId": "00-408367",
+    "klarnaDisabled": false,
+    "saferpayDisabled": false
+   },
+   "categories": [
+    {
+     "id": 9028,
+     "name": "Tiefkühlpizza",
+     "slug": "frozen-pizza",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9022,
+       "name": "Tiefgekühlte Fertiggerichte",
+       "slug": "frozen-ready-meals"
+      },
+      {
+       "id": 9021,
+       "name": "Tiefgekühltes",
+       "slug": "frozen"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8980,
+     "name": "Tiefkühlpizza",
+     "slug": "frozen-pizza",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9240,
+     "name": "Diner",
+     "slug": "diner",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9216,
+       "name": "Super Bowl LIX",
+       "slug": "super-bowl-lix"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9513,
+     "name": "Dr. Oetker",
+     "slug": "dr-oetker",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9022,
+       "name": "Tiefgekühlte Fertiggerichte",
+       "slug": "frozen-ready-meals"
+      },
+      {
+       "id": 9021,
+       "name": "Tiefgekühltes",
+       "slug": "frozen"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-14T03:28:48.165242Z",
+   "dateUpdated": "2026-10-14T03:28:48.165252Z",
+   "description": "<br><br>Tiefgekühlt lagern",
+   "displayUnit": "Packung 320g",
+   "generalPopularity": 14728.0,
+   "generalPopularityByWarehouse": {
+    "macu": 14751.0,
+    "graz": 14768.0,
+    "grill": 14728.0,
+    "zuri": 14605.0,
+    "altha": 13881.0,
+    "guthe": 14754.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 17749.0,
+    "grill": 17702.0,
+    "graz": 17792.0,
+    "macu": 17759.0,
+    "guthe": 17747.0,
+    "altha": 17365.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.32,
+   "odooId": 6583,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": 0.405,
+   "weightGrossKg": 0.4093,
+   "cchId": "",
+   "tariffCode": "19059080",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "altha": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 12.4687,
+      "priceInclTax": 3.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 12.157,
+       "priceInclTax": 3.8903
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 3.99,
+     "wh": "altha",
+     "currency": "EUR"
+    }
+   },
+   "objectID": "29741"
+  },
+  "detail": {
+   "id": 29741,
+   "acr": {
+    "altha": 64301499.64
+   },
+   "opts": [],
+   "slug": "dr-oetker-ristorante-pizza-salami-packung-320g",
+   "unit": "kg",
+   "title": "Dr. Oetker Ristorante Pizza Salami",
+   "images": [
+    "https://static.alfies.at/images/products/2022/04/img/dr-oetker-ristorante-pizza-salami-packung-320g_1650906207.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "ageRestriction": false,
+    "focusKeyword": "Dr. Oetker Ristorante Pizza Salami",
+    "showFlag": true,
+    "seoTitle": "Dr. Oetker Ristorante Pizza Salami",
+    "brand": "Dr. Oetker",
+    "metaDescription": "Einfach bestellen und Dr. Oetker Ristorante Pizza Salami in 60 Minuten genießen.",
+    "ingredients": "WEIZENMEHL, 30% passierte Tomaten, 15% KÄSE (schnittfester MOZZARELLA, EDAMER), 12% Salami (Schweinefleisch, Speck, Salz, Gewürze, Dextrose, Zwiebelpulver, Knoblauchpulver, Gewürzextrakte, Stabilisator (Natriumnitrit), Antioxidationsmittel (Extrakt aus Rosmarin), Rauch), Rapsöl, Backhefe, Zucker, Salz, Wasser, Olivenöl nativ extra, Basilikum, modifizierte Stärke, Oregano, Paprika, Pfeffer, aufgeschlossenes PflanzenEIWEIß, Maltodextrin, Karamell\r\n\r\nZusatzstoffe:\r\nCAO",
+    "nutrition": "pro 100 g<br>\r\nEnergie kJ<br>\t~ 1141 kJ<br>\r\nEnergie kcal<br>\t~ 273 kcal<br>\r\nKohlenhydrate\t~ 26.00 g<br>\r\n- davon Zucker\t~ 3.10 g<br>\r\nFett\t~ 14.00 g<br>\r\n- davon gesättigte Fettsäuren\t~ 4.80 g<br>\r\nEiweiß\t~ 10.00 g<br>\r\nSalz Äquivalent\t~ 1.40 g<br>",
+    "searchTags": [
+     "Pizza",
+     "Salami",
+     "Tiefkühl",
+     "Tiefkühlpizza"
+    ],
+    "gurkerlId": "7258",
+    "billaId": "00-408367",
+    "klarnaDisabled": false,
+    "saferpayDisabled": false
+   },
+   "categories": [
+    {
+     "id": 9028,
+     "name": "Tiefkühlpizza",
+     "slug": "frozen-pizza",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9022,
+       "name": "Tiefgekühlte Fertiggerichte",
+       "slug": "frozen-ready-meals"
+      },
+      {
+       "id": 9021,
+       "name": "Tiefgekühltes",
+       "slug": "frozen"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8980,
+     "name": "Tiefkühlpizza",
+     "slug": "frozen-pizza",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9240,
+     "name": "Diner",
+     "slug": "diner",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9216,
+       "name": "Super Bowl LIX",
+       "slug": "super-bowl-lix"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9513,
+     "name": "Dr. Oetker",
+     "slug": "dr-oetker",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9022,
+       "name": "Tiefgekühlte Fertiggerichte",
+       "slug": "frozen-ready-meals"
+      },
+      {
+       "id": 9021,
+       "name": "Tiefgekühltes",
+       "slug": "frozen"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-08T20:32:37.001271Z",
+   "dateUpdated": "2026-10-08T20:32:37.001281Z",
+   "description": "<br><br>Tiefgekühlt lagern",
+   "displayUnit": "Packung 320g",
+   "generalPopularity": 14728.0,
+   "generalPopularityByWarehouse": {
+    "grill": 14728.0,
+    "zuri": 14605.0,
+    "guthe": 14754.0,
+    "altha": 13881.0,
+    "macu": 14751.0,
+    "graz": 14768.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 17749.0,
+    "grill": 17702.0,
+    "graz": 17792.0,
+    "macu": 17759.0,
+    "guthe": 17747.0,
+    "altha": 17365.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.32,
+   "odooId": 6583,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": 0.405,
+   "weightGrossKg": 0.4093,
+   "cchId": "",
+   "tariffCode": "19059080",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "grill": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 12.4687,
+      "priceInclTax": 3.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 12.157,
+       "priceInclTax": 3.8903
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 40,
+      "isPublic": true,
+      "hasAvailableStock": true
+     },
+     "price": 3.99,
+     "wh": "grill",
+     "currency": "EUR"
+    }
+   },
+   "objectID": 29741
+  }
+ },
+ "lasagne": {
+  "hit": {
+   "id": 30034,
+   "acr": {
+    "altha": 64235739.98
+   },
+   "opts": [],
+   "slug": "000_mama-lucia-lasagne-bolognese-packung-1kg-1",
+   "unit": "kg",
+   "title": "000_?Mama Lucia Lasagne Bolognese",
+   "images": [
+    "https://static.alfies.at/images/products/2021/10/img/products/mama-lucia-lasagne-bolognese-packung-1kg_1634288962.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "metaDescription": "Einfach klicken und Mama Lucia Lasagne Bolognese erhalten. Wir liefern diesen und tausende weitere Artikel in Wien innerhalb von 60 Minuten",
+    "brand": "Mama Lucia",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "gurkerlId": "-",
+    "billaId": "-",
+    "intersparId": "-",
+    "focusKeyword": "Mama Lucia Lasagne Bolognese",
+    "nutrition": "",
+    "showFlag": true,
+    "ageRestriction": false,
+    "searchTags": [
+     "Fertiggericht",
+     "Lasagne",
+     "Pasta",
+     "Tomaten"
+    ],
+    "ingredients": ""
+   },
+   "categories": [
+    {
+     "id": 8878,
+     "name": "Pasta Frisch & Gefüllt",
+     "slug": "fresh-filled-pasta",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8874,
+       "name": "Feinkost & Antipasti",
+       "slug": "prepared-foods-antipasti-salads"
+      },
+      {
+       "id": 8873,
+       "name": "Kühlregal",
+       "slug": "chilled"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8973,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-14T03:28:48.165242Z",
+   "dateUpdated": "2026-10-14T03:28:48.165252Z",
+   "description": "<br><br>Gekühlt lagern",
+   "displayUnit": "Packung 1kg",
+   "generalPopularity": 1416.0,
+   "generalPopularityByWarehouse": {
+    "graz": 1063.0,
+    "grill": 1416.0,
+    "zuri": -316.0,
+    "macu": 1298.0,
+    "guthe": 1228.0,
+    "altha": 13588.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 4020.0,
+    "grill": 5467.0,
+    "graz": 5168.0,
+    "macu": 5355.0,
+    "guthe": 5305.0,
+    "altha": 17188.0
+   },
+   "hiddenIfOutOfStock": true,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 1.0,
+   "odooId": 7073,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "altha": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 5.49,
+      "priceInclTax": 5.49,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 5.3528,
+       "priceInclTax": 5.3528
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 5.49,
+     "wh": "altha",
+     "currency": "EUR"
+    }
+   },
+   "objectID": "30034"
+  },
+  "detail": {
+   "id": 30034,
+   "acr": {
+    "altha": 64266115.2
+   },
+   "opts": [],
+   "slug": "000_mama-lucia-lasagne-bolognese-packung-1kg-1",
+   "unit": "kg",
+   "title": "000_?Mama Lucia Lasagne Bolognese",
+   "images": [
+    "https://static.alfies.at/images/products/2021/10/img/products/mama-lucia-lasagne-bolognese-packung-1kg_1634288962.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "metaDescription": "Einfach klicken und Mama Lucia Lasagne Bolognese erhalten. Wir liefern diesen und tausende weitere Artikel in Wien innerhalb von 60 Minuten",
+    "brand": "Mama Lucia",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "gurkerlId": "-",
+    "billaId": "-",
+    "intersparId": "-",
+    "focusKeyword": "Mama Lucia Lasagne Bolognese",
+    "nutrition": "pro 100 g<br>\r\nEnergie(kJ)605 kJ<br>\r\nEnergie(kcal)144 kcal<br>\r\nFett6 g<br>\r\nFett davon gesättigte Fettsäure: 3 g<br>\r\nKohlenhydrate: 13 g<br>\r\nKohlenhydrate davon Zucker: 2 g<br>\r\nBallaststoffe: 1 g<br>\r\nEiweiß: 7 g<br>\r\nSalz: 0 g<br>\r\nNatrium: 0 g<br>",
+    "showFlag": true,
+    "ageRestriction": false,
+    "searchTags": [
+     "Fertiggericht",
+     "Lasagne",
+     "Pasta",
+     "Tomaten"
+    ],
+    "ingredients": "Trinkwasser, Schweinefleisch (24%), HartWEIZENgrieß, Tomatenmark, geriebener KÄSE (MILCH, Salz, Ferment, Lab), Zwiebeln, karotten, modifizierte Maisstärke, WEIZENmehl, pflanzliche Öle (Kopra und Raps), LAKTOSE, Salz, MagerMILCHpulver, Gewürze und Kräuter, MILCHEIWEIß, HÜHNEREIPULVER, Säureregulator: Citronensäure, Emulgator: Mono- und Diglyceride von Speisefettsäuren. kann Spurren von SELLERIE und FISCH enthalten."
+   },
+   "categories": [
+    {
+     "id": 8878,
+     "name": "Pasta Frisch & Gefüllt",
+     "slug": "fresh-filled-pasta",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8874,
+       "name": "Feinkost & Antipasti",
+       "slug": "prepared-foods-antipasti-salads"
+      },
+      {
+       "id": 8873,
+       "name": "Kühlregal",
+       "slug": "chilled"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8973,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-09T20:48:38.261890Z",
+   "dateUpdated": "2026-10-09T20:48:38.261903Z",
+   "description": "<br><br>Gekühlt lagern",
+   "displayUnit": "Packung 1kg",
+   "generalPopularity": 1416.0,
+   "generalPopularityByWarehouse": {
+    "zuri": -316.0,
+    "altha": 13588.0,
+    "guthe": 1228.0,
+    "macu": 1298.0,
+    "graz": 1063.0,
+    "grill": 1416.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 4020.0,
+    "grill": 5467.0,
+    "graz": 5168.0,
+    "macu": 5355.0,
+    "guthe": 5305.0,
+    "altha": 17188.0
+   },
+   "hiddenIfOutOfStock": true,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 1.0,
+   "odooId": 7073,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "grill": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 5.49,
+      "priceInclTax": 5.49,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 5.3528,
+       "priceInclTax": 5.3528
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 5.49,
+     "wh": "grill",
+     "currency": "EUR"
+    }
+   },
+   "objectID": 30034
+  }
+ },
+ "teig": {
+  "hit": {
+   "id": 30300,
+   "acr": {
+    "altha": 64302115.2
+   },
+   "opts": [],
+   "slug": "tante-fanny-blatterteig-packung-300g-1",
+   "unit": "kg",
+   "title": "Tante Fanny Blätterteig",
+   "images": [
+    "https://static.alfies.at/assortment/images/products/2024/11/img_t/tante-fanny-blatterteig-packung-300g-1_1730674192.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "billaId": "",
+    "searchTags": [
+     "Backen",
+     "Blätterteig",
+     "Teig"
+    ],
+    "ageRestriction": false,
+    "klarnaDisabled": false,
+    "intersparId": "2020005378940",
+    "metaDescription": "Einfach bestellen und Tante Fanny Blätterteig in 60 Minuten genießen.",
+    "ingredients": "",
+    "saferpayDisabled": false,
+    "unimarktId": "3682614",
+    "brand": "Tante Fanny",
+    "focusKeyword": "Tante Fanny Blätterteig",
+    "nutrition": "",
+    "seoTitle": "Tante Fanny Blätterteig",
+    "country": "AT",
+    "nutritionType": [
+     "Vegan"
+    ],
+    "showFlag": true
+   },
+   "categories": [
+    {
+     "id": 9135,
+     "name": "Backmischungen & Teige",
+     "slug": "baking-mixes-doughs",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9134,
+       "name": "Zum Backen",
+       "slug": "baking-essentials"
+      },
+      {
+       "id": 9061,
+       "name": "Vorratskammer",
+       "slug": "food-cupboard"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 9329,
+     "name": "Backmischungen & Teige",
+     "slug": "baking-mixes-doughs",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9251,
+     "name": "Backwaren & Teige vegan",
+     "slug": "vegan-baked-goods-doughs",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9219,
+       "name": "Vegan",
+       "slug": "vegan"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-14T03:28:48.165242Z",
+   "dateUpdated": "2026-10-14T03:28:48.165252Z",
+   "description": "Der klassische Tante Fanny Blätterteig ist der Allrounder unter den Teigen, egal ob\r\nKleingebäck oder Strudel, ob süß oder herzhaft. Er überzeugt nun durch ein\r\nnoch feinblättrigeres Backergebnis und sorgt für eine zart knusprige Hülle\r\nfür den perfekten Genussmoment. So gelingen Blätterteig-Köstlichkeiten\r\nnoch einfacher. Und das auch weiterhin vegan und in gewohnt höchster\r\nTante Fanny Qualität. Tante Fanny - Fannytastisch einfach, fannytastisch\r\ngut!<br><br>Gekühlt lagern.",
+   "displayUnit": "Packung 300g",
+   "generalPopularity": 14359.0,
+   "generalPopularityByWarehouse": {
+    "macu": 14575.0,
+    "graz": 14676.0,
+    "grill": 14359.0,
+    "zuri": -564.0,
+    "altha": 13322.0,
+    "guthe": 14648.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 3901.0,
+    "grill": 17437.0,
+    "graz": 17758.0,
+    "macu": 17653.0,
+    "guthe": 17698.0,
+    "altha": 17074.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.3,
+   "odooId": 7355,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": 0.279,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "19012000",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "altha": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 6.6333,
+      "priceInclTax": 1.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 6.4675,
+       "priceInclTax": 1.9403
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 1.99,
+     "wh": "altha",
+     "currency": "EUR"
+    }
+   },
+   "objectID": "30300"
+  },
+  "detail": {
+   "id": 30300,
+   "acr": {
+    "altha": 64302075.43
+   },
+   "opts": [],
+   "slug": "tante-fanny-blatterteig-packung-300g-1",
+   "unit": "kg",
+   "title": "Tante Fanny Blätterteig",
+   "images": [
+    "https://static.alfies.at/assortment/images/products/2024/11/img_t/tante-fanny-blatterteig-packung-300g-1_1730674192.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "billaId": "",
+    "searchTags": [
+     "Backen",
+     "Blätterteig",
+     "Teig"
+    ],
+    "ageRestriction": false,
+    "klarnaDisabled": false,
+    "intersparId": "2020005378940",
+    "metaDescription": "Einfach bestellen und Tante Fanny Blätterteig in 60 Minuten genießen.",
+    "ingredients": "WEIZENMEHL, Trinkwasser, Palmfett, Ethylalkohol, Rapsöl, Speisesalz, WEIZENSTÄRKE, WEIZENKLEBER, Säuerungsmittel: Citronensäure. <br><br>\r\n\r\nKann Spuren von Milch enthalten.",
+    "saferpayDisabled": false,
+    "unimarktId": "3682614",
+    "brand": "Tante Fanny",
+    "focusKeyword": "Tante Fanny Blätterteig",
+    "nutrition": "pro 100 gr<br>\r\nEnergie kJ\t~ 1625 kJ<br>\r\nEnergie kcal\t~ 390 kcal<br>\r\nKohlenhydrate\t~ 37.00 gr<br>\r\n- davon Zucker\t~ 1.60 gr<br>\r\nFett\t~ 24.00 gr<br>\r\n- davon gesättigte Fettsäuren\t~ 13.00 gr<br>\r\nBallaststoffe\t~ 3.60 gr<br>\r\nEiweiß\t~ 6.00 gr<br>\r\nSalz Äquivalent\t~ 0.51 gr<br>",
+    "seoTitle": "Tante Fanny Blätterteig",
+    "country": "AT",
+    "nutritionType": [
+     "Vegan"
+    ],
+    "showFlag": true
+   },
+   "categories": [
+    {
+     "id": 9135,
+     "name": "Backmischungen & Teige",
+     "slug": "baking-mixes-doughs",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9134,
+       "name": "Zum Backen",
+       "slug": "baking-essentials"
+      },
+      {
+       "id": 9061,
+       "name": "Vorratskammer",
+       "slug": "food-cupboard"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 9329,
+     "name": "Backmischungen & Teige",
+     "slug": "baking-mixes-doughs",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9251,
+     "name": "Backwaren & Teige vegan",
+     "slug": "vegan-baked-goods-doughs",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9219,
+       "name": "Vegan",
+       "slug": "vegan"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-08T20:12:35.527727Z",
+   "dateUpdated": "2026-10-08T20:12:35.527738Z",
+   "description": "Der klassische Tante Fanny Blätterteig ist der Allrounder unter den Teigen, egal ob\r\nKleingebäck oder Strudel, ob süß oder herzhaft. Er überzeugt nun durch ein\r\nnoch feinblättrigeres Backergebnis und sorgt für eine zart knusprige Hülle\r\nfür den perfekten Genussmoment. So gelingen Blätterteig-Köstlichkeiten\r\nnoch einfacher. Und das auch weiterhin vegan und in gewohnt höchster\r\nTante Fanny Qualität. Tante Fanny - Fannytastisch einfach, fannytastisch\r\ngut!<br><br>Gekühlt lagern.",
+   "displayUnit": "Packung 300g",
+   "generalPopularity": 14359.0,
+   "generalPopularityByWarehouse": {
+    "zuri": -564.0,
+    "altha": 13322.0,
+    "guthe": 14648.0,
+    "macu": 14575.0,
+    "graz": 14676.0,
+    "grill": 14359.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 3901.0,
+    "grill": 17437.0,
+    "graz": 17758.0,
+    "macu": 17653.0,
+    "guthe": 17698.0,
+    "altha": 17074.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.3,
+   "odooId": 7355,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": 0.279,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "19012000",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "grill": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 6.6333,
+      "priceInclTax": 1.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 6.4675,
+       "priceInclTax": 1.9403
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 13,
+      "isPublic": true,
+      "hasAvailableStock": true
+     },
+     "price": 1.99,
+     "wh": "grill",
+     "currency": "EUR"
+    }
+   },
+   "objectID": 30300
+  }
+ },
+ "chili": {
+  "hit": {
+   "id": 29153,
+   "acr": {
+    "altha": 64294947.19
+   },
+   "opts": [],
+   "slug": "inzersdorfer-chilli-con-carne-dose-400g-1",
+   "unit": "kg",
+   "title": "Inzersdorfer Chilli con Carne",
+   "images": [
+    "https://static.alfies.at/images/products/2021/09/img/products/inzersdorfer-chilli-con-carne-packung-400g_1632131836.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Dose",
+   "structure": "standalone",
+   "attributes": {
+    "searchTags": [
+     "Bohnen",
+     "Chilli",
+     "Faschiertes"
+    ],
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "billaId": "00-407831",
+    "unimarktId": "610790",
+    "ingredients": "",
+    "showFlag": true,
+    "country": "AT",
+    "ageRestriction": false,
+    "metaDescription": "Einfach bestellen und Inzersdorfer Chilli con Carne in 60 Minuten genießen.",
+    "focusKeyword": "Inzersdorfer Chilli con Carne",
+    "brand": "Inzersdorfer",
+    "nutrition": "",
+    "seoTitle": "Inzersdorfer Chilli con Carne"
+   },
+   "categories": [
+    {
+     "id": 9072,
+     "name": "Fertigkonserven",
+     "slug": "ready-made-canned-foods",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9064,
+       "name": "Eingelegtes & Konserven",
+       "slug": "pickles-canned-foods"
+      },
+      {
+       "id": 9061,
+       "name": "Vorratskammer",
+       "slug": "food-cupboard"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8971,
+     "name": "Fertigkonserven",
+     "slug": "ready-made-canned-foods",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-14T03:28:48.165242Z",
+   "dateUpdated": "2026-10-14T03:28:48.165252Z",
+   "description": "",
+   "displayUnit": "Dose 400g",
+   "generalPopularity": 13521.0,
+   "generalPopularityByWarehouse": {
+    "macu": 13409.0,
+    "altha": 14469.0,
+    "grill": 13521.0,
+    "zuri": 400.0,
+    "graz": 13814.0,
+    "guthe": 13795.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 1913.0,
+    "grill": 15986.0,
+    "graz": 16310.0,
+    "macu": 15891.0,
+    "guthe": 16256.0,
+    "altha": 15454.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.4,
+   "odooId": 6929,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "altha": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 8.725,
+      "priceInclTax": 3.49,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 8.5069,
+       "priceInclTax": 3.4028
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 3.49,
+     "wh": "altha",
+     "currency": "EUR"
+    }
+   },
+   "objectID": "29153"
+  },
+  "detail": {
+   "id": 29153,
+   "acr": {
+    "altha": 64298921.01
+   },
+   "opts": [],
+   "slug": "inzersdorfer-chilli-con-carne-dose-400g-1",
+   "unit": "kg",
+   "title": "Inzersdorfer Chilli con Carne",
+   "images": [
+    "https://static.alfies.at/images/products/2021/09/img/products/inzersdorfer-chilli-con-carne-packung-400g_1632131836.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Dose",
+   "structure": "standalone",
+   "attributes": {
+    "searchTags": [
+     "Bohnen",
+     "Chilli",
+     "Faschiertes"
+    ],
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "billaId": "00-407831",
+    "unimarktId": "610790",
+    "ingredients": "Wasser, Rind- und Schweinefleisch (13%), rote Bohnen, weiße Bohnen, Zwiebel, Maiskörner, Paprika, Tomatenpulpe, Tomatenmark zweifach konzentriert, modifizierte Stärke, Sonnenblumenöl, Gewürze (enthält SELLERIE), Speisesalz jodiert (Speisesalz, Kaliumiodid), Knoblauch, Zucker, Rinderfett, Hefeextrakt, Rindfleischextrakt, Zwiebelpulver, Gewürzextrakt, natürliche Aromen, Paprikaschotenkonzentrat, Tomatensaftkonzentrat, Verdickungsmittel: Xanthan.",
+    "showFlag": true,
+    "country": "AT",
+    "ageRestriction": false,
+    "metaDescription": "Einfach bestellen und Inzersdorfer Chilli con Carne in 60 Minuten genießen.",
+    "focusKeyword": "Inzersdorfer Chilli con Carne",
+    "brand": "Inzersdorfer",
+    "nutrition": "pro 100 g<br>\nEnergie\t89 kcal/ 374 kJ<br>\nFett\t3,7 g<br>\ndavon gesättigte Fettsäuren\t1,1 g<br>\nKohlenhydrate\t8,6 g<br>\ndavon Zucker\t1,9 g<br>\nEiweiß\t4,2 g<br>\nSalz\t1,3 g<br>",
+    "seoTitle": "Inzersdorfer Chilli con Carne"
+   },
+   "categories": [
+    {
+     "id": 9072,
+     "name": "Fertigkonserven",
+     "slug": "ready-made-canned-foods",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9064,
+       "name": "Eingelegtes & Konserven",
+       "slug": "pickles-canned-foods"
+      },
+      {
+       "id": 9061,
+       "name": "Vorratskammer",
+       "slug": "food-cupboard"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8971,
+     "name": "Fertigkonserven",
+     "slug": "ready-made-canned-foods",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-09T20:53:39.025754Z",
+   "dateUpdated": "2026-10-09T20:53:39.025767Z",
+   "description": "",
+   "displayUnit": "Dose 400g",
+   "generalPopularity": 13521.0,
+   "generalPopularityByWarehouse": {
+    "zuri": 400.0,
+    "altha": 14469.0,
+    "guthe": 13795.0,
+    "macu": 13409.0,
+    "graz": 13814.0,
+    "grill": 13521.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 1913.0,
+    "grill": 15986.0,
+    "graz": 16310.0,
+    "macu": 15891.0,
+    "guthe": 16256.0,
+    "altha": 15454.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.4,
+   "odooId": 6929,
+   "publicationDate": "2020-01-01",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "grill": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 8.725,
+      "priceInclTax": 3.49,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 8.5069,
+       "priceInclTax": 3.4028
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 12,
+      "isPublic": true,
+      "hasAvailableStock": true
+     },
+     "price": 3.49,
+     "wh": "grill",
+     "currency": "EUR"
+    }
+   },
+   "objectID": 29153
+  }
+ },
+ "fluegerl": {
+  "hit": {
+   "id": 343693,
+   "acr": {
+    "altha": 96443955.07
+   },
+   "opts": [],
+   "slug": "iglo-huhner-flugerl-packung-580g-1",
+   "unit": "kg",
+   "title": "Iglo Hühner Flügerl",
+   "images": [
+    "https://static.alfies.at/assortment/images/products/2026/03/img_t/iglo-huhner-flugerl-packung-580g_1772548841.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "billaId": "x",
+    "intersparId": "x",
+    "showFlag": false,
+    "brand": "Iglo",
+    "ageRestriction": false,
+    "ingredients": "",
+    "gurkerlId": "33500",
+    "focusKeyword": "Iglo Hühner Flügerl",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "metaDescription": "Einfach bestellen und Iglo Hühner Flügerl in 60 Minuten genießen.",
+    "nutrition": "",
+    "searchTags": [
+     "Huhn",
+     "Hühnchen",
+     "Flügel",
+     "Hühnerflügel",
+     "Chicken",
+     "Wings",
+     "Chicken Wings",
+     "Hühnerflügerl"
+    ]
+   },
+   "categories": [
+    {
+     "id": 9025,
+     "name": "Tiefkühlgerichte",
+     "slug": "frozen-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9022,
+       "name": "Tiefgekühlte Fertiggerichte",
+       "slug": "frozen-ready-meals"
+      },
+      {
+       "id": 9021,
+       "name": "Tiefgekühltes",
+       "slug": "frozen"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8979,
+     "name": "Tiefkühlgerichte",
+     "slug": "frozen-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-14T03:28:48.165242Z",
+   "dateUpdated": "2026-10-14T03:28:48.165252Z",
+   "description": "<br><br>Tiefgekühlt lagern",
+   "displayUnit": "Packung 580g",
+   "generalPopularity": 12739.0,
+   "generalPopularityByWarehouse": {
+    "guthe": 305.0,
+    "macu": 13967.0,
+    "graz": 13917.0,
+    "grill": 12739.0,
+    "zuri": -1698.0,
+    "altha": 12018.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 1772.0,
+    "grill": 15629.0,
+    "graz": 16809.0,
+    "macu": 16836.0,
+    "guthe": 4027.0,
+    "altha": 15248.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.58,
+   "odooId": 46396,
+   "publicationDate": "2020-09-10",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "altha": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 15.5,
+      "priceInclTax": 8.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 15.1125,
+       "priceInclTax": 8.7653
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 8.99,
+     "wh": "altha",
+     "currency": "EUR"
+    }
+   },
+   "objectID": "343693"
+  },
+  "detail": {
+   "id": 343693,
+   "acr": {
+    "altha": 96440946.43
+   },
+   "opts": [],
+   "slug": "iglo-huhner-flugerl-packung-580g-1",
+   "unit": "kg",
+   "title": "Iglo Hühner Flügerl",
+   "images": [
+    "https://static.alfies.at/assortment/images/products/2026/03/img_t/iglo-huhner-flugerl-packung-580g_1772548841.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "billaId": "x",
+    "intersparId": "x",
+    "showFlag": false,
+    "brand": "Iglo",
+    "ageRestriction": false,
+    "ingredients": "Hühnerflügel vorgegart (92%),Traubenzucker, Reisstärke, Salz, Gewürze (mit SENF), Kartoffelstärke, Zucker. Bitte beachten Sie, dass Iglo Hühner Flügerl Knochen enthalten.",
+    "gurkerlId": "33500",
+    "focusKeyword": "Iglo Hühner Flügerl",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "metaDescription": "Einfach bestellen und Iglo Hühner Flügerl in 60 Minuten genießen.",
+    "nutrition": "Pro 100 g<br>\r\n Energie KJ ~ 206 KJ<br>\r\n Energie kcal ~ 862 kcal<br>\r\n Kohlenhydrate ~ 3,5 g<br>\r\n - davon Zucker ~ 0,3 g<br>\r\n Fett ~ 11 g<br>\r\n - davon gesättigte Fettsäuren ~3,5 g<br>\r\n Eiweiß ~ 23 g<br>\r\n Salz Äquivalent ~ 2 g<br>",
+    "searchTags": [
+     "Huhn",
+     "Hühnchen",
+     "Flügel",
+     "Hühnerflügel",
+     "Chicken",
+     "Wings",
+     "Chicken Wings",
+     "Hühnerflügerl"
+    ]
+   },
+   "categories": [
+    {
+     "id": 9025,
+     "name": "Tiefkühlgerichte",
+     "slug": "frozen-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9022,
+       "name": "Tiefgekühlte Fertiggerichte",
+       "slug": "frozen-ready-meals"
+      },
+      {
+       "id": 9021,
+       "name": "Tiefgekühltes",
+       "slug": "frozen"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8979,
+     "name": "Tiefkühlgerichte",
+     "slug": "frozen-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-09T21:08:39.643084Z",
+   "dateUpdated": "2026-10-09T21:08:39.643094Z",
+   "description": "<br><br>Tiefgekühlt lagern",
+   "displayUnit": "Packung 580g",
+   "generalPopularity": 12739.0,
+   "generalPopularityByWarehouse": {
+    "zuri": -1698.0,
+    "altha": 12018.0,
+    "guthe": 305.0,
+    "macu": 13967.0,
+    "graz": 13917.0,
+    "grill": 12739.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 1772.0,
+    "grill": 15629.0,
+    "graz": 16809.0,
+    "macu": 16836.0,
+    "guthe": 4027.0,
+    "altha": 15248.0
+   },
+   "hiddenIfOutOfStock": false,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.58,
+   "odooId": 46396,
+   "publicationDate": "2020-09-10",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "grill": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 15.5,
+      "priceInclTax": 8.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 15.1125,
+       "priceInclTax": 8.7653
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 13,
+      "isPublic": true,
+      "hasAvailableStock": true
+     },
+     "price": 8.99,
+     "wh": "grill",
+     "currency": "EUR"
+    }
+   },
+   "objectID": 343693
+  }
+ },
+ "wegschaider": {
+  "hit": {
+   "id": 31057,
+   "acr": {
+    "altha": 132085595.56
+   },
+   "opts": [],
+   "slug": "wegschaider-kaspressknodel-packung-4x60g",
+   "unit": "kg",
+   "title": "Wegschaider Kaspressknödel",
+   "images": [
+    "https://static.alfies.at/images/products/2021/09/img/products/wegschaider-kaspressknoedel-packung-4-x-60g_1632131135.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "metaDescription": "Einfach klicken und Wegschaider Kaspressknödel erhalten. Wir liefern diesen und tausende weitere Artikel in Wien innerhalb von 60 Minuten.",
+    "focusKeyword": "Wegschaider Kaspressknödel",
+    "ingredients": "",
+    "brand": "Wegschaider",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "gurkerlId": "-",
+    "billaId": "-",
+    "intersparId": "-",
+    "unimarktId": "1629096",
+    "ageRestriction": false,
+    "nutrition": "",
+    "showFlag": true,
+    "searchTags": [
+     "Suppeneinlage"
+    ]
+   },
+   "categories": [
+    {
+     "id": 8894,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8874,
+       "name": "Feinkost & Antipasti",
+       "slug": "prepared-foods-antipasti-salads"
+      },
+      {
+       "id": 8873,
+       "name": "Kühlregal",
+       "slug": "chilled"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8973,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-14T03:28:48.165242Z",
+   "dateUpdated": "2026-10-14T03:28:48.165252Z",
+   "description": "Würzige Kaspressknödel nach traditionellem Rezept mit Vorarlberger Rässkäse verfeinert. Mit Herz und von Hand gefertigt, können Wegschaider’s würzige Kaspressknödel ideal als Rindsuppeneinlage aber auch als vegetarische Hauptspeise mit Dip und Salat genossen werden. Erhältlich in der praktischen 4 Stk. 240g-Packung.<br><br>Gekühlt lagern",
+   "displayUnit": "Packung 4x60g",
+   "generalPopularity": 826.0,
+   "generalPopularityByWarehouse": {
+    "guthe": 631.0,
+    "altha": 12565.0,
+    "macu": 710.0,
+    "grill": 826.0,
+    "zuri": -1241.0,
+    "graz": 459.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 1485.0,
+    "grill": 3618.0,
+    "graz": 3248.0,
+    "macu": 3501.0,
+    "guthe": 3422.0,
+    "altha": 14754.0
+   },
+   "hiddenIfOutOfStock": true,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.16,
+   "odooId": 45248,
+   "publicationDate": "2020-05-20",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "altha": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 31.1875,
+      "priceInclTax": 4.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 30.4078,
+       "priceInclTax": 4.8653
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 4.99,
+     "wh": "altha",
+     "currency": "EUR"
+    }
+   },
+   "objectID": "31057"
+  },
+  "detail": {
+   "id": 31057,
+   "acr": {
+    "altha": 132123175.05
+   },
+   "opts": [],
+   "slug": "wegschaider-kaspressknodel-packung-4x60g",
+   "unit": "kg",
+   "title": "Wegschaider Kaspressknödel",
+   "images": [
+    "https://static.alfies.at/images/products/2021/09/img/products/wegschaider-kaspressknoedel-packung-4-x-60g_1632131135.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "metaDescription": "Einfach klicken und Wegschaider Kaspressknödel erhalten. Wir liefern diesen und tausende weitere Artikel in Wien innerhalb von 60 Minuten.",
+    "focusKeyword": "Wegschaider Kaspressknödel",
+    "ingredients": "-",
+    "brand": "Wegschaider",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "gurkerlId": "-",
+    "billaId": "-",
+    "intersparId": "-",
+    "unimarktId": "1629096",
+    "ageRestriction": false,
+    "nutrition": "Pro 100 g<br>\n Energie KJ ~ 950 KJ<br>\n Energie kcal ~ 228 kcal<br>\n Kohlenhydrate ~ 17.5 g <br>\n - davon Zucker ~ 1.0 g<br>\n Fett ~  11.4 g<br>\n - davon gesättigte Fettsäuren ~ kA g <br>\n Ballaststoffe ~ kA <br>\n Eiweiß ~ 11.5 g <br>\n Salz ~ 0.50 g <br>\"",
+    "showFlag": true,
+    "searchTags": [
+     "Suppeneinlage"
+    ]
+   },
+   "categories": [
+    {
+     "id": 8894,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8874,
+       "name": "Feinkost & Antipasti",
+       "slug": "prepared-foods-antipasti-salads"
+      },
+      {
+       "id": 8873,
+       "name": "Kühlregal",
+       "slug": "chilled"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8973,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-09T21:08:39.643084Z",
+   "dateUpdated": "2026-10-09T21:08:39.643094Z",
+   "description": "Würzige Kaspressknödel nach traditionellem Rezept mit Vorarlberger Rässkäse verfeinert. Mit Herz und von Hand gefertigt, können Wegschaider’s würzige Kaspressknödel ideal als Rindsuppeneinlage aber auch als vegetarische Hauptspeise mit Dip und Salat genossen werden. Erhältlich in der praktischen 4 Stk. 240g-Packung.<br><br>Gekühlt lagern",
+   "displayUnit": "Packung 4x60g",
+   "generalPopularity": 826.0,
+   "generalPopularityByWarehouse": {
+    "zuri": -1241.0,
+    "altha": 12565.0,
+    "guthe": 631.0,
+    "macu": 710.0,
+    "graz": 459.0,
+    "grill": 826.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 1485.0,
+    "grill": 3618.0,
+    "graz": 3248.0,
+    "macu": 3501.0,
+    "guthe": 3422.0,
+    "altha": 14754.0
+   },
+   "hiddenIfOutOfStock": true,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.16,
+   "odooId": 45248,
+   "publicationDate": "2020-05-20",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "grill": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 31.1875,
+      "priceInclTax": 4.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 30.4078,
+       "priceInclTax": 4.8653
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 4.99,
+     "wh": "grill",
+     "currency": "EUR"
+    }
+   },
+   "objectID": 31057
+  }
+ },
+ "stelze": {
+  "hit": {
+   "id": 346286,
+   "acr": {
+    "altha": 78568681.23
+   },
+   "opts": [],
+   "slug": "wiesbauer-gourmet-original-wiener-wies-n-stelze-packung-850g",
+   "unit": "kg",
+   "title": "Wiesbauer Gourmet Original Wiener Wies´n Stelze",
+   "images": [
+    "https://static.alfies.at/images/products/2021/10/img/products/02_wiesbauer-gourmet-original-wiener-wies-n-stelze-packung-850g_1635412923.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "showFlag": false,
+    "ageRestriction": false,
+    "metaDescription": "Einfach bestellen und Wiesbauer Gourmet Original Wiener Wies´n Stelze in 60 Minuten genießen.",
+    "brand": "Wiesbauer Gourmet",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "gurkerlId": "13115",
+    "billaId": "-",
+    "ingredients": "",
+    "focusKeyword": "Wiesbauer Gourmet Original Wiener Wies´n Stelze",
+    "nutrition": ""
+   },
+   "categories": [
+    {
+     "id": 8915,
+     "name": "Schwein",
+     "slug": "pork",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8896,
+       "name": "Fleisch & Fisch",
+       "slug": "meat-seafood"
+      },
+      {
+       "id": 8873,
+       "name": "Kühlregal",
+       "slug": "chilled"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8973,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9226,
+     "name": "Schmankerl zum Oktoberfest",
+     "slug": "oktoberfest-delicacies",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9212,
+       "name": "Oktoberfest",
+       "slug": "oktoberfest"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-14T03:28:48.165242Z",
+   "dateUpdated": "2026-10-14T03:28:48.165252Z",
+   "description": "Mit der zünftigen Original Wiener Wiesn Stelze bringt Wiesbauer das Wiesenfest direkt nach Hause. Die saftig-zarte Schweinshaxn ist bereits aromatisch gewürzt und mittels moderner Sous-vide-Gartechnologie optimal vorbereitet, sodass sie nur noch ca. 40 Minuten im Backofen fertig gebraten werden muss, um die typische knusprige Schwarte zu erhalten. Somit ist die Zubereitung nicht nur schnell und unkompliziert, sondern auch absolut gelingsicher.<br><br>\r\n\r\nZubereitung:<br>\r\n\r\nDas Backrohr auf 220 °C (Heißluft) vorheizen. Die Original Wiener Wiesn Stelze aus dem Beutel nehmen, auf das Backblech legen und zunächst 5 Minuten anbraten. Danach die Stelze mit Küchenpapier abtupfen, salzen und weitere ca. 35 Minuten bei 220 °C fertig braten, bis die Schwarte goldbraun und knusprig ist.<br><br>Gekühlt lagern",
+   "displayUnit": "Packung 850g",
+   "generalPopularity": 12085.0,
+   "generalPopularityByWarehouse": {
+    "guthe": 12150.0,
+    "macu": 12486.0,
+    "graz": 11397.0,
+    "grill": 12085.0,
+    "zuri": 9986.0,
+    "altha": 9492.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 13903.0,
+    "grill": 14251.0,
+    "graz": 13391.0,
+    "macu": 14769.0,
+    "guthe": 14336.0,
+    "altha": 13688.0
+   },
+   "hiddenIfOutOfStock": true,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.85,
+   "odooId": 51173,
+   "publicationDate": "2022-09-05",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "altha": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 14.1059,
+      "priceInclTax": 11.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 13.7533,
+       "priceInclTax": 11.6903
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 0,
+      "isPublic": true,
+      "hasAvailableStock": false
+     },
+     "price": 11.99,
+     "wh": "altha",
+     "currency": "EUR"
+    }
+   },
+   "objectID": "346286"
+  },
+  "detail": {
+   "id": 346286,
+   "acr": {
+    "altha": 78553599.72
+   },
+   "opts": [],
+   "slug": "wiesbauer-gourmet-original-wiener-wies-n-stelze-packung-850g",
+   "unit": "kg",
+   "title": "Wiesbauer Gourmet Original Wiener Wies´n Stelze",
+   "images": [
+    "https://static.alfies.at/images/products/2021/10/img/products/02_wiesbauer-gourmet-original-wiener-wies-n-stelze-packung-850g_1635412923.jpg"
+   ],
+   "isPublic": true,
+   "unitBase": 1.0,
+   "unitName": "Stück",
+   "structure": "standalone",
+   "attributes": {
+    "showFlag": false,
+    "ageRestriction": false,
+    "metaDescription": "Einfach bestellen und Wiesbauer Gourmet Original Wiener Wies´n Stelze in 60 Minuten genießen.",
+    "brand": "Wiesbauer Gourmet",
+    "saferpayDisabled": false,
+    "klarnaDisabled": false,
+    "gurkerlId": "13115",
+    "billaId": "-",
+    "ingredients": ":",
+    "focusKeyword": "Wiesbauer Gourmet Original Wiener Wies´n Stelze",
+    "nutrition": "pro 100g<br>\r\nEnergie: 798 kJ<br>\r\nEnergie: 192 kcal<br>\r\nFett: 13 g<br>\r\ndavon gesättigte Fettsäuren: 5,3 g<br>\r\nKohlenhydrate: < 0,5 g<br>\r\ndavon Zucker: < 0,5 g<br>\r\nEiweiß: 18 g<br>\r\nKochsalz: 2 g"
+   },
+   "categories": [
+    {
+     "id": 8915,
+     "name": "Schwein",
+     "slug": "pork",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8896,
+       "name": "Fleisch & Fisch",
+       "slug": "meat-seafood"
+      },
+      {
+       "id": 8873,
+       "name": "Kühlregal",
+       "slug": "chilled"
+      }
+     ],
+     "primary": true,
+     "opts": []
+    },
+    {
+     "id": 8973,
+     "name": "Fertiggerichte",
+     "slug": "fresh-ready-meals",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 8893,
+       "name": "Fix & Fertig",
+       "slug": "ready-to-eat"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    },
+    {
+     "id": 9226,
+     "name": "Schmankerl zum Oktoberfest",
+     "slug": "oktoberfest-delicacies",
+     "facebookShow": true,
+     "path": [
+      {
+       "id": 9212,
+       "name": "Oktoberfest",
+       "slug": "oktoberfest"
+      },
+      {
+       "id": 8869,
+       "name": "Themenwelt",
+       "slug": "inspiration-occasions"
+      }
+     ],
+     "primary": false,
+     "opts": []
+    }
+   ],
+   "dateCreated": "2026-10-09T20:43:38.289613Z",
+   "dateUpdated": "2026-10-09T20:43:38.289625Z",
+   "description": "Mit der zünftigen Original Wiener Wiesn Stelze bringt Wiesbauer das Wiesenfest direkt nach Hause. Die saftig-zarte Schweinshaxn ist bereits aromatisch gewürzt und mittels moderner Sous-vide-Gartechnologie optimal vorbereitet, sodass sie nur noch ca. 40 Minuten im Backofen fertig gebraten werden muss, um die typische knusprige Schwarte zu erhalten. Somit ist die Zubereitung nicht nur schnell und unkompliziert, sondern auch absolut gelingsicher.<br><br>\r\n\r\nZubereitung:<br>\r\n\r\nDas Backrohr auf 220 °C (Heißluft) vorheizen. Die Original Wiener Wiesn Stelze aus dem Beutel nehmen, auf das Backblech legen und zunächst 5 Minuten anbraten. Danach die Stelze mit Küchenpapier abtupfen, salzen und weitere ca. 35 Minuten bei 220 °C fertig braten, bis die Schwarte goldbraun und knusprig ist.<br><br>Gekühlt lagern",
+   "displayUnit": "Packung 850g",
+   "generalPopularity": 12085.0,
+   "generalPopularityByWarehouse": {
+    "grill": 12085.0,
+    "zuri": 9986.0,
+    "guthe": 12150.0,
+    "altha": 9492.0,
+    "macu": 12486.0,
+    "graz": 11397.0
+   },
+   "combinedAlfiesRankByWarehouse": {
+    "zuri": 13903.0,
+    "grill": 14251.0,
+    "graz": 13391.0,
+    "macu": 14769.0,
+    "guthe": 14336.0,
+    "altha": 13688.0
+   },
+   "hiddenIfOutOfStock": true,
+   "hiddenFromCustomers": false,
+   "unitBundleName": "",
+   "bundleItems": [],
+   "unitRecord": 0.85,
+   "odooId": 51173,
+   "publicationDate": "2022-09-05",
+   "nutritionUnit": null,
+   "nutritionEnergyKj": null,
+   "nutritionEnergyKjLt": false,
+   "nutritionEnergyKcal": null,
+   "nutritionEnergyKcalLt": false,
+   "nutritionFat": null,
+   "nutritionFatLt": false,
+   "nutritionOfWhichSaturates": null,
+   "nutritionOfWhichSaturatesLt": false,
+   "nutritionCarbohydrates": null,
+   "nutritionCarbohydratesLt": false,
+   "nutritionOfWhichSugars": null,
+   "nutritionOfWhichSugarsLt": false,
+   "nutritionProtein": null,
+   "nutritionProteinLt": false,
+   "nutritionSalt": null,
+   "nutritionSaltLt": false,
+   "vocPerUnit": null,
+   "weightNetKg": null,
+   "weightGrossKg": null,
+   "cchId": "",
+   "tariffCode": "",
+   "nonPreferentialDutyRate": null,
+   "preferentialDutyRate": null,
+   "tariffComment": "",
+   "tareSurcharge": "",
+   "nielsenSegment": null,
+   "whs": {
+    "grill": {
+     "taxRate": 0.1,
+     "depositTaxRate": 0.2,
+     "displayPrice": {
+      "unitPriceInclTax": 14.1059,
+      "priceInclTax": 11.99,
+      "shippingMethodDiscountOffer": {
+       "unitPriceInclTax": 13.7533,
+       "priceInclTax": 11.6903
+      },
+      "depositFee": null
+     },
+     "availability": {
+      "numAvailable": 3,
+      "isPublic": true,
+      "hasAvailableStock": true
+     },
+     "price": 11.99,
+     "wh": "grill",
+     "currency": "EUR"
+    }
+   },
+   "objectID": 346286
+  }
+ }
+}

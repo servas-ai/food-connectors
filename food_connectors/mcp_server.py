@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), every (live every-foods.com Shopify JSON + product pages), loewenanteil (live loewenanteil.com Shopify JSON + product HTML), kernbeisser (live kernbeisser.at WooCommerce Store API), goldblatt (live goldblatt.at Shopify JSON + product HTML), issmich (live issmich.at Shopware product pages + strict OCR of the Nährwerttabelle image), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), every (live every-foods.com Shopify JSON + product pages), loewenanteil (live loewenanteil.com Shopify JSON + product HTML), kernbeisser (live kernbeisser.at WooCommerce Store API), goldblatt (live goldblatt.at Shopify JSON + product HTML), issmich (live issmich.at Shopware product pages + strict OCR of the Nährwerttabelle image), alfies (live Alfies Wien/Graz online supermarket: public search index + catalogue API), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -58,7 +58,17 @@ TOOLS += [{"name": "goldblatt_product", "description": "Live Goldblatt (goldblat
  {"name": "goldblatt_search", "description": "Search the live Goldblatt ready-meal assortment (public Shopify products.json, product_type High Protein Bio-Fertiggerichte, single jars) by words in title/handle/tags and return parsed meals with nutrition. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
 
+TOOLS += [{"name": "alfies_product", "description": "Live Alfies (alfies.at, Viennese online supermarket: 60-min delivery in Wien, pre-order in Graz; no Linz delivery) product by numeric id, slug or /produkt/<slug> URL: name, brand, price incl. MwSt. and €/kg for the warehouse (altha = Wien default, graz), pack (displayUnit), nutrition per 100 g parsed from the shop's nutrition table (+ plausibility flag), ingredients, preparation, stock, cross-retailer ids (billaId/gurkerlId), official packshot. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}, "warehouse": {"type": "string", "description": "altha (Wien, default) or graz"}}, "required": ["id"]}},
+ {"name": "alfies_search", "description": "Search the live Alfies assortment (public search-only index the shop front-end uses) and return only ready meals (Fix & Fertig / Tiefgekühlte Fertiggerichte paths, minus doughs/salads/desserts) with nutrition from the public catalogue API. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}, "warehouse": {"type": "string"}}, "required": ["query"]}}]
+
+
 def call(name, a):
+    if name == "alfies_product":
+        from .adapters.alfies import product as _al
+        r = _al(a["id"], a.get("warehouse") or "altha"); return r.to_dict() if r else None
+    if name == "alfies_search":
+        from .adapters.alfies import Alfies
+        return [p.to_dict() for p in Alfies().search(a["query"], limit=min(a.get("limit") or 10, 20), warehouse=a.get("warehouse") or "altha")]
     if name == "every_product":
         from .adapters.every import product
         p = product(a["handle"]); return p.to_dict() if p else None
