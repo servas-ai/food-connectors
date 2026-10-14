@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -39,7 +39,24 @@ TOOLS += [{"name": "penny_search", "description": "Search the live PENNY Austria
 
 TOOLS += [{"name": "juit_dishes", "description": "Live Juit (juit.com, frozen ready meals shipped to Austria) dishes from the public storefront content bundle: name, EAN, net weight, portions, nutrition per 100 g, ingredients, tags, official packshot, sellable flag. Prices are not public (login) and stay null. Optional query filter; include_unsellable adds currently unavailable dishes.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "include_unsellable": {"type": "boolean"}, "limit": {"type": "integer"}}}}]
 
+TOOLS += [{"name": "bofrost_product", "description": "Live bofrost* Austria (frozen home delivery across Austria) product by article number (e.g. 00196) or bofrost.at product URL from the public product page: name, price, €/kg, pack (e.g. 2 x 300 g), availability, nutrition per 100 g, ingredients, portion size, category, official image. No GTIN is published. Returns null if not listed.", "inputSchema": {"type": "object", "properties": {"article": {"type": "string"}}, "required": ["article"]}},
+ {"name": "bofrost_search", "description": "Search the live bofrost.at assortment (public product sitemap, ~420 products) by words in the product slug and return parsed product pages (price, €/kg, nutrition, image). ready_meals_only keeps ready-meal categories (Pfannengerichte, Pasta, Schlemmer-Menüs, Hausmannskost, Suppen, Länderküche, Pizza, Fleisch-/Geflügelzubereitungen, vegetarisch/vegan). Polite 1 req/s, keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ready_meals_only": {"type": "boolean"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 def call(name, a):
+    if name == "bofrost_product":
+        from .adapters.bofrost import product
+        p = product(a["article"]); return p.to_dict() if p else None
+    if name == "bofrost_search":
+        import time
+        from .adapters.bofrost import product_urls, product, is_meal_url, is_ready_meal
+        fold = lambda s: s.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+        q = re.findall(r"\w{3,}", a.get("query") or ""); urls = product_urls()
+        hits = [u for u in urls if all(fold(w) in fold(u) for w in q) and (not a.get("ready_meals_only") or is_meal_url(u))][: min(a.get("limit") or 10, 30)]
+        out = []
+        for u in hits:
+            p = product(u, urls); time.sleep(1.0)
+            if p and (not a.get("ready_meals_only") or is_ready_meal(p)): out.append(p.to_dict())
+        return out
     if name == "juit_dishes":
         from .adapters.juit import dishes, to_product
         q = re.findall(r"\w{3,}", (a.get("query") or "").lower())
