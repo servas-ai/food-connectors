@@ -37,7 +37,15 @@ TOOLS += [{"name": "penny_product", "description": "Live PENNY Austria article b
 
 TOOLS += [{"name": "penny_search", "description": "Search the live PENNY Austria online assortment (~450 items, public penny.at product JSON; filtered locally because Penny ignores the search term). ready_meals_only keeps Fertiggerichte/Schnelle Küche/TK-Gerichte/Pizza.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ready_meals_only": {"type": "boolean"}, "limit": {"type": "integer"}}}}]
 
+TOOLS += [{"name": "juit_dishes", "description": "Live Juit (juit.com, frozen ready meals shipped to Austria) dishes from the public storefront content bundle: name, EAN, net weight, portions, nutrition per 100 g, ingredients, tags, official packshot, sellable flag. Prices are not public (login) and stay null. Optional query filter; include_unsellable adds currently unavailable dishes.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "include_unsellable": {"type": "boolean"}, "limit": {"type": "integer"}}}}]
+
 def call(name, a):
+    if name == "juit_dishes":
+        from .adapters.juit import dishes, to_product
+        q = re.findall(r"\w{3,}", (a.get("query") or "").lower())
+        ps = [to_product(f) for f in dishes()]
+        ps = [p for p in ps if (a.get("include_unsellable") or p.extra["sellable"]) and all(w in f"{p.name} {p.category}".lower() for w in q)]
+        return [p.to_dict() for p in ps[: a.get("limit") or 100]]
     if name == "penny_product":
         from .adapters.penny_shop import product
         p = product(a["sku"]); return p.to_dict() if p else None
