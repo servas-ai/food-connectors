@@ -30,6 +30,9 @@ TOOLS += [{"name": "mpreis_product", "description": "Live MPreis webshop product
 TOOLS += [{"name": "spar_product", "description": "Live SPAR/INTERSPAR article by article number (interspar.at/p/<id>) via SPAR's public search API: current + regular price, €/kg, brand, category, stock status, image (code-internal is SPAR-internal, not a GTIN). Returns null if the article is no longer listed.", "inputSchema": {"type": "object", "properties": {"article_id": {"type": "string"}}, "required": ["article_id"]}}]
 
 TOOLS += [{"name": "denns_offers", "description": "Live denn's BioMarkt Austria weekly offers (public offer feed): name, brand, denn's article no., pack, offer price, regular price, €/kg, validity, vegan/vegetarian flags, image. Optional query filter; ready_meals_only filters soups/ready dishes/desserts.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ready_meals_only": {"type": "boolean"}}}}]
+TOOLS += [{"name": "denns_brand_catalog", "description": "Live dennree brand catalog (own brand of the dennree group / denn's BioMarkt) from dennree.de category + product pages: name, net weight, legal denomination, ingredients, nutrition per 100 g (Atwater-checked), packshot by denn's article no. ('BILD FOLGT' placeholders dropped). No price/GTIN published; DE brand site, AT availability per article not stated. Default categories = ready-meal ones (pizza, flammkuchen, veg-bratlinge--pfannengerichte).", "inputSchema": {"type": "object", "properties": {"categories": {"type": "array", "items": {"type": "string"}}, "query": {"type": "string"}}}},
+          {"name": "denns_new_products", "description": "denn's BioMarkt AT 'Neu im Sortiment' (public page-data, isInAustria): brand, title, pack, regular shelf price, €/kg, official image.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}}}},
+          {"name": "denns_lunch_menu", "description": "denn's BioMarkt AT in-store bistro lunch menu (Mittagsgerichte) for one market slug, e.g. linz-kaisergasse-17 or linz-landstr-111: dish, side, price, day, current + next week, diet flags. Counter dishes, not packaged products.", "inputSchema": {"type": "object", "properties": {"market": {"type": "string"}}}}]
 
 TOOLS += [{"name": "nahfrisch_offers", "description": "Live Nah&Frisch Austria 'Angebote der Woche' (public weekly offer page): offer tiles per calendar week with validity and official tile image; names/prices via local tesseract OCR when installed (extra.ocr=True, verify visually). Optional query filter; ocr=false returns tiles only.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "ocr": {"type": "boolean"}, "ready_meals_only": {"type": "boolean"}}}}]
 
@@ -163,6 +166,18 @@ def call(name, a):
         ps = [to_product(o, a.get("ocr")) for o in offers()]
         q = (a.get("query") or "").lower()
         return [p.to_dict() for p in ps if (not q or q in (p.name or "").lower()) and (not a.get("ready_meals_only") or is_ready_meal(p))]
+    if name == "denns_brand_catalog":
+        from .adapters.denns import dennree_catalog, DENNREE_MEAL_CATS
+        ps = dennree_catalog(tuple(a.get("categories") or DENNREE_MEAL_CATS))
+        q = (a.get("query") or "").lower()
+        return [p.to_dict() for p in ps if not q or q in p.name.lower()]
+    if name == "denns_new_products":
+        from .adapters.denns import new_products
+        q = (a.get("query") or "").lower()
+        return [p.to_dict() for p in new_products() if not q or q in p.name.lower()]
+    if name == "denns_lunch_menu":
+        from .adapters.denns import lunch_menu
+        return lunch_menu(a.get("market") or "linz-kaisergasse-17")
     if name == "denns_offers":
         from .adapters.denns import offers, to_product, is_ready_meal
         ps = [to_product(n) for n in offers()]
