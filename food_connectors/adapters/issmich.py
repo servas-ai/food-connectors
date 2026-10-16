@@ -21,6 +21,7 @@ Operator: iss mich! GmbH, Erlafstraße 7, 1020 Wien, FN 471722i (HG Wien; evi.gv
 2026-10-14), Bio-Kontrollstelle AT-BIO-401 (Impressum). Polite 1 req/s.
 """
 from __future__ import annotations
+from ..polite import polite_urlopen  # hard robots.txt + 1 s/host gate
 import gzip, html as _html, itertools, os, re, shutil, subprocess, tempfile, time, urllib.request
 from .base import Adapter
 from ..http import get, UA
@@ -260,7 +261,7 @@ def parse_nutrition_image(url: str, portions=(280.0,)) -> dict:
         return {"per100": {}, "per_portion": {}, "portion_g": None, "ocr_ok": False, "problems": ["no tesseract/image"]}
     fd, path = tempfile.mkstemp(suffix=".jpg"); os.close(fd)
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=40) as r:
+        with polite_urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=40) as r:
             open(path, "wb").write(r.read())
         return nutrition_from_file(path, portions)
     finally:

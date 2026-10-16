@@ -1,5 +1,6 @@
 """OpenStreetMap Overpass live query for Austrian grocery store branches (ODbL)."""
 from __future__ import annotations
+from ..polite import polite_urlopen  # hard robots.txt + 1 s/host gate
 import json, re, urllib.parse, urllib.request
 from datetime import datetime, timezone
 
@@ -87,7 +88,7 @@ def fetch_stores(near: str = "linz", chain: str | None = None, limit: int = 500)
         data=urllib.parse.urlencode({"data": q}).encode(),
         headers={"User-Agent": UA},
     )
-    with urllib.request.urlopen(req, timeout=120) as r:
+    with polite_urlopen(req, timeout=120) as r:
         payload = json.loads(r.read().decode())
     fetched_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     chain_key = (chain or "").lower().strip()

@@ -1,4 +1,5 @@
 """Adapters for open company registries. Stdlib only. Polite: 1 req/s, UA set, backoff on 429."""
+from ..polite import polite_urlopen  # hard robots.txt + 1 s/host gate
 import json, os, re, time, urllib.parse, urllib.request, html
 
 UA = "food-connectors/0.1 (+https://github.com/servas-ai/fertiggerichte-daten)"
@@ -11,7 +12,7 @@ def _get(url, data=None, headers=None, tries=3, timeout=25):
         _last[0] = time.time()
         req = urllib.request.Request(url, data=data, headers={"User-Agent": UA, **(headers or {})})
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as r:
+            with polite_urlopen(req, timeout=timeout) as r:
                 return r.read().decode("utf-8", "replace")
         except urllib.error.HTTPError as e:
             if e.code == 429 and i < tries - 1:

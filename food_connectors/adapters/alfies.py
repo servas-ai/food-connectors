@@ -20,6 +20,7 @@ Operator (alfies.at/impressum, VIES + GLEIF verified 2026-10-14): Alfie's GmbH, 
 Polite 1 req/s for detail calls.
 """
 from __future__ import annotations
+from ..polite import polite_urlopen  # hard robots.txt + 1 s/host gate
 import html as _html, json, os, re, time, urllib.parse, urllib.request
 from .base import Adapter
 from ..http import get, UA
@@ -118,7 +119,7 @@ def warehouse_for(lat: float, lon: float) -> str | None:
     """Ask the shop which warehouse serves a location (same call the address picker makes)."""
     req = urllib.request.Request(f"{BASE}/api/get-warehouse", data=json.dumps({"latitude": lat, "longitude": lon}).encode(),
                                  headers={"User-Agent": UA, "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=30) as r:
+    with polite_urlopen(req, timeout=30) as r:
         w = json.load(r).get("warehouse") or {}
     return w.get("warehouse_code")
 
