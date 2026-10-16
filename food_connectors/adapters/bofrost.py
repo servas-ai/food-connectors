@@ -124,6 +124,22 @@ def product(url_or_article: str, urls: list[str] | None = None) -> Product | Non
     p = parse_product(h, url)
     return p if p.name else None
 
+# warm Mehlspeisen / Nachspeisen (heat-up desserts: Knödel, Schmarrn, Nockerl, Mohnnudeln, Strudel, Palatschinken) and
+# warm starters (Frühlingsrollen, Teigtaschen, Flammkuchen, gefüllte Palatschinken, Kaspressknödel) — opt-in via
+# ``fetch(category="desserts")`` / ``fetch(category="starters")``; cakes, Torten, Eis, Plunder, raw dough stay excluded.
+DESSERT_CAT = "suessspeisen-desserts"
+WARM_DESSERT_RE = re.compile(r"knoedel|schmarrn|nockerl|nudeln|strudel|palatschinken|apfelringe|germ", re.I)
+NOT_WARM_DESSERT_RE = re.compile(r"blaetterteig|kaffeestuecke|torte|schnitten|eis", re.I)
+STARTER_RE = re.compile(r"fruehlingsrollen|teigtaschen|flammkuchen|palatschinken-schinken|kaspressknoedel", re.I)
+
+def is_warm_dessert_url(url: str) -> bool:
+    cat, _, slug = url.split("/shop/", 1)[-1].lower().rpartition("/")
+    return DESSERT_CAT in cat and bool(WARM_DESSERT_RE.search(slug)) and not NOT_WARM_DESSERT_RE.search(slug)
+
+def is_starter_url(url: str) -> bool:
+    cat, _, slug = url.split("/shop/", 1)[-1].lower().rpartition("/")
+    return ("snacks_" in cat or "suppen-suppeneinlagen" in cat) and bool(STARTER_RE.search(slug))
+
 def is_ready_meal(p: Product) -> bool:
     """Finished dishes only: no desserts/ice/sides, no plain Knödel/Spätzle, no soup garnishes (Suppeneinlagen)."""
     if not p.name or NOT_MEAL_RE.search(p.name) or PLAIN_SIDE_RE.match(p.name.strip()): return False
@@ -136,12 +152,16 @@ class Bofrost(Adapter):
              "nutrition per 100 g, ingredients); frozen home delivery across AT (own drivers); no GTIN; polite 1 req/s")
     delay = 1.0
     def fetch(self, category="ready-meals", limit=500):
-        urls = [u for u in product_urls() if is_meal_url(u)]
+        """category: "ready-meals" (default), "desserts" (warm Mehlspeisen) or "starters" (warm Vorspeisen/Snacks)."""
+        sel = {"desserts": is_warm_dessert_url, "starters": is_starter_url}.get(category, is_meal_url)
+        urls = [u for u in product_urls() if sel(u)]
         out = []
         for u in urls:
             p = product(u, urls)
             time.sleep(self.delay)
-            if p and is_ready_meal(p): out.append(p)
+            if p and (sel is not is_meal_url or is_ready_meal(p)):
+                p.extra["course"] = {"desserts": "dessert", "starters": "vorspeise"}.get(category, "haupt")
+                out.append(p)
             if len(out) >= limit: break
         return out
     def search(self, q, limit=50):

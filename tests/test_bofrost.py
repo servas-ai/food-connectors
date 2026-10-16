@@ -18,3 +18,18 @@ def test_urls_and_meal_filter():
     us = B.product_urls(product_xml=xml); assert len(us) == 3
     assert [B.is_meal_url(u) for u in us] == [True, False, True]
     assert B.article_no(us[2]) == "01234"
+
+
+def test_course_url_filters():
+    from food_connectors.adapters import bofrost as b
+    base = "https://www.bofrost.at/shop/"
+    assert b.is_warm_dessert_url(base + "suesse-vielfalt_44201/suessspeisen-desserts_48009/kaiserschmarrn_01575.html")
+    assert b.is_warm_dessert_url(base + "suesse-vielfalt_44201/suessspeisen-desserts_48009/mini-germknoedel_03544.html")
+    assert not b.is_warm_dessert_url(base + "suesse-vielfalt_44201/suessspeisen-desserts_48009/blaetterteig_03290.html")
+    assert not b.is_warm_dessert_url(base + "suesse-vielfalt_44201/torten-tortenstuecke_39770/donauwellen_11872.html")
+    assert not b.is_warm_dessert_url(base + "eis_42743/eisdosen_34984/free-bourbon-vanille-eiscreme_10103.html")
+    assert b.is_starter_url(base + "pizza-snacks_44198/snacks_44195/bo-fruehlingsrollen_01607.html")
+    assert b.is_starter_url(base + "hausmannskost-suppen_44200/suppen-suppeneinlagen_48005/kaspressknoedel_03913.html")
+    assert not b.is_starter_url(base + "pizza-snacks_44198/snacks_44195/gouda-ringe_18009.html")
+    # default ready-meal filter unchanged: desserts stay out
+    assert not b.is_meal_url(base + "suesse-vielfalt_44201/suessspeisen-desserts_48009/kaiserschmarrn_01575.html")
