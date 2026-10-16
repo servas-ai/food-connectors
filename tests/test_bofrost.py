@@ -31,5 +31,9 @@ def test_course_url_filters():
     assert b.is_starter_url(base + "pizza-snacks_44198/snacks_44195/bo-fruehlingsrollen_01607.html")
     assert b.is_starter_url(base + "hausmannskost-suppen_44200/suppen-suppeneinlagen_48005/kaspressknoedel_03913.html")
     assert not b.is_starter_url(base + "pizza-snacks_44198/snacks_44195/gouda-ringe_18009.html")
+    assert b.is_starter_url(base + "pizza-snacks_44198/snacks_44195/salami-pizzettis_00336.html")
+    assert b.is_starter_url(base + "pizza-snacks_44198/snacks_44195/broccoli-laibchen_03726.html")
+    assert not b.is_starter_url(base + "pizza-snacks_44198/snacks_44195/camembert-paniert_01271.html")
+    assert b.is_meal_url(base + "schlemmerfilet-gourmet-extra-knusprig_01502.html")
     # default ready-meal filter unchanged: desserts stay out
     assert not b.is_meal_url(base + "suesse-vielfalt_44201/suessspeisen-desserts_48009/kaiserschmarrn_01575.html")

@@ -50,7 +50,7 @@ def article_no(url: str) -> str | None:
 
 MAYBE_CATS = ("neuheiten", "angebote", "nur-fuer-kurze-zeit", "faschierte-spezialitaeten", "meeresfruechte_", "beilagen_40882", "bio_")
 DISH_SLUG_RE = re.compile(r"pfanne|sauce|suppe|curry|topf|roulade|strudel|auflauf|moussaka|cacciucco|tondelle|tortell|lasagne|"
-                          r"maultaschen|eintopf|gulasch|ragout|risotto|paella|gratin|braten", re.I)
+                          r"maultaschen|eintopf|gulasch|ragout|risotto|paella|gratin|braten|schlemmerfilet", re.I)
 EXCL_CATS_RE = re.compile(r"(^|/)eis_|suesse-vielfalt|gemuese_|kartoffelprodukte|wein-spirituosen|brot-gebaeck|obst_|kuechenhelfer|confiserie")
 
 def is_meal_url(url: str) -> bool:
@@ -130,7 +130,9 @@ def product(url_or_article: str, urls: list[str] | None = None) -> Product | Non
 DESSERT_CAT = "suessspeisen-desserts"
 WARM_DESSERT_RE = re.compile(r"knoedel|schmarrn|nockerl|nudeln|strudel|palatschinken|apfelringe|germ", re.I)
 NOT_WARM_DESSERT_RE = re.compile(r"blaetterteig|kaffeestuecke|torte|schnitten|eis", re.I)
-STARTER_RE = re.compile(r"fruehlingsrollen|teigtaschen|flammkuchen|palatschinken-schinken|kaspressknoedel", re.I)
+# 2026-10-16T19: + Pizzettis, Rösti-Baguette, Gemüse-/Broccoli-Laibchen, Schinken-Käse-Röllchen (warm baked snacks; breaded cheese stays out)
+STARTER_RE = re.compile(r"fruehlingsrollen|teigtaschen|flammkuchen|palatschinken-schinken|kaspressknoedel|pizzettis|roesti-baguette|"
+                        r"gemueselaibchen|broccoli-laibchen|schinken-kaese-roellchen", re.I)
 
 def is_warm_dessert_url(url: str) -> bool:
     cat, _, slug = url.split("/shop/", 1)[-1].lower().rpartition("/")
