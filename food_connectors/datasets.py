@@ -14,6 +14,7 @@ CATALOG = [
  {"id": "zenodo-nl", "name": "Dutch supermarket product data (Zenodo 10.5281/zenodo.19220002)", "url": "https://doi.org/10.5281/zenodo.19220002", "license": "CC BY 4.0", "size": "see record", "freshness": "2026-03", "use": "reference schema, not AT"},
  {"id": "kaggle-de-retail", "name": "German retail supermarket dataset (Kaggle sanku758)", "url": "https://www.kaggle.com/datasets/sanku758/german-retail-supermarket-dataset", "license": "MIT (stated)", "size": "1.95 GB", "freshness": "unknown, likely synthetic", "use": "not imported (provenance unclear)"},
  {"id": "data-gv-lebensmittelbuch", "name": "Österreichisches Lebensmittelbuch (data.gv.at)", "url": "https://www.data.gv.at/katalog/?q=lebensmittelbuch", "license": "CC BY 4.0", "size": "PDF/HTML chapters", "freshness": "2021", "use": "legal definitions (Codex B?), no products"},
+ {"id": "open-prices", "name": "Open Prices (Open Food Facts) — crowd-sourced receipt/price-tag observations", "url": "https://prices.openfoodfacts.org", "license": "ODbL 1.0", "size": "daily dump on Hugging Face (openfoodfacts/open-prices); REST API per EAN", "freshness": "continuous (user contributions)", "use": "dated, OSM-located price observations by EAN; live via `food prices EAN --country AT` / MCP `open_prices_lookup`; AT coverage sparse (2026-10-16: 7 of 240 non-live dataset EANs had any observation, none AT 2026)"},
 ]
 
 def search(q, hubs=("hf", "zenodo", "datagv", "kaggle"), n=8):

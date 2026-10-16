@@ -61,8 +61,13 @@ TOOLS += [{"name": "goldblatt_product", "description": "Live Goldblatt (goldblat
 TOOLS += [{"name": "alfies_product", "description": "Live Alfies (alfies.at, Viennese online supermarket: 60-min delivery in Wien, pre-order in Graz; no Linz delivery) product by numeric id, slug or /produkt/<slug> URL: name, brand, price incl. MwSt. and €/kg for the warehouse (altha = Wien default, graz), pack (displayUnit), nutrition per 100 g parsed from the shop's nutrition table (+ plausibility flag), ingredients, preparation, stock, cross-retailer ids (billaId/gurkerlId), official packshot. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}, "warehouse": {"type": "string", "description": "altha (Wien, default) or graz"}}, "required": ["id"]}},
  {"name": "alfies_search", "description": "Search the live Alfies assortment (public search-only index the shop front-end uses) and return only ready meals (Fix & Fertig / Tiefgekühlte Fertiggerichte paths, minus doughs/salads/desserts) with nutrition from the public catalogue API. Polite 1 req/s; keep limit small.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}, "warehouse": {"type": "string"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "open_prices_lookup", "description": "Crowd-sourced, proof-backed shelf price observations for an EAN from Open Prices (prices.openfoodfacts.org, ODbL): price, currency, date, discount flag, OSM shop (name, brand, city, country), proof type (RECEIPT/PRICE_TAG/...). Newest first; filter by shop country (e.g. AT) and since date. User contributions, not retailer feeds — check date and shop before using as a current price.", "inputSchema": {"type": "object", "properties": {"ean": {"type": "string"}, "country": {"type": "string"}, "since": {"type": "string", "description": "YYYY-MM-DD"}}, "required": ["ean"]}}]
+
 
 def call(name, a):
+    if name == "open_prices_lookup":
+        from .open_prices import prices as _op
+        return _op(a["ean"], a.get("country"), a.get("since"))
     if name == "alfies_product":
         from .adapters.alfies import product as _al
         r = _al(a["id"], a.get("warehouse") or "altha"); return r.to_dict() if r else None

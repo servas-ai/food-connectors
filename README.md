@@ -43,13 +43,14 @@ Every adapter returns the same schema:
 | `company:northdata` | North Data public page / API key | ✅ pass (public facts only) | [p-meier/northdata-connectors](https://github.com/p-meier/northdata-connectors) |
 | `company:impressum` | Public legal notice (Impressum/Imprint: FN, HRB, UID; robots.txt respected) + every UID verified live via EU VIES | ✅ pass (`food company NAME --impressum DOMAIN`, MCP `company_impressum`) | — |
 | `company:firmenbuch` | Firmenbuch HVD API (justiz.gv.at) | 🔑 needs free API key `FIRMENBUCH_API_KEY` | [Lukhers-dev/firmenbuch-HVD](https://github.com/Lukhers-dev/firmenbuch-HVD) (MIT) |
+| `open-prices` | Open Prices (prices.openfoodfacts.org) public REST API, ODbL | ✅ pass (2026-10-16) | — (`food prices EAN --country AT --since YYYY-MM-DD`, MCP `open_prices_lookup`; crowd-sourced, dated, OSM-located observations with proof type) |
 | `datasets:*` | Hugging Face, Zenodo, data.gv.at, Kaggle search APIs | ✅ pass | — (`food datasets --search q`, MCP `search_datasets`) |
 | `osm-stores` | OpenStreetMap Overpass (supermarket/convenience/organic/chemist) | ✅ pass | ODbL © OSM contributors; `food stores --chain billa --near linz`, MCP `list_stores` |
 | hofer.at, spar.at, adeg (direct) | shop sites | 📇 not connected – no public product API (adeg=no webshop; ADEG Flugblatt = per-market Issuu flipbook behind a market selector, no structured data — checked 2026-10-13T20b); branches via `osm-stores` | catalog only |
 | FatSecret, Yazio, MyFitnessPal, fddb | calorie apps | 📇 not integrated – FatSecret needs OAuth key (Platform API, free tier); Yazio/MFP/fddb only unofficial private APIs (ToS) | [coddingtonbear/python-myfitnesspal](https://github.com/coddingtonbear/python-myfitnesspal), [juriadams/yazio](https://github.com/juriadams/yazio) listed only |
 | BLS 4.0, Swiss FCDB | national composition tables | 📇 catalog (`food datasets`) – file downloads | — |
 
-CLI: `food search|fetch|export|sources|stores|nutri|nutriscore|company|datasets`. MCP (`food-mcp`): `list_sources, search_products, fetch_ready_meals, lookup_ean, list_stores, nutri_lookup, compute_nutriscore, list_nutri_sources, company_lookup, company_children, uid_check, company_impressum, northdata_company, list_datasets, search_datasets`.
+CLI: `food search|fetch|export|sources|stores|nutri|nutriscore|company|datasets|prices`. MCP (`food-mcp`): `list_sources, search_products, fetch_ready_meals, lookup_ean, list_stores, nutri_lookup, compute_nutriscore, list_nutri_sources, company_lookup, company_children, uid_check, company_impressum, northdata_company, list_datasets, search_datasets, open_prices_lookup`.
 
 ## Sources
 
