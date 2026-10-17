@@ -15,6 +15,10 @@ def test_meal_filter_on_search_sample():
     assert not A.is_meal(ps[71502])        # Cheesecake = dessert
     assert not A.is_meal(ps[11260])        # Weizen Schnitzel = patty
 
+def test_dish_in_sauce_is_meal():
+    assert A.is_meal({"name": "Wilde Fleischbällchen in Tomatensauce", "category": "0841"})
+    assert not A.is_meal({"name": "Wildschweinsugo mit Paradeisern", "category": "0841"})
+
 def test_detail_to_product_hartl():
     p = A.to_product(_j("adamah_detail_42093.json"))
     assert p.store == A.STORE and p.price_eur == 11.9 and p.size_g == 460.0

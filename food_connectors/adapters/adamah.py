@@ -57,7 +57,8 @@ def price(p: dict) -> float | None:
 
 def is_meal(p: dict) -> bool:
     n = p.get("name") or ""
-    return p.get("category") in MEAL_CATEGORIES and bool(MEAL_RE.search(n)) and not NOT_MEAL_RE.search(n)
+    n_chk = re.sub(r"\bin \w*(sauce|soße)\b", "", n, flags=re.I)  # 'Fleischbällchen in Tomatensauce' is a dish, 'Hirschsugo' is not
+    return p.get("category") in MEAL_CATEGORIES and bool(MEAL_RE.search(n)) and not NOT_MEAL_RE.search(n_chk)
 
 def size_g(p: dict) -> tuple[float | None, str | None]:
     """Net content in g/ml. For '410 ml' jars of Biohof Achleitner the figure is the jar volume (content ca. 350 ml per
