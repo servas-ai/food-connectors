@@ -31,3 +31,13 @@ def test_real_image_kept(monkeypatch):
     ld = LD.replace('"name":"Bistro Avignon"', '"name":"Bistro Avignon","image":["https://images.mpreis.at/x.jpg"]')
     monkeypatch.setattr(M, "_html", lambda url: ld)
     assert M.product("https://www.mpreis.at/shop/p/x-1").image_url == "https://images.mpreis.at/x.jpg"
+
+def test_nutrition_basis_records_block_title(monkeypatch):
+    monkeypatch.setattr(M, "_html", lambda url: LD + block("Nicht zubereitete Portion (125 g)", 283, 11) + block("Zubereitet je 100 g", 95, 2))
+    p = M.product("https://www.mpreis.at/shop/p/x-1")
+    assert p.nutrition_100g == {"kcal": 95.0, "protein": 2.0}
+    assert p.extra["nutrition_basis"] == "Zubereitet je 100 g"
+
+def test_nutrition_basis_none_without_nutrition(monkeypatch):
+    monkeypatch.setattr(M, "_html", lambda url: LD + block("Nicht zubereitete Portion (355 g)", 865, 36))
+    assert M.product("https://www.mpreis.at/shop/p/x-1").extra["nutrition_basis"] is None

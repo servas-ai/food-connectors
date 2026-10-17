@@ -69,6 +69,7 @@ def product(url: str) -> Product | None:
     per100.sort(key=lambda tb: 0 if re.search(r'nicht zubereitet', tb[0], re.I) else 1)
     # blocks present but none per 100 g (portion only) -> leave nutrition empty rather than mislabel it
     src = per100[0][1] if per100 else ("" if blocks else h)
+    basis = per100[0][0] if per100 else None  # label title of the block used, e.g. "Zubereitet je 100 g"
     for k, v in re.findall(r'<tr><td>(.*?)</td><td class="c3-table__column-value">(.*?)</td></tr>', src):
         k = _h.unescape(k).strip(" \xa0-").lower(); m = re.search(r"[\d.,]+", v)
         if not m: continue
@@ -85,7 +86,8 @@ def product(url: str) -> Product | None:
                    unit_price_eur=round(float(price) / size * 1000, 2) if price and size else None, unit="kg" if price and size else None,
                    ean=(ld.get("gtin") or "").lstrip("0") or None, image_url=img,
                    category=ld.get("category"), source_url=off.get("url") or url, source_id=str(ld.get("sku") or ""),
-                   extra={"availability": (off.get("availability") or "").rsplit("/", 1)[-1], "gtin": ld.get("gtin"), "ingredients": ingredients})
+                   extra={"availability": (off.get("availability") or "").rsplit("/", 1)[-1], "gtin": ld.get("gtin"), "ingredients": ingredients,
+                          "nutrition_basis": basis if nut else None})
 
 class MpreisShop(Adapter):
     id = "mpreis-shop"; store = "MPreis"; homepage = BASE + "/shop"; status = "live"
