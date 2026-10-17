@@ -9,7 +9,7 @@ CATALOG = [
     mk("foodora-market", "foodora market (Dmart)", "https://www.foodora.at", "Quick commerce in Linz. App API needs location and session tokens; not scraped."),
     mk("mjam", "mjam (now foodora)", "https://www.mjam.net", "Redirects to foodora."),
     mk("lieferando-shops", "Lieferando Shops", "https://www.lieferando.at", "Lists restaurants and some convenience shops. Product APIs are tokenized; no grocery nutrition."),
-    mk("bio-kistl", "Biohof Achleitner / Bio-Kistl OÖ", "https://www.biohof.at", "Organic box delivery in Upper Austria. Shop HTML only, few ready meals."),
+    mk("bio-kistl", "Biohof Achleitner / Bio-Kistl OÖ", "https://www.biohof.at", "Organic box delivery in Upper Austria → live since 2026-10-17 as `biohof-achleitner` (Hausg'mocht glass-jar meals: category tiles + product pages)."),
     mk("fittogo", "Fit to Go", "https://www.fittogo.at", "Meal-prep vending/delivery. Scrape the HTML menu (see fertiggerichte project)."),
     mk("nah-frisch", "Nah&Frisch", "https://www.nahundfrisch.at", "No webshop/product API; weekly offer tiles are covered by the live `nah-frisch` adapter (nah_frisch.py). Branches via osm-stores."),
     mk("adeg", "ADEG", "https://www.adeg.at", "REWE group franchise portal. Sitemap = pages/news/recipes only; no product catalog or online shop; Flugblatt = per-market Issuu flipbook (images, no structured data). Branches via osm-stores."),

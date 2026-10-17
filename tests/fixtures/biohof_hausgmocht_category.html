@@ -1,0 +1,2642 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="de">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+	<meta name="google-site-verification" content="ZjqvFCuYslA7WpyJCKWzbejghDAHjGcICjldJI6kZ1M" />
+	<meta name="p:domain_verify" content="45aa7196ea42555411d57d1980919cfb"/>
+
+	<!-- ######################################## -->
+	<!--      website and content management      -->
+	<!--  powered by syreta retail digitalization -->
+	<!--          more info: www.syreta.com       -->
+	<!-- ######################################## -->
+
+				
+			<meta name="description" content="Einfach, gesund und lecker – hausgemacht eben. So schmecken unsere Hausg´mocht die mit ganz viel Liebe in unserem Bio-Restaurant dem Kulinarium gekocht werden." />
+			<meta property="og:description" content="Einfach, gesund und lecker – hausgemacht eben. So schmecken unsere Hausg´mocht die mit ganz viel Liebe in unserem Bio-Restaurant dem Kulinarium gekocht werden." />
+			
+			<title>Hausg´mocht Speisen aus dem Bio-Kulinarium - Biohof Achleitner</title>
+		
+		<meta property="og:image" content="https://www.biohof.at/upload/content/biohof_achleitner_og.jpg" />	
+	
+	<link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+	
+	<link rel="stylesheet" href="/css/bootstrap.min.css"rel="preload">
+	
+	<link rel="stylesheet" href="/css/font-awesome.min.css"rel="preload">
+		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.6">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
+		<link rel="stylesheet" href="/css/bootstrap-datepicker.min.css?v=6.0.3.8" type="text/css" />
+			
+	
+
+ 	<link rel="preload" href="/fonts/karbid-webfont.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/fonts/androgyne_tb-webfont.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/css/style.css?v=10.0.3.8" rel="preload">
+	<link rel="stylesheet" href="/css/responsive.css?v=10.0.3.8" rel="preload">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+	<script>
+		
+		
+		var userData={};
+		userData.userID=-1;
+		
+		userData.userKey="";
+
+		try {
+			webkit.messageHandlers.updateUserInformation.postMessage(userData);
+		} catch(err) {}
+		try {
+			androidAppProxy.updateUserInformation(JSON.stringify(userData));
+		} catch(err) {}
+		
+	</script>
+	
+</head>
+
+
+
+<body class=" page-hausgmocht-speisen ">
+<div class="wkFeedbackOverlay">
+	<div class="feedbackContainer">
+		<img src="https://www.biohof.at/images/addToWk.png" alt="">
+	</div>
+</div>
+
+<div class="wkFeedbackOverlay fail">
+	<div class="feedbackContainer">
+		<img src="https://www.biohof.at/images/addToWk_warn.png" alt="">
+		<p class="hint"><p>
+	</div>
+</div>
+
+<div class="mkFeedbackOverlay">
+	<div class="feedbackContainer">
+		<img src="https://www.biohof.at/images/addToMk.png" alt="">
+	</div>
+</div>
+
+<div class="mkFeedbackOverlay fail">
+	<div class="feedbackContainer">
+		<img src="https://www.biohof.at/images/addToMk_warn.png" alt="">
+		<p class="hint"><p>
+	</div>
+</div>
+
+<div id="notAvailable" style="display:none;">
+	<div class="alert alert-danger show">
+		
+		<p>Es tut uns leid, dieser Artikel ist zur Zeit nicht verf&uuml;gbar!</p>
+	</div>
+</div>
+<div id="mkDeleteMerklistArtikel" class="windowsStyle">
+	
+		<div class="header">
+			<strong style="font-size: 24px; font-weight: 700; letter-spacing: 2px; line-height: 36px;">Artikel aus Merkliste l&ouml;schen?</strong>
+			<p>Sind Sie sicher, dass Sie diesen Artikel aus der Merkliste l&ouml;schen m&ouml;chten?</p>
+		</div>
+		<div class="row btnContainer">
+			<div class="col-sm-6">
+				<a id="mkDeleteMerklistArtikelLink" class="btn-green btn btn-block">Ja, l&ouml;schen</a>
+			</div>
+			<div class="col-sm-6">
+				<a class="btn-green btn btn-block fancyclose">Nein, zur&uuml;ck</a>
+			</div>
+		</div>
+	
+</div>
+
+<div class="bottomProductLists ">
+	<div class="openEL clickTab cursor-pointer" data-open="contentEL">
+		
+		Einkaufsliste <span class="number"></span>
+	</div>
+	<div class="openML clickTab back cursor-pointer" data-open="contentML">
+		
+		Merkliste <span class="number"></span>
+	</div>
+	<div class="content">
+		<div class="contentinner contentEL">
+			<div class="head">
+				<span>Einkaufsliste</span>
+			</div>
+			<div class="toScroll displayArea" id="elDisplayArea">
+				
+			</div>
+		</div>
+		<div class="contentinner contentML closed">
+			<div class="head">
+				<span>Merkliste</span>
+			</div>
+			<div class="toScroll displayArea" id="mlDisplayArea">
+			</div>
+		</div>
+		<div class="contentLoading">
+			<img class="loader" alt="loading..." src="https://www.biohof.at/images/loader.gif" width="64" height="64">
+		</div>
+	</div>
+	<div class="closebottomList">
+		<img src="https://www.biohof.at/images/arrow_back.png" alt="" width="39" height="30">
+	</div>
+</div>
+
+
+<div id="global-wrapper">
+	
+	<form id="settings" name="settings" style="display:none;">
+		<input type="hidden" id="seite" name="seite" value="hausgmocht-speisen" />
+		<input type="hidden" id="display" name="display" value="normal" />
+		<input type="hidden" id="format" name="format" value="html" />
+		<input type="hidden" id="cdnDomain" name="cdnDomain" value="https://www.biohof.at" />
+	</form>
+	
+<header id="header" class="header-margin">
+	<nav class="navbar">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed openMobileMenue">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar first"></span>
+					<span class="icon-bar "></span>
+					<span class="icon-bar last"></span>
+				</button>
+				
+				<button type="button" class="navbar-toggle openmobilesearch noBorder">
+					<img src="https://www.biohof.at/images/suchIcon_neu.png" width="23" height="25" alt=""/>
+				</button>
+				
+				<a href="/shop" class="navbar-toggle shopIcon noBorder">
+					<img src="https://www.biohof.at/images/shopIcon_neu.png" width="32" height="28" alt=""/>
+				</a>
+				<a class="navbar-brand" href="/" ><img src="https://www.biohof.at/images/logo.png" height="161" width="389" alt="Biohof Achleitner Logo"/></a>
+			</div>
+
+			<div class="collapse navbar-collapse visible-md" id="topbar-collapse">
+				
+				<ul id="main-menu" class="nav navbar-nav navbar-right">
+					<li class="liClass">
+						<a href="/biokiste-achleitner"  class="main">Biokiste</a>
+						
+					</li>
+					<li class="liClass">
+						<a href="/bio-frischmarkt"  class="main">Frischmarkt</a>
+						
+					</li>
+					<li class="liClass">
+						<a href="/bio-kulinarium"  class="main">Kulinarium</a>
+						
+					</li>
+					<li class="liClass">
+						<a href="/bio-landwirtschaft"  class="main">Landwirtschaft</a>
+						
+					</li>
+					<li class="liClass">
+						<a href="/rezepte"  class="main">Rezepte</a>
+						
+					</li>
+					<li class="liClass hassub">
+						<a href="/biohof1"  class="main">Biohof</a>
+						
+						<div class="submenu" >
+							<div class="top-row">
+								<div class="container">
+									<ul>
+										<li class="liClass"><a href="/blog" id="mega-menu-toggle-1" data-megamenu="1">Blog</a></li>
+										<li class="liClass"><a href="/fuehrungen" id="mega-menu-toggle-2" data-megamenu="2">Führungen</a></li>
+										<li class="liClass"><a href="/jobs" id="mega-menu-toggle-3" data-megamenu="3">Arbeiten am Biohof</a></li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+						
+					</li>
+				</ul>
+				<ul id="icons-menu" class="nav navbar-nav navbar-right">
+						
+					<li class="hassub">
+						
+						<a href="#" class="main" id="openSearchbar"><img src="https://www.biohof.at/images/suchIcon_neu.png" width="26" height="28" alt=""/><small>Suche</small></a>
+						
+						<div class="submenu subAbsolute">
+							<div class="top-row">
+								<div class="container">
+									<ul>
+										<li class="searchli">
+											<form action="/suche" method="post" id="searchform">
+												<div class="col-xs-12">
+													<div class="form-group">
+														<input type="text" name="searchText" id="searchText" class="form-control searchText" autocomplete="off" value="" placeholder="Suchbegriff"/>
+														<span class="feedbackSpan glyphicon form-control-feedback"></span>
+													</div><div class="form-group">
+														<input type="submit" name="submitForm" class="" value="Suchen"/>
+													</div>
+												</div>
+												<div class="clearfix"></div>
+											</form>
+										</li>
+										<li class="searchli liveSearch">
+											<div class="col-xs-12 searchLoader">
+												<img src="/images/lazyLoad.gif" alt="" />
+											</div>
+											<div class="col-xs-7 col-lg-6">
+												<div class="liveSearchContainer liveSearchArticle"></div>
+											</div>
+											<div class="col-xs-5 col-lg-6">
+												<div class="liveSearchContainer liveSearchContent"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						
+						
+						<a href="/termine" class="main">
+							<img src="https://www.biohof.at/images/terminIcon.png" width="26" height="28" alt=""/>
+							<small>Termine</small>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/shop" class="main">
+							<img src="https://www.biohof.at/images/shopIcon_neu.png" width="32" height="28" alt=""/>
+							<small>Shop</small>
+						</a>
+						
+					</li>
+					
+					<li>
+						<a href="#loginDiv" class="loginBtn"><img src="https://www.biohof.at/images/loginIcon_neu.png" width="26" height="28" alt=""/><small >Login</small></a>
+						
+					</li>
+					
+
+				</ul>
+			</div>
+		</div>
+		
+		<div class="nav-mobile">
+			<ul class="firstEbene">
+				
+				<li class="alwaysopen">
+					<ul class="secondEbene">
+						
+						<li class="open"><div class="middle main"><span><a href="/shop" class="main">Shop</a></span></div>
+						
+					</ul>
+				</li>
+					
+				</li>
+				
+				
+				<hr />
+				
+					<li class="alwaysopen">
+						<ul class="secondEbene">
+							
+								<li class="">
+									<div class="middle">
+										<a href="/biokiste-achleitner">Biokiste</a>
+									</div>
+									
+								</li>
+							
+								<li class="">
+									<div class="middle">
+										<a href="/bio-frischmarkt">Frischmarkt</a>
+									</div>
+									
+								</li>
+							
+								<li class="">
+									<div class="middle">
+										<a href="/bio-kulinarium">Kulinarium</a>
+									</div>
+									
+								</li>
+							
+								<li class="">
+									<div class="middle">
+										<a href="/bio-landwirtschaft">Landwirtschaft</a>
+									</div>
+									
+								</li>
+							
+							<hr />
+							
+								<li class="">
+									<div class="middle">
+										<a href="/biohof1" class="hasSubmenu">Biohof</a>
+									</div>
+									
+										<ul class="submenu">
+											
+												<li>
+													<a href="/blog">Blog</a>
+												</li>
+											
+												<li>
+													<a href="/fuehrungen">Führungen</a>
+												</li>
+											
+												<li>
+													<a href="/jobs">Arbeiten am Biohof</a>
+												</li>
+											
+										</ul>
+									
+								</li>
+							
+								<li class="">
+									<div class="middle">
+										<a href="/termine">Termine</a>
+									</div>
+									
+								</li>
+							
+								<li class="">
+									<div class="middle">
+										<a href="/rezepte">Rezepte</a>
+									</div>
+									
+								</li>
+							
+						</ul>
+					</li>
+				
+					<li class="alwaysopen">
+						<div class="middle main"><a href="#loginDiv" class="loginBtn">Login</a></div>
+					</li>
+					<hr />
+				
+			</ul>
+		</div>
+		<div class="MobileMenueSuche">
+			<form action="/suchergebnisse" method="post" id="searchformMobile">
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+					<div class="form-group">
+						<input type="text" name="searchText" class="form-control searchText" value="" placeholder="Suchbegriff"/>
+						<span class="feedbackSpan glyphicon form-control-feedback"></span>
+					</div><div class="form-group">
+						<input type="submit" name="submitForm" class="" value="Suchen"/>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</form>
+		</div>
+		
+	</nav>
+	
+	<div id="loginDiv" class="dropdown-menu loginDiv" style="height:100%;">
+		<div class="col-md-12 loginTop">
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="login custom">Melde dich an</div>
+					<div id="loginDivFeedback" class="alert"></div>
+					<p class="resetPWText">Geben Sie Ihre E-Mail Adresse ein und klicken Sie anschlie&szlig;end auf &quot;Passwort zur&uuml;cksetzen&quot;.</p>
+					<form class="form-horizontal" id="loginForm" role="form" method="post">
+						<div class="form-group has-feedback" id="loginFieldEmail">
+							<label for="loginEmail" class="col-sm-3 control-label">E-Mail</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" autocomplete="email" name="loginEmail" id="loginEmail" placeholder="E-Mail">
+								<span></span>
+							</div>
+						</div>
+						<div class="form-group has-feedback" id="loginFieldPW">
+							<label for="loginPassword" class="col-sm-3 control-label">Passwort</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" autocomplete="current-password" name="loginPassword" id="loginPassword" placeholder="Passwort">
+								<span></span>
+							</div>
+						</div>
+						<div class="checkbox">
+							<label><input type="checkbox" name="writeCookie" class="themenBox" value="1">angemeldet bleiben</label>
+						</div>
+						<div class="form-group last">
+							<div class="col-sm-offset-3 col-sm-9 loginBtnContainer">
+								<button type="submit" class="btn-green performLoginBtn">Anmelden</button>
+								<div class="loginDivLinks">
+									
+									
+									
+									
+									<span class="last"><a id="forgotPWLink">Passwort vergessen</a></span>
+									
+								</div>
+
+								<div class="progress progress-striped active" id="waitForLoginTxt" style="display:none;">
+									<div class="progress-bar loginBar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">
+										<span class="sr-only">45% Complete</span>
+									</div>
+								</div>
+								<div id="okLoginTxt" role="alert" class="alert alert-success">Login erfolgreich. Einen Moment bitte...</div>
+								<div id="wrongLoginTxt" role="alert" class="alert alert-danger">Login fehlgeschlagen.</div>
+							</div>
+							<div class="col-sm-offset-3 col-sm-9 pwResetButtonContainer">
+								<button type="button" class="resetPWBtn btn-green" id="resetPWBtn-header">Passwort zur&uuml;cksetzen</button>
+								<div class="loginDivLinks">
+								
+								</div>
+								<span id="pwResetLoader"><img src="https://www.biohof.at/images/ajax-loader.gif" alt="" /></span>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-5 col-sm-12 col-md-offset-1 col-xs-12 col-xs-offset-0 info">
+					
+						<div class="custom">Neu am Biohof?</div>
+						<p>Vor deiner ersten Biokisten-Bestellung musst du dich registrieren damit wir deinen Liefertag ermitteln k&ouml;nnen.&nbsp;</p>
+
+					
+					
+						<a href="/registrieren?jumpUrl=hausgmocht-speisen" class="btn-green">Registrieren</a>
+					
+					
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div id="logoutDiv" class="dropdown-menu logoutDiv">
+		<div class="col-md-12">
+			<div class="custom">Abmelden</div>
+			<p>Sind Sie sicher, dass Sie sich abmelden m&ouml;chten?</p>
+			<form action="/" class="form-horizontal" id="logoutForm" method="post" role="form">
+				<input type="hidden" name="logout" id="logout" value="1">
+				<div class="form-group">
+					<div class="col-sm-12 loginBtnContainer">
+						<div class="pull-left">
+							<button type="submit" class="btn-green perfotmLogoutBtn first">Ja, abmelden</button>
+							<button type="button" class="btn-green fancyclose">nein, zur&uuml;ck</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</header>
+	<div id="content" class="">
+		
+
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-3 col-lg-2">
+						
+<div class="submenue_left hidden-xs">
+	<ul class="ebene1">
+	
+		<li ><a href="/biokisten">Biokiste</a>
+		
+		<li ><a href="/obst-gemuese">Obst & Gemüse</a>
+		
+		<li ><a href="/neu-im-sortiment">Neu im Sortiment</a>
+		
+		<li ><a href="/vom-baecker">vom Bäcker</a>
+		
+		<li ><a href="/von-der-pflanze">von der Pflanze</a>
+		
+		<li ><a href="/feinkosttheke">Feinkosttheke</a>
+		
+		<li ><a href="/eier-milchprodukte">Eier & Milchprodukte</a>
+		
+		<li ><a href="/speis">Speis</a>
+		
+		<li ><a href="/haushalt">Haushalt</a>
+		
+		<li ><a href="/geschenksideen">Geschenkideen</a>
+		
+		<li class="active"><a href="/hausgmocht-speisen">Hausg'mocht</a>
+		
+		<li ><a href="/themen">Themen</a>
+		
+	</ul>
+</div>
+
+					</div>
+					<div class="col-xs-12 col-md-9 col-lg-10">
+						
+<div class="row">
+	
+	
+	<div class="col-xs-12 artikelListJumpTo">
+		
+			<h1 class="subhdr black">Hausg'mocht</h1>
+		
+	</div>
+	
+	<div class="col-xs-12">
+		
+	<div class="product-filter">
+		Filter:
+		
+			<label><input type="checkbox" name="productFilter" class="productFilterBox" value="3"> vegan</label>
+		
+			<label><input type="checkbox" name="productFilter" class="productFilterBox" value="5"> glutenfrei</label>
+		
+			<label><input type="checkbox" name="productFilter" class="productFilterBox" value="7"> laktosefrei</label>
+		
+			<label><input type="checkbox" name="productFilter" class="productFilterBox" value="21"> Mehrweg</label>
+		
+	</div>
+
+
+<div class="product-list">
+	<div id="notAvailableObst" style="display:none;">
+		<div class="alert alert-info show">
+			<p>Das Obst- &amp; Gem&uuml;seangebot f&uuml;r deinen n&auml;chsten Liefertag ist immer ab Dienstag Abend verf&uuml;gbar.</p>
+
+		</div>
+	</div>
+
+	<div id="notAvailableFilter" style="display:none;">
+		<div class="alert alert-info show">
+			zu deiner Auswahl ist leider kein Artikel gefunden worden
+		</div>
+	</div>
+	
+
+	<div class="row artikelListContainer">
+
+	
+
+		<div class="produkte">				
+			
+
+			
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,glutenfrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="1" 
+					data-ranking="1" 
+					data-kennzeichnung="3,5,21" 
+					data-name="Hausg'mocht Afrikanischer Süßkartoffeleintopf " 
+					data-price="6.80">
+						<div class="ps-item produktContainer" data-artikelID="4754">
+							<div class="img">
+								<a href="/Hausgmocht-Afrikanischer-Sueszkartoffeleintopf-4754">
+									
+										<img src="/uploadPim/4754/001_023504-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Afrikanischer&#x20;S&uuml;&szlig;kartoffeleintopf&#x20;" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Afrikanischer-Sueszkartoffeleintopf-4754">Hausg'mocht Afrikanischer Süßkartoffeleintopf </a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 6,80 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 6,80 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="2" 
+					data-ranking="2" 
+					data-kennzeichnung="21" 
+					data-name="Hausg'mocht Fruchtaufstrich Erdbeeren" 
+					data-price="5.50">
+						<div class="ps-item produktContainer" data-artikelID="4753">
+							<div class="img">
+								<a href="/Hausgmocht-Fruchtaufstrich-Erdbeeren-4753">
+									
+										<img src="/uploadPim/4753/001_023502-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Fruchtaufstrich&#x20;Erdbeeren" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Fruchtaufstrich-Erdbeeren-4753">Hausg'mocht Fruchtaufstrich Erdbeeren</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,50 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,50 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="3" 
+					data-ranking="3" 
+					data-kennzeichnung="3,21" 
+					data-name="Hausg'mocht Fruchtaufstrich Gelbe Pflaume " 
+					data-price="5.50">
+						<div class="ps-item produktContainer" data-artikelID="4771">
+							<div class="img">
+								<a href="/Hausgmocht-Fruchtaufstrich-Gelbe-Pflaume-4771">
+									
+										<img src="/uploadPim/4771/001_023537-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Fruchtaufstrich&#x20;Gelbe&#x20;Pflaume&#x20;" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Fruchtaufstrich-Gelbe-Pflaume-4771">Hausg'mocht Fruchtaufstrich Gelbe Pflaume </a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,50 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,50 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="4" 
+					data-ranking="4" 
+					data-kennzeichnung="3,21" 
+					data-name="Hausg'mocht Grüne Curry-Süßkartoffelsuppe" 
+					data-price="5.90">
+						<div class="ps-item produktContainer" data-artikelID="4758">
+							<div class="img">
+								<a href="/Hausgmocht-Gruene-Curry-Sueszkartoffelsuppe-4758">
+									
+										<img src="/uploadPim/4758/001_023487-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Gr&uuml;ne&#x20;Curry-S&uuml;&szlig;kartoffelsuppe" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Gruene-Curry-Sueszkartoffelsuppe-4758">Hausg'mocht Grüne Curry-Süßkartoffelsuppe</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,90 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,90 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,glutenfrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="5" 
+					data-ranking="5" 
+					data-kennzeichnung="3,5,21" 
+					data-name="Hausg'mocht Indisches Gemüsecurry" 
+					data-price="6.80">
+						<div class="ps-item produktContainer" data-artikelID="4757">
+							<div class="img">
+								<a href="/Hausgmocht-Indisches-Gemuesecurry-4757">
+									
+										<img src="/uploadPim/4757/001_023507-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Indisches&#x20;Gem&uuml;securry" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Indisches-Gemuesecurry-4757">Hausg'mocht Indisches Gemüsecurry</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 6,80 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 6,80 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,glutenfrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="6" 
+					data-ranking="6" 
+					data-kennzeichnung="3,5,21" 
+					data-name="Hausg'mocht Karotten Kokoscremesuppe" 
+					data-price="5.90">
+						<div class="ps-item produktContainer" data-artikelID="4633">
+							<div class="img">
+								<a href="/Hausgmocht-Karotten-Kokoscremesuppe-4633">
+									
+										<img src="/uploadPim/4633/001_023503-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Karotten&#x20;Kokoscremesuppe" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Karotten-Kokoscremesuppe-4633">Hausg'mocht Karotten Kokoscremesuppe</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,90 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,90 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="7" 
+					data-ranking="7" 
+					data-kennzeichnung="" 
+					data-name="Hausg'mocht Linsen Moussaka 400g" 
+					data-price="9.90">
+						<div class="ps-item produktContainer" data-artikelID="4759">
+							<div class="img">
+								<a href="/Hausgmocht-Linsen-Moussaka-400g-4759">
+									
+										<img src="/uploadPim/4759/001_023488-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Linsen&#x20;Moussaka&#x20;400g" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Linsen-Moussaka-400g-4759">Hausg'mocht Linsen Moussaka 400g</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-12 sameH">
+										<div class="price">
+											
+											<strong>€ 9,90 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 9,90 / STK 
+											</span>
+										</div>
+									</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="8" 
+					data-ranking="8" 
+					data-kennzeichnung="" 
+					data-name="Hausg'mocht Marmorkuchen 2 Stk. " 
+					data-price="7.90">
+						<div class="ps-item produktContainer" data-artikelID="4561">
+							<div class="img">
+								<a href="/Hausgmocht-Marmorkuchen-2-Stk.-4561">
+									
+										<img src="/uploadPim/4561/001_022552-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Marmorkuchen&#x20;2&#x20;Stk.&#x20;" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Marmorkuchen-2-Stk.-4561">Hausg'mocht Marmorkuchen 2 Stk. </a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-12 sameH">
+										<div class="price">
+											
+											<strong>€ 7,90 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 7,90 / STK 
+											</span>
+										</div>
+									</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="9" 
+					data-ranking="9" 
+					data-kennzeichnung="21" 
+					data-name="Hausg'mocht Rindsgulasch" 
+					data-price="8.70">
+						<div class="ps-item produktContainer" data-artikelID="4755">
+							<div class="img">
+								<a href="/Hausgmocht-Rindsgulasch-4755">
+									
+										<img src="/uploadPim/4755/001_023505-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Rindsgulasch" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Rindsgulasch-4755">Hausg'mocht Rindsgulasch</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 8,70 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 8,70 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="Mehrweg" 
+					data-hersteller="" 
+					data-orderid="10" 
+					data-ranking="10" 
+					data-kennzeichnung="21" 
+					data-name="Hausg'mocht Sirup Trauben 250ml" 
+					data-price="4.99">
+						<div class="ps-item produktContainer" data-artikelID="4879">
+							<div class="img">
+								<a href="/Hausgmocht-Sirup-Trauben-250ml-4879">
+									
+										<img src="/uploadPim/4879/001_023708-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Sirup&#x20;Trauben&#x20;250ml" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Sirup-Trauben-250ml-4879">Hausg'mocht Sirup Trauben 250ml</a></h3>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 4,99 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 4,99 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="11" 
+					data-ranking="11" 
+					data-kennzeichnung="3,21" 
+					data-name="Hausg'mocht Thailändisches Kokos Gemüsecurry" 
+					data-price="6.80">
+						<div class="ps-item produktContainer" data-artikelID="4756">
+							<div class="img">
+								<a href="/Hausgmocht-Thailaendisches-Kokos-Gemuesecurry-4756">
+									
+										<img src="/uploadPim/4756/001_023506-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Thail&auml;ndisches&#x20;Kokos&#x20;Gem&uuml;securry" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Thailaendisches-Kokos-Gemuesecurry-4756">Hausg'mocht Thailändisches Kokos Gemüsecurry</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 6,80 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 6,80 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="12" 
+					data-ranking="12" 
+					data-kennzeichnung="21" 
+					data-name="Hausg'mochtes Apfelmus ohne Zucker" 
+					data-price="4.00">
+						<div class="ps-item produktContainer" data-artikelID="3962">
+							<div class="img">
+								<a href="/Hausgmochtes-Apfelmus-ohne-Zucker-3962">
+									
+										<img src="/uploadPim/3962/001_015885-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mochtes&#x20;Apfelmus&#x20;ohne&#x20;Zucker" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmochtes-Apfelmus-ohne-Zucker-3962">Hausg'mochtes Apfelmus ohne Zucker</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 4,00 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 4,00 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="13" 
+					data-ranking="13" 
+					data-kennzeichnung="" 
+					data-name="Hausg'mocht Hascheeknödel 400g" 
+					data-price="8.29">
+						<div class="ps-item produktContainer" data-artikelID="3045">
+							<div class="img">
+								<a href="/Hausgmocht-Hascheeknoedel-400g-3045">
+									
+										<img src="/uploadPim/3045/001_017278-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Hascheekn&ouml;del&#x20;400g" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Hascheeknoedel-400g-3045">Hausg'mocht Hascheeknödel 400g</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-12 sameH">
+										<div class="price">
+											
+											<strong>€ 8,29 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 8,29 / STK 
+											</span>
+										</div>
+									</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="14" 
+					data-ranking="14" 
+					data-kennzeichnung="21" 
+					data-name="Hausg'mocht Klare Rindssuppe " 
+					data-price="4.90">
+						<div class="ps-item produktContainer" data-artikelID="3361">
+							<div class="img">
+								<a href="/Hausgmocht-Klare-Rindssuppe-3361">
+									
+										<img src="/uploadPim/3361/018325_001-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Klare&#x20;Rindssuppe&#x20;" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Klare-Rindssuppe-3361">Hausg'mocht Klare Rindssuppe </a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 4,90 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 4,90 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,glutenfrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="15" 
+					data-ranking="15" 
+					data-kennzeichnung="3,5,21" 
+					data-name="Hausg’mocht Fruchtaufstrich Heidelbeeren" 
+					data-price="5.50">
+						<div class="ps-item produktContainer" data-artikelID="2263">
+							<div class="img">
+								<a href="/Hausg%E2%80%99mocht-Fruchtaufstrich-Heidelbeeren-2263">
+									
+										<img src="/uploadPim/2263/001_013024-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&rsquo;mocht&#x20;Fruchtaufstrich&#x20;Heidelbeeren" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausg%E2%80%99mocht-Fruchtaufstrich-Heidelbeeren-2263">Hausg’mocht Fruchtaufstrich Heidelbeeren</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,50 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,50 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="16" 
+					data-ranking="16" 
+					data-kennzeichnung="3,21" 
+					data-name="Hausg'mocht Karotten-Lax mit Rauchsalz &amp; Alge" 
+					data-price="4.49">
+						<div class="ps-item produktContainer" data-artikelID="4295">
+							<div class="img">
+								<a href="/Hausgmocht-Karotten-Lax-mit-Rauchsalz-Alge-4295">
+									
+										<img src="/uploadPim/4295/001_021228-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Karotten-Lax&#x20;mit&#x20;Rauchsalz&#x20;&amp;&#x20;Alge" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Karotten-Lax-mit-Rauchsalz-Alge-4295">Hausg'mocht Karotten-Lax mit Rauchsalz & Alge</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 4,49 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 4,49 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="17" 
+					data-ranking="17" 
+					data-kennzeichnung="3,21" 
+					data-name="Hausg'mocht Grünkernbolognese " 
+					data-price="6.80">
+						<div class="ps-item produktContainer" data-artikelID="3445">
+							<div class="img">
+								<a href="/Hausgmocht-Gruenkernbolognese-3445">
+									
+										<img src="/uploadPim/3445/018433_001-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Gr&uuml;nkernbolognese&#x20;" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Gruenkernbolognese-3445">Hausg'mocht Grünkernbolognese </a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 6,80 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 6,80 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,glutenfrei,lactosefrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="18" 
+					data-ranking="18" 
+					data-kennzeichnung="3,5,7,21" 
+					data-name="Hausg'mocht Erdäpfel-Pilz-Eintopf" 
+					data-price="6.80">
+						<div class="ps-item produktContainer" data-artikelID="2213">
+							<div class="img">
+								<a href="/Hausgmocht-Erdaepfel-Pilz-Eintopf-2213">
+									
+										<img src="/uploadPim/2213/012435_001-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Erd&auml;pfel-Pilz-Eintopf" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Erdaepfel-Pilz-Eintopf-2213">Hausg'mocht Erdäpfel-Pilz-Eintopf</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 6,80 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 6,80 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="19" 
+					data-ranking="19" 
+					data-kennzeichnung="3,21" 
+					data-name="Hausg'mocht Sugo " 
+					data-price="6.20">
+						<div class="ps-item produktContainer" data-artikelID="2062">
+							<div class="img">
+								<a href="/Hausgmocht-Sugo-2062">
+									
+										<img src="/uploadPim/2062/001_001864-thumbnail-350-350.png" class="prodImg" alt="Hausg&#x27;mocht&#x20;Sugo&#x20;" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Sugo-2062">Hausg'mocht Sugo </a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 6,20 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 6,20 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,glutenfrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="20" 
+					data-ranking="20" 
+					data-kennzeichnung="3,5,21" 
+					data-name="Hausg'mocht Erdäpfel-Rübengulasch 410ml" 
+					data-price="6.80">
+						<div class="ps-item produktContainer" data-artikelID="2560">
+							<div class="img">
+								<a href="/Hausgmocht-Erdaepfel-Ruebengulasch-410ml-2560">
+									
+										<img src="/uploadPim/2560/001_014611-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Erd&auml;pfel-R&uuml;bengulasch&#x20;410ml" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Erdaepfel-Ruebengulasch-410ml-2560">Hausg'mocht Erdäpfel-Rübengulasch 410ml</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 6,80 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 6,80 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="21" 
+					data-ranking="21" 
+					data-kennzeichnung="21" 
+					data-name="Hausg'mocht Erdäpfel-Würstelgulasch" 
+					data-price="8.70">
+						<div class="ps-item produktContainer" data-artikelID="3444">
+							<div class="img">
+								<a href="/Hausgmocht-Erdaepfel-Wuerstelgulasch-3444">
+									
+										<img src="/uploadPim/3444/018437_001-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Erd&auml;pfel-W&uuml;rstelgulasch" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Erdaepfel-Wuerstelgulasch-3444">Hausg'mocht Erdäpfel-Würstelgulasch</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 8,70 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 8,70 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="glutenfrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="22" 
+					data-ranking="22" 
+					data-kennzeichnung="5,21" 
+					data-name="Hausg'mocht Putenragout mit Schwammerl 410ml" 
+					data-price="8.70">
+						<div class="ps-item produktContainer" data-artikelID="2338">
+							<div class="img">
+								<a href="/Hausgmocht-Putenragout-mit-Schwammerl-410ml-2338">
+									
+										<img src="/uploadPim/2338/001_013379-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Putenragout&#x20;mit&#x20;Schwammerl&#x20;410ml" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Putenragout-mit-Schwammerl-410ml-2338">Hausg'mocht Putenragout mit Schwammerl 410ml</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 8,70 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 8,70 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="glutenfrei,lactosefrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="23" 
+					data-ranking="23" 
+					data-kennzeichnung="5,7,21" 
+					data-name="Hausg'mocht Sugo vom Bruderhahn" 
+					data-price="8.70">
+						<div class="ps-item produktContainer" data-artikelID="2586">
+							<div class="img">
+								<a href="/Hausgmocht-Sugo-vom-Bruderhahn-2586">
+									
+										<img src="/uploadPim/2586/001_014779-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Sugo&#x20;vom&#x20;Bruderhahn" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Sugo-vom-Bruderhahn-2586">Hausg'mocht Sugo vom Bruderhahn</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 8,70 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 8,70 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="" 
+					data-hersteller="" 
+					data-orderid="24" 
+					data-ranking="24" 
+					data-kennzeichnung="" 
+					data-name="Hausg'mocht gemischtes Paket" 
+					data-price="26.00">
+						<div class="ps-item produktContainer" data-artikelID="2473">
+							<div class="img">
+								<a href="/Hausgmocht-gemischtes-Paket-2473">
+									
+										<img src="/uploadPim/2473/001_Kiste029-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;gemischtes&#x20;Paket" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-gemischtes-Paket-2473">Hausg'mocht gemischtes Paket</a></h3>
+							
+							<div class="text">
+								
+								Keine Lust oder M&ouml;glichkeit zu kochen? Dann probiere doch unser Hausg&acute;mocht Paket mit 4 verschiedenen Gerichten, dass dich mit schnellen &amp; gesunden Speisen versorgt!
+
+							</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-12 sameH">
+										<div class="price wide">
+											
+											<strong>ab € 26,00 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												&nbsp;
+											</span>
+										</div>
+									</div>
+									
+								</div>
+								
+								
+									
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="" 
+					data-hersteller="" 
+					data-orderid="25" 
+					data-ranking="25" 
+					data-kennzeichnung="" 
+					data-name="Hausg'mocht vegetarisches Paket" 
+					data-price="26.00">
+						<div class="ps-item produktContainer" data-artikelID="2471">
+							<div class="img">
+								<a href="/Hausgmocht-vegetarisches-Paket-2471">
+									
+										<img src="/uploadPim/2471/001_Kiste028-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;vegetarisches&#x20;Paket" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-vegetarisches-Paket-2471">Hausg'mocht vegetarisches Paket</a></h3>
+							
+							<div class="text">
+								
+								Frisch zubereitet im Bio-Kulinarium ist unser Hausg´mocht Paket die gesunde Lösung wenn es einmal schnell gehen muss. Gefüllt mit 4 vegetarischen Speisen. 
+
+							</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-12 sameH">
+										<div class="price wide">
+											
+											<strong>ab € 26,00 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												&nbsp;
+											</span>
+										</div>
+									</div>
+									
+								</div>
+								
+								
+									
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,glutenfrei,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="26" 
+					data-ranking="26" 
+					data-kennzeichnung="3,5,21" 
+					data-name="Hausg'mocht Tomatencremesuppe " 
+					data-price="5.90">
+						<div class="ps-item produktContainer" data-artikelID="3180">
+							<div class="img">
+								<a href="/Hausgmocht-Tomatencremesuppe-3180">
+									
+										<img src="/uploadPim/3180/001_017671-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Tomatencremesuppe&#x20;" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Tomatencremesuppe-3180">Hausg'mocht Tomatencremesuppe </a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,90 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,90 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="vegan,Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="27" 
+					data-ranking="27" 
+					data-kennzeichnung="3,21" 
+					data-name="Hausg'mocht Fruchtaufstrich Marille" 
+					data-price="5.50">
+						<div class="ps-item produktContainer" data-artikelID="1772">
+							<div class="img">
+								<a href="/Hausgmocht-Fruchtaufstrich-Marille-1772">
+									
+										<img src="/uploadPim/1772/001_001811-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Fruchtaufstrich&#x20;Marille" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Fruchtaufstrich-Marille-1772">Hausg'mocht Fruchtaufstrich Marille</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,50 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,50 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6"
+					data-kennzeichen="Mehrweg" 
+					data-hersteller="Bio-Kulinarium Achleitner" 
+					data-orderid="28" 
+					data-ranking="28" 
+					data-kennzeichnung="21" 
+					data-name="Hausg'mocht Fruchtaufstrich Zwetschken" 
+					data-price="5.50">
+						<div class="ps-item produktContainer" data-artikelID="2746">
+							<div class="img">
+								<a href="/Hausgmocht-Fruchtaufstrich-Zwetschken-2746">
+									
+										<img src="/uploadPim/2746/001_015804-thumbnail-350-350.jpg" class="prodImg" alt="Hausg&#x27;mocht&#x20;Fruchtaufstrich&#x20;Zwetschken" />
+									
+									
+								</a>
+								
+									<a href="#loginDiv" class="loginBtn mlLink">
+								
+									<img class="mlIcon" src="/images/ml_green_neu.svg" alt="Auf die Merkliste" />
+									<img class="mlIconActive" src="/images/ml_green_active_neu.svg" alt="Aus der Merkliste" />
+								</a>
+								
+							</div>
+							<h3><a href="/Hausgmocht-Fruchtaufstrich-Zwetschken-2746">Hausg'mocht Fruchtaufstrich Zwetschken</a></h3>
+							
+							<div class="subtitle">Bio-Kulinarium Achleitner&nbsp;</div>
+							
+							<div class="clearfix">
+								<div class="row" data-equal=".sameH">
+									<div class="col-xs-8 sameH">
+										<div class="price">
+											
+											<strong>€ 5,50 </strong>
+											
+											<span class="weight">
+												&nbsp; 
+											</span>
+												
+											<span class="pperw">
+												€ 5,50 / STK 
+											</span>
+										</div>
+									</div>
+									
+										<div class="col-xs-4 sameH text-right">
+											<div style="background-image: url('/images/tags/mehrweg.png?v=1.1'); height: 100%; background-position: center; background-size: contain; background-repeat: no-repeat;"></div>
+										</div>
+									
+								</div>
+								
+								
+									
+												<div class="cart">
+													
+													<a href="#" class="wkAddBtn"><span>In den Warenkorb</span>auf die <strong>Einkaufsliste</strong></a>
+													<input type="text" name="qty" class="productQty qty" value="1" disabled="disabled" />
+												</div>
+											
+								
+							</div>
+						</div>
+					</div>
+					
+		</div>
+	</div>
+</div> 
+	</div>
+</div>
+	
+		<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6 artikelListInhalt fullimg" data-orderid="22">
+			
+					<div>
+						
+									<a href="https://www.biohof.at/blog/Wer-ist-Bruderhahn?-1132" target="_self" class="noStyle">
+								
+								<img src="/upload/content/Shop_Stoerer/Biohof_Achleitner_Blog_Bruderhahn_normal.jpg" alt="" title="" class="img-responsive bgMedia" />
+								
+									</a>
+								
+						<div class="textBox">
+							
+								<a href="https://www.biohof.at/blog/Wer-ist-Bruderhahn?-1132" target="_self" class="noStyle">
+							
+							<h3 class="hyphenate">Was ist Bruderhahn?</h3>
+							
+								</a>
+							
+									<a href="https://www.biohof.at/blog/Wer-ist-Bruderhahn?-1132" class="btn-green" target="_self">
+								Mehr erfahren
+								</a>
+							
+						</div>
+					</div>
+				</a>
+				
+		</div>
+	
+		
+		<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6 artikelListInhalt fullimg" data-orderid="7">
+			
+					<div>
+						
+									<a href="https://www.biohof.at/blog/Schnell-und-doch-gesund-essen-1450" target="_self" class="noStyle">
+								
+								<img src="/upload/content/Shop_Stoerer/Biohof_Achleitner_Blog_Hausgmocht_Glaeser_normal.jpg" alt="" title="" class="img-responsive bgMedia" />
+								
+									</a>
+								
+						<div class="textBox">
+							
+								<a href="https://www.biohof.at/blog/Schnell-und-doch-gesund-essen-1450" target="_self" class="noStyle">
+							
+							<h3 class="hyphenate">Wer steckt hinter "Haus-gmocht"?</h3>
+							
+								</a>
+							
+									<a href="https://www.biohof.at/blog/Schnell-und-doch-gesund-essen-1450" class="btn-green" target="_self">
+								Mehr erfahren
+								</a>
+							
+						</div>
+					</div>
+				</a>
+				
+		</div>
+	
+		
+		<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6 artikelListInhalt fullimg" data-orderid="7">
+			
+					<div>
+						
+									<a href="https://www.biohof.at/hausgmocht" target="https://www.biohof.at/hausgmocht" class="noStyle">
+								
+								<img src="/upload/content/Shop_Stoerer/Hausgmocht.jpg" alt="" title="" class="img-responsive bgMedia" />
+								
+									</a>
+								
+						<div class="textBox">
+							
+								<a href="https://www.biohof.at/hausgmocht" target="https://www.biohof.at/hausgmocht" class="noStyle">
+							
+							<h3 class="hyphenate">Was ist "haus-gmocht"?</h3>
+							
+								</a>
+							
+									<a href="https://www.biohof.at/hausgmocht" class="btn-green" target="https://www.biohof.at/hausgmocht">
+								Mehr erfahren
+								</a>
+							
+						</div>
+					</div>
+				</a>
+				
+		</div>
+	
+		
+		<div class="entry col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xsx-6 artikelListInhalt fullimg" data-orderid="1">
+			
+					<div>
+						
+								<video class="img-responsive bgMedia" autoplay muted loop playsinline>
+									<source src="/upload/content/video/Hausgmocht_small.mp4" type="video/mp4" />
+								</video>
+							
+						<div class="textBox">
+							
+							<h3 class="hyphenate"></h3>
+							
+						</div>
+					</div>
+				</a>
+				
+		</div>
+	
+	
+					</div>
+					
+				</div>
+			</div>
+
+		
+	</div>
+	
+	<footer id="footer">
+		<div class="container">
+			<div class="row topRow">
+				
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+						<ul>
+							<li><a href="/biokiste">Biokiste</a></li>
+						</ul>
+						<p><strong>Kundenservice</strong></p>
+
+<p>Mo - Do: 8.00 - 16.00 Uhr<br />
+Fr: 8.00 - 15.00 Uhr</p>
+
+<p><strong>E</strong>. <a href="mailto:diebiokiste@biohof.at">dieBiokiste@biohof.at</a><br />
+<strong>T</strong>. <a href="tel:+4372722597">+43 7272 2597</a></p>
+
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+						<ul>
+							<li><a href="/bio-frischmarkt">Frischmarkt</a></li>
+						</ul>
+						<p><strong>&Ouml;ffnungszeiten</strong></p>
+
+<p>Mo - Fr: 8.00 - 18.00 Uhr<br />
+Sa: 8.00 - 14.00 Uhr</p>
+
+<p><strong>B&uuml;rozeiten</strong></p>
+
+<p>Mo - Fr: 8.00 - 16.00 Uhr</p>
+
+<p><strong>E. </strong><a href="mailto:biofrischmarkt@biohof.at">biofrischmarkt@biohof.at</a><br />
+<strong>T</strong>. <a href="tel:+437272485970">+43 7272 4859 70</a></p>
+
+<p>&nbsp;</p>
+
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+						<ul>
+							<li><a href="/bio-kulinarium">Kulinarium</a></li>
+						</ul>
+						<p><strong>&Ouml;ffnungszeiten</strong></p>
+
+<p>Mo - Fr: 8.00 - 14.30 Uhr<br />
+Sa: 8.00 - 13.30 Uhr</p>
+
+<p><strong>E. </strong><a href="mailto:biokulinarium@biohof.at">biokulinarium@biohof.at</a><br />
+<strong>T</strong>. <a href="tel:+437272485960">+43 7272 4859 60</a></p>
+
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+						<ul>
+							<li><a href="/bio-grosshandel">Grosshandel</a></li>
+						</ul>
+						<p><strong>Verkauf</strong></p>
+
+<p>Mo - Do: 8.00 - 16.00 Uhr<br />
+Fr: 8.00 -&nbsp;12.00 Uhr&nbsp;</p>
+
+<p><strong>E</strong>. <a href="mailto:verkauf@biohof.at">verkauf@biohof.at</a><br />
+<strong>T</strong>. <a href="tel:+437272485950">+43 7272 4859 50</a></p>
+
+					</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+					<p><strong>Biohof Achleitner</strong><br />
+Unterm Regenbogen 1<br />
+4070 Eferding<br />
+&Ouml;sterreich</p>
+
+					<img src="/images/logoEnkeltauglichesOesterreich.png" class="negMargin" width="155" alt="">
+					<br />
+					<img src="/images/bio_eu.jpg" width="83" height="65" alt=""/>
+					<img src="/images/bio_austria.jpg" width="49" height="65" alt=""/>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+					<ul>
+						
+							<li><a href="/anfahrt">Anfahrt</a></li>
+						
+							<li><a href="/versandkosten">Versandkosten</a></li>
+						
+							<li><a href="/haeufige-fragen">Häufige Fragen</a></li>
+						
+							<li><a href="/downloads">Downloads</a></li>
+						
+							<li><a href="/barrierefreiheit">Barrierefreiheit</a></li>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="row bottomRow">
+				
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+						<div style="margin-bottom: 10px;">
+							BIOKISTEN APP
+						</div>
+						<div style="width: 40%; margin-right: 5%; float: left;">
+							<a href="/appstore" target="_blank">
+								<img src="/images/Appstore_Button.png" alt="Appstore oeffnen" width="75" height="26" style="width: 100%;" />
+							</a>
+							<a href="/appstore" target="_blank">
+								<img src="/images/Google_Play_Button.png" alt="Play Store oeffnen" width="75" height="22" style="width: 100%;" />
+							</a>
+						</div>
+						<img src="/images/Button_Handy.png" alt="Handy Bild" width="47" height="47" style="width: 25%; float: left;" />
+					</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+					<div style="margin-bottom: 10px;">
+						IN VERBINDUNG BLEIBEN
+					</div>
+					<div class="row socialRow">
+						<div class="col-xs-3 col-sm-3">
+							<a href="https://www.instagram.com/biohof.achleitner/" target="_blank">
+								<img src="/images/footerInstagram.png" class="img-responsive" alt="Instagram" width="25" height="25" />
+							</a>
+						</div>
+						<div class="col-xs-3 col-sm-3">
+							<a href="https://www.facebook.com/BiohofAchleitner" target="_blank">
+								<img src="/images/footerFacebook.png" class="img-responsive" alt="Facebook" width="25" height="25" />
+							</a>
+						</div>
+						<div class="col-xs-3 col-sm-3">
+							<a href="https://www.pinterest.at/biohofachleitner" target="_blank">
+								<img src="/images/footerPinterest.png" class="img-responsive" alt="Pinterest" width="25" height="25" />
+							</a>
+						</div>
+						<div class="col-xs-3 col-sm-3">
+							<a href="https://www.youtube.com/channel/UCJGoKEyho8nP6U54jEOTROQ" target="_blank">
+								<img src="/images/footerYoutube.png" class="img-responsive" alt="Youtube" width="25" height="25" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 entry">
+					<div style="margin-bottom: 10px;">
+						INFORMIERT BLEIBEN
+					</div>
+					<a href="/newsletter-anmeldung" class="btn-white-border">zum Newsletter anmelden</a>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 entry">
+					<ul class="dataFooter text-right">
+						<li><a href="/datenschutz">Datenschutz</a></li>
+						<li><a href="/agb">AGB</a></li>
+						<li><a href="/impressum">Impressum</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</div>
+
+
+<script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery-2.1.4.min.js"><\/script>')</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js" integrity="sha384-YeUZ6bm5HaV9hAVzDbZNHOf/1Dez0BMOoh2YzcFprAJAw6UEXThti5aeLOBJ922Z" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+<script src="/js/pinchzoom.js"></script>
+
+<script src="/js/vendor/bootstrap.min.js"></script>
+<script src="/js/vendor/tooltip.js"></script>
+<script src="/js/vendor/jquery.cycle2.min.js"></script>
+<script src="/js/vendor/jquery.cycle2.carousel.min.js"></script>
+<script src="/js/vendor/jquery.cycle2.swipe.min.js"></script>
+<script src="/js/bootstrap-datepicker.min.js?v=6.0.3.8"></script>
+<script src="/locales/bootstrap-datepicker.de.min.js?v=6.0.3.8"></script>
+<script src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script src="/js/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Hyphenator/5.2.1/Hyphenator.min.js" integrity="sha384-xK+p0iSTj/OZYGzRJ+g38tMTckNK2BxOYtLVTc9hFiRhIecfLPXjoOOVAZgJY7QL" crossorigin="anonymous"></script>
+
+<script src="/js/core.js?v=10.0.3.8"></script>
+<script src="/js/main.js?v=10.0.3.8"></script>
+
+
+
+
+		<script src="https://cookieconsent.syreta.com/2.0.0/js/syreta-cc.min.js?lang=de&amp;css=true#cckey=cc-aba4409d-4c8f-439f-ac19-c708741a7b2e"></script>
+	
+</body>
+</html>
