@@ -4,7 +4,7 @@ from .adapters import ADAPTERS, STORE_ADAPTERS
 from .cli import run_many, _stores
 TOOLS = [
  {"name": "list_sources", "description": "List all connectors with status and notes.", "inputSchema": {"type": "object", "properties": {}}},
- {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), every (live every-foods.com Shopify JSON + product pages), loewenanteil (live loewenanteil.com Shopify JSON + product HTML), kernbeisser (live kernbeisser.at WooCommerce Store API), goldblatt (live goldblatt.at Shopify JSON + product HTML), issmich (live issmich.at Shopware product pages + strict OCR of the Nährwerttabelle image), alfies (live Alfies Wien/Graz online supermarket: public search index + catalogue API), myproduct (live myproduct.at regional-producer marketplace, category Fertiggerichte: product JSON-LD + attribute table), hofer-shop (live hofer.at product sitemap + product pages), biohof-achleitner (live biohof.at Hausg'mocht glass-jar meals, Biokiste delivery OÖ incl. Linz), unimarkt, off).",
+ {"name": "search_products", "description": "Search Austrian grocery products across stores (billa, penny, gurkerl, lidl, spar, hofer, dm (live dm.at product JSON), dm-heisse, mpreis, mpreis-shop (live), spar-shop (live SPAR search API), denns (live denn's BioMarkt AT offers), nah-frisch (live Nah&Frisch weekly offer tiles, OCR), penny-shop (live penny.at online assortment JSON), juit (live), bofrost (live bofrost.at product pages), fittogo (live fittogo.at product HTML), every (live every-foods.com Shopify JSON + product pages), loewenanteil (live loewenanteil.com Shopify JSON + product HTML), kernbeisser (live kernbeisser.at WooCommerce Store API), goldblatt (live goldblatt.at Shopify JSON + product HTML), issmich (live issmich.at Shopware product pages + strict OCR of the Nährwerttabelle image), alfies (live Alfies Wien/Graz online supermarket: public search index + catalogue API), myproduct (live myproduct.at regional-producer marketplace, category Fertiggerichte: product JSON-LD + attribute table), hofer-shop (live hofer.at product sitemap + product pages), biohof-achleitner (live biohof.at Hausg'mocht glass-jar meals, Biokiste delivery OÖ incl. Linz), subway-at (live subway.com/de-AT menu tiles: subs, panini, creations, official photos; no prices), unimarkt, off).",
   "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "stores": {"type": "string", "description": "comma list or 'all'"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean", "description": "fetch nutrition/producer details"}}, "required": ["query"]}},
  {"name": "fetch_ready_meals", "description": "Fetch ready meals (Fertiggerichte) from the given stores.",
   "inputSchema": {"type": "object", "properties": {"stores": {"type": "string"}, "limit": {"type": "integer"}, "enrich": {"type": "boolean"}}}},
@@ -76,7 +76,18 @@ TOOLS += [{"name": "achleitner_product", "description": "Live Biohof Achleitner 
 TOOLS += [{"name": "open_prices_lookup", "description": "Crowd-sourced, proof-backed shelf price observations for an EAN from Open Prices (prices.openfoodfacts.org, ODbL): price, currency, date, discount flag, OSM shop (name, brand, city, country), proof type (RECEIPT/PRICE_TAG/...). Newest first; filter by shop country (e.g. AT) and since date. User contributions, not retailer feeds — check date and shop before using as a current price.", "inputSchema": {"type": "object", "properties": {"ean": {"type": "string"}, "country": {"type": "string"}, "since": {"type": "string", "description": "YYYY-MM-DD"}}, "required": ["ean"]}}]
 
 
+TOOLS += [{"name": "subway_menu", "description": "Live Subway Österreich menu (subway.com/de-AT, server-rendered category pages): product tiles with Subway ProductId, name, description, official tile photo and category. Categories: Sandwiches, SubMelts, SubwaySeries (Unsere Kreationen), Salads-and-Wraps, Breakfast, Kids, Subway-Snacks, Sidekicks, SidesDrinksExtras; omit for all. Generic group tiles (Wraps, Salate, Chips...) are flagged generic_tile. No prices on the AT site.", "inputSchema": {"type": "object", "properties": {"category": {"type": "string"}}}},
+ {"name": "subway_search", "description": "Search the live Subway Österreich menu tiles by words in the product name (e.g. 'teriyaki', 'philly').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
+
 def call(name, a):
+    if name == "subway_menu":
+        from .adapters.subway_at import SubwayAT
+        c = a.get("category")
+        return SubwayAT().menu([c] if c else None)
+    if name == "subway_search":
+        from .adapters.subway_at import SubwayAT
+        return [p.to_dict() for p in SubwayAT().search(a["query"], limit=min(a.get("limit") or 20, 50))]
     if name == "achleitner_product":
         from .adapters.biohof_achleitner import product as _ba
         r = _ba(a["id"]); return r.to_dict() if r else None
