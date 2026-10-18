@@ -83,6 +83,9 @@ TOOLS += [{"name": "gerbl_product", "description": "Live Gerbl im Glas (shop.ger
 TOOLS += [{"name": "ruckzuck_product", "description": "Live Ruck Zuck Laden / Dunzinger's Ruck Zuck Glasl (ruckzuck-laden.at, Schimpl OG, Hirschbach im Mühlkreis OÖ; jar ready meals cooked in the jar, shelf-stable; ships AT for 15 €, free from 100 €) product by Ecwid product id or shop URL: name, price per jar (EUR incl. 10 % MwSt.), 30-day lowest price, ingredients, allergens (marked in capitals), vegan flag, jar volume when stated, jar packshot (+ serving image in extra). No GTIN/nutrition published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "ruckzuck_search", "description": "Search the live Ruck Zuck Laden shop by words in the product name (e.g. 'curry', 'gulasch'); reads the WP store sitemap and the public Ecwid storefront JSON politely (~18 requests, 1 req/s); returns all matching products incl. broths/sauces.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "bauernladen_product", "description": "Live Bauernladen.at marketplace product (farm-direct; category 'Schnelle Küche' = jar/heat-up meals of Austrian farms and manufactories, each producer ships itself within AT) by product URL https://bauernladen.at/produkte/<producer>/<slug>-<id>: name, price EUR incl. MwSt., pack size, availability, producer + address, producer delivery terms (fee, free-shipping threshold, countries), Bio/Vegan/Kühlbedürftig/Tiefgekühlt flags, shelf life, ingredients text, images. No GTIN; nutrition only as unreferenced free text. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}}, "required": ["url"]}},
+ {"name": "bauernladen_search", "description": "Search the live Bauernladen.at 'Schnelle Küche' category (4 listing pages + matching product pages, polite 1 req/s) by words in the product name or producer (e.g. 'gulasch', 'venatio'); returns all matching products incl. broths/sauces/sides.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 TOOLS += [{"name": "open_prices_lookup", "description": "Crowd-sourced, proof-backed shelf price observations for an EAN from Open Prices (prices.openfoodfacts.org, ODbL): price, currency, date, discount flag, OSM shop (name, brand, city, country), proof type (RECEIPT/PRICE_TAG/...). Newest first; filter by shop country (e.g. AT) and since date. User contributions, not retailer feeds — check date and shop before using as a current price.", "inputSchema": {"type": "object", "properties": {"ean": {"type": "string"}, "country": {"type": "string"}, "since": {"type": "string", "description": "YYYY-MM-DD"}}, "required": ["ean"]}}]
 
 
@@ -110,6 +113,12 @@ def call(name, a):
     if name == "adamah_search":
         from .adapters.adamah import Adamah
         return [p.to_dict() for p in Adamah().search(a["query"], limit=min(a.get("limit") or 10, 20))]
+    if name == "bauernladen_product":
+        from .adapters.bauernladen import product as _bl
+        r = _bl(str(a["url"])); return r.to_dict() if r else None
+    if name == "bauernladen_search":
+        from .adapters.bauernladen import Bauernladen
+        return [p.to_dict() for p in Bauernladen().search(a["query"], limit=min(a.get("limit") or 10, 30))]
     if name == "ruckzuck_product":
         from .adapters.ruckzuck import product as _rz
         r = _rz(str(a["id"])); return r.to_dict() if r else None
