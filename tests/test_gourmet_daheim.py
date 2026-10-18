@@ -1,0 +1,30 @@
+import pathlib
+from food_connectors.adapters import gourmet_daheim as G
+
+FX = pathlib.Path(__file__).parent / "fixtures"
+PT = (FX / "gourmet_daheim_prices_sample.txt").read_text(encoding="utf-8")
+NT = (FX / "gourmet_daheim_nutrition_sample.txt").read_text(encoding="utf-8")
+
+def test_parse_prices():
+    ps = {p["art"]: p for p in G.parse_prices(PT)}
+    assert ps["2313122"]["name"] == "Alt-Wiener Suppentopf" and ps["2313122"]["size_g"] == 230.0 and ps["2313122"]["price_eur"] == 5.1
+    assert ps["2311070"]["price_eur"] == 13.7 and ps["2311070"]["size_g"] == 400.0      # single space before the weight
+    assert ps["2310273"]["breikost"] is True
+    assert "2390037" not in ps                                                          # weekly carton, no weight
+    assert ps["2313225"]["overflow"] is True                                            # printed after the carton block
+
+def test_parse_nutrition_and_flags():
+    n = G.parse_nutrition(NT)
+    a = n["2313122"]
+    assert a["nutrition_100g"] == {"kcal": 36.0, "fat": 1.4, "satfat": 0.4, "carbs": 2.0, "sugar": 0.3, "protein": 3.7, "salt": 0.93}
+    assert a["flags"] == ["D", "L", "LF", "SF"] and a["allergens"] == ["A", "C", "L"]
+    assert n["2301698"]["nutrition_100g"]["kcal"] == 150.0                              # wrapped name line
+    assert n["2313364"]["name"] == "Milchreis mit Beerenröster"                         # LVK GFLF suffix stripped
+    assert set(n["2313364"]["flags"]) >= {"GF", "LF", "VEG"}
+
+def test_join_meal_filter_and_overflow_category():
+    ps = {p.source_id: p for p in G.join(G.parse_prices(PT), G.parse_nutrition(NT))}
+    assert ps["2313122"].unit_price_eur == 22.17 and ps["2313122"].ean is None and ps["2313122"].image_url is None
+    assert ps["2313225"].category == "Süßes zum Träumen" and ps["2313225"].extra["is_meal"]
+    assert not ps["9510056"].extra["is_meal"]                                           # cake
+    assert ps["2313364"].extra["vegetarian"] is True
