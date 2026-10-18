@@ -18,6 +18,11 @@ list). The webshop shopmahlzeit.gourmet.at needs a customer registration for ord
 Requests go through the food-connectors polite gate (robots.txt enforced, ≥1 s per host). PDF text is extracted
 with poppler's ``pdftotext -layout`` (must be installed). No GTIN, no fibre and no photos are published in these
 lists → those fields stay empty (never estimated).
+
+Photos (optional, ``photos=True``): Mahlzeit's own WordPress media library, read through the public REST endpoint
+``/wp-json/wp/v2/media`` that the site exposes to every visitor (robots allows all; no auth). Only files whose name
+starts with the 7-digit article number (e.g. ``2311070_Schweinsmedaillons_web.jpg``) are mapped — an exact-id match,
+no name guessing. Dish photos © GMS Gourmet as published by Mahlzeit; a few date from 2021.
 """
 from __future__ import annotations
 import re, subprocess, tempfile, os
@@ -33,6 +38,8 @@ DOWNLOADS = "https://www.gourmet-daheim.at/downloads"
 NUTRITION_PDF = ("https://www.gourmet-daheim.at/fileadmin/public/Daheim/Downloads/"
                  "Sortimentsliste__Gourmet_Daheim_EPTK___N%C3%A4hrwerte__2026_02_26.pdf")
 PRICE_VALID_FROM = "2026-03-16"
+MEDIA_API = "https://www.mahlzeit.co.at/wp-json/wp/v2/media"
+ART_FILE_RE = re.compile(r"^(\d{7})_[^/]+\.(?:jpe?g|png|webp)$", re.I)
 # categories of the price list that are not ready meals (cakes, single cake slices/compote, weekly cartons)
 NON_MEAL_CATEGORIES = ("Für Naschkatzen und Kuchentiger", "Der bewusste Genuss", "Wochenkartons", "Saisonale Aktionen")
 SECTION_ALIASES = {"Süßes zum Tagträumen": "Süßes zum Träumen", "Grün und Vital": "Grün und vital", "Nudelgerichte": "Nudelgerichte und andre Gedichte"}
@@ -144,11 +151,34 @@ def nutrition_pdf_url() -> str:
         pass
     return NUTRITION_PDF
 
+def photos_from_media(items: list[dict]) -> dict:
+    """WP media items → {article_no: image_url}; only '<7-digit art no>_….jpg' files, '_cropped' derivatives skipped."""
+    out = {}
+    for m in sorted(items, key=lambda m: m.get("date") or ""):
+        url = m.get("source_url") or ""
+        fn = url.rsplit("/", 1)[-1]
+        mm = ART_FILE_RE.match(fn)
+        if mm and "cropped" not in fn.lower():
+            out.setdefault(mm.group(1), url)
+    return out
+
+def article_photos(max_pages: int = 10) -> dict:
+    items = []
+    for page in range(1, max_pages + 1):
+        try:
+            batch = get(f"{MEDIA_API}?per_page=100&page={page}&_fields=source_url,date&media_type=image")
+        except Exception:
+            break   # WP answers 400 past the last page
+        if not isinstance(batch, list) or not batch: break
+        items += batch   # WP may return < per_page on full pages (hidden items) → page on until empty/400
+    return photos_from_media(items)
+
 def is_meal(row: dict) -> bool:
     return bool(row.get("category")) and row.get("category") not in NON_MEAL_CATEGORIES
 
-def join(prices: list[dict], nut: dict, price_url: str = PRICE_PDF, nut_url: str = NUTRITION_PDF) -> list[Product]:
-    out = []
+def join(prices: list[dict], nut: dict, price_url: str = PRICE_PDF, nut_url: str = NUTRITION_PDF,
+         photos: dict | None = None) -> list[Product]:
+    out, photos = [], photos or {}
     for r in prices:
         n = nut.get(r["art"]) or {}
         if r.get("overflow") or not r.get("category"):
@@ -157,7 +187,7 @@ def join(prices: list[dict], nut: dict, price_url: str = PRICE_PDF, nut_url: str
         out.append(Product(source="gourmet-daheim", store=STORE, name=r["name"], brand=BRAND, price_eur=r["price_eur"],
             unit_price_eur=round(r["price_eur"] / r["size_g"] * 1000, 2) if r["size_g"] else None, unit="kg", size_g=r["size_g"],
             nutrition_100g=n.get("nutrition_100g") or {}, producer=PRODUCER, origin=None, category=r["category"],
-            source_url=price_url, source_id=r["art"],
+            source_url=price_url, source_id=r["art"], image_url=photos.get(r["art"]),
             extra={"article_no": f"{r['art'][:2]} {r['art'][2:]}", "price_valid_from": PRICE_VALID_FROM, "price_incl_vat": True,
                    "storage": "tiefgekühlt (-18 °C)", "breikost": r["breikost"], "flags": flags,
                    "flag_names": [FLAG_NAMES[f] for f in flags], "vegetarian": "VEG" in flags, "allergens": n.get("allergens"),
@@ -169,10 +199,13 @@ def join(prices: list[dict], nut: dict, price_url: str = PRICE_PDF, nut_url: str
 class GourmetDaheim(Adapter):
     id = "gourmet-daheim"; store = STORE; homepage = "https://www.mahlzeit.co.at/a-la-carte/"
     notes = ("GOURMET Daheim frozen à-la-carte menus delivered in Upper Austria by Mahlzeit Vertriebs GmbH (Linz): official price-list PDF "
-             "(mahlzeit.co.at) joined with the official allergen/nutrition PDF (gourmet-daheim.at) on the article number. No GTIN/photos.")
+             "(mahlzeit.co.at) joined with the official allergen/nutrition PDF (gourmet-daheim.at) on the article number; dish photos "
+             "only where Mahlzeit's public WP media library has a file named by the article number. No GTIN.")
+    photos = True
     def _all(self) -> list[Product]:
         nu = nutrition_pdf_url()
-        return join(parse_prices(pdf_text(PRICE_PDF)), parse_nutrition(pdf_text(nu)), PRICE_PDF, nu)
+        ph = article_photos() if self.photos else {}
+        return join(parse_prices(pdf_text(PRICE_PDF)), parse_nutrition(pdf_text(nu)), PRICE_PDF, nu, ph)
     def fetch(self, category: str = "ready-meals", limit: int = 500) -> list[Product]:
         ps = self._all()
         if category == "ready-meals": ps = [p for p in ps if p.extra.get("is_meal")]

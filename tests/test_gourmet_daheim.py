@@ -28,3 +28,17 @@ def test_join_meal_filter_and_overflow_category():
     assert ps["2313225"].category == "Süßes zum Träumen" and ps["2313225"].extra["is_meal"]
     assert not ps["9510056"].extra["is_meal"]                                           # cake
     assert ps["2313364"].extra["vegetarian"] is True
+
+
+def test_photos_from_media_exact_article_number_only():
+    from food_connectors.adapters.gourmet_daheim import photos_from_media
+    items = [
+        {"date": "2021-01-17T10:00:00", "source_url": "https://www.mahlzeit.co.at/wp-content/uploads/2021/01/2310057_Rindsgulasch_Spaetzle_web_cropped.jpg.png"},
+        {"date": "2021-01-30T10:00:00", "source_url": "https://www.mahlzeit.co.at/wp-content/uploads/2021/01/2310057_Rindsgulasch_Spaetzle_web-1.jpg"},
+        {"date": "2021-01-17T10:00:00", "source_url": "https://www.mahlzeit.co.at/wp-content/uploads/2021/01/2311070_Schweinsmedaillons_web.jpg"},
+        {"date": "2024-11-12T10:00:00", "source_url": "https://www.mahlzeit.co.at/wp-content/uploads/2024/11/2313512.jpg"},
+        {"date": "2025-01-10T10:00:00", "source_url": "https://www.mahlzeit.co.at/wp-content/uploads/2025/01/Salbeihuhn_2023_quer_wb-scaled.jpeg"},
+        {"date": "2020-04-01T10:00:00", "source_url": "https://www.mahlzeit.co.at/wp-content/uploads/2020/04/58418747-Mahlzeit-Stellengesuch.jpg"},
+    ]
+    ph = photos_from_media(items)
+    assert ph == {"2310057": items[1]["source_url"], "2311070": items[2]["source_url"]}
