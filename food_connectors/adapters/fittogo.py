@@ -136,6 +136,9 @@ def parse_product(h: str, url: str) -> Product:
     # Packshot: prefer the product's own CDN file referenced near the handle / first files/ image.
     image = None
     for pat in (
+        # hero packshot of the current Hydrogen layout (first <img> inside the --photo frame);
+        # the later files/*.png matches are the cross-sell grid of *other* meals.
+        r'--photo:[^"]*"\s*>\s*<img[^>]*?src="(https://cdn\.shopify\.com/s/files/[^"]+)"',
         r'og:image"\s+content="(https://cdn\.shopify\.com/[^"]+)"',
         r"(https://cdn\.shopify\.com/s/files/1/0580/7777/3988/files/[^\"\\?\s]+\.png(?:\?v=\d+)?)",
     ):

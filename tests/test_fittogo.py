@@ -28,3 +28,11 @@ def test_urls_filter_boxes():
         "https://fittogo.at/products/thai-red-curry-mit-sojageschnetzeltem-und-reisnudeln",
     ]
     assert F.is_meal_url(us[0]) and not F.is_meal_url("https://fittogo.at/products/12er-meal-box")
+
+def test_hero_image_not_cross_sell():
+    """New pages have no og:image; the hero <img> in the --photo frame is the meal's own photo,
+    the later files/*.png hits are the cross-sell grid of other meals (30.png = Thai Red Curry)."""
+    h = (pathlib.Path(__file__).parent / "fixtures" / "fittogo_topfennockerl.html").read_text()
+    p = F.parse_product(h, "https://fittogo.at/products/topfennockerl-mit-erdbeersauce")
+    assert p.name == "Topfennockerl mit Erdbeersauce" and p.size_g == 300
+    assert "bild_1_shopify_675x540_22d8ae92" in p.image_url and "/30.png" not in p.image_url
