@@ -77,6 +77,9 @@ TOOLS += [{"name": "achleitner_product", "description": "Live Biohof Achleitner 
  {"name": "adamah_search", "description": "Search the live adamah.at Bio-Shop (the shop's own product search) by free text, e.g. 'gulasch', 'lasagne'; returns parsed products of all categories (not only ready meals).", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}},
  {"name": "achleitner_search", "description": "Search the live biohof.at 'Hausg'mocht Speisen' category by words in the product name (e.g. 'gulasch', 'curry'); returns parsed products (includes non-meals like Fruchtaufstrich if they match).", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "gerbl_product", "description": "Live Gerbl im Glas (shop.gerbl.at, Fleischhauerei Gerbl GmbH, Vöcklamarkt OÖ; pasteurised glass-jar ready meals, shipped within Austria incl. Linz for 9,90 € EMS) product by shop product_id or vanity slug (e.g. 'rindsgulasch'): name, article code GIG01–GIG19, price per jar (EUR incl. MwSt.), jar volume (ml), ingredients, allergens, shelf life, official jar photo. No GTIN/nutrition published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "gerbl_search", "description": "Search the live 'Gerbl im Glas' category of shop.gerbl.at by words in the dish name (e.g. 'gulasch', 'beuschel'); fetches every product page politely (~22 requests, 1 req/s).", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 TOOLS += [{"name": "open_prices_lookup", "description": "Crowd-sourced, proof-backed shelf price observations for an EAN from Open Prices (prices.openfoodfacts.org, ODbL): price, currency, date, discount flag, OSM shop (name, brand, city, country), proof type (RECEIPT/PRICE_TAG/...). Newest first; filter by shop country (e.g. AT) and since date. User contributions, not retailer feeds — check date and shop before using as a current price.", "inputSchema": {"type": "object", "properties": {"ean": {"type": "string"}, "country": {"type": "string"}, "since": {"type": "string", "description": "YYYY-MM-DD"}}, "required": ["ean"]}}]
 
 
@@ -104,6 +107,12 @@ def call(name, a):
     if name == "adamah_search":
         from .adapters.adamah import Adamah
         return [p.to_dict() for p in Adamah().search(a["query"], limit=min(a.get("limit") or 10, 20))]
+    if name == "gerbl_product":
+        from .adapters.gerbl import product as _gp
+        r = _gp(a["id"] if a["id"].isdigit() or a["id"].startswith("http") else "https://shop.gerbl.at/" + a["id"].strip("/")); return r.to_dict() if r else None
+    if name == "gerbl_search":
+        from .adapters.gerbl import Gerbl
+        return [p.to_dict() for p in Gerbl().search(a["query"], limit=min(a.get("limit") or 10, 22))]
     if name == "achleitner_product":
         from .adapters.biohof_achleitner import product as _ba
         r = _ba(a["id"]); return r.to_dict() if r else None
