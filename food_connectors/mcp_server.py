@@ -86,6 +86,9 @@ TOOLS += [{"name": "ruckzuck_product", "description": "Live Ruck Zuck Laden / Du
 TOOLS += [{"name": "draxler_product", "description": "Live Draxler Geflügel-Wild 'Kulinarik im Glas' (geflügel-draxler.at, Draxler Geflügel-Wild GmbH, Mooskirchen Stmk; chilled 360 g heat-up jar meals delivered within Austria by Post NEXT DAY FRESH) meal by WooCommerce id, slug or /produkt/<slug>/ URL: name, price per jar (EUR incl. MwSt.), 360 g weight, SKU, stock, ingredients, vegetarian/vegan flags, photos. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "draxler_search", "description": "Search the live Draxler 'Kulinarik im Glas' ready-meal jars (public WooCommerce Store API, one request) by words in name/description (e.g. 'wild', 'curry').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "wiesbauer_gourmet_product", "description": "Live Wiesbauer Gourmet webshop (wiesbauer-gourmet.at, Wiesbauer Gourmet Gastro GmbH, Reidling NÖ; chilled delivery to AT/DE, 19,90 € below 150 €) ready meal by WooCommerce id, slug or /produkt/<slug> URL: Easy Kitchen heat-up dishes and Sous-Vide pre-cooked mains — name, price (EUR incl. MwSt.), weight, SKU, stock, nutrition per 100 g where printed, ingredients, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "wiesbauer_gourmet_search", "description": "Search the live Wiesbauer Gourmet ready meals (public WooCommerce Store API, 3 requests) by words in name/description (e.g. 'gulasch', 'ente').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 TOOLS += [{"name": "sperchenedergut_product", "description": "Live Sperchenedergut (sperchenedergut.at, Bio-Angus farm Aspach OÖ; heat-up jar meals 330 ml shipped by Post-Kühlversand in Austria, 9,90 €, free from 150 €) meal by WooCommerce id, slug or /produkt/<slug>/ URL: name, price per jar (EUR incl. MwSt.), volume, portion note, stock, jar packshot. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "sperchenedergut_search", "description": "Search the live Sperchenedergut ready-meal jars (public WooCommerce Store API, one request) by words in name/description (e.g. 'gulasch', 'chili').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -134,6 +137,12 @@ def call(name, a):
     if name == "wagyuhof_search":
         from .adapters.wagyuhof import Wagyuhof
         return [p.to_dict() for p in Wagyuhof().search(a["query"], limit=min(a.get("limit") or 10, 10))]
+    if name == "wiesbauer_gourmet_product":
+        from .adapters.wiesbauer_gourmet import product as _wg
+        r = _wg(str(a["id"])); return r.to_dict() if r else None
+    if name == "wiesbauer_gourmet_search":
+        from .adapters.wiesbauer_gourmet import WiesbauerGourmet
+        return [p.to_dict() for p in WiesbauerGourmet().search(a["query"], limit=min(a.get("limit") or 10, 20))]
     if name == "draxler_product":
         from .adapters.draxler import product as _dx
         r = _dx(str(a["id"])); return r.to_dict() if r else None
