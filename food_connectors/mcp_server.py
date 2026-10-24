@@ -83,6 +83,9 @@ TOOLS += [{"name": "gerbl_product", "description": "Live Gerbl im Glas (shop.ger
 TOOLS += [{"name": "ruckzuck_product", "description": "Live Ruck Zuck Laden / Dunzinger's Ruck Zuck Glasl (ruckzuck-laden.at, Schimpl OG, Hirschbach im Mühlkreis OÖ; jar ready meals cooked in the jar, shelf-stable; ships AT for 15 €, free from 100 €) product by Ecwid product id or shop URL: name, price per jar (EUR incl. 10 % MwSt.), 30-day lowest price, ingredients, allergens (marked in capitals), vegan flag, jar volume when stated, jar packshot (+ serving image in extra). No GTIN/nutrition published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "ruckzuck_search", "description": "Search the live Ruck Zuck Laden shop by words in the product name (e.g. 'curry', 'gulasch'); reads the WP store sitemap and the public Ecwid storefront JSON politely (~18 requests, 1 req/s); returns all matching products incl. broths/sauces.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "draxler_product", "description": "Live Draxler Geflügel-Wild 'Kulinarik im Glas' (geflügel-draxler.at, Draxler Geflügel-Wild GmbH, Mooskirchen Stmk; chilled 360 g heat-up jar meals delivered within Austria by Post NEXT DAY FRESH) meal by WooCommerce id, slug or /produkt/<slug>/ URL: name, price per jar (EUR incl. MwSt.), 360 g weight, SKU, stock, ingredients, vegetarian/vegan flags, photos. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "draxler_search", "description": "Search the live Draxler 'Kulinarik im Glas' ready-meal jars (public WooCommerce Store API, one request) by words in name/description (e.g. 'wild', 'curry').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 TOOLS += [{"name": "sperchenedergut_product", "description": "Live Sperchenedergut (sperchenedergut.at, Bio-Angus farm Aspach OÖ; heat-up jar meals 330 ml shipped by Post-Kühlversand in Austria, 9,90 €, free from 150 €) meal by WooCommerce id, slug or /produkt/<slug>/ URL: name, price per jar (EUR incl. MwSt.), volume, portion note, stock, jar packshot. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "sperchenedergut_search", "description": "Search the live Sperchenedergut ready-meal jars (public WooCommerce Store API, one request) by words in name/description (e.g. 'gulasch', 'chili').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -131,6 +134,12 @@ def call(name, a):
     if name == "wagyuhof_search":
         from .adapters.wagyuhof import Wagyuhof
         return [p.to_dict() for p in Wagyuhof().search(a["query"], limit=min(a.get("limit") or 10, 10))]
+    if name == "draxler_product":
+        from .adapters.draxler import product as _dx
+        r = _dx(str(a["id"])); return r.to_dict() if r else None
+    if name == "draxler_search":
+        from .adapters.draxler import Draxler
+        return [p.to_dict() for p in Draxler().search(a["query"], limit=min(a.get("limit") or 10, 20))]
     if name == "sperchenedergut_product":
         from .adapters.sperchenedergut import product as _sg
         r = _sg(str(a["id"])); return r.to_dict() if r else None
