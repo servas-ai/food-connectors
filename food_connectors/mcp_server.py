@@ -88,6 +88,8 @@ TOOLS += [{"name": "draxler_product", "description": "Live Draxler Geflügel-Wil
 
 TOOLS += [{"name": "wiesbauer_gourmet_product", "description": "Live Wiesbauer Gourmet webshop (wiesbauer-gourmet.at, Wiesbauer Gourmet Gastro GmbH, Reidling NÖ; chilled delivery to AT/DE, 19,90 € below 150 €) ready meal by WooCommerce id, slug or /produkt/<slug> URL: Easy Kitchen heat-up dishes and Sous-Vide pre-cooked mains — name, price (EUR incl. MwSt.), weight, SKU, stock, nutrition per 100 g where printed, ingredients, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "wiesbauer_gourmet_search", "description": "Search the live Wiesbauer Gourmet ready meals (public WooCommerce Store API, 3 requests) by words in name/description (e.g. 'gulasch', 'ente').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "suppito_product", "description": "Live SUPPITO webshop (suppito.at, Dr. Andrea Scholdan GmbH, Wien; ships Austria-wide chilled, 10 € per box, min. order 70 €) jar soup or Eintopf by WooCommerce id, slug or /produkt/<slug>/ URL: name, price (EUR incl. 10 % MwSt.), net weight, €/100 g, stock, ingredients, vegan/vegetarisch/glutenfrei tags, photo where published. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "suppito_search", "description": "Search the live SUPPITO jar soups and Eintöpfe (public WooCommerce Store API, 1 request) by words in name/ingredients (e.g. 'linsen', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -139,6 +141,12 @@ def call(name, a):
     if name == "wagyuhof_search":
         from .adapters.wagyuhof import Wagyuhof
         return [p.to_dict() for p in Wagyuhof().search(a["query"], limit=min(a.get("limit") or 10, 10))]
+    if name == "suppito_product":
+        from .adapters.suppito import product as _sup
+        r = _sup(str(a["id"])); return r.to_dict() if r else None
+    if name == "suppito_search":
+        from .adapters.suppito import Suppito
+        return [p.to_dict() for p in Suppito().search(a["query"], limit=min(a.get("limit") or 10, 18))]
     if name == "steiramarkt_product":
         from .adapters.steiramarkt import product as _stm
         r = _stm(str(a["id"])); return r.to_dict() if r else None
