@@ -86,6 +86,9 @@ TOOLS += [{"name": "ruckzuck_product", "description": "Live Ruck Zuck Laden / Du
 TOOLS += [{"name": "sperchenedergut_product", "description": "Live Sperchenedergut (sperchenedergut.at, Bio-Angus farm Aspach OÖ; heat-up jar meals 330 ml shipped by Post-Kühlversand in Austria, 9,90 €, free from 150 €) meal by WooCommerce id, slug or /produkt/<slug>/ URL: name, price per jar (EUR incl. MwSt.), volume, portion note, stock, jar packshot. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "sperchenedergut_search", "description": "Search the live Sperchenedergut ready-meal jars (public WooCommerce Store API, one request) by words in name/description (e.g. 'gulasch', 'chili').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
+TOOLS += [{"name": "wagyuhof_product", "description": "Live Wagyuhof Frischglas (wagyuhof.com, Wagyuhof GmbH Haag NÖ, FN 478220s; shelf-stable 300 g Wagyu jar meals, ships AT+DE: 14,90 € below 30 €, 9,90 € from 30 €, free from 150 €) meal by Shopify product id, handle or /products/<handle> URL: name, price per jar (EUR), size, €/kg, availability, nutrition per 100 g, ingredients (allergens in capitals), jar packshot. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "wagyuhof_search", "description": "Search the live Wagyuhof Frischglas ready meals (Shopify storefront JSON + matching product pages, polite 1 req/s) by words in name/description (e.g. 'gulasch', 'beuschel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+
 TOOLS += [{"name": "bauernladen_product", "description": "Live Bauernladen.at marketplace product (farm-direct; category 'Schnelle Küche' = jar/heat-up meals of Austrian farms and manufactories, each producer ships itself within AT) by product URL https://bauernladen.at/produkte/<producer>/<slug>-<id>: name, price EUR incl. MwSt., pack size, availability, producer + address, producer delivery terms (fee, free-shipping threshold, countries), Bio/Vegan/Kühlbedürftig/Tiefgekühlt flags, shelf life, ingredients text, images. No GTIN; nutrition only as unreferenced free text. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}}, "required": ["url"]}},
  {"name": "bauernladen_search", "description": "Search the live Bauernladen.at 'Schnelle Küche' category (4 listing pages + matching product pages, polite 1 req/s) by words in the product name or producer (e.g. 'gulasch', 'venatio'); returns all matching products incl. broths/sauces/sides.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -122,6 +125,12 @@ def call(name, a):
     if name == "bauernladen_search":
         from .adapters.bauernladen import Bauernladen
         return [p.to_dict() for p in Bauernladen().search(a["query"], limit=min(a.get("limit") or 10, 30))]
+    if name == "wagyuhof_product":
+        from .adapters.wagyuhof import product as _wh
+        r = _wh(str(a["id"])); return r.to_dict() if r else None
+    if name == "wagyuhof_search":
+        from .adapters.wagyuhof import Wagyuhof
+        return [p.to_dict() for p in Wagyuhof().search(a["query"], limit=min(a.get("limit") or 10, 10))]
     if name == "sperchenedergut_product":
         from .adapters.sperchenedergut import product as _sg
         r = _sg(str(a["id"])); return r.to_dict() if r else None
