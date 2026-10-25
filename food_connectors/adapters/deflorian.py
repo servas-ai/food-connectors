@@ -12,7 +12,9 @@ Ready meals = tags Fleischgerichte / Suppen / Knödel / Schlutzkrapfen, the savo
 dumplings (Marillen-/Zwetschken-/Erdbeerknödel, sweet mains) — minus Fleischsugo (sauce), Milzschnitten (soup
 garnish), Semmel-/Leberknödel (side/soup garnish), Probierpakete, pastries (Krapfen, Kiachl, Wuchteln, Gugelhupf),
 sides (Sauerkraut, Eierspatzln, Erdäpfelblattln/-paunzen, Parmesan, Butterbrösel) and vouchers.
-No nutrition table and no GTIN are published on the shop (never estimated); the same products are in MPreis with EAN.
+No nutrition table is published on the shop (never estimated); the same products are in MPreis with EAN. GTINs are
+published per variant on ``/products/<handle>.json`` (not in products.json) → read via ``shopify_gtin`` (25/27 meals
+2026-10-25; Erdbeer-/Zwetschkenknödel share one barcode → dropped as ambiguous).
 Shipping (policies/shipping-policy, read 2026-10-25): Austria-wide only, deep-frozen with dry ice, delivery on
 Thursdays; 14,99 € below 40 € basket, free from 40 €.
 Photos: first product image (food photo or printed pack with dish photo); vision gate 2026-10-25 27/27 PASS.
@@ -22,6 +24,7 @@ import html as _html, re
 from .base import Adapter
 from ..http import get
 from ..schema import Product
+from .shopify_gtin import gtin, enrich, drop_shared
 
 BASE = "https://deflorian.tirol"
 STORE = "Online: Deflorian"
@@ -93,7 +96,7 @@ def to_product(sp: dict, ingredients: str | None = None) -> Product:
         unit="100 g" if price and size else None,
         size_g=size,
         nutrition_100g={},
-        ean=v.get("barcode") or None,
+        ean=gtin(v),
         image_url=imgs[0] if imgs else None,
         producer=PRODUCER,
         origin="AT (handgemacht in Gnadenwald, Tirol lt. Shop)",
@@ -123,6 +126,8 @@ def product(handle_id_or_url: str, shop: list[dict] | None = None, page_html: st
                if str(p.get("id")) == k or p.get("handle") == k), None)
     if not sp:
         return None
+    if shop is None:
+        enrich(BASE, sp)
     ing = ingredients_from_html(page_html) if page_html is not None else page_ingredients(sp["handle"])
     return to_product(sp, ing)
 
@@ -134,13 +139,14 @@ class Deflorian(Adapter):
     notes = ("Live: public Shopify storefront of Deflorian Tiefkühlspezialitäten GmbH (Gnadenwald, Tirol): frozen "
              "Schlutzkrapfen, Knödel, Kaskrapfen, Gulasch/Curry/Rindsbraten, soups and fruit dumplings with price, pack, "
              "weight, availability, photo; ingredients from product pages; ships AT-wide (14,99 €, free from 40 €); "
-             "no nutrition/GTIN on the shop")
+             "no nutrition on the shop; GTIN from per-product JSON")
 
     def fetch(self, category="ready-meals", limit=500, ingredients=True):
         out = []
         for sp in [p for p in store_products() if is_meal(p)][:limit]:
+            enrich(BASE, sp)
             out.append(to_product(sp, page_ingredients(sp["handle"]) if ingredients else None))
-        return out
+        return drop_shared(out)
 
     def search(self, q, limit=50):
         words = [w.lower() for w in re.findall(r"\w{3,}", q)]

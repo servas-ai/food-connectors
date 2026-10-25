@@ -8,8 +8,8 @@ and /policies/shipping-policy + /policies/legal-notice are crawlable):
     Nährwerte table (pro 100 g + pro Glas (500 g)), Zubereitung steps.
 Ready meals = product_type ``High Protein Bio-Fertiggerichte``, single SKU (not bundle/probier/monats),
 Shopify grams ≈ 883 (glass jar shipping weight); edible size from the published "pro Glas (N g)" column
-(typically 500 g). No GTIN on goldblatt.at → ean None (one OFF barcode exists for Edelpilz Gulasch but
-is not claimed here).
+(typically 500 g). GTIN: empty in products.json but published per variant on ``/products/<handle>.json``
+→ read via ``shopify_gtin`` (8/8 meals, 2026-10-25).
 AT delivery: ``/policies/shipping-policy`` — "Wir liefern innerhalb Österreichs sowie ins EU-Ausland und
 die Schweiz"; Inland ab 30 € = 5,99 € (darunter 9,99 €), gratis ab 90 €; Österreichische Post 1–3 Werktage.
 Operator (goldblatt.at/policies/legal-notice): Golden Veggies GmbH, Wagerberg 37, 8271 Bad Waltersdorf,
@@ -21,6 +21,7 @@ import html as _html, re, time
 from .base import Adapter
 from ..http import get
 from ..schema import Product
+from .shopify_gtin import gtin, enrich, drop_shared
 
 BASE = "https://goldblatt.at"
 STORE = "Online: Goldblatt"
@@ -203,7 +204,7 @@ def to_product(sp: dict, html: str | None, url: str | None = None) -> Product:
         unit="kg" if price and size else None,
         size_g=size,
         nutrition_100g=per100,
-        ean=None,
+        ean=gtin(v),
         image_url=imgs[0] if imgs else None,
         producer=PRODUCER,
         category="Fertiggericht",
@@ -234,6 +235,8 @@ def product(handle_or_url: str, shop: list[dict] | None = None) -> Product | Non
     sp = next((p for p in (shop if shop is not None else shop_products()) if p.get("handle") == handle), None)
     if not sp:
         return None
+    if shop is None:
+        enrich(BASE, sp)
     url = f"{BASE}/products/{handle}"
     try:
         h = get(url, raw=True, timeout=40, headers={"Accept": "text/html,application/xhtml+xml;q=0.9"}).decode(
@@ -262,7 +265,7 @@ class Goldblatt(Adapter):
         "Live: public Shopify products.json (price, SKU, availability, images) + product HTML "
         "(Nährwerte pro 100 g / pro Glas 500 g, Zutaten, Zubereitung); Bio glass-jar ready meals "
         "from Steiermark; AT shipping published on /policies/shipping-policy (5,99 € ab 30 € / "
-        "gratis ab 90 €); no GTIN; polite 1 req/s"
+        "gratis ab 90 €); GTIN from per-product JSON; polite 1 req/s"
     )
     delay = 1.0
 
@@ -271,10 +274,11 @@ class Goldblatt(Adapter):
         out = []
         for sp in [p for p in shop if is_meal(p)][:limit]:
             time.sleep(self.delay)
+            enrich(BASE, sp)
             p = product(sp["handle"], shop)
             if p and is_ready_meal(p):
                 out.append(p)
-        return out
+        return drop_shared(out)
 
     def search(self, q, limit=50):
         words = [w.lower() for w in re.findall(r"\w{3,}", q)]

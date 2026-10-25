@@ -7,7 +7,8 @@ product pages + /products.json are allowed; shipping/legal-notice under /policie
   * product page ``https://www.loewenanteil.com/products/<handle>`` — server-rendered HTML with the
     Nährwerte table (pro 100 g + pro Glas (570 g)), Zutaten, Zubereitung, packshot.
 Ready meals = product_type Fertiggericht, tag ``single``, not ``mm_pasta``, Shopify grams ≥ 800 (filled jar;
-edible size comes from the published "pro Glas (N g)" column, typically 570 g). No GTIN published → ean None.
+edible size comes from the published "pro Glas (N g)" column, typically 570 g). GTIN: variant barcode (products.json and
+``/products/<handle>.json``) → read via ``shopify_gtin`` (first variant = Einzeln).
 AT delivery: storefront country selector lists "Österreich (EUR €)" on the homepage (allowed page). Exact
 shipping fee lives only under /policies/shipping-policy (robots Disallow) → shipping_eur left null; not invented.
 Operator: Löwenanteil GmbH, Heiligengeiststraße 6–8, 26121 Oldenburg (DE), HRB 212808 AG Oldenburg,
@@ -20,6 +21,7 @@ import html as _html, json, re, time
 from .base import Adapter
 from ..http import get
 from ..schema import Product
+from .shopify_gtin import gtin, enrich, drop_shared
 
 BASE = "https://www.loewenanteil.com"
 STORE = "Online: Löwenanteil"
@@ -199,7 +201,7 @@ def to_product(sp: dict, html: str | None, url: str | None = None) -> Product:
         unit="kg" if price and size else None,
         size_g=size,
         nutrition_100g=per100,
-        ean=None,
+        ean=gtin(v),
         image_url=imgs[0] if imgs else None,
         producer=PRODUCER,
         category="Fertiggericht",
@@ -229,6 +231,8 @@ def product(handle_or_url: str, shop: list[dict] | None = None) -> Product | Non
     sp = next((p for p in (shop if shop is not None else shop_products()) if p.get("handle") == handle), None)
     if not sp:
         return None
+    if shop is None:
+        enrich(BASE, sp)
     url = f"{BASE}/products/{handle}"
     try:
         # http.get defaults Accept to application/json first → Shopify returns .json body;
@@ -251,7 +255,7 @@ class Loewenanteil(Adapter):
         "Live: public Shopify products.json (price, SKU, availability, images) + product HTML "
         "(Nährwerte pro 100 g / pro Glas, Zutaten, Zubereitung); Bio glass-jar ready meals; "
         "AT via storefront country selector (shipping fee under robots-Disallow /policies/); "
-        "no GTIN; polite 1 req/s"
+        "GTIN from per-product JSON; polite 1 req/s"
     )
     delay = 1.0
 
@@ -260,10 +264,11 @@ class Loewenanteil(Adapter):
         out = []
         for sp in [p for p in shop if is_meal(p)][:limit]:
             time.sleep(self.delay)
+            enrich(BASE, sp)
             p = product(sp["handle"], shop)
             if p and is_ready_meal(p):
                 out.append(p)
-        return out
+        return drop_shared(out)
 
     def search(self, q, limit=50):
         words = [w.lower() for w in re.findall(r"\w{3,}", q)]

@@ -18,7 +18,7 @@ def test_parse_nutrition_and_product():
     assert p.source == "loewenanteil" and p.store == "Online: Löwenanteil" and p.brand == "Löwenanteil"
     assert p.name == "Classic Bolognese" and p.price_eur == 9.99 and p.size_g == 570.0
     assert p.unit_price_eur == round(9.99 / 570 * 1000, 2) and p.unit == "kg"
-    assert p.nutrition_100g == per100 and p.ean is None
+    assert p.nutrition_100g == per100 and p.ean == "4262398291255"  # Einzeln variant barcode (GS1-valid), was wrongly dropped before T1207
     assert p.image_url and ("cdn.shopify.com" in p.image_url or "loewenanteil.com/cdn" in p.image_url)
     assert p.extra["portions"] == 2
     assert L.is_ready_meal(p)

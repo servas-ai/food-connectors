@@ -9,7 +9,7 @@ Source (public Shopify storefront, no login/cookies; robots.txt ``User-agent: *`
     shop publishes them. One request per meal (shared polite http helper).
 Ready meals = product_type 'Fertiggericht' or 'Knödel', plus 'fertig gebraten' roasts and the pre-baked Kaspressknödel
 (typed 'Suppeneinlage' but sold 'gebacken & servierfertig'); excluded: Wild-Leberpasteten (spreads), Leberknödel (soup
-garnish), raw meat, sausages, spreads, gift boxes. No GTIN published (variant barcode empty) → never guessed.
+garnish), raw meat, sausages, spreads, gift boxes. GTIN: empty in products.json but published on ``/products/<handle>.json`` → read via ``shopify_gtin``.
 Nutrition only as printed on the product page (Rehragout, Schweinsbraten 'ca.', Spareribs); missing → empty.
 Shipping (kumitzberg.at/policies/shipping-policy, read 2026-10-25): DHL chilled, dispatch Tue + Thu, Austria 9,90 €,
 free from 95 €; DE 10,90 € (free from 110 €); other EU 12,90–14,90 €.
@@ -22,6 +22,7 @@ import html as _html, re
 from .base import Adapter
 from ..http import get
 from ..schema import Product
+from .shopify_gtin import gtin, enrich, drop_shared
 
 BASE = "https://kumitzberg.at"
 STORE = "Online: Kumitzberg"
@@ -104,7 +105,7 @@ def to_product(sp: dict, html_text: str | None = None) -> Product:
         price_eur=price,
         unit_price_eur=round(price / size * 1000, 2) if price and size else None,
         unit="kg" if price and size else None,
-        size_g=size, nutrition_100g=d["nutrition"], ean=None,
+        size_g=size, nutrition_100g=d["nutrition"], ean=gtin(v),
         image_url=imgs[0] if imgs else None, producer=PRODUCER, category="Fertiggericht",
         source_url=f"{BASE}/products/{sp.get('handle')}", source_id=str(sp.get("id")),
         extra={"handle": sp.get("handle"), "title": sp.get("title"), "product_type": sp.get("product_type"),
@@ -120,6 +121,8 @@ def product(handle_or_url: str, shop: list[dict] | None = None, html_text: str |
     sp = next((p for p in (shop if shop is not None else store_products()) if p.get("handle") == k or str(p.get("id")) == k), None)
     if not sp or not is_meal(sp):
         return None
+    if shop is None:
+        enrich(BASE, sp)
     return to_product(sp, html_text if html_text is not None else page(sp["handle"]))
 
 
@@ -129,10 +132,10 @@ class Kumitzberg(Adapter):
     homepage = BASE
     notes = ("Live: public Shopify products.json + product pages of Kumitzberg (Großarler Genuss GmbH, Großarl, Sbg): "
              "chilled heat-up meals (Rehragout im Glas, Tiroler-/Kaspressknödel, Schweinsbraten fertig gebraten, Sous-Vide "
-             "Spareribs) with price, availability, ingredients and nutrition where printed; DHL AT 9,90 €, free from 95 €; no GTIN")
+             "Spareribs) with price, availability, ingredients and nutrition where printed; DHL AT 9,90 €, free from 95 €; GTIN from per-product JSON")
 
     def fetch(self, category="ready-meals", limit=500):
-        return [to_product(sp, page(sp["handle"])) for sp in store_products() if is_meal(sp)][:limit]
+        return drop_shared([to_product(enrich(BASE, sp), page(sp["handle"])) for sp in store_products() if is_meal(sp)][:limit])
 
     def search(self, q, limit=50):
         words = [w.lower() for w in re.findall(r"\w{3,}", q)]
