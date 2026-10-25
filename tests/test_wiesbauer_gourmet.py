@@ -24,3 +24,12 @@ def test_inconsistent_energy_is_dropped_and_size_from_description():
     assert t.nutrition_100g == {} and t.extra["nut_flag"] == "shop_kj_kcal_inconsistent"
     assert W.product("118741", SHOP).size_g == 900.0
     assert W.product("nope", SHOP) is None
+
+
+def test_jsonld_gtin_from_product_page():
+    page = (F / "wiesbauer_gourmet_rindergulasch_jsonld.html").read_text()
+    assert W.jsonld_gtin(page) == "9006450926410"
+    p = W.to_product(next(x for x in SHOP if str(x.get("id")) == "111005"), W.jsonld_gtin(page))
+    assert p.ean == "9006450926410" and p.extra["sku"] == "92103"
+    bad = '<script type="application/ld+json">{"@type":"Product","gtin":"9006450926411"}</script>'
+    assert W.jsonld_gtin(bad) is None and W.jsonld_gtin("<html></html>") is None

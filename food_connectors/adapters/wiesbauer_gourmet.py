@@ -11,7 +11,10 @@ Source (public, no login/cookies; robots.txt disallows only /wp-admin/):
 Ready meals = items in those categories that are pre-cooked ('sous vide vorgegart', 'Easy Kitchen', 'servierfertig',
 'gegart') minus sauces/jus/fond, side dishes (Knödel, Rotkraut), bundles ('Paket'/'Package'), raw meat, Beef Tatar,
 Würstel, breaded frozen raw schnitzel/cordon bleu, Pulled Pork (burger filling) and the 2 kg Roastbeef joint.
-Nutrition is parsed only where the shop prints it per 100 g; no GTIN is published (SKU only) → never estimated.
+Nutrition is parsed only where the shop prints it per 100 g. GTIN: the Store API carries none (SKU only), but each
+product page embeds a schema.org Product JSON-LD with ``gtin`` (19/20 meals, 2026-10-25T1339; Hirschgulasch has none)
+→ read via ``page_gtin`` (1 extra request per product, opt-in ``with_gtin=True``), GS1 check digit validated; codes
+are never derived from the SKU.
 Shipping (Versand page + AGB §5, 2026-10-24): AT and DE only; € 19,90 flat up to € 149, free from € 150;
 24 h delivery Tue–Sat with cool box/ice packs.
 Operator (Impressum): Wiesbauer Gourmet Gastro GmbH, Wiesbauer Straße 1, 3454 Reidling, FN 98447a,
@@ -91,7 +94,43 @@ def nut_flag(desc: str) -> str | None:
     return None
 
 
-def to_product(sp: dict) -> Product:
+def _gs1_ok(c: str) -> bool:
+    if not c.isdigit() or len(c) not in (8, 12, 13, 14):
+        return False
+    d = [int(x) for x in c]
+    return (10 - sum(v * (3 if i % 2 == 0 else 1) for i, v in enumerate(reversed(d[:-1]))) % 10) % 10 == d[-1]
+
+
+def jsonld_gtin(page: str) -> str | None:
+    """GS1-valid gtin/gtin13 from the schema.org Product JSON-LD of a product page (None if absent/invalid)."""
+    import json as _json
+    for blk in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', page or "", re.S):
+        try:
+            stack = [_json.loads(blk)]
+        except ValueError:
+            continue
+        while stack:
+            o = stack.pop()
+            if isinstance(o, dict):
+                if o.get("@type") == "Product":
+                    for k in ("gtin13", "gtin", "gtin14", "gtin12", "gtin8"):
+                        c = str(o.get(k) or "").strip()
+                        if c and _gs1_ok(c):
+                            return c
+                stack.extend(o.values())
+            elif isinstance(o, list):
+                stack.extend(o)
+    return None
+
+
+def page_gtin(url: str) -> str | None:
+    try:
+        return jsonld_gtin(get(url, timeout=40, raw=True).decode("utf-8", "replace"))
+    except Exception:
+        return None
+
+
+def to_product(sp: dict, gtin: str | None = None) -> Product:
     pr = sp.get("prices") or {}
     mu = int(pr.get("currency_minor_unit") or 2)
     price = int(pr["price"]) / 10 ** mu if pr.get("price") else None
@@ -105,7 +144,7 @@ def to_product(sp: dict) -> Product:
     return Product(
         source="wiesbauer_gourmet", store=STORE, name=name, brand=f"Wiesbauer Gourmet {line}",
         price_eur=price, unit_price_eur=round(price / size * 1000, 2) if price and size else None,
-        unit="kg" if size else None, size_g=size, nutrition_100g=nutrition(desc), ean=None,
+        unit="kg" if size else None, size_g=size, nutrition_100g=nutrition(desc), ean=gtin,
         image_url=imgs[0] if imgs else None, producer=PRODUCER, category="Fertiggericht",
         source_url=sp.get("permalink") or f"{BASE}/produkt/{sp.get('slug')}", source_id=str(sp.get("id")),
         extra={
@@ -133,10 +172,13 @@ class WiesbauerGourmet(Adapter):
     notes = ("Live: public WooCommerce Store API of Wiesbauer Gourmet Gastro GmbH (Reidling NÖ): Easy Kitchen heat-up "
              "dishes and Sous-Vide pre-cooked mains (Gulasch, Beuschel, Rinderbacken, Ente/Gans, Stelze, Spareribs, "
              "Tafelspitz) with price incl. MwSt., SKU, stock, nutrition per 100 g where printed, ingredients, photos; "
-             "chilled delivery AT/DE (19,90 € < 150 €); no GTIN published; 3 requests per call")
+             "chilled delivery AT/DE (19,90 € < 150 €); GTIN from product-page JSON-LD with with_gtin=True "
+             "(+1 request per meal); 3 requests per call otherwise")
 
-    def fetch(self, category="ready-meals", limit=500):
-        return [to_product(sp) for sp in store_products() if is_meal(sp)][:limit]
+    def fetch(self, category="ready-meals", limit=500, with_gtin=False):
+        meals = [sp for sp in store_products() if is_meal(sp)][:limit]
+        return [to_product(sp, page_gtin(sp.get("permalink")) if with_gtin and sp.get("permalink") else None)
+                for sp in meals]
 
     def search(self, q, limit=50):
         words = [w.lower() for w in re.findall(r"\w{3,}", q)]
