@@ -106,6 +106,8 @@ TOOLS += [{"name": "thaller_product", "description": "Live Fleischhauerei Thalle
  {"name": "thaller_search", "description": "Search the live Fleischhauerei Thaller jar meals (public WooCommerce Store API, 1 request) by words in name/ingredients (e.g. 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "kumitzberg_product", "description": "Live Kumitzberg webshop (kumitzberg.at, Großarler Genuss GmbH, Großarl Salzburg, FN 473130f, UID ATU72344714; chilled DHL within Austria 9,90 €, free from 95 €) heat-up meal by Shopify handle, id or URL (rehragout-im-glas-380g, tirolerknodel, kaspressknoedel, schweinebraten-fertig-gebraten, sous-vide-spareribs) — price (EUR incl. USt), €/kg, availability, ingredients and nutrition per 100 g where printed, images. No GTIN published. Returns null if unknown or not a ready meal (sausages, spreads, Leberknödel, raw meat).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "kumitzberg_search", "description": "Search the live Kumitzberg heat-up meals (public Shopify products.json + product pages) by words in title/description (e.g. 'ragout', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "bernos_product", "description": "Live Bernos Tauernwild webshop (bernos.at, Bernos Wildkammer – Berno Mühlburger, Oberdrum/Oberlienz Osttirol, UID ATU68061919; AT shipping 5,60 €) wild-game jar meal by WooCommerce id, slug or URL (rehragout, hirschgulasch, gamseintopf, gulaschsuppe-vom-wild; 290 g) — price per jar (EUR incl. MwSt.), €/kg, stock, meat share, ingredients, packshot. No nutrition/GTIN published. Returns null if unknown or not a ready meal (Wildsugo, Henkele, Dauerwürste).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "bernos_search", "description": "Search the live Bernos Tauernwild jar meals (public WooCommerce Store API, 1 request) by words in name/ingredients (e.g. 'hirsch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -175,6 +177,12 @@ def call(name, a):
     if name == "thaller_search":
         from .adapters.thaller import Thaller
         return [p.to_dict() for p in Thaller().search(a["query"], limit=min(a.get("limit") or 10, 5))]
+    if name == "bernos_product":
+        from .adapters.bernos import product as _bn
+        r = _bn(str(a["id"])); return r.to_dict() if r else None
+    if name == "bernos_search":
+        from .adapters.bernos import Bernos
+        return [p.to_dict() for p in Bernos().search(a["query"], limit=min(a.get("limit") or 10, 5))]
     if name == "kumitzberg_product":
         from .adapters.kumitzberg import product as _kb
         r = _kb(str(a["id"])); return r.to_dict() if r else None
