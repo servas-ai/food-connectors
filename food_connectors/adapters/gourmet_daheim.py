@@ -40,6 +40,10 @@ NUTRITION_PDF = ("https://www.gourmet-daheim.at/fileadmin/public/Daheim/Download
 PRICE_VALID_FROM = "2026-03-16"
 MEDIA_API = "https://www.mahlzeit.co.at/wp-json/wp/v2/media"
 ART_FILE_RE = re.compile(r"^(\d{7})_[^/]+\.(?:jpe?g|png|webp)$", re.I)
+# Official dish photos cut from the GOURMET Daheim "Speisekarte 2026" PDF (Mahlzeit Linz, pages 20-56), matched by the
+# order-number position and vision-checked; hosted in servas-ai/fertiggerichte-daten (raw/gourmet_daheim_photos_2026-10-25T1305.json).
+CATALOG_PHOTO_BASE = "https://raw.githubusercontent.com/servas-ai/fertiggerichte-daten/main/images/gourmet_daheim/"
+CATALOG_PHOTO_ARTS = frozenset("""2301258 2301309 2301524 2301562 2301573 2301663 2301698 2301907 2301908 2301928 2301940 2301959 2302009 2302017 2302019 2302034 2302070 2302083 2302096 2302188 2302246 2302287 2302315 2302418 2302457 2302479 2302481 2302491 2302537 2302561 2302564 2302976 2310038 2310043 2310049 2310057 2310072 2310073 2310081 2310082 2310090 2310098 2310108 2310123 2310134 2310147 2310156 2310160 2310161 2310167 2310168 2310174 2310182 2310191 2310200 2310201 2310203 2310204 2310207 2310213 2310235 2311047 2311049 2311050 2311053 2311059 2311063 2311066 2311070 2313113 2313118 2313122 2313127 2313128 2313129 2313134 2313135 2313136 2313140 2313142 2313172 2313220 2313223 2313225 2313226 2313230 2313233 2313240 2313252 2313343 2313345 2313347 2313348 2313349 2313357 2313364 2313366 2313368 2313374 2313379 2313423 2313467 2313468 2313493 2313494 2313498 2313502 2313504 2313506 2313522 2313524 2313552 2313607 2313608 2313609 2313610 2313612 2313613 2313614 2313616 2313619 2313622 2313623 2313628 2313629 2313630 2313631""".split())
 # categories of the price list that are not ready meals (cakes, single cake slices/compote, weekly cartons)
 NON_MEAL_CATEGORIES = ("Für Naschkatzen und Kuchentiger", "Der bewusste Genuss", "Wochenkartons", "Saisonale Aktionen")
 SECTION_ALIASES = {"Süßes zum Tagträumen": "Süßes zum Träumen", "Grün und Vital": "Grün und vital", "Nudelgerichte": "Nudelgerichte und andre Gedichte"}
@@ -173,6 +177,10 @@ def article_photos(max_pages: int = 10) -> dict:
         items += batch   # WP may return < per_page on full pages (hidden items) → page on until empty/400
     return photos_from_media(items)
 
+def catalog_photo(art: str) -> str | None:
+    """Fallback dish photo from the official Speisekarte PDF (repo-hosted), None when the dish has no printed photo."""
+    return CATALOG_PHOTO_BASE + f"{art}.jpg" if art in CATALOG_PHOTO_ARTS else None
+
 def is_meal(row: dict) -> bool:
     return bool(row.get("category")) and row.get("category") not in NON_MEAL_CATEGORIES
 
@@ -187,7 +195,7 @@ def join(prices: list[dict], nut: dict, price_url: str = PRICE_PDF, nut_url: str
         out.append(Product(source="gourmet-daheim", store=STORE, name=r["name"], brand=BRAND, price_eur=r["price_eur"],
             unit_price_eur=round(r["price_eur"] / r["size_g"] * 1000, 2) if r["size_g"] else None, unit="kg", size_g=r["size_g"],
             nutrition_100g=n.get("nutrition_100g") or {}, producer=PRODUCER, origin=None, category=r["category"],
-            source_url=price_url, source_id=r["art"], image_url=photos.get(r["art"]),
+            source_url=price_url, source_id=r["art"], image_url=photos.get(r["art"]) or catalog_photo(r["art"]),
             extra={"article_no": f"{r['art'][:2]} {r['art'][2:]}", "price_valid_from": PRICE_VALID_FROM, "price_incl_vat": True,
                    "storage": "tiefgekühlt (-18 °C)", "breikost": r["breikost"], "flags": flags,
                    "flag_names": [FLAG_NAMES[f] for f in flags], "vegetarian": "VEG" in flags, "allergens": n.get("allergens"),

@@ -24,7 +24,7 @@ def test_parse_nutrition_and_flags():
 
 def test_join_meal_filter_and_overflow_category():
     ps = {p.source_id: p for p in G.join(G.parse_prices(PT), G.parse_nutrition(NT))}
-    assert ps["2313122"].unit_price_eur == 22.17 and ps["2313122"].ean is None and ps["2313122"].image_url is None
+    assert ps["2313122"].unit_price_eur == 22.17 and ps["2313122"].ean is None and ps["2313122"].image_url == G.catalog_photo("2313122")
     assert ps["2313225"].category == "Süßes zum Träumen" and ps["2313225"].extra["is_meal"]
     assert not ps["9510056"].extra["is_meal"]                                           # cake
     assert ps["2313364"].extra["vegetarian"] is True
@@ -42,3 +42,10 @@ def test_photos_from_media_exact_article_number_only():
     ]
     ph = photos_from_media(items)
     assert ph == {"2310057": items[1]["source_url"], "2311070": items[2]["source_url"]}
+
+
+def test_catalog_photo_fallback():
+    from food_connectors.adapters import gourmet_daheim as G
+    assert len(G.CATALOG_PHOTO_ARTS) == 127
+    assert G.catalog_photo("2302034").endswith("/images/gourmet_daheim/2302034.jpg")
+    assert G.catalog_photo("9999999") is None
