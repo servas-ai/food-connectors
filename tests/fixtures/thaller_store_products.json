@@ -1,0 +1,878 @@
+[
+ {
+  "id": 4203,
+  "name": "Rindssuppe im Glas",
+  "slug": "rindssuppe-im-glas",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://fleischhauerei-thaller.at/produkt/rindssuppe-im-glas/",
+  "sku": "",
+  "short_description": "",
+  "description": "<p data-start=\"136\" data-end=\"305\"><strong>Ohne Konservierungsmittel, künstliche Farbstoffe, Geschmacksverstärker </strong></p>\n<p data-start=\"136\" data-end=\"305\"><strong data-start=\"136\" data-end=\"148\">Zutaten:</strong><br data-start=\"148\" data-end=\"151\" />Wasser,Rindfleisch,Rinderknochen,Salz, Gewürze.</p>\n<p data-start=\"136\" data-end=\"305\">1000ml per Glas</p>\n<p data-start=\"307\" data-end=\"354\"><strong data-start=\"307\" data-end=\"323\">Haltbarkeit:</strong><br data-start=\"323\" data-end=\"326\" />Bei 2 °C – 4 °C: <strong>6</strong><strong>0</strong><strong data-start=\"343\" data-end=\"354\"> Tage</strong></p>\n<p data-start=\"361\" data-end=\"691\"><strong>Zubereitung<br />\n</strong>Deckel abschrauben.<br />\nIn die Mikrowelle oder in einen Kochtopf geben und auf die gewünschte Temperatur erhitzen.</p>\n<p data-start=\"361\" data-end=\"691\"><strong data-start=\"361\" data-end=\"382\">Unsere Rindsgulasch</strong><br data-start=\"412\" data-end=\"415\" />Hausgemacht nach Omas Rezept. Ein Aushängeschild unsere Küche.</p>\n<p data-start=\"693\" data-end=\"978\"><strong data-start=\"696\" data-end=\"728\">Regional &amp; mit Liebe gemacht</strong><br data-start=\"728\" data-end=\"731\" />Das Fleisch stammt von kleinen, regionalen Bauernhöfen im Umkreis von ca. 15 km. Die Tiere werden direkt bei uns im Haus stressfrei geschlachtet.<br data-start=\"876\" data-end=\"879\" />In unserer Fleischerei fertigen wir alle Produkte nach alter Tradition mit viel Liebe zum Handwerk.</p>\n<p data-start=\"693\" data-end=\"978\"><strong><img class=\"alignnone size-medium wp-image-4032\" src=\"https://fleischhauerei-thaller.at/wp-content/uploads/2025/07/Vulkanland-300x72.jpg\" alt=\"\" width=\"300\" height=\"72\" /></strong></p>",
+  "on_sale": false,
+  "prices": {
+   "price": "800",
+   "regular_price": "800",
+   "sale_price": "800",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\">8,00&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 4287,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607.jpg 1500w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607-300x300.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607-1024x1024.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607-150x150.jpg 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607-768x768.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607-600x600.jpg 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7607-100x100.jpg 100w",
+    "sizes": "(max-width: 1500px) 100vw, 1500px",
+    "name": "IMG_7607",
+    "alt": "IMG_7607"
+   }
+  ],
+  "categories": [
+   {
+    "id": 138,
+    "name": "Speisen im Glas",
+    "slug": "speisen-im-glas",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/speisen-im-glas/"
+   },
+   {
+    "id": 32,
+    "name": "Hausgemachte Spezialitäten",
+    "slug": "hausgemachte-spezialitaeten",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/hausgemachte-spezialitaeten/"
+   }
+  ],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 3,
+    "name": "Gewicht in nur g",
+    "taxonomy": "pa_gewicht-in-nur-g",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 137,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 136,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 135,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "In den Warenkorb",
+   "description": "In den Warenkorb legen: „Rindssuppe im Glas“",
+   "url": "/wp-json/wc/store/v1/products?per_page=100&#038;add-to-cart=4203",
+   "single_text": "In den Warenkorb",
+   "minimum": 1,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {
+   "woocommerce-germanized": {
+    "unit_price_html": "",
+    "unit_prices": {
+     "price": "0",
+     "regular_price": "0",
+     "sale_price": "0",
+     "price_range": null
+    },
+    "unit": "ml",
+    "unit_base": "1",
+    "unit_product": "1000",
+    "unit_product_html": "Produkt enthält: 1000 <span class=\"unit\">ml</span>",
+    "delivery_time_html": "",
+    "manufacturer_html": "",
+    "product_safety_attachments_html": "",
+    "safety_instructions_html": "",
+    "tax_info_html": "inkl. 10 % MwSt.",
+    "shipping_costs_info_html": "zzgl. <a href=\"https://fleischhauerei-thaller.at/versandarten/\" target=\"_blank\">Versandkosten</a>",
+    "defect_description_html": "",
+    "nutri_score": "",
+    "nutri_score_html": "",
+    "deposit_html": "",
+    "deposit_prices": {
+     "amount": 0,
+     "quantity": 0,
+     "price": 0
+    },
+    "deposit_packaging_type_html": "",
+    "power_supply_html": ""
+   }
+  }
+ },
+ {
+  "id": 4161,
+  "name": "Presswurst",
+  "slug": "presswurst",
+  "parent": 0,
+  "type": "variable",
+  "variation": "",
+  "permalink": "https://fleischhauerei-thaller.at/produkt/presswurst/",
+  "sku": "",
+  "short_description": "",
+  "description": "<p data-start=\"136\" data-end=\"305\"><strong data-start=\"136\" data-end=\"148\">Zutaten:</strong><br data-start=\"148\" data-end=\"151\" />75%Schweinskopf, Gelantine, Zwiebel, Hesperidenessig,Salz,Konservierungsmittel:Natriumnitrit,Gewürze.</p>\n<p data-start=\"307\" data-end=\"354\"><strong data-start=\"307\" data-end=\"323\">Haltbarkeit:</strong><br data-start=\"323\" data-end=\"326\" />Bei 2 °C – 4 °C: <strong data-start=\"343\" data-end=\"354\">30 Tage</strong></p>\n<p data-start=\"361\" data-end=\"691\"><strong data-start=\"361\" data-end=\"382\">Unsere Presswurst</strong> – <strong data-start=\"385\" data-end=\"412\">klassisch,steirisch</strong><br data-start=\"412\" data-end=\"415\" />Schmackhaft mit zartem Biss und saftige Konsistenz machen unsere Presswurst zur perfekten Begleitung für die saure Jause.</p>\n<p data-start=\"693\" data-end=\"978\"><strong data-start=\"696\" data-end=\"728\">Regional &amp; mit Liebe gemacht</strong><br data-start=\"728\" data-end=\"731\" />Das Fleisch stammt von kleinen, regionalen Bauernhöfen im Umkreis von ca. 15 km. Die Tiere werden direkt bei uns im Haus stressfrei geschlachtet.<br data-start=\"876\" data-end=\"879\" />In unserer Fleischerei fertigen wir alle Produkte nach alter Tradition mit viel Liebe zum Handwerk.</p>\n<p data-start=\"693\" data-end=\"978\"><img class=\"alignnone size-medium wp-image-4032\" src=\"https://fleischhauerei-thaller.at/wp-content/uploads/2025/07/Vulkanland-300x72.jpg\" alt=\"\" width=\"300\" height=\"72\" /></p>",
+  "on_sale": false,
+  "prices": {
+   "price": "320",
+   "regular_price": "320",
+   "sale_price": "320",
+   "price_range": {
+    "min_amount": "320",
+    "max_amount": "1600"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\">3,20&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span> &ndash; <span class=\"woocommerce-Price-amount amount\">16,00&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 4283,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641.jpg 1500w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641-300x300.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641-1024x1024.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641-150x150.jpg 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641-768x768.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641-600x600.jpg 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/09/IMG_7641-100x100.jpg 100w",
+    "sizes": "(max-width: 1500px) 100vw, 1500px",
+    "name": "IMG_7641",
+    "alt": "IMG_7641"
+   }
+  ],
+  "categories": [
+   {
+    "id": 30,
+    "name": "Wurstwaren",
+    "slug": "wurstwaren",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/wurstwaren/"
+   },
+   {
+    "id": 32,
+    "name": "Hausgemachte Spezialitäten",
+    "slug": "hausgemachte-spezialitaeten",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/hausgemachte-spezialitaeten/"
+   }
+  ],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Gewicht in g",
+    "taxonomy": "pa_gewicht-in-g",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 120,
+      "name": "900g",
+      "slug": "900g"
+     },
+     {
+      "id": 116,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 114,
+      "name": "300g",
+      "slug": "300g"
+     },
+     {
+      "id": 112,
+      "name": "100g",
+      "slug": "100g"
+     },
+     {
+      "id": 115,
+      "name": "400g",
+      "slug": "400g"
+     },
+     {
+      "id": 113,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 121,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 117,
+      "name": "600g",
+      "slug": "600g"
+     },
+     {
+      "id": 118,
+      "name": "700g",
+      "slug": "700g"
+     },
+     {
+      "id": 119,
+      "name": "800g",
+      "slug": "800g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4163,
+    "attributes": [
+     {
+      "name": "Gewicht in g",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 4166,
+    "attributes": [
+     {
+      "name": "Gewicht in g",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 4169,
+    "attributes": [
+     {
+      "name": "Gewicht in g",
+      "value": "800g"
+     }
+    ]
+   },
+   {
+    "id": 4171,
+    "attributes": [
+     {
+      "name": "Gewicht in g",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "grouped_products": [],
+  "has_options": true,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Ausführung wählen",
+   "description": "Wähle Optionen für „Presswurst“",
+   "url": "https://fleischhauerei-thaller.at/produkt/presswurst/",
+   "single_text": "In den Warenkorb",
+   "minimum": 1,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {
+   "woocommerce-germanized": {
+    "unit_price_html": "<span class=\"woocommerce-Price-amount amount\">16,00&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span> /  <span class=\"unit\">kg</span>",
+    "unit_prices": {
+     "price": "1600",
+     "regular_price": "1600",
+     "sale_price": "1600",
+     "price_range": null
+    },
+    "unit": "kg",
+    "unit_base": "1",
+    "unit_product": "",
+    "unit_product_html": "Produkt enthält: 0,2 <span class=\"unit\">kg</span> &ndash; 1 <span class=\"unit\">kg</span>",
+    "delivery_time_html": "",
+    "manufacturer_html": "",
+    "product_safety_attachments_html": "",
+    "safety_instructions_html": "",
+    "tax_info_html": "inkl. MwSt.",
+    "shipping_costs_info_html": "zzgl. <a href=\"https://fleischhauerei-thaller.at/versandarten/\" target=\"_blank\">Versandkosten</a>",
+    "defect_description_html": "",
+    "nutri_score": "",
+    "nutri_score_html": "",
+    "deposit_html": "",
+    "deposit_prices": {
+     "amount": 0,
+     "quantity": 0,
+     "price": 0
+    },
+    "deposit_packaging_type_html": "",
+    "power_supply_html": ""
+   }
+  }
+ },
+ {
+  "id": 4146,
+  "name": "Käseleberkäse im Glas",
+  "slug": "kaeseleberkaese-im-glas",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://fleischhauerei-thaller.at/produkt/kaeseleberkaese-im-glas/",
+  "sku": "",
+  "short_description": "",
+  "description": "<p data-start=\"136\" data-end=\"305\"><strong>Ohne künstliche Farbstoffe und Geschmacksverstärker</strong></p>\n<p data-start=\"136\" data-end=\"305\"><strong data-start=\"136\" data-end=\"148\">Zutaten:</strong><br data-start=\"148\" data-end=\"151\" />Zutaten:65%Schweinefleisch,Speck, 20%Hartkäse mind.45% Fett i.Tr.(laktosefrei,MILCH),Wasser,Kochsalz,Konservierungsstoff:Natriumnitrit,Antioxidationsmittel:Ascorbinsäre,Gewürze.</p>\n<p data-start=\"136\" data-end=\"305\">350g per Glas</p>\n<p data-start=\"307\" data-end=\"354\"><strong data-start=\"307\" data-end=\"323\">Haltbarkeit:</strong><br data-start=\"323\" data-end=\"326\" />Bei 2 °C – 4 °C: <strong>6</strong><strong>0</strong><strong data-start=\"343\" data-end=\"354\"> Tage</strong></p>\n<p data-start=\"361\" data-end=\"691\"><strong>Zubereitung<br />\n</strong>Deckel abschrauben. 45 Minuten bei 130°C Heisluft.<br />\nDer Leberkäse ploppt heraus. Wenn er schön knusprig ist, herausnehmen und genießen.</p>\n<p data-start=\"361\" data-end=\"691\"><strong data-start=\"361\" data-end=\"382\">Unsere Leberkäse</strong> <br data-start=\"412\" data-end=\"415\" />Frischer Leberkäse zum selberbacken. Der Klassiker, mild im Geschmack, zarter Biss, würziger Käse und saftige Konsistenz machen unseren Leberkäse aus.<br data-start=\"577\" data-end=\"580\" />In der Semmel schmeckt er einfach immer.</p>\n<p data-start=\"693\" data-end=\"978\"><strong data-start=\"696\" data-end=\"728\">Regional &amp; mit Liebe gemacht</strong><br data-start=\"728\" data-end=\"731\" />Das Fleisch stammt von kleinen, regionalen Bauernhöfen im Umkreis von ca. 15 km. Die Tiere werden direkt bei uns im Haus stressfrei geschlachtet.<br data-start=\"876\" data-end=\"879\" />In unserer Fleischerei fertigen wir alle Produkte nach alter Tradition mit viel Liebe zum Handwerk.</p>\n<p data-start=\"693\" data-end=\"978\"><strong><img class=\"alignnone size-medium wp-image-4032\" src=\"https://fleischhauerei-thaller.at/wp-content/uploads/2025/07/Vulkanland-300x72.jpg\" alt=\"\" width=\"300\" height=\"72\" /></strong></p>\n<p data-start=\"693\" data-end=\"978\">",
+  "on_sale": false,
+  "prices": {
+   "price": "660",
+   "regular_price": "660",
+   "sale_price": "660",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\">6,60&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 4243,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306.jpg 1500w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306-300x300.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306-1024x1024.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306-150x150.jpg 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306-768x768.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306-600x600.jpg 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7306-100x100.jpg 100w",
+    "sizes": "(max-width: 1500px) 100vw, 1500px",
+    "name": "IMG_7306",
+    "alt": "IMG_7306"
+   },
+   {
+    "id": 4431,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201.jpg 2000w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-300x300.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-1024x1024.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-150x150.jpg 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-768x768.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-1536x1536.jpg 1536w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-600x600.jpg 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_77201-100x100.jpg 100w",
+    "sizes": "(max-width: 2000px) 100vw, 2000px",
+    "name": "IMG_7720(1)",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 138,
+    "name": "Speisen im Glas",
+    "slug": "speisen-im-glas",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/speisen-im-glas/"
+   },
+   {
+    "id": 30,
+    "name": "Wurstwaren",
+    "slug": "wurstwaren",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/wurstwaren/"
+   }
+  ],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 3,
+    "name": "Gewicht in nur g",
+    "taxonomy": "pa_gewicht-in-nur-g",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 136,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 135,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 137,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "In den Warenkorb",
+   "description": "In den Warenkorb legen: „Käseleberkäse im Glas“",
+   "url": "/wp-json/wc/store/v1/products?per_page=100&#038;add-to-cart=4146",
+   "single_text": "In den Warenkorb",
+   "minimum": 1,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {
+   "woocommerce-germanized": {
+    "unit_price_html": "",
+    "unit_prices": {
+     "price": "0",
+     "regular_price": "0",
+     "sale_price": "0",
+     "price_range": null
+    },
+    "unit": "g",
+    "unit_base": "1",
+    "unit_product": "350",
+    "unit_product_html": "Produkt enthält: 350 <span class=\"unit\">g</span>",
+    "delivery_time_html": "",
+    "manufacturer_html": "",
+    "product_safety_attachments_html": "",
+    "safety_instructions_html": "",
+    "tax_info_html": "inkl. 10 % MwSt.",
+    "shipping_costs_info_html": "zzgl. <a href=\"https://fleischhauerei-thaller.at/versandarten/\" target=\"_blank\">Versandkosten</a>",
+    "defect_description_html": "",
+    "nutri_score": "",
+    "nutri_score_html": "",
+    "deposit_html": "",
+    "deposit_prices": {
+     "amount": 0,
+     "quantity": 0,
+     "price": 0
+    },
+    "deposit_packaging_type_html": "",
+    "power_supply_html": ""
+   }
+  }
+ },
+ {
+  "id": 4102,
+  "name": "Rindsgulasch im Glas",
+  "slug": "rindsgulasch-im-glas",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://fleischhauerei-thaller.at/produkt/rindsgulasch-im-glas/",
+  "sku": "",
+  "short_description": "",
+  "description": "<p data-start=\"136\" data-end=\"305\"><strong>Ohne Konservierungsmittel, künstliche Farbstoffe, Geschmacksverstärker </strong></p>\n<p data-start=\"136\" data-end=\"305\"><strong data-start=\"136\" data-end=\"148\">Zutaten:</strong><br data-start=\"148\" data-end=\"151\" />45% Rindfleisch,Wasser,Zwiebel,Tomatenmark,Salz,Gewürze, WEIZENMEHL.</p>\n<p data-start=\"136\" data-end=\"305\">350g per Glas</p>\n<p data-start=\"307\" data-end=\"354\"><strong data-start=\"307\" data-end=\"323\">Haltbarkeit:</strong><br data-start=\"323\" data-end=\"326\" />Bei 2 °C – 4 °C: <strong>6</strong><strong>0</strong><strong data-start=\"343\" data-end=\"354\"> Tage</strong></p>\n<p data-start=\"361\" data-end=\"691\"><strong>Zubereitung<br />\n</strong>Deckel abschrauben.<br />\nIn die Mikrowelle oder in einen Kochtopf geben und auf die gewünschte Temperatur erhitzen.</p>\n<p data-start=\"361\" data-end=\"691\"><strong data-start=\"361\" data-end=\"382\">Unsere Rindsgulasch</strong><br data-start=\"412\" data-end=\"415\" />Hausgemacht nach Omas Rezept. Ein Aushängeschild unsere Küche.</p>\n<p data-start=\"693\" data-end=\"978\"><strong data-start=\"696\" data-end=\"728\">Regional &amp; mit Liebe gemacht</strong><br data-start=\"728\" data-end=\"731\" />Das Fleisch stammt von kleinen, regionalen Bauernhöfen im Umkreis von ca. 15 km. Die Tiere werden direkt bei uns im Haus stressfrei geschlachtet.<br data-start=\"876\" data-end=\"879\" />In unserer Fleischerei fertigen wir alle Produkte nach alter Tradition mit viel Liebe zum Handwerk.</p>\n<p data-start=\"693\" data-end=\"978\"><strong><img class=\"alignnone size-medium wp-image-4032\" src=\"https://fleischhauerei-thaller.at/wp-content/uploads/2025/07/Vulkanland-300x72.jpg\" alt=\"\" width=\"300\" height=\"72\" /></strong></p>",
+  "on_sale": false,
+  "prices": {
+   "price": "750",
+   "regular_price": "750",
+   "sale_price": "750",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\">7,50&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 4433,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1.jpg 2000w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1-300x219.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1-1024x748.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1-768x561.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1-1536x1122.jpg 1536w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/Gulasch-bea-kw-15-1-600x438.jpg 600w",
+    "sizes": "(max-width: 2000px) 100vw, 2000px",
+    "name": "Gulasch bea kw 15 (1)",
+    "alt": ""
+   },
+   {
+    "id": 4150,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305.jpg 1500w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305-300x300.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305-1024x1024.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305-150x150.jpg 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305-768x768.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305-600x600.jpg 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7305-100x100.jpg 100w",
+    "sizes": "(max-width: 1500px) 100vw, 1500px",
+    "name": "IMG_7305",
+    "alt": "IMG_7305"
+   }
+  ],
+  "categories": [
+   {
+    "id": 138,
+    "name": "Speisen im Glas",
+    "slug": "speisen-im-glas",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/speisen-im-glas/"
+   },
+   {
+    "id": 32,
+    "name": "Hausgemachte Spezialitäten",
+    "slug": "hausgemachte-spezialitaeten",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/hausgemachte-spezialitaeten/"
+   }
+  ],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 3,
+    "name": "Gewicht in nur g",
+    "taxonomy": "pa_gewicht-in-nur-g",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 136,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 135,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 137,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "In den Warenkorb",
+   "description": "In den Warenkorb legen: „Rindsgulasch im Glas“",
+   "url": "/wp-json/wc/store/v1/products?per_page=100&#038;add-to-cart=4102",
+   "single_text": "In den Warenkorb",
+   "minimum": 1,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {
+   "woocommerce-germanized": {
+    "unit_price_html": "",
+    "unit_prices": {
+     "price": "0",
+     "regular_price": "0",
+     "sale_price": "0",
+     "price_range": null
+    },
+    "unit": "g",
+    "unit_base": "1",
+    "unit_product": "350",
+    "unit_product_html": "Produkt enthält: 350 <span class=\"unit\">g</span>",
+    "delivery_time_html": "",
+    "manufacturer_html": "",
+    "product_safety_attachments_html": "",
+    "safety_instructions_html": "",
+    "tax_info_html": "inkl. 10 % MwSt.",
+    "shipping_costs_info_html": "zzgl. <a href=\"https://fleischhauerei-thaller.at/versandarten/\" target=\"_blank\">Versandkosten</a>",
+    "defect_description_html": "",
+    "nutri_score": "",
+    "nutri_score_html": "",
+    "deposit_html": "",
+    "deposit_prices": {
+     "amount": 0,
+     "quantity": 0,
+     "price": 0
+    },
+    "deposit_packaging_type_html": "",
+    "power_supply_html": ""
+   }
+  }
+ },
+ {
+  "id": 4098,
+  "name": "Leberkäse im Glas",
+  "slug": "leberkaese-im-glas",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://fleischhauerei-thaller.at/produkt/leberkaese-im-glas/",
+  "sku": "",
+  "short_description": "",
+  "description": "<p data-start=\"136\" data-end=\"305\"><strong>Ohne künstliche Farbstoffe und Geschmacksverstärker</strong></p>\n<p data-start=\"136\" data-end=\"305\"><strong data-start=\"136\" data-end=\"148\">Zutaten:</strong><br data-start=\"148\" data-end=\"151\" />Zutaten:75%Schweinefleisch,Speck,Wasser,Kochsalz,Konservierungsstoff:Natriumnitrit,Antioxidationsmittel:Ascorbinsäre,Gewürze.</p>\n<p data-start=\"136\" data-end=\"305\">350g per Glas</p>\n<p data-start=\"307\" data-end=\"354\"><strong data-start=\"307\" data-end=\"323\">Haltbarkeit:</strong><br data-start=\"323\" data-end=\"326\" />Bei 2 °C – 4 °C: <strong>6</strong><strong>0</strong><strong data-start=\"343\" data-end=\"354\"> Tage</strong></p>\n<p data-start=\"361\" data-end=\"691\"><strong>Zubereitung<br />\n</strong>Deckel abschrauben. 45 Minuten bei 130°C Heisluft.<br />\nDer Leberkäse ploppt heraus. Wenn er schön knusprig ist, herausnehmen und genießen.</p>\n<p data-start=\"361\" data-end=\"691\"><strong data-start=\"361\" data-end=\"382\">Unsere Leberkäse</strong> <br data-start=\"412\" data-end=\"415\" />Frisch Leberkäse zum selberbacken. Der Klassiker, mild im Geschmack, zarter Biss und saftige Konsistenz machen unseren Leberkäse aus.<br data-start=\"577\" data-end=\"580\" />In der Semmel schmeckt er einfach immer.</p>\n<p data-start=\"693\" data-end=\"978\"><strong data-start=\"696\" data-end=\"728\">Regional &amp; mit Liebe gemacht</strong><br data-start=\"728\" data-end=\"731\" />Das Fleisch stammt von kleinen, regionalen Bauernhöfen im Umkreis von ca. 15 km. Die Tiere werden direkt bei uns im Haus stressfrei geschlachtet.<br data-start=\"876\" data-end=\"879\" />In unserer Fleischerei fertigen wir alle Produkte nach alter Tradition mit viel Liebe zum Handwerk.</p>\n<p data-start=\"693\" data-end=\"978\"><strong><img class=\"alignnone size-medium wp-image-4032\" src=\"https://fleischhauerei-thaller.at/wp-content/uploads/2025/07/Vulkanland-300x72.jpg\" alt=\"\" width=\"300\" height=\"72\" /></strong></p>\n<p data-start=\"693\" data-end=\"978\">",
+  "on_sale": false,
+  "prices": {
+   "price": "600",
+   "regular_price": "600",
+   "sale_price": "600",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\">6,00&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 4244,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307.jpg 1500w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307-300x300.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307-1024x1024.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307-150x150.jpg 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307-768x768.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307-600x600.jpg 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7307-100x100.jpg 100w",
+    "sizes": "(max-width: 1500px) 100vw, 1500px",
+    "name": "IMG_7307",
+    "alt": "IMG_7307"
+   },
+   {
+    "id": 4297,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720.jpg",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720-300x300.jpg",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720.jpg 1500w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720-300x300.jpg 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720-1024x1024.jpg 1024w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720-150x150.jpg 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720-768x768.jpg 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720-600x600.jpg 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/08/IMG_7720-100x100.jpg 100w",
+    "sizes": "(max-width: 1500px) 100vw, 1500px",
+    "name": "IMG_7720",
+    "alt": "IMG_7720"
+   }
+  ],
+  "categories": [
+   {
+    "id": 138,
+    "name": "Speisen im Glas",
+    "slug": "speisen-im-glas",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/speisen-im-glas/"
+   },
+   {
+    "id": 30,
+    "name": "Wurstwaren",
+    "slug": "wurstwaren",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/wurstwaren/"
+   }
+  ],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 3,
+    "name": "Gewicht in nur g",
+    "taxonomy": "pa_gewicht-in-nur-g",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 136,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 135,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 137,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "In den Warenkorb",
+   "description": "In den Warenkorb legen: „Leberkäse im Glas“",
+   "url": "/wp-json/wc/store/v1/products?per_page=100&#038;add-to-cart=4098",
+   "single_text": "In den Warenkorb",
+   "minimum": 1,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {
+   "woocommerce-germanized": {
+    "unit_price_html": "",
+    "unit_prices": {
+     "price": "0",
+     "regular_price": "0",
+     "sale_price": "0",
+     "price_range": null
+    },
+    "unit": "g",
+    "unit_base": "1",
+    "unit_product": "350",
+    "unit_product_html": "Produkt enthält: 350 <span class=\"unit\">g</span>",
+    "delivery_time_html": "",
+    "manufacturer_html": "",
+    "product_safety_attachments_html": "",
+    "safety_instructions_html": "",
+    "tax_info_html": "inkl. 10 % MwSt.",
+    "shipping_costs_info_html": "zzgl. <a href=\"https://fleischhauerei-thaller.at/versandarten/\" target=\"_blank\">Versandkosten</a>",
+    "defect_description_html": "",
+    "nutri_score": "",
+    "nutri_score_html": "",
+    "deposit_html": "",
+    "deposit_prices": {
+     "amount": 0,
+     "quantity": 0,
+     "price": 0
+    },
+    "deposit_packaging_type_html": "",
+    "power_supply_html": ""
+   }
+  }
+ },
+ {
+  "id": 3643,
+  "name": "Verhackert im Glas",
+  "slug": "verhackert-im-glas-180g",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://fleischhauerei-thaller.at/produkt/verhackert-im-glas-180g/",
+  "sku": "",
+  "short_description": "",
+  "description": "<p><strong>Zutaten:</strong><br />\nSchweinefleisch, Schweinespeck, Salz, Knoblauch, Gewürze, Rauch.</p>\n<p><strong>Haltbarkeit</strong><br />\nbei 2°C – 4°C 60Tage<br />\nNach dem öffnen innerhalb von 7 Tagen verbrauchen</p>\n<p>Nettofüllmenge 180g</p>\n<p>Unser Hausgemachtes Verhackert – herzhaft, rustikal, echt steirisch. Aus bestem Schweinefleisch und Speck, fein gehackt, mit Salz, Knoblauch, Gewürzen und einem Hauch Rauch verfeinert. Streichzart, würzig und ideal für die zünftige Jause aufs frische Bauernbrot.</p>\n<p>Unsere Schweine stammen von kleinstrukturierten Bauern aus der näheren Umgebung und werden in unserer Fleischerei geschlachtet, zerlegt und verarbeitet.</p>\n<p><img class=\"alignnone size-medium wp-image-4032\" src=\"https://fleischhauerei-thaller.at/wp-content/uploads/2025/07/Vulkanland-300x72.jpg\" alt=\"\" width=\"300\" height=\"72\" /></p>\n<p>&nbsp;</p>",
+  "on_sale": false,
+  "prices": {
+   "price": "450",
+   "regular_price": "450",
+   "sale_price": "450",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\">4,50&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 3710,
+    "src": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert.webp",
+    "thumbnail": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert-300x300.webp",
+    "srcset": "https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert.webp 1000w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert-300x300.webp 300w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert-150x150.webp 150w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert-768x768.webp 768w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert-600x600.webp 600w, https://fleischhauerei-thaller.at/wp-content/uploads/2025/06/Verhackert-100x100.webp 100w",
+    "sizes": "(max-width: 1000px) 100vw, 1000px",
+    "name": "Verhackert",
+    "alt": "Verhackert"
+   }
+  ],
+  "categories": [
+   {
+    "id": 32,
+    "name": "Hausgemachte Spezialitäten",
+    "slug": "hausgemachte-spezialitaeten",
+    "link": "https://fleischhauerei-thaller.at/produkt-kategorie/hausgemachte-spezialitaeten/"
+   }
+  ],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "In den Warenkorb",
+   "description": "In den Warenkorb legen: „Verhackert im Glas“",
+   "url": "/wp-json/wc/store/v1/products?per_page=100&#038;add-to-cart=3643",
+   "single_text": "In den Warenkorb",
+   "minimum": 1,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {
+   "woocommerce-germanized": {
+    "unit_price_html": "<span class=\"woocommerce-Price-amount amount\">25,00&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&euro;</span></span> /  <span class=\"unit\">kg</span>",
+    "unit_prices": {
+     "price": "2500",
+     "regular_price": "2500",
+     "sale_price": "0",
+     "price_range": null
+    },
+    "unit": "kg",
+    "unit_base": "1",
+    "unit_product": "0.18",
+    "unit_product_html": "Produkt enthält: 0,18 <span class=\"unit\">kg</span>",
+    "delivery_time_html": "",
+    "manufacturer_html": "",
+    "product_safety_attachments_html": "",
+    "safety_instructions_html": "",
+    "tax_info_html": "inkl. 10 % MwSt.",
+    "shipping_costs_info_html": "zzgl. <a href=\"https://fleischhauerei-thaller.at/versandarten/\" target=\"_blank\">Versandkosten</a>",
+    "defect_description_html": "",
+    "nutri_score": "",
+    "nutri_score_html": "",
+    "deposit_html": "",
+    "deposit_prices": {
+     "amount": 0,
+     "quantity": 0,
+     "price": 0
+    },
+    "deposit_packaging_type_html": "",
+    "power_supply_html": ""
+   }
+  }
+ }
+]

@@ -41,7 +41,8 @@ from .deflorian import Deflorian
 from .buchberger import Buchberger
 from .diechtl import Diechtl
 from .fichtenbauer import Fichtenbauer
+from .thaller import Thaller
 from .osm_stores import OsmStores, fetch_stores
-ADAPTERS = {a.id: a for a in [c() for c in CATALOG] + [Billa(), Penny(), Gurkerl(), Lidl(), Spar(), Hofer(), Dm(), DmShop(), Mpreis(), Unimarkt(), OpenFoodFacts(), HeissePreise(), PrepMyMeal(), LiveFresh(), Gourmetfein(), MpreisShop(), SparShop(), Denns(), NahFrisch(), PennyShop(), Juit(), Bofrost(), FitToGo(), Every(), Loewenanteil(), Kernbeisser(), Goldblatt(), IssMich(), Alfies(), MyProduct(), HoferShop(), BiohofAchleitner(), SubwayAT(), Adamah(), GourmetDaheim(), Gerbl(), RuckZuck(), Bauernladen(), Sperchenedergut(), Wagyuhof(), Draxler(), WiesbauerGourmet(), SteiraMarkt(), Suppito(), Voeslauermanufaktur(), LomoAlto(), Deflorian(), Buchberger(), Diechtl(), Fichtenbauer()]}  # live adapters override catalog-only stubs with the same id
+ADAPTERS = {a.id: a for a in [c() for c in CATALOG] + [Billa(), Penny(), Gurkerl(), Lidl(), Spar(), Hofer(), Dm(), DmShop(), Mpreis(), Unimarkt(), OpenFoodFacts(), HeissePreise(), PrepMyMeal(), LiveFresh(), Gourmetfein(), MpreisShop(), SparShop(), Denns(), NahFrisch(), PennyShop(), Juit(), Bofrost(), FitToGo(), Every(), Loewenanteil(), Kernbeisser(), Goldblatt(), IssMich(), Alfies(), MyProduct(), HoferShop(), BiohofAchleitner(), SubwayAT(), Adamah(), GourmetDaheim(), Gerbl(), RuckZuck(), Bauernladen(), Sperchenedergut(), Wagyuhof(), Draxler(), WiesbauerGourmet(), SteiraMarkt(), Suppito(), Voeslauermanufaktur(), LomoAlto(), Deflorian(), Buchberger(), Diechtl(), Fichtenbauer(), Thaller()]}  # live adapters override catalog-only stubs with the same id
 def get_adapter(i): return ADAPTERS[i]
 STORE_ADAPTERS = {'osm-stores': OsmStores()}
