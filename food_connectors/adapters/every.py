@@ -11,8 +11,9 @@ Sources (both public, no login/cookies, robots `*` allows /products/; only /acco
     product_weight (g), the nutrition table per 100 g + per pack, ingredients (incl. "für AT: Fisolen" labels),
     preparation, short description, filters.
   * product sitemap ``https://every-foods.com/sitemap-products.xml`` = what the storefront currently lists.
-Ready meals = product_type "Meal", price > 0 (gift/free SKUs excluded), handle listed in the DE sitemap. No GTIN is
-published → ``ean`` None. Polite 1 req/s.
+Ready meals = product_type "Meal", price > 0 (gift/free SKUs excluded), handle listed in the DE sitemap. GTIN: empty in
+products.json but published per variant on ``eat.every-foods.com/products/<handle>.json`` → read via ``shopify_gtin``
+(GS1 check digit, shared codes dropped; verified 2026-10-25). Polite 1 req/s.
 Operator: Every. GmbH, Ritterstraße 9–10, 10969 Berlin, HRB 221768 B (AG Charlottenburg), USt-ID DE335586517 (public Impressum).
 """
 from __future__ import annotations
@@ -20,6 +21,7 @@ import json, re, time
 from .base import Adapter
 from ..http import get
 from ..schema import Product
+from .shopify_gtin import gtin, enrich, drop_shared
 
 SHOP = "https://eat.every-foods.com"
 BASE = "https://every-foods.com"
@@ -142,7 +144,7 @@ def to_product(sp: dict, blok: dict | None, url: str | None = None) -> Product:
     tags = sp.get("tags") or []
     return Product(source="every", store=STORE, name=(b.get("name") or sp.get("title") or "").strip(), brand="every.",
                    price_eur=price, unit_price_eur=round(price / w * 1000, 2) if price and w else None, unit="kg" if price and w else None,
-                   size_g=w, nutrition_100g=per100, ean=None, image_url=imgs[0] if imgs else None,
+                   size_g=w, nutrition_100g=per100, ean=gtin(v), image_url=imgs[0] if imgs else None,
                    producer="Every. GmbH, Ritterstraße 9–10, 10969 Berlin (DE), HRB 221768 B", category=next((t.split("__", 1)[1] for t in tags if t.startswith("subtype__")), None),
                    source_url=url or f"{BASE}/products/{sp.get('handle')}", source_id=v.get("sku") or sp.get("handle"),
                    extra={"handle": sp.get("handle"), "shopify_id": sp.get("id"), "available": v.get("available"),
@@ -160,6 +162,7 @@ def product(handle_or_url: str, shop: list[dict] | None = None) -> Product | Non
     handle = handle_or_url.strip().rstrip("/").split("/")[-1].split("?")[0]
     sp = next((p for p in (shop if shop is not None else shop_products()) if p.get("handle") == handle), None)
     if not sp: return None
+    enrich(SHOP, sp)
     url = f"{BASE}/products/{handle}"
     try: h = get(url, raw=True, timeout=40).decode("utf-8", "replace")
     except Exception: h = ""
@@ -174,7 +177,7 @@ class Every(Adapter):
     id = "every"; store = STORE; homepage = BASE
     notes = ("Live: public Shopify storefront JSON (eat.every-foods.com/products.json: price, SKU, availability, images) + "
              "product pages (Storyblok blok: weight, nutrition per 100 g/pack, ingredients, preparation); frozen plant-based "
-             "ready meals shipped to AT (DPD, 5,99 €, free from 8 meals); no GTIN; polite 1 req/s")
+             "ready meals shipped to AT (DPD, 5,99 €, free from 8 meals); GTIN via per-product JSON; polite 1 req/s")
     delay = 1.0
     def fetch(self, category="ready-meals", limit=500):
         shop = shop_products(); time.sleep(self.delay)
@@ -183,7 +186,7 @@ class Every(Adapter):
             time.sleep(self.delay)
             p = product(sp["handle"], shop)
             if p and is_ready_meal(p): out.append(p)
-        return out
+        return drop_shared(out)
     def search(self, q, limit=50):
         words = [w.lower() for w in re.findall(r"\w{3,}", q)]
         shop = shop_products(); handles = sitemap_handles()
