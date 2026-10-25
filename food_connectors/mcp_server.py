@@ -100,6 +100,8 @@ TOOLS += [{"name": "buchberger_product", "description": "Live Fleischerei Buchbe
  {"name": "buchberger_search", "description": "Search the live Fleischerei Buchberger 'Essen im Glas' ready meals (category page + product pages, ≤6 requests) by words in name/ingredients (e.g. 'gulasch', 'ragout').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "diechtl_product", "description": "Live Fleischerei Diechtl webshop (diechtl-shop.at, Fleischerei Diechtl Erich Ernst e.U., Bad Mitterndorf Steiermark, FN 338325m, UID ATU41616104; Kühlpaket within Austria, 6,90 € below 70 €, free from 70 €) 'Feinkost im Glas' jar meal by slug or URL (currently Rindsgulasch im Glas 390 g) — price per jar (EUR incl. MwSt.), €/kg, availability, ingredients transcribed from the shop's label photo, storage, packshot. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "diechtl_search", "description": "Search the live Fleischerei Diechtl jar meals (category page + product pages, ≤2 requests) by words in name/ingredients (e.g. 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "fichtenbauer_product", "description": "Live Land-Fleischerei Fichtenbauer webshop (fleischerei-fichtenbauer.at, Land-Fleischerei Fichtenbauer GmbH, Gmünd/Amaliendorf Waldviertel NÖ, FN 523618b, UID ATU74965969; AT shipping 10 €, free from 99 €) 'essfertig' jar meal by slug or URL (e.g. rindsgulasch-essfertig, beuschel-essfertig, wildragout-essfertig) — price per 400 g jar (EUR incl. MwSt.), €/kg, ingredients as printed, packshot. No nutrition/GTIN published. Returns null if unknown or not a jar dish.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "fichtenbauer_search", "description": "Search the live Fleischerei Fichtenbauer jar meals (shop page + ≤3 product pages, 3 s apart) by words in name/ingredients (e.g. 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -163,6 +165,12 @@ def call(name, a):
     if name == "diechtl_search":
         from .adapters.diechtl import Diechtl
         return [p.to_dict() for p in Diechtl().search(a["query"], limit=min(a.get("limit") or 10, 5))]
+    if name == "fichtenbauer_product":
+        from .adapters.fichtenbauer import product as _fb
+        r = _fb(str(a["id"])); return r.to_dict() if r else None
+    if name == "fichtenbauer_search":
+        from .adapters.fichtenbauer import Fichtenbauer
+        return [p.to_dict() for p in Fichtenbauer().search(a["query"], limit=min(a.get("limit") or 10, 5))]
     if name == "buchberger_product":
         from .adapters.buchberger import product as _bb
         r = _bb(str(a["id"])); return r.to_dict() if r else None
