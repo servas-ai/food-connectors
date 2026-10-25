@@ -1,0 +1,97 @@
+[
+ {
+  "code": "0836069004150",
+  "product_name": "Currywurst",
+  "brands": "Bofrost",
+  "quantity": "800g",
+  "countries_tags": [
+   "en:france",
+   "en:germany"
+  ],
+  "nutriments": {
+   "carbohydrates_100g": 11.3,
+   "energy-kcal_100g": 193,
+   "fat_100g": 13.1,
+   "proteins_100g": 7
+  }
+ },
+ {
+  "code": "0045469006675",
+  "product_name": "Rostipfanne",
+  "brands": "bofrost",
+  "quantity": "1.000g",
+  "countries_tags": [
+   "en:germany",
+   "en:italy"
+  ],
+  "nutriments": {
+   "carbohydrates_100g": 11.9,
+   "energy-kcal_100g": 129,
+   "fat_100g": 5.9,
+   "proteins_100g": 5.7
+  }
+ },
+ {
+  "code": "0836069012797",
+  "product_name": "Hühnerrahmpfanne",
+  "brands": "Bofrost",
+  "quantity": "1kg",
+  "countries_tags": [
+   "en:germany"
+  ],
+  "nutriments": {}
+ },
+ {
+  "code": "0281569016019",
+  "product_name": "Bami goreng",
+  "brands": "Bofrost",
+  "quantity": "1000 g",
+  "countries_tags": [
+   "en:france",
+   "en:germany"
+  ],
+  "nutriments": {
+   "carbohydrates_100g": 11.6,
+   "energy-kcal_100g": 111,
+   "fat_100g": 3.2,
+   "proteins_100g": 7.2
+  }
+ },
+ {
+  "code": "0999769112928",
+  "product_name": "Tandoori Chicken",
+  "brands": "Bofrost",
+  "quantity": null,
+  "countries_tags": [
+   "en:germany"
+  ],
+  "nutriments": {
+   "carbohydrates_100g": 17,
+   "energy-kcal_100g": 181,
+   "fat_100g": 8.6999998092651,
+   "proteins_100g": 8.1000003814697
+  }
+ },
+ {
+  "code": "0121969017820",
+  "product_name": "La Pizza &quot;Speciale&quot;",
+  "brands": "bofrost",
+  "quantity": "425 g",
+  "countries_tags": [
+   "en:france",
+   "en:germany"
+  ],
+  "nutriments": {
+   "carbohydrates_100g": 24,
+   "energy-kcal_100g": 217,
+   "fat_100g": 8.7,
+   "proteins_100g": 10
+  }
+ },
+ {
+  "code": "00020047",
+  "product_name": "Tagliatelle mit Lachs",
+  "quantity": null,
+  "nutriments": {}
+ }
+]

@@ -148,10 +148,52 @@ def is_ready_meal(p: Product) -> bool:
     if "Suppeneinlagen" in (p.category or "") and not SOUP_RE.search(p.name): return False
     return True
 
+# --- GTIN via Open Food Facts (bofrost.at pages publish no GTIN; pack barcodes embed the article no.) ---
+OFF_CODE_RE = re.compile(r"^0\d{4}69(\d{5})\d$")
+
+def _gs1_ok(c: str) -> bool:
+    if not c or not c.isdigit() or len(c) not in (8, 12, 13, 14): return False
+    d = [int(x) for x in c]
+    s = sum(v * (3 if i % 2 == 0 else 1) for i, v in enumerate(reversed(d[:-1])))
+    return (10 - s % 10) % 10 == d[-1]
+
+def barcode_article(code: str) -> str | None:
+    """bofrost pack EAN-13 layout 0PPPP69AAAAAC: returns the 5-digit article no. AAAAA (GS1-valid codes only)."""
+    m = OFF_CODE_RE.match(code or "")
+    return m.group(1) if m and _gs1_ok(code) else None
+
+def _off_qty_g(o: dict) -> float | None:
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s*(kg|g)\b", (o.get("quantity") or "").lower())
+    if not m: return None
+    v = m.group(1)
+    v = float(v.replace(".", "")) if re.fullmatch(r"\d{1,3}\.\d{3}", v) else float(v.replace(",", "."))
+    return v * 1000 if m.group(2) == "kg" else v
+
+_OFF_N = {"kcal": "energy-kcal_100g", "protein": "proteins_100g", "fat": "fat_100g", "carbs": "carbohydrates_100g"}
+
+def off_gtin(p: Product, off_products: list[dict], tol: float = 0.05) -> str | None:
+    """Pick the OFF code for this bofrost product: article no. in the barcode == p.source_id, net weight equal,
+    kcal/protein/fat/carbs per 100 g within ±tol where OFF publishes them. Returns None if 0 or >1 candidates."""
+    art = p.source_id or article_no(p.source_url or "")
+    hits = []
+    for o in off_products:
+        c = str(o.get("code") or "")
+        if barcode_article(c) != art: continue
+        q = _off_qty_g(o)
+        if not p.size_g or q is None or abs(q - p.size_g) > 0.5: continue
+        n, ok = o.get("nutriments") or {}, True
+        for k, ok_key in _OFF_N.items():
+            a, b = (p.nutrition_100g or {}).get(k), n.get(ok_key)
+            if a is None or b is None: continue
+            if abs(float(a) - float(b)) > max(tol * max(float(a), float(b)), 0.3 if k != "kcal" else 2): ok = False
+        if ok: hits.append(c)
+    return hits[0] if len(set(hits)) == 1 else None
+
 class Bofrost(Adapter):
     id = "bofrost"; store = STORE; homepage = BASE
     notes = ("Live: public sitemap + product pages (schema.org JSON-LD price/availability/images, pack line with €/kg, "
-             "nutrition per 100 g, ingredients); frozen home delivery across AT (own drivers); no GTIN; polite 1 req/s")
+             "nutrition per 100 g, ingredients); frozen home delivery across AT (own drivers); no GTIN on bofrost.at — "
+             "off_gtin() matches OFF pack barcodes (article no. embedded, 0PPPP69AAAAAC) by weight+nutrition; polite 1 req/s")
     delay = 1.0
     def fetch(self, category="ready-meals", limit=500):
         """category: "ready-meals" (default), "desserts" (warm Mehlspeisen) or "starters" (warm Vorspeisen/Snacks)."""
