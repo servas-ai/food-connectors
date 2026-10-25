@@ -96,6 +96,8 @@ TOOLS += [{"name": "lomoalto_product", "description": "Live Lomo Alto webshop (l
  {"name": "lomoalto_search", "description": "Search the live Lomo Alto Bio jar meals (public Shopify storefront JSON, 1 request) by words in name/description (e.g. 'gulasch', 'chili').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "deflorian_product", "description": "Live Deflorian webshop (deflorian.tirol, Deflorian Tiefkühlspezialitäten GmbH, Gnadenwald Tirol, UID ATU64259769; ships frozen Austria-wide, 14,99 € below 40 €, free from 40 €) frozen ready meal by Shopify id, handle or /products/<handle> URL: Schlutzkrapfen, Knödel, Kaskrapfen, Rindsgulasch, Hühnercurry, Rindsbraten, Gulasch-/Gerstlsuppe, fruit dumplings — name, price of the smallest pack (EUR incl. MwSt.), pack variants, weight, €/100 g, availability, photo, ingredients with allergens from the product page. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "deflorian_search", "description": "Search the live Deflorian frozen ready meals (public Shopify storefront JSON, 1 request) by words in name/description/category (e.g. 'schlutzkrapfen', 'gulasch', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "buchberger_product", "description": "Live Fleischerei Buchberger webshop (buchberger.shop, Buchberger GmbH & Co KG, Pöllau Steiermark, FN 14170p, UID ATU29190201; Kühlversand, free from 120 €, delivery area/fee below 120 € not published) jar meal 450 ml by slug or URL: Gulasch-Suppe, Rindsgulasch, Hirschragout, Kalbsragout, Putencurry — price per jar (EUR incl. MwSt.), €/100 ml, ingredients, allergens, nutrition per 100 g as printed (with Atwater check), MHD, storage, packshot. No GTIN. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "buchberger_search", "description": "Search the live Fleischerei Buchberger 'Essen im Glas' ready meals (category page + product pages, ≤6 requests) by words in name/ingredients (e.g. 'gulasch', 'ragout').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -153,6 +155,12 @@ def call(name, a):
     if name == "suppito_search":
         from .adapters.suppito import Suppito
         return [p.to_dict() for p in Suppito().search(a["query"], limit=min(a.get("limit") or 10, 18))]
+    if name == "buchberger_product":
+        from .adapters.buchberger import product as _bb
+        r = _bb(str(a["id"])); return r.to_dict() if r else None
+    if name == "buchberger_search":
+        from .adapters.buchberger import Buchberger
+        return [p.to_dict() for p in Buchberger().search(a["query"], limit=min(a.get("limit") or 10, 5))]
     if name == "deflorian_product":
         from .adapters.deflorian import product as _df
         r = _df(str(a["id"])); return r.to_dict() if r else None
