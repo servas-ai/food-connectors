@@ -108,6 +108,8 @@ TOOLS += [{"name": "kumitzberg_product", "description": "Live Kumitzberg webshop
  {"name": "kumitzberg_search", "description": "Search the live Kumitzberg heat-up meals (public Shopify products.json + product pages) by words in title/description (e.g. 'ragout', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "bernos_product", "description": "Live Bernos Tauernwild webshop (bernos.at, Bernos Wildkammer – Berno Mühlburger, Oberdrum/Oberlienz Osttirol, UID ATU68061919; AT shipping 5,60 €) wild-game jar meal by WooCommerce id, slug or URL (rehragout, hirschgulasch, gamseintopf, gulaschsuppe-vom-wild; 290 g) — price per jar (EUR incl. MwSt.), €/kg, stock, meat share, ingredients, packshot. No nutrition/GTIN published. Returns null if unknown or not a ready meal (Wildsugo, Henkele, Dauerwürste).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "bernos_search", "description": "Search the live Bernos Tauernwild jar meals (public WooCommerce Store API, 1 request) by words in name/ingredients (e.g. 'hirsch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "jenichl_product", "description": "Live Genussbauernhof Jenichl webshop (genussbauernhof-jenichl.at, Franz & Brigitte Jenichl, Wagham 1, 4950 Altheim OÖ; Post within Austria 11,50 € up to 20 kg) ready meal by Ecwid product id or shop URL (#!/…/p/<id>): 4 heat-up jar meals 'essfertig' (Gulasch im Glas, Gulaschsuppe, Beuschel 390 g; Gefüllte Paprika 640 g) and 7 frozen Knödel packs — price (EUR incl. USt.), weight, ingredients, allergens, photo. No nutrition/GTIN published. Returns null if unknown or not a ready meal (Gulaschsaft, Sugo, Speck, sausages, Leberkäse).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "jenichl_search", "description": "Search the live Genussbauernhof Jenichl ready meals (public Ecwid storefront catalog JSON, 1 request) by words in name/ingredients (e.g. 'gulasch', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -177,6 +179,12 @@ def call(name, a):
     if name == "thaller_search":
         from .adapters.thaller import Thaller
         return [p.to_dict() for p in Thaller().search(a["query"], limit=min(a.get("limit") or 10, 5))]
+    if name == "jenichl_product":
+        from .adapters.jenichl import product as _jn
+        r = _jn(str(a["id"])); return r.to_dict() if r else None
+    if name == "jenichl_search":
+        from .adapters.jenichl import Jenichl
+        return [p.to_dict() for p in Jenichl().search(a["query"], limit=min(a.get("limit") or 10, 15))]
     if name == "bernos_product":
         from .adapters.bernos import product as _bn
         r = _bn(str(a["id"])); return r.to_dict() if r else None
