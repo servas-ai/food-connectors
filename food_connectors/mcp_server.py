@@ -114,6 +114,8 @@ TOOLS += [{"name": "scheffknecht_product", "description": "Live Ariane Scheffkne
  {"name": "scheffknecht_search", "description": "Search the live Ariane Scheffknecht jar meals (public Wix store-products sitemap + product-page JSON-LD, 1 + 9 requests at 1 s) by words in name/ingredients (e.g. 'curry', 'chili').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "nudlkudlmudl_product", "description": "Live Martina's Nudlkudlmudl onlineshop (nudlkudlmudl.com, Martina Hinteregger, Hauptstrasse 28, 9545 Radenthein, Kärnten; AMA-certified Nudelmanufaktur; Post Frischeversand AT only, free from 100 €) hand-made Kärntner Nudel pack or ready roast by slug or name (kaerntner-kasnudel, kaerntner-fleischnudel, kaerntner-erdaepfelnudel, spinatnudel, tomate-mozzarella-nudel, baerlauchnudeln, kaerntner-schweinsbraten; 600 g / 5 Stk. or 250 g) — price (EUR incl. MwSt), €/kg, availability, ingredients, photo. No nutrition/GTIN published. Returns null if unknown or not a ready meal (Kletzennudel, Bratlfett, Sugo).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "nudlkudlmudl_search", "description": "Search the live Martina's Nudlkudlmudl Kärntner Nudeln (one public Jimdo shop page, schema.org microdata) by words in name/ingredients (e.g. 'kasnudel', 'spinat').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "leitgeb_product", "description": "Live Leitgeb's Kärntnernudel webshop (kaerntnernudel.co.at, Leitgeb's Nudelspezialitäten aus dem Metnitztal GmbH, Industriestraße 18, 9360 Friesach, Kärnten, FN 62213v, UID ATU82506478; cooled shipping AT/DE Mon–Thu, fee only in cart) pre-cooked ready meal by WooCommerce id, slug or URL (e.g. kaerntner-kaesnudel, kaerntner-fleischnudel, gemischter-nudelteller, kaespressknoedel) — price per pack (EUR incl. MwSt.), pieces and approx. pack weight, €/kg, stock, ingredients, allergens, nutrition per 100 g, packshot. No GTIN published. Returns null if unknown or not a ready meal (sweet Nudeln, Schlickkrapferl, Semmelknödel).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "leitgeb_search", "description": "Search the live Leitgeb's Kärntnernudel ready meals (public WooCommerce Store API + product pages at 1 s) by words in name/description (e.g. 'speck', 'bio', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -201,6 +203,12 @@ def call(name, a):
     if name == "nudlkudlmudl_search":
         from .adapters.nudlkudlmudl import Nudlkudlmudl
         return [p.to_dict() for p in Nudlkudlmudl().search(a["query"], limit=min(a.get("limit") or 10, 5))]
+    if name == "leitgeb_product":
+        from .adapters.leitgeb import product as _lg
+        r = _lg(str(a["id"])); return r.to_dict() if r else None
+    if name == "leitgeb_search":
+        from .adapters.leitgeb import Leitgeb
+        return [p.to_dict() for p in Leitgeb().search(a["query"], limit=min(a.get("limit") or 10, 5))]
     if name == "bernos_product":
         from .adapters.bernos import product as _bn
         r = _bn(str(a["id"])); return r.to_dict() if r else None
