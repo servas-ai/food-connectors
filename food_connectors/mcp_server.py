@@ -104,6 +104,8 @@ TOOLS += [{"name": "fichtenbauer_product", "description": "Live Land-Fleischerei
  {"name": "fichtenbauer_search", "description": "Search the live Fleischerei Fichtenbauer jar meals (shop page + ≤3 product pages, 3 s apart) by words in name/ingredients (e.g. 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "thaller_product", "description": "Live Fleischhauerei Thaller webshop (fleischhauerei-thaller.at, Eduard Thaller, Markt Hartmannsdorf Steiermark, UID ATU74028946; Post within Austria, 18,90 € up to 150 €, 10,90 € up to 250 €, free from 250 €) 'Speisen im Glas' jar meal by WooCommerce id, slug or URL (currently rindsgulasch-im-glas, 350 g) — price per jar (EUR incl. MwSt.), €/kg, stock, ingredients, shelf life, packshot. No nutrition/GTIN published. Returns null if unknown or not a ready meal (broth, raw Leberkäse).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "thaller_search", "description": "Search the live Fleischhauerei Thaller jar meals (public WooCommerce Store API, 1 request) by words in name/ingredients (e.g. 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "kumitzberg_product", "description": "Live Kumitzberg webshop (kumitzberg.at, Großarler Genuss GmbH, Großarl Salzburg, FN 473130f, UID ATU72344714; chilled DHL within Austria 9,90 €, free from 95 €) heat-up meal by Shopify handle, id or URL (rehragout-im-glas-380g, tirolerknodel, kaspressknoedel, schweinebraten-fertig-gebraten, sous-vide-spareribs) — price (EUR incl. USt), €/kg, availability, ingredients and nutrition per 100 g where printed, images. No GTIN published. Returns null if unknown or not a ready meal (sausages, spreads, Leberknödel, raw meat).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "kumitzberg_search", "description": "Search the live Kumitzberg heat-up meals (public Shopify products.json + product pages) by words in title/description (e.g. 'ragout', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -173,6 +175,12 @@ def call(name, a):
     if name == "thaller_search":
         from .adapters.thaller import Thaller
         return [p.to_dict() for p in Thaller().search(a["query"], limit=min(a.get("limit") or 10, 5))]
+    if name == "kumitzberg_product":
+        from .adapters.kumitzberg import product as _kb
+        r = _kb(str(a["id"])); return r.to_dict() if r else None
+    if name == "kumitzberg_search":
+        from .adapters.kumitzberg import Kumitzberg
+        return [p.to_dict() for p in Kumitzberg().search(a["query"], limit=min(a.get("limit") or 10, 5))]
     if name == "fichtenbauer_product":
         from .adapters.fichtenbauer import product as _fb
         r = _fb(str(a["id"])); return r.to_dict() if r else None
