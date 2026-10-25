@@ -94,6 +94,8 @@ TOOLS += [{"name": "voeslauermanufaktur_product", "description": "Live voeslauer
  {"name": "voeslauermanufaktur_search", "description": "Search the live voeslauermanufaktur jar meals and soups (2 Jimdo shop pages, 5 s crawl-delay) by words in name/description/ingredients (e.g. 'gulasch', 'suppe').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "lomoalto_product", "description": "Live Lomo Alto webshop (lomoalto.at, LOMO ALTO OG Pfarrkirchen OÖ, UID ATU77712619; Bio beef farm, delivers only within Austria, fee in checkout) Bio jar meal 400 g by Shopify id, handle, SKU or /products/<handle> URL: Rindergulasch, Rotweinragout, Chili con Carne — price (EUR incl. MwSt.), €/100 g, availability, packshot, plus ingredients, nutrition per 100 g and EAN transcribed from the shop's label images. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "lomoalto_search", "description": "Search the live Lomo Alto Bio jar meals (public Shopify storefront JSON, 1 request) by words in name/description (e.g. 'gulasch', 'chili').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "deflorian_product", "description": "Live Deflorian webshop (deflorian.tirol, Deflorian Tiefkühlspezialitäten GmbH, Gnadenwald Tirol, UID ATU64259769; ships frozen Austria-wide, 14,99 € below 40 €, free from 40 €) frozen ready meal by Shopify id, handle or /products/<handle> URL: Schlutzkrapfen, Knödel, Kaskrapfen, Rindsgulasch, Hühnercurry, Rindsbraten, Gulasch-/Gerstlsuppe, fruit dumplings — name, price of the smallest pack (EUR incl. MwSt.), pack variants, weight, €/100 g, availability, photo, ingredients with allergens from the product page. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "deflorian_search", "description": "Search the live Deflorian frozen ready meals (public Shopify storefront JSON, 1 request) by words in name/description/category (e.g. 'schlutzkrapfen', 'gulasch', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -151,6 +153,12 @@ def call(name, a):
     if name == "suppito_search":
         from .adapters.suppito import Suppito
         return [p.to_dict() for p in Suppito().search(a["query"], limit=min(a.get("limit") or 10, 18))]
+    if name == "deflorian_product":
+        from .adapters.deflorian import product as _df
+        r = _df(str(a["id"])); return r.to_dict() if r else None
+    if name == "deflorian_search":
+        from .adapters.deflorian import Deflorian
+        return [p.to_dict() for p in Deflorian().search(a["query"], limit=min(a.get("limit") or 10, 27))]
     if name == "lomoalto_product":
         from .adapters.lomoalto import product as _la
         r = _la(str(a["id"])); return r.to_dict() if r else None
