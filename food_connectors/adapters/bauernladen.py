@@ -149,3 +149,42 @@ class Bauernladen(Adapter):
         ps = self._all()
         if category == "ready-meals": ps = [p for p in ps if is_meal_name(p.name)]
         return ps[:limit]
+
+
+# --- producer-side nutrition (T1509) -------------------------------------------------------------------------------
+# fairkocht gmbh (Andelsbuch, Vbg) sells on Bauernladen without nutrition, but its own WooCommerce shop prints
+# 'Nährwerte je 100 g: ENERGIE x kJ / y kcal FETT … EIWEISS … SALZ …' in the public Store API description.
+FAIRKOCHT_API = "https://www.fairkocht.at/wp-json/wc/store/v1/products?per_page=100"
+
+
+def _g(label: str, blk: str) -> float | None:
+    m = re.search(label + r"\D{0,40}?(\d+(?:,\d+)?)\s*g", blk, re.I)
+    return float(m.group(1).replace(",", ".")) if m else None
+
+
+def fairkocht_nutrition(products: list[dict] | None = None) -> dict[str, dict]:
+    """name → {kcal_100, fat_100, satfat_100, carbs_100, sugar_100, protein_100, salt_100, price_eur, size, url,
+    atwater_ok}. Only values printed 'je 100 g'; rows whose kcal disagree with the macros by >15 % get atwater_ok=False
+    (e.g. Paprikahendl 19 kcal vs 55 from macros) and must not be used."""
+    if products is None:
+        r = get(FAIRKOCHT_API)
+        products = json.loads(r) if isinstance(r, (str, bytes)) else r
+    out = {}
+    for p in products:
+        t = _txt((p.get("description") or "") + " " + (p.get("short_description") or ""))
+        i = t.find("Nährwerte je 100 g")
+        if i < 0:
+            continue
+        blk = t[i:i + 400]
+        k = re.search(r"(\d+)\s*kJ\s*/\s*(\d+)\s*kcal", blk)
+        if not k:
+            continue
+        v = {"kcal_100": float(k.group(2)), "fat_100": _g("FETT", blk), "satfat_100": _g("gesättigte Fettsäuren", blk),
+             "carbs_100": _g("KOHLENHYDRATE", blk), "sugar_100": _g("Zucker", blk), "protein_100": _g("EIWEISS", blk),
+             "salt_100": _g("SALZ", blk)}
+        atw = 4 * (v["protein_100"] or 0) + 9 * (v["fat_100"] or 0) + 4 * (v["carbs_100"] or 0)
+        v["atwater_ok"] = abs(atw - v["kcal_100"]) / v["kcal_100"] < 0.15 or (v["kcal_100"] < 30 and abs(atw - v["kcal_100"]) < 6)
+        size = re.search(r"Größe:\s*(\d+\s*(?:ml|g))", t)
+        v.update(price_eur=int(p["prices"]["price"]) / 100, size=size.group(1) if size else None, url=p.get("permalink"))
+        out[_html.unescape(p["name"])] = v
+    return out

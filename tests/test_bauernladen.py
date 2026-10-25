@@ -37,3 +37,14 @@ def test_meal_filter():
 
 def test_registered():
     assert ADAPTERS["bauernladen"].status == "live"
+
+
+def test_fairkocht_nutrition_offline():
+    import json, pathlib
+    from food_connectors.adapters.bauernladen import fairkocht_nutrition
+    fx = json.loads((pathlib.Path(__file__).parent / "fixtures/fairkocht_store_api_sample.json").read_text(encoding="utf-8"))
+    n = fairkocht_nutrition(fx)
+    g = n["Gulaschsuppe"]
+    assert g["kcal_100"] == 82 and g["protein_100"] == 6.7 and g["salt_100"] == 1.1 and g["atwater_ok"]
+    assert g["price_eur"] == 15.5 and g["size"] == "680 g"
+    assert n["Paprikahendl"]["atwater_ok"] is False
