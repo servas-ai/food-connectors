@@ -98,6 +98,8 @@ TOOLS += [{"name": "deflorian_product", "description": "Live Deflorian webshop (
  {"name": "deflorian_search", "description": "Search the live Deflorian frozen ready meals (public Shopify storefront JSON, 1 request) by words in name/description/category (e.g. 'schlutzkrapfen', 'gulasch', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "buchberger_product", "description": "Live Fleischerei Buchberger webshop (buchberger.shop, Buchberger GmbH & Co KG, Pöllau Steiermark, FN 14170p, UID ATU29190201; Kühlversand, free from 120 €, delivery area/fee below 120 € not published) jar meal 450 ml by slug or URL: Gulasch-Suppe, Rindsgulasch, Hirschragout, Kalbsragout, Putencurry — price per jar (EUR incl. MwSt.), €/100 ml, ingredients, allergens, nutrition per 100 g as printed (with Atwater check), MHD, storage, packshot. No GTIN. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "buchberger_search", "description": "Search the live Fleischerei Buchberger 'Essen im Glas' ready meals (category page + product pages, ≤6 requests) by words in name/ingredients (e.g. 'gulasch', 'ragout').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "diechtl_product", "description": "Live Fleischerei Diechtl webshop (diechtl-shop.at, Fleischerei Diechtl Erich Ernst e.U., Bad Mitterndorf Steiermark, FN 338325m, UID ATU41616104; Kühlpaket within Austria, 6,90 € below 70 €, free from 70 €) 'Feinkost im Glas' jar meal by slug or URL (currently Rindsgulasch im Glas 390 g) — price per jar (EUR incl. MwSt.), €/kg, availability, ingredients transcribed from the shop's label photo, storage, packshot. No nutrition/GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "diechtl_search", "description": "Search the live Fleischerei Diechtl jar meals (category page + product pages, ≤2 requests) by words in name/ingredients (e.g. 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -155,6 +157,12 @@ def call(name, a):
     if name == "suppito_search":
         from .adapters.suppito import Suppito
         return [p.to_dict() for p in Suppito().search(a["query"], limit=min(a.get("limit") or 10, 18))]
+    if name == "diechtl_product":
+        from .adapters.diechtl import product as _di
+        r = _di(str(a["id"])); return r.to_dict() if r else None
+    if name == "diechtl_search":
+        from .adapters.diechtl import Diechtl
+        return [p.to_dict() for p in Diechtl().search(a["query"], limit=min(a.get("limit") or 10, 5))]
     if name == "buchberger_product":
         from .adapters.buchberger import product as _bb
         r = _bb(str(a["id"])); return r.to_dict() if r else None
