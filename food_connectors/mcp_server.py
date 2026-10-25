@@ -110,6 +110,8 @@ TOOLS += [{"name": "bernos_product", "description": "Live Bernos Tauernwild webs
  {"name": "bernos_search", "description": "Search the live Bernos Tauernwild jar meals (public WooCommerce Store API, 1 request) by words in name/ingredients (e.g. 'hirsch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "jenichl_product", "description": "Live Genussbauernhof Jenichl webshop (genussbauernhof-jenichl.at, Franz & Brigitte Jenichl, Wagham 1, 4950 Altheim OÖ; Post within Austria 11,50 € up to 20 kg) ready meal by Ecwid product id or shop URL (#!/…/p/<id>): 4 heat-up jar meals 'essfertig' (Gulasch im Glas, Gulaschsuppe, Beuschel 390 g; Gefüllte Paprika 640 g) and 7 frozen Knödel packs — price (EUR incl. USt.), weight, ingredients, allergens, photo. No nutrition/GTIN published. Returns null if unknown or not a ready meal (Gulaschsaft, Sugo, Speck, sausages, Leberkäse).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "jenichl_search", "description": "Search the live Genussbauernhof Jenichl ready meals (public Ecwid storefront catalog JSON, 1 request) by words in name/ingredients (e.g. 'gulasch', 'knödel').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
+TOOLS += [{"name": "scheffknecht_product", "description": "Live Ariane Scheffknecht webshop (ariane-scheffknecht.at, sole trader Ariane Scheffknecht, Lorettoweg 14, 6890 Lustenau, Vorarlberg; no UID/FN published; shipping fee not published, free from 12 jars) pasteurised jar meal by product-page slug or URL (chili-con-carne, chili-vegan, gerstensuppe, gerstensuppe-vegan, rotes-thai-curry, indisches-hühner-curry, gelbes-zitronengras-linsen-dal, süßkartoffel-kichererbsen-chili; 470–480 g, 2 portions) — price per jar (EUR incl. USt), €/kg, availability, ingredients, portions, photos. No nutrition/GTIN published. Returns null if unknown or not a ready meal (Ragù alla Bolognese sauce).", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
+ {"name": "scheffknecht_search", "description": "Search the live Ariane Scheffknecht jar meals (public Wix store-products sitemap + product-page JSON-LD, 1 + 9 requests at 1 s) by words in name/ingredients (e.g. 'curry', 'chili').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 TOOLS += [{"name": "steiramarkt_product", "description": "Live Steira Markt webshop (steiramarkt.at, Seiersberg/Graz; ships Austria-wide, chilled Post 19 €, DPD 10 €) ready meal by WooCommerce id, slug or /produkt/<slug>/ URL: heat-up jar meals and soups (Rindsgulasch, Paprikahendl, Hühner Curry, Pute süß-sauer, Gulasch-/Flecksuppe) and fresh Kärntner Nudeln — name, price (EUR incl. MwSt.), weight, stock, ingredients and nutrition where printed, photos. No GTIN published. Returns null if unknown.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}},
  {"name": "steiramarkt_search", "description": "Search the live Steira Markt ready meals (public WooCommerce Store API, 2 requests) by words in name/description (e.g. 'kasnudeln', 'gulasch').", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}, "required": ["query"]}}]
 
@@ -185,6 +187,12 @@ def call(name, a):
     if name == "jenichl_search":
         from .adapters.jenichl import Jenichl
         return [p.to_dict() for p in Jenichl().search(a["query"], limit=min(a.get("limit") or 10, 15))]
+    if name == "scheffknecht_product":
+        from .adapters.scheffknecht import product as _sk
+        r = _sk(str(a["id"])); return r.to_dict() if r else None
+    if name == "scheffknecht_search":
+        from .adapters.scheffknecht import Scheffknecht
+        return [p.to_dict() for p in Scheffknecht().search(a["query"], limit=min(a.get("limit") or 10, 5))]
     if name == "bernos_product":
         from .adapters.bernos import product as _bn
         r = _bn(str(a["id"])); return r.to_dict() if r else None
