@@ -165,5 +165,11 @@
     "checked": "2026-10-13",
     "result": "pass",
     "note": "cdn1.interspar.at articleImage from heisse spar id; 228/228 ready-meal photos HEAD-verified (1 retry after SSL flake)"
+  },
+  "spar-shop": {
+    "checked": "2026-10-30",
+    "status": "broken",
+    "result": "fail",
+    "note": "SPAR fact-finder API now answers HTTP 400 \"Channel 'products_lmos_at' does not exist.\" for every query (v4 and v5); candidate channel names also 400; interspar.at/spar.at return 403 to non-browser clients (not bypassed); upstream heisse-preise still uses the removed channel. Existing 695 live SPAR price rows keep their last verified date until a sanctioned channel is found."
   }
 }
